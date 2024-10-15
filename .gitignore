@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 vendor
+web/sites/default/files
+/.editorconfig
+/.gitattributes
+
 
 # testing
 /coverage
