@@ -1,5 +1,8 @@
 # Performance.gov
 
+Sandbox Drupal URL: https://performance.ddev.site
+Sandbox Frontend URL: http://localhost:3000
+
 ## Stand up a local sandbox
 1. ddev start
 2. dev composer install

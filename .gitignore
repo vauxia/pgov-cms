@@ -23,6 +23,7 @@
 
 # Ignore .env files as they are personal
 /.env
+keys
 
 # dependencies
 /node_modules
