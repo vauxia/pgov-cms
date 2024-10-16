@@ -20,17 +20,17 @@ export default function IndexPage({ nodes }: IndexPageProps) {
           content="A Next.js site powered by a Drupal backend."
         />
       </Head>
-      <div>
-        <h1 className="mb-10 text-6xl font-black">Latest Articles.</h1>
+      <div className="grid-container">
+        <h1 className="font-heading-3xl">Latest Articles.</h1>
         {nodes?.length ? (
           nodes.map((node) => (
-            <div key={node.id}>
+            <div key={node.id} className="grid-row">
               <NodeArticleTeaser node={node} />
-              <hr className="my-20" />
+              <hr className="" />
             </div>
           ))
         ) : (
-          <p className="py-4">No nodes found</p>
+          <p className="">No nodes found</p>
         )}
       </div>
     </Layout>
