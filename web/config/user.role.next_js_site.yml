@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - graphql
     - node
     - subrequests
 id: next_js_site
@@ -12,4 +13,5 @@ is_admin: null
 permissions:
   - 'access user profiles'
   - 'bypass node access'
+  - 'execute graphql_compose_server arbitrary graphql requests'
   - 'issue subrequests'
