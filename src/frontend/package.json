@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0  next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "preview": "next build && next start",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.8",
+    "@uswds/uswds": "3.9.0",
     "next": "^13",
     "next-drupal": "^1.5.0",
     "react": "^18.2.0",
