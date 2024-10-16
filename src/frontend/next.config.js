@@ -4,6 +4,7 @@ const path = require("path");
 const nextConfig = {
   images: {
     domains: [process.env.NEXT_IMAGE_DOMAIN],
+    unoptimized: true
   },
   sassOptions: {
     includePaths: [
