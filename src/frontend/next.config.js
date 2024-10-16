@@ -1,8 +1,15 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: [process.env.NEXT_IMAGE_DOMAIN],
   },
+  sassOptions: {
+    includePaths: [
+      path.join(__dirname, "node_modules", "@uswds", "uswds", "packages"),
+    ],
+  }
 }
 
 module.exports = nextConfig
