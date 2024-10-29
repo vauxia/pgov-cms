@@ -1,0 +1,9 @@
+name: Airtable Migration
+description: Import data from Airtable into content structures on this site.
+package: Custom
+
+type: module
+core_version_requirement: ^10.3 || ^11
+
+dependencies:
+  - migrate_plus:migrate_plus
