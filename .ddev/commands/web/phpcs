@@ -3,4 +3,4 @@
 # Run the PHP Code Sniffer against the codebase. See phpcs.xml in the project
 # root for configuration settings.
 
-phpcs "$@"
+phpcs --standard=phpcs.xml "$@"

@@ -3,4 +3,4 @@
 # Run the PHP Code Fixer against the codebase. See phpcs.xml in the project
 # root for configuration settings.
 
-phpcbf "$@"
+phpcbf --standard=phpcs.xml "$@"
