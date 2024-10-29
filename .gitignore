@@ -22,6 +22,7 @@
 /.idea/
 
 # Ignore .env files as they are personal
+/.ddev/.env
 /.env
 keys
 
