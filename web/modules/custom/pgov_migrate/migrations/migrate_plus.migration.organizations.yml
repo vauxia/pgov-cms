@@ -6,7 +6,7 @@ source:
   table: 'Organizations'
 destination:
   plugin: entity:node
-  default_bundle: 'article'
+  default_bundle: 'organization'
 process:
   title: name
   uid:
@@ -16,3 +16,7 @@ process:
   body/format:
     plugin: default_value
     default_value: filtered_html
+  field_id: id
+  field_agency_code: agency_code
+  field_link/uri: website
+  field_acronym: acronym
