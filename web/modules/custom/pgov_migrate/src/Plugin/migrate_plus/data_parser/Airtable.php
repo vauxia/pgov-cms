@@ -2,8 +2,8 @@
 
 namespace Drupal\pgov_migrate\Plugin\migrate_plus\data_parser;
 
-use Drupal\Core\Url;
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Url;
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
 
 /**
@@ -64,7 +64,7 @@ class Airtable extends Json {
 
     $urls = [];
     $primary_url = UrlHelper::parse(current($this->urls));
-    $primary_url['query']['sort'] = [ ['field' => 'id', 'direction' => 'asc']];
+    $primary_url['query']['sort'] = [['field' => 'id', 'direction' => 'asc']];
     $primary_url['query']['pageSize'] = self::AIRTABLE_PAGESIZE;
     $primary_url['absolute'] = TRUE;
 
@@ -74,7 +74,7 @@ class Airtable extends Json {
       $urls[] = $next_url;
 
       // Respect Airtable's 5 requests/second limit :(.
-      if (++$cooldown > self::AIRTABLE_THROTTLE ) {
+      if (++$cooldown > self::AIRTABLE_THROTTLE) {
         sleep(1);
         $cooldown = 0;
       }

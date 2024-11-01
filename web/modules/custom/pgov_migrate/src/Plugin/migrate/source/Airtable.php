@@ -88,7 +88,7 @@ class Airtable extends Url {
       $result = \Drupal::httpClient()->get($uri, ['headers' => $this->getAirtableHeaders()]);
 
       $this->airtableBases = [];
-      foreach(json_decode($result->getBody())->bases as $base) {
+      foreach (json_decode($result->getBody())->bases as $base) {
         $this->airtableBases[$base->id] = $base->name;
       }
     }
@@ -104,6 +104,7 @@ class Airtable extends Url {
    * and are sufficient for use migration.yaml mappings.
    *
    * @return array
+   *
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   private function getAirtableFields() {
@@ -113,11 +114,11 @@ class Airtable extends Url {
     $result = \Drupal::httpClient()->get($uri, ['headers' => $this->getAirtableHeaders()]);
 
     // There doesn't seem to be a way to get fields for _a_ table, so find ours.
-    foreach(json_decode($result->getBody())->tables as $table) {
+    foreach (json_decode($result->getBody())->tables as $table) {
       if ($table->name == $this->table) {
         $fields = [];
-        $fields['airtable_id'] = ['name'  => 'airtable_id', 'selector' => 'id'];
-        $fields['airtable_created_time'] = ['name'  => 'airtable_created', 'selector' => 'createdTime'];
+        $fields['airtable_id'] = ['name' => 'airtable_id', 'selector' => 'id'];
+        $fields['airtable_created_time'] = ['name' => 'airtable_created', 'selector' => 'createdTime'];
         foreach ($table->fields as $field) {
           $fields[$field->name] = (array) $field;
           $fields[$field->name]['selector'] = 'fields/' . $field->name;
@@ -154,7 +155,7 @@ class Airtable extends Url {
     // Set source URLs based on configuration settings for base and table.
     $url = $this::AIRTABLE_URL . $base;
     if (isset($configuration['table'])) {
-     $url .= '/' . $configuration['table'];
+      $url .= '/' . $configuration['table'];
     }
     $configuration['urls'] = [$url];
 
@@ -169,4 +170,5 @@ class Airtable extends Url {
 
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }
+
 }
