@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_acronym
-    - node.type.organization
-id: node.organization.field_acronym
+    - node.type.agency
+id: node.agency.field_acronym
 field_name: field_acronym
 entity_type: node
-bundle: organization
+bundle: agency
 label: Acronym
 description: ''
 required: false

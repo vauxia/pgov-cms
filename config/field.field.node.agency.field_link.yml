@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_link
-    - node.type.organization
+    - node.type.agency
   module:
     - link
-id: node.organization.field_link
+id: node.agency.field_link
 field_name: field_link
 entity_type: node
-bundle: organization
+bundle: agency
 label: Website
 description: ''
 required: false

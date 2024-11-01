@@ -5,13 +5,13 @@ dependencies:
   config:
     - field.storage.node.body
     - filter.format.basic_html
-    - node.type.organization
+    - node.type.agency
   module:
     - text
-id: node.organization.body
+id: node.agency.body
 field_name: body
 entity_type: node
-bundle: organization
+bundle: agency
 label: Description
 description: ''
 required: false

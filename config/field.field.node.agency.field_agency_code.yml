@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_agency_code
-    - node.type.organization
-id: node.organization.field_agency_code
+    - node.type.agency
+id: node.agency.field_agency_code
 field_name: field_agency_code
 entity_type: node
-bundle: organization
+bundle: agency
 label: 'Agency code'
 description: ''
 required: false

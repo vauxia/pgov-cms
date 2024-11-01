@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.organization
-id: node.organization.promote
+    - node.type.agency
+id: node.agency.promote
 field_name: promote
 entity_type: node
-bundle: organization
+bundle: agency
 label: 'Promoted to front page'
 description: ''
 required: false

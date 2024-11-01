@@ -1,0 +1,20 @@
+id: topics
+label: "Strategic Portfolio: Topics"
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Tags'
+  filter: 'type=Topic'
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: 'topics'
+process:
+  name: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  description/value: description
+  description/format:
+    plugin: default_value
+    default_value: filtered_html
+  tid: tag_display_id

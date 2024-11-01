@@ -4,20 +4,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.organization.body
-    - field.field.node.organization.field_acronym
-    - field.field.node.organization.field_agency_code
-    - field.field.node.organization.field_id
-    - field.field.node.organization.field_link
-    - field.field.node.organization.field_logo
-    - node.type.organization
+    - field.field.node.agency.body
+    - field.field.node.agency.field_acronym
+    - field.field.node.agency.field_agency_code
+    - field.field.node.agency.field_id
+    - field.field.node.agency.field_link
+    - field.field.node.agency.field_logo
+    - node.type.agency
   module:
     - link
     - text
     - user
-id: node.organization.full
+id: node.agency.full
 targetEntityType: node
-bundle: organization
+bundle: agency
 mode: full
 content:
   body:

@@ -1,17 +1,18 @@
-id: organizations
+id: agencies
 label: "Strategic Portfolio: Organizations"
+constants:
+  uid: 1
+  file_destination: 'public://images/'
 source:
   plugin: airtable
   base: 'U.S. Strategic Portfolio'
   table: 'Organizations'
 destination:
   plugin: entity:node
-  default_bundle: 'organization'
+  default_bundle: agency
 process:
   title: name
-  uid:
-    plugin: default_value
-    default_value: 1
+  uid: constants/uid
   body/value: description
   body/format:
     plugin: default_value
@@ -20,3 +21,9 @@ process:
   field_agency_code: agency_code
   field_link/uri: website
   field_acronym: acronym
+  field_logo:
+    plugin: image_import
+    source: seal_80px_2x/url
+    title: name
+    alt: '!field_acronym logo'
+    uid: constants/uid
