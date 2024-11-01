@@ -1,0 +1,19 @@
+uuid: a77c0585-1e61-4231-8778-333f0515aa57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agency_code
+    - node.type.organization
+id: node.organization.field_agency_code
+field_name: field_agency_code
+entity_type: node
+bundle: organization
+label: 'Agency code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
