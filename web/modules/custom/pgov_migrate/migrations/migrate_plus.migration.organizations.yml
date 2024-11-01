@@ -1,0 +1,18 @@
+id: organizations
+label: "Strategic Portfolio: Organizations"
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Organizations'
+destination:
+  plugin: entity:node
+  default_bundle: 'article'
+process:
+  title: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  body/value: description
+  body/format:
+    plugin: default_value
+    default_value: filtered_html
