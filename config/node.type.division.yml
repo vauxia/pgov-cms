@@ -1,0 +1,25 @@
+uuid: 291abe95-5f21-40f9-9e40-4b41acb3f8a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: Division
+type: division
+description: 'An agency division'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
