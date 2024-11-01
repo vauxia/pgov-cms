@@ -67,6 +67,7 @@ class Airtable extends Url {
    * Authorization headers to validate the API requests.
    *
    * @return string[]
+   *   A list of headers suitable for HTTP requests.
    */
   private function getAirtableHeaders() {
     return [
@@ -78,9 +79,11 @@ class Airtable extends Url {
   /**
    * Get the Airtable-specific base id using its label.
    *
-   * @param $name
+   * @param string $name
+   *   The human-readable name of an Airtable base.
    *
    * @return mixed|string|bool
+   *   The internal base ID or FALSE if not found.
    */
   protected function getAirtableBaseId($name) {
     if (!$this->airtableBases) {
@@ -104,6 +107,7 @@ class Airtable extends Url {
    * and are sufficient for use migration.yaml mappings.
    *
    * @return array
+   *   A list of fields in the current Airtable table, suitable for mapping.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
    */

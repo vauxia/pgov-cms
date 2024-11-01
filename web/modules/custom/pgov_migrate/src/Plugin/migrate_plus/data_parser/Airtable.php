@@ -52,6 +52,7 @@ class Airtable extends Json {
    * $this->nextSource() will work for data collection.
    *
    * @return int
+   *   The total number of records in the current table.
    *
    * @todo add better caching for the resulting count.
    */
