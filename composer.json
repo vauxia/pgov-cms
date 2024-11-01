@@ -30,6 +30,7 @@
         "drupal/graphql_compose": "^2.2",
         "drupal/group": "^3.2",
         "drupal/login_gov": "^1.1",
+        "drupal/migrate_file": "^2.1",
         "drupal/migrate_plus": "^6.0",
         "drupal/next": "^2.0@beta",
         "drupal/type_tray": "^1.3",
