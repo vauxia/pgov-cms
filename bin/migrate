@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Run all migrations to bootstrap a fresh install with data from Airtable
+
+drush migrate:import agencies
+drush migrate:import divisions
+
+drush migrate:status
