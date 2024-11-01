@@ -167,7 +167,7 @@ class Airtable extends Url {
     $configuration['headers'] = $this->getAirtableHeaders();
 
     // The ID field is the same for all Airtable tables.
-    $configuration['ids'] = ['id' => ['type' => 'string']];
+    $configuration['ids'] = ['airtable_id' => ['type' => 'string']];
 
     // Automatically populate the list of available fields for this base/table.
     $configuration['fields'] = $this->getAirtableFields();
