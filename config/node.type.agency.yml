@@ -16,7 +16,7 @@ third_party_settings:
     type_description: ''
     existing_nodes_link_text: ''
     type_weight: 0
-name: agency
+name: Agency
 type: agency
 description: 'An agency responsible for goals and priorities.'
 help: null
