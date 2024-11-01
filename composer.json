@@ -14,6 +14,9 @@
             "url": "https://packages.drupal.org/8"
         }
     ],
+    "scripts": {
+        "phpcs": "phpcs --standard=phpcs.xml"
+    },
     "require": {
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
