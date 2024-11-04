@@ -80,7 +80,7 @@ class Airtable extends Json {
         $cooldown = 0;
       }
 
-      // Send less data over the wire by omitting field data.
+      // Send less traffic over the wire by omitting field data.
       $next_url['query']['fields'] = [];
       $url = Url::fromUri($next_url['path'], $next_url)->toString();
       $data = $this->getSourceData($url, '');
