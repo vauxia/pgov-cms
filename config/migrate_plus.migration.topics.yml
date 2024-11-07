@@ -1,0 +1,30 @@
+uuid: 32312c5c-854a-4336-babd-17561fac3522
+langcode: en
+status: true
+dependencies: {  }
+id: topics
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Strategic Portfolio: Topics'
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: Tags
+  filter: type=Topic
+process:
+  name: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  description/value: description
+  description/format:
+    plugin: default_value
+    default_value: filtered_html
+  tid: tag_display_id
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: topics
+migration_dependencies: null
