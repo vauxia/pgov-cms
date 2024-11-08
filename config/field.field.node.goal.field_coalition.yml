@@ -1,0 +1,29 @@
+uuid: 5bdb2430-0982-48b3-ab6a-37787acc1717
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_coalition
+    - node.type.coalition
+    - node.type.goal
+id: node.goal.field_coalition
+field_name: field_coalition
+entity_type: node
+bundle: goal
+label: Coalition
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      coalition: coalition
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

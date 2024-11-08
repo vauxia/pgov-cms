@@ -1,0 +1,26 @@
+uuid: e5caa493-eeeb-45f6-9a89-ad1c4907fba9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.coalition.field_acronym
+    - field.field.node.coalition.field_divisions
+    - field.field.node.coalition.field_id
+    - node.type.coalition
+  module:
+    - user
+id: node.coalition.teaser
+targetEntityType: node
+bundle: coalition
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_acronym: true
+  field_divisions: true
+  field_id: true

@@ -1,0 +1,24 @@
+id: coalitions
+label: "Strategic Portfolio: Coalitions"
+migration_dependencies:
+#  required:
+#    - divisions
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Coalitions'
+  constants:
+    uid: 1
+destination:
+  plugin: entity:node
+  default_bundle: coalition
+process:
+  title: name
+  uid: constants/uid
+  field_id: id
+  field_acronym: alias
+  field_divisions:
+    plugin: migration_lookup
+    migration: divisions
+    source: associated_divisions
+    no_stub: true
