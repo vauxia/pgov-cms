@@ -1,0 +1,26 @@
+uuid: ee81d81d-bb50-47e9-90dd-0c9f0588c0c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - node.type.subgoal
+  module:
+    - text
+id: node.subgoal.body
+field_name: body
+entity_type: node
+bundle: subgoal
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - basic_html
+field_type: text_with_summary
