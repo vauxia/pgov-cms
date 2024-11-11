@@ -1,0 +1,43 @@
+id: milestones
+label: "Strategic Portfolio: Milestones"
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Milestones'
+  constants:
+    uid: 1
+    body_format: basic_html
+    delimiter: '-'
+destination:
+  plugin: entity:node
+  default_bundle: milestone
+process:
+  title: milestone
+  uid: constants/uid
+  field_id: id
+  body/value: notes
+  body/format: constants/body_format
+  field_status:
+    plugin: static_map
+    source: milestone_status
+    map:
+      'In Progress': 'in_progress'
+      'Done': 'done'
+      'Archived': 'archived'
+      'Unavailable': 'unavailable'
+  field_goals:
+    plugin: migration_lookup
+    migration: goals
+    source: associated_goals
+  field_subgoals:
+    plugin: migration_lookup
+    migration: goals
+    source: associated_subgoals
+  field_objectives:
+    plugin: migration_lookup
+    migration: objectives
+    source: associated_objectives
+  field_projects:
+    plugin: migration_lookup
+    migration: objectives
+    source: associated_projects

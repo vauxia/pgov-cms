@@ -1,0 +1,82 @@
+uuid: 85c841b3-f970-47b9-ba38-5cb2d07fc391
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.milestone.body
+    - field.field.node.milestone.field_goals
+    - field.field.node.milestone.field_id
+    - field.field.node.milestone.field_objectives
+    - field.field.node.milestone.field_projects
+    - field.field.node.milestone.field_status
+    - field.field.node.milestone.field_subgoals
+    - node.type.milestone
+  module:
+    - options
+    - text
+    - user
+id: node.milestone.default
+targetEntityType: node
+bundle: milestone
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_goals:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_objectives:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_projects:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_status:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_subgoals:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

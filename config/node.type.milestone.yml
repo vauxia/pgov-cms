@@ -1,0 +1,25 @@
+uuid: e6525bc7-722a-413e-b4ae-0ddd541d062d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: Milestone
+type: milestone
+description: 'Milestones that define objective-related projects and their status.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -8,5 +8,7 @@ drush migrate:import coalitions
 drush migrate:import goals
 drush migrate:import subgoals
 drush migrate:import objectives
+drush migrate:import projects
+drush migrate:import milestones
 
 drush migrate:status
