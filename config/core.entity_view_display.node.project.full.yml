@@ -1,0 +1,39 @@
+uuid: 70b5a288-9e22-4e47-a403-0dd1f32c3ce2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.project.body
+    - field.field.node.project.field_divisions
+    - field.field.node.project.field_goal
+    - field.field.node.project.field_id
+    - field.field.node.project.field_objectives
+    - field.field.node.project.field_subgoal
+    - node.type.project
+  module:
+    - user
+id: node.project.full
+targetEntityType: node
+bundle: project
+mode: full
+content:
+  field_divisions:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_goal: true
+  field_id: true
+  field_objectives: true
+  field_subgoal: true
