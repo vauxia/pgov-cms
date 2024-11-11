@@ -1,0 +1,18 @@
+uuid: 6bbc9751-02cc-485f-8910-542a9ad65d7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.objective
+id: node.objective.title
+field_name: title
+entity_type: node
+bundle: objective
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

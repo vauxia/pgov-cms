@@ -1,0 +1,74 @@
+uuid: b815110e-441d-4902-ad62-d602f1e4a29b
+langcode: en
+status: true
+dependencies: {  }
+id: subgoals
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Strategic Portfolio: Subgoals'
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: Subgoals
+  constants:
+    uid: 1
+    body_format: basic_html
+    file_destination: 'public://images/'
+    delimiter: '-'
+process:
+  title: subgoal_name
+  uid: constants/uid
+  field_id: id
+  body/value: subgoal_description
+  body/format: constants/body_format
+  field_administration:
+    plugin: entity_lookup
+    entity_type: node
+    bundle_key: type
+    bundle: administration
+    ignore_case: true
+    value_key: title
+    source: administration
+  fiscal_cycle:
+    plugin: concat
+    source:
+      - fiscal_start_yr
+      - constants/delimiter
+      - fiscal_end_yr
+  field_fiscal_cycle:
+    plugin: entity_lookup
+    entity_type: node
+    bundle_key: type
+    bundle: fiscal_cycle
+    ignore_case: true
+    value_key: title
+    source: '@fiscal_cycle'
+  agency_list:
+    plugin: get
+    source:
+      - org_owner_1
+      - org_owner_2
+  field_agencies:
+    plugin: migration_lookup
+    migration: agencies
+    source: '@agency_list'
+    no_stub: true
+  field_divisions:
+    plugin: migration_lookup
+    migration: divisions
+    source: associated_divisions
+    no_stub: true
+  field_coalition:
+    plugin: migration_lookup
+    migration: coalitions
+    source: coalition_owner
+    no_stub: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: subgoal
+migration_dependencies:
+  required:
+    - agencies

@@ -1,0 +1,33 @@
+id: objectives
+label: "Strategic Portfolio: Objectives"
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Objectives'
+  constants:
+    uid: 1
+    body_format: basic_html
+    file_destination: 'public://images/'
+    delimiter: '-'
+destination:
+  plugin: entity:node
+  default_bundle: objective
+process:
+  title: objective_name
+  field_subtitle: objective_subtitle
+  uid: constants/uid
+  field_id: id
+  body/value: objective_description
+  body/format: constants/body_format
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: org_owner_1
+  field_goal:
+    plugin: migration_lookup
+    migration: goals
+    source: associated_goal
+  field_subgoal:
+    plugin: migration_lookup
+    migration: goals
+    source: associated_subgoal

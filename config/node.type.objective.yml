@@ -1,0 +1,25 @@
+uuid: 8feb178a-ba11-4a45-8427-ab42c72e0634
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: Objective
+type: objective
+description: 'Objectives break down goals and sub-goals into specific, actionable objectives whose progress can be measured.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
