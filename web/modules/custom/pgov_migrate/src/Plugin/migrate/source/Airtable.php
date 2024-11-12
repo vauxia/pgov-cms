@@ -29,6 +29,11 @@ class Airtable extends Url {
   const string AIRTABLE_URL = 'https://api.airtable.com/v0/';
 
   /**
+   * Maximum number of results per page (max value is 99).
+   */
+  const AIRTABLE_PAGESIZE = 100;
+
+  /**
    * A list of Airtable bases available for this migration.
    *
    * @var array
@@ -164,10 +169,8 @@ class Airtable extends Url {
     $configuration['data_parser_plugin'] = 'airtable_data';
 
     // Set source URLs based on configuration settings for base and table.
-    $url = $this::AIRTABLE_URL . $base;
-    if (isset($configuration['table'])) {
-      $url .= '/' . $configuration['table'];
-    }
+    $url = $this::AIRTABLE_URL . $base . '/' . $configuration['table'];
+    $url .= '?pageSize=' . $this::AIRTABLE_PAGESIZE;
     $configuration['urls'] = [$url];
 
     // Set Auth headers.
@@ -178,6 +181,14 @@ class Airtable extends Url {
 
     // Automatically populate the list of available fields for this base/table.
     $configuration['fields'] = $this->getAirtableFields();
+
+    // Airtable paging works by using the value of 'offset' from the current
+    // page as part of the next request. Set the pager accordingly.
+    $configuration['pager'] = [
+      'selector' => 'offset',
+      'type' => 'cursor',
+      'key' => 'offset',
+    ];
 
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }

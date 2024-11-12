@@ -25,11 +25,6 @@ class Airtable extends Json {
   const AIRTABLE_THROTTLE = 5;
 
   /**
-   * Maximum number of results per page (max value is 100).
-   */
-  const AIRTABLE_PAGESIZE = 100;
-
-  /**
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
@@ -63,8 +58,6 @@ class Airtable extends Json {
 
     $urls = [];
     $primary_url = UrlHelper::parse(current($this->urls));
-    $primary_url['query']['sort'] = [['field' => 'id', 'direction' => 'asc']];
-    $primary_url['query']['pageSize'] = self::AIRTABLE_PAGESIZE;
     $primary_url['absolute'] = TRUE;
 
     $next_url = $primary_url;
@@ -97,16 +90,6 @@ class Airtable extends Json {
     $this->urls = $urls;
 
     return $this->count;
-  }
-
-  /**
-   *
-   * {inheritdoc}
-   *
-   */
-  protected function getNextUrls(string $url): array {
-    $y = 1;
-    return [];
   }
 
 }
