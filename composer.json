@@ -116,6 +116,7 @@
         }
     },
     "require-dev": {
+        "drupal/content_model_documentation": "^1.0",
         "drupal/core-dev": "^10.3",
         "drush/drush": "^13.3"
     }

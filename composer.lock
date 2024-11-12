@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5f6f62e06236def782200d0fb2c5bdc",
+    "content-hash": "2e08086e0dccbd98ce3ec0441a402e24",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9703,6 +9703,128 @@
             "time": "2024-09-22T19:02:16+00:00"
         },
         {
+            "name": "drupal/config_views",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_views.git",
+                "reference": "2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_views-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "e085cc7ce3c66cdeeee2040aabcd0299b2385f61"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.1",
+                    "datestamp": "1694641549",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cosmicdreams",
+                    "homepage": "https://www.drupal.org/user/42579"
+                },
+                {
+                    "name": "swirt",
+                    "homepage": "https://www.drupal.org/user/138230"
+                },
+                {
+                    "name": "vijaycs85",
+                    "homepage": "https://www.drupal.org/user/93488"
+                }
+            ],
+            "description": "Views handler implementation for configuration entities.",
+            "homepage": "https://www.drupal.org/project/config_views",
+            "support": {
+                "source": "https://git.drupalcode.org/project/config_views"
+            }
+        },
+        {
+            "name": "drupal/content_model_documentation",
+            "version": "1.0.28",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/content_model_documentation.git",
+                "reference": "1.0.28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/content_model_documentation-1.0.28.zip",
+                "reference": "1.0.28",
+                "shasum": "7b70757e9f5337623fc73a75c093a535634c0b1f"
+            },
+            "require": {
+                "drupal/config_views": "~2.1",
+                "drupal/core": "^9.3 || ^10",
+                "drupal/mermaid_diagram_field": "~1.0"
+            },
+            "conflict": {
+                "drush/drush": "<9.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.28",
+                    "datestamp": "1710538516",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "<11.0"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "beeyayjay",
+                    "homepage": "https://www.drupal.org/user/1214286"
+                },
+                {
+                    "name": "matthieuscarset",
+                    "homepage": "https://www.drupal.org/user/3471281"
+                },
+                {
+                    "name": "msielski",
+                    "homepage": "https://www.drupal.org/user/218856"
+                },
+                {
+                    "name": "swirt",
+                    "homepage": "https://www.drupal.org/user/138230"
+                }
+            ],
+            "description": "Provide reports and documentation for fields and entities.",
+            "homepage": "https://www.drupal.org/project/content_model_documentation",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/content_model_documentation",
+                "issues": "http://drupal.org/project/issues/content_model_documentation"
+            }
+        },
+        {
             "name": "drupal/core-dev",
             "version": "10.3.6",
             "source": {
@@ -9757,6 +9879,50 @@
                 "source": "https://github.com/drupal/core-dev/tree/10.3.6"
             },
             "time": "2024-07-04T10:19:29+00:00"
+        },
+        {
+            "name": "drupal/mermaid_diagram_field",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mermaid_diagram_field.git",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mermaid_diagram_field-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "505cb63608e64792abd687e6a0a55267a9b10141"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.2",
+                    "datestamp": "1709133937",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "swirt",
+                    "homepage": "https://www.drupal.org/user/138230"
+                }
+            ],
+            "description": "Adds a Mermaid diagram field capable of rendering Mermaid",
+            "homepage": "https://www.drupal.org/project/mermaid_diagram_field",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mermaid_diagram_field"
+            }
         },
         {
             "name": "drush/drush",
