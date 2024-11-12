@@ -99,4 +99,14 @@ class Airtable extends Json {
     return $this->count;
   }
 
+  /**
+   *
+   * {inheritdoc}
+   *
+   */
+  protected function getNextUrls(string $url): array {
+    $y = 1;
+    return [];
+  }
+
 }
