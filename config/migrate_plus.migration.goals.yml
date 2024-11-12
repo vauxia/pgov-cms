@@ -15,7 +15,7 @@ source:
   table: Goals
   constants:
     uid: 1
-    body_format: filtered_html
+    body_format: basic_html
     file_destination: 'public://images/'
     delimiter: '-'
 process:

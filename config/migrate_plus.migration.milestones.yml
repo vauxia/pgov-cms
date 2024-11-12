@@ -37,7 +37,7 @@ process:
     source: associated_goals
   field_subgoals:
     plugin: migration_lookup
-    migration: goals
+    migration: subgoals
     source: associated_subgoals
   field_objectives:
     plugin: migration_lookup

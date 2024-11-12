@@ -19,7 +19,7 @@ source:
     file_destination: 'public://images/'
     delimiter: '-'
 process:
-  title: name
+  title: name_or_objective
   uid: constants/uid
   field_id: id
   body/value: description

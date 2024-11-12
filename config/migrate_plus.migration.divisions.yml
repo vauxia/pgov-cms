@@ -22,7 +22,7 @@ process:
   body/value: description
   body/format:
     plugin: default_value
-    default_value: filtered_html
+    default_value: basic_html
   field_id: id
   field_acronym: acronym
   field_agency:
