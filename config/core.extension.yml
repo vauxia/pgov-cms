@@ -33,7 +33,6 @@ module:
   gin_toolbar: 0
   graphql: 0
   graphql_compose: 0
-  group: 0
   help: 0
   history: 0
   image: 0
