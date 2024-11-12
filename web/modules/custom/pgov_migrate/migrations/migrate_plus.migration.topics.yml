@@ -16,5 +16,5 @@ process:
   description/value: description
   description/format:
     plugin: default_value
-    default_value: filtered_html
+    default_value: basic_html
   tid: tag_display_id

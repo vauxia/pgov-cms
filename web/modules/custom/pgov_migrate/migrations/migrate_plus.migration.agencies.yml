@@ -16,7 +16,7 @@ process:
   body/value: description
   body/format:
     plugin: default_value
-    default_value: filtered_html
+    default_value: basic_html
   field_id: id
   field_agency_code: agency_code
   field_link/uri: website
