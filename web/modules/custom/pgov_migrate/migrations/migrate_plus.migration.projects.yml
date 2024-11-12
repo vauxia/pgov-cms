@@ -13,7 +13,7 @@ destination:
   plugin: entity:node
   default_bundle: project
 process:
-  title: name
+  title: name_or_objective
   uid: constants/uid
   field_id: id
   body/value: description
