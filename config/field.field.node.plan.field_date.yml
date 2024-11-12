@@ -1,0 +1,21 @@
+uuid: 90156944-b50b-4ab1-ba17-2cdf5f3ad056
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.plan
+  module:
+    - datetime
+id: node.plan.field_date
+field_name: field_date
+entity_type: node
+bundle: plan
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

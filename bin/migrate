@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export DRUSH_ALLOW_XDEBUG=1
+
+# Respect changes to original migrations during development.
+drush ci --partial --source=modules/custom/pgov_migrate/migrations/ -y
+
 # Run all migrations to bootstrap a fresh install with data from Airtable
 
 drush migrate:import agencies
@@ -10,5 +15,8 @@ drush migrate:import subgoals
 drush migrate:import objectives
 drush migrate:import projects
 drush migrate:import milestones
+# Skip updates until we have values for 'title'
+# drush migrate:import updates
+drush migrate:import plans
 
 drush migrate:status

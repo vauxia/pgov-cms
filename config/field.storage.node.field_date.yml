@@ -1,18 +1,19 @@
-uuid: 1a10ca3f-9e81-4c0f-aa3b-f874099d9acd
+uuid: a009be5c-0f31-4f32-8df7-30209a3b19c0
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
-id: node.field_subgoals
-field_name: field_subgoals
+id: node.field_date
+field_name: field_date
 entity_type: node
-type: entity_reference
+type: datetime
 settings:
-  target_type: node
-module: core
+  datetime_type: date
+module: datetime
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

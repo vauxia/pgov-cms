@@ -1,0 +1,36 @@
+id: plans
+label: "Strategic Portfolio: Strategic Plans"
+migration_dependencies:
+  required:
+    - agencies
+    #- divisions
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Strategic Plans'
+  constants:
+    uid: 1
+    body_format: basic_html
+    file_destination: 'public://images/'
+    delimiter: '-'
+destination:
+  plugin: entity:node
+  default_bundle: plan
+process:
+  title: name
+  uid: constants/uid
+  field_id: id
+  body/value: description
+  body/format: constants/body_format
+  field_link/uri: source_url
+  field_date/value:
+    plugin: format_date
+    source: publication_date
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: org_owner_1
+  field_divisions:
+    plugin: migration_lookup
+    migration: divisions
+    source: associated_division

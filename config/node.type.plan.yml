@@ -1,0 +1,25 @@
+uuid: b4f8ac4f-ef04-4c89-981f-1b5e85044794
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: 'Strategic Plan'
+type: plan
+description: 'Strategies represented by agency and White House strategic plans.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

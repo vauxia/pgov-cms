@@ -1,0 +1,40 @@
+uuid: e42d2786-35a2-4433-b596-c592d4eba349
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.plan.body
+    - field.field.node.plan.field_agency
+    - field.field.node.plan.field_date
+    - field.field.node.plan.field_division
+    - field.field.node.plan.field_id
+    - field.field.node.plan.field_link
+    - node.type.plan
+  module:
+    - text
+    - user
+id: node.plan.teaser
+targetEntityType: node
+bundle: plan
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_agency: true
+  field_date: true
+  field_division: true
+  field_id: true
+  field_link: true
