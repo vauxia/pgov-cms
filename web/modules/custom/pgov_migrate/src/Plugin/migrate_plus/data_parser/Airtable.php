@@ -53,8 +53,6 @@ class Airtable extends Json {
    *
    * @return int
    *   The total number of records in the current table.
-   *
-   * @todo add better caching for the resulting count.
    */
   public function count(): int {
     if (isset($this->count)) {

@@ -50,6 +50,13 @@ class Airtable extends Url {
   protected string $table;
 
   /**
+   * Cache counts to avoid the overhead of paging through all tables.
+   *
+   * @var bool
+   */
+  protected $cacheCounts = TRUE;
+
+  /**
    * An API key to authorize this connection.
    *
    * This should be added to the hosting server's environment, or in
