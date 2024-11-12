@@ -23,9 +23,7 @@ process:
   body/value: description
   body/format: constants/body_format
   field_link/uri: source_url
-  field_date/value:
-    plugin: format_date
-    source: publication_date
+  field_date/value: publication_date
   field_agency:
     plugin: migration_lookup
     migration: agencies
