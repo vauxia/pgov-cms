@@ -25,6 +25,11 @@ process:
     migration: divisions
     source: associated_divisions
     no_stub: true
+  field_designation:
+    plugin: migration_lookup
+    migration: designations
+    source: associated_tags
+    no_stub: true
 destination:
   plugin: 'entity:node'
   default_bundle: coalition

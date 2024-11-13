@@ -66,6 +66,11 @@ process:
     migration: coalitions
     source: coalition_owner
     no_stub: true
+  field_topics:
+    plugin: migration_lookup
+    migration: topics
+    source: associated_tags
+    no_stub: true
 destination:
   plugin: 'entity:node'
   default_bundle: subgoal

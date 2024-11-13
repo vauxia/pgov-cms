@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.subgoal.field_divisions
     - field.field.node.subgoal.field_fiscal_cycle
     - field.field.node.subgoal.field_id
+    - field.field.node.subgoal.field_topics
     - node.type.subgoal
   module:
     - text
@@ -73,6 +74,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }
