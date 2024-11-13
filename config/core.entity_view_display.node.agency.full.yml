@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
+    - field.field.node.agency.field_topics
     - node.type.agency
   module:
     - link
@@ -26,11 +27,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -42,12 +43,12 @@ content:
     region: content
   field_logo:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   links:
     settings: {  }
@@ -59,3 +60,4 @@ hidden:
   field_agency_code: true
   field_designation: true
   field_id: true
+  field_topics: true

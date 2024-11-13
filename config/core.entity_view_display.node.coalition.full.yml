@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.coalition.field_acronym
+    - field.field.node.coalition.field_designation
     - field.field.node.coalition.field_divisions
     - field.field.node.coalition.field_id
     - node.type.coalition
@@ -30,4 +31,5 @@ content:
     region: content
 hidden:
   field_acronym: true
+  field_designation: true
   field_id: true

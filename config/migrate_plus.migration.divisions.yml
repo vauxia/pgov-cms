@@ -30,6 +30,16 @@ process:
     migration: agencies
     source: parent_org
     no_stub: true
+  field_topics:
+    plugin: migration_lookup
+    migration: topics
+    source: associated_tags
+    no_stub: true
+  field_designation:
+    plugin: migration_lookup
+    migration: designations
+    source: associated_tags
+    no_stub: true
 destination:
   plugin: 'entity:node'
   default_bundle: division

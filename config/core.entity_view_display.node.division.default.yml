@@ -6,7 +6,9 @@ dependencies:
     - field.field.node.division.body
     - field.field.node.division.field_acronym
     - field.field.node.division.field_agency
+    - field.field.node.division.field_designation
     - field.field.node.division.field_id
+    - field.field.node.division.field_topics
     - node.type.division
   module:
     - text
@@ -30,6 +32,22 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_designation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }

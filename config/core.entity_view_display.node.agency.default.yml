@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
+    - field.field.node.agency.field_topics
     - node.type.agency
   module:
     - link
@@ -79,6 +80,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }

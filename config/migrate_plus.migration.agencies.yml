@@ -15,23 +15,31 @@ source:
   table: Organizations
   constants:
     uid: 1
+    body_format: basic_html
     file_destination: 'public://images/'
 process:
   title: name
   uid: constants/uid
   body/value: description
-  body/format:
-    plugin: default_value
-    default_value: basic_html
+  body/format: constants/body_format
   field_id: id
   field_agency_code: agency_code
   field_link/uri: website
   field_acronym: acronym
+  field_topics:
+    plugin: migration_lookup
+    migration: topics
+    source: associated_tags
+    no_stub: true
+  field_designation:
+    plugin: migration_lookup
+    migration: designations
+    source: associated_tags
+    no_stub: true
   field_logo:
     plugin: image_import
     source: seal_80px_2x/url
     title: name
-    alt: '!field_acronym logo'
     uid: constants/uid
 destination:
   plugin: 'entity:node'

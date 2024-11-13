@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.coalition.field_acronym
+    - field.field.node.coalition.field_designation
     - field.field.node.coalition.field_divisions
     - field.field.node.coalition.field_id
     - node.type.coalition
@@ -21,6 +22,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_designation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_divisions:
     type: entity_reference_label

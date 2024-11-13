@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
+    - field.field.node.agency.field_topics
     - node.type.agency
   module:
     - text
@@ -40,3 +41,4 @@ hidden:
   field_id: true
   field_link: true
   field_logo: true
+  field_topics: true

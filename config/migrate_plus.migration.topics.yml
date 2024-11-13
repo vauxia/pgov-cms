@@ -25,7 +25,6 @@ process:
     default_value: 1
   description/value: description
   description/format: constants/body_format
-  field_link/uri: related_url
   field_tags: keywords
 destination:
   plugin: 'entity:taxonomy_term'
