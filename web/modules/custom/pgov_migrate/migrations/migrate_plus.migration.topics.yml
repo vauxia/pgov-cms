@@ -4,17 +4,20 @@ source:
   plugin: airtable
   base: 'U.S. Strategic Portfolio'
   table: 'Tags'
-  filter: 'type=Topic'
+  filter: 'AND({type}="Topic", {is_administration_agnostic} = 1)'
+  constants:
+    uid: 1
+    body_format: basic_html
+    file_destination: 'public://images/'
 destination:
   plugin: entity:taxonomy_term
   default_bundle: 'topics'
 process:
   name: name
+  #tid: tag_display_id
   uid:
     plugin: default_value
     default_value: 1
   description/value: description
-  description/format:
-    plugin: default_value
-    default_value: basic_html
-  tid: tag_display_id
+  description/format: constants/body_format
+  field_tags: keywords
