@@ -171,6 +171,13 @@ class Airtable extends Url {
     // Set source URLs based on configuration settings for base and table.
     $url = $this::AIRTABLE_URL . $base . '/' . $configuration['table'];
     $url .= '?pageSize=' . $this::AIRTABLE_PAGESIZE;
+
+    if (isset($configuration['filter'])) {
+      $url .= '&filterByFormula=' . urlencode($configuration['filter']);
+    }
+    if (isset($configuration['view'])) {
+      $url .= '&view=' . urlencode($configuration['view']);
+    }
     $configuration['urls'] = [$url];
 
     // Set Auth headers.
