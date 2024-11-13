@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.agency.body
     - field.field.node.agency.field_acronym
     - field.field.node.agency.field_agency_code
+    - field.field.node.agency.field_designation
     - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
@@ -56,4 +57,5 @@ content:
 hidden:
   field_acronym: true
   field_agency_code: true
+  field_designation: true
   field_id: true

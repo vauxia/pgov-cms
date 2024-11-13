@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.agency.body
     - field.field.node.agency.field_acronym
     - field.field.node.agency.field_agency_code
+    - field.field.node.agency.field_designation
     - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
@@ -41,6 +42,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_designation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_id:
     type: string

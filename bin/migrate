@@ -7,6 +7,8 @@ drush ci --partial --source=modules/custom/pgov_migrate/migrations/ -y
 
 # Run all migrations to bootstrap a fresh install with data from Airtable
 
+drush migrate:import topics
+drush migrate:import designations
 drush migrate:import agencies
 drush migrate:import divisions
 drush migrate:import coalitions
