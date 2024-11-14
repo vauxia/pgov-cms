@@ -12,7 +12,6 @@ module:
   config: 0
   config_views: 0
   consumers: 0
-  contact: 0
   content_model_documentation: 0
   contextual: 0
   ctools: 0
