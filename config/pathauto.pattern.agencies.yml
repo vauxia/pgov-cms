@@ -1,0 +1,22 @@
+uuid: aa03e422-7fa4-4697-8fd7-b6a4398564d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: agencies
+label: Agencies
+type: 'canonical_entities:node'
+pattern: 'agencies/[node:field_acronym]'
+selection_criteria:
+  93cefa45-f74f-4eb7-94e7-6671229fa72b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 93cefa45-f74f-4eb7-94e7-6671229fa72b
+    context_mapping:
+      node: node
+    bundles:
+      agency: agency
+selection_logic: and
+weight: -5
+relationships: {  }
