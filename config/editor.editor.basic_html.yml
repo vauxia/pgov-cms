@@ -13,18 +13,16 @@ editor: ckeditor5
 settings:
   toolbar:
     items:
+      - heading
       - bold
       - italic
-      - '|'
-      - link
-      - '|'
       - bulletedList
       - numberedList
       - '|'
-      - blockQuote
-      - drupalInsertImage
+      - link
+      - drupalMedia
       - '|'
-      - heading
+      - blockQuote
       - code
       - '|'
       - sourceEditing
@@ -36,8 +34,6 @@ settings:
         - heading4
         - heading5
         - heading6
-    ckeditor5_imageResize:
-      allow_resize: true
     ckeditor5_list:
       properties:
         reversed: false
@@ -58,6 +54,8 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
+    media_media:
+      allow_view_mode_override: false
 image_upload:
   status: true
   scheme: public
