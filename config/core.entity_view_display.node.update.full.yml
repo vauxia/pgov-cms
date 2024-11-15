@@ -1,0 +1,33 @@
+uuid: 69d713c4-f06e-4071-aac9-c5f347831996
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.update.body
+    - field.field.node.update.field_fiscal_cycle
+    - field.field.node.update.field_subgoals
+    - node.type.update
+  module:
+    - text
+    - user
+id: node.update.full
+targetEntityType: node
+bundle: update
+mode: full
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_fiscal_cycle: true
+  field_subgoals: true

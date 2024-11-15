@@ -1,0 +1,44 @@
+uuid: 13d589ba-5177-4d0f-8934-9926694175fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.agency.body
+    - field.field.node.agency.field_acronym
+    - field.field.node.agency.field_agency_code
+    - field.field.node.agency.field_designation
+    - field.field.node.agency.field_id
+    - field.field.node.agency.field_link
+    - field.field.node.agency.field_logo
+    - field.field.node.agency.field_topics
+    - node.type.agency
+  module:
+    - text
+    - user
+id: node.agency.teaser
+targetEntityType: node
+bundle: agency
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_acronym: true
+  field_agency_code: true
+  field_designation: true
+  field_id: true
+  field_link: true
+  field_logo: true
+  field_topics: true

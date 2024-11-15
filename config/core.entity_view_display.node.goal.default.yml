@@ -1,0 +1,82 @@
+uuid: 7f8b41e4-eb64-4d06-aa6b-2503a488ec62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.goal.body
+    - field.field.node.goal.field_administration
+    - field.field.node.goal.field_agencies
+    - field.field.node.goal.field_coalition
+    - field.field.node.goal.field_divisions
+    - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_id
+    - node.type.goal
+  module:
+    - text
+    - user
+id: node.goal.default
+targetEntityType: node
+bundle: goal
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_administration:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_agencies:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_coalition:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_divisions:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_fiscal_cycle:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

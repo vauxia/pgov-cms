@@ -1,0 +1,29 @@
+uuid: fc2bec5a-51c3-4032-b8ce-65a5e43dac22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_divisions
+    - node.type.division
+    - node.type.goal
+id: node.goal.field_divisions
+field_name: field_divisions
+entity_type: node
+bundle: goal
+label: Divisions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      division: division
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

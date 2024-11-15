@@ -1,0 +1,25 @@
+uuid: 9a5d0c23-c49f-4640-ba7b-ae35b8ddc674
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: Coalition
+type: coalition
+description: 'A coalition or working group, tied to one or more Divisions.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

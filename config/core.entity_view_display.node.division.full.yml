@@ -1,0 +1,60 @@
+uuid: e2bfe02d-19ef-416a-8c4d-c27ecd0a0c0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.division.body
+    - field.field.node.division.field_acronym
+    - field.field.node.division.field_agency
+    - field.field.node.division.field_designation
+    - field.field.node.division.field_id
+    - field.field.node.division.field_topics
+    - node.type.division
+  module:
+    - text
+    - user
+id: node.division.full
+targetEntityType: node
+bundle: division
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_acronym:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_agency:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_designation: true
+  field_topics: true

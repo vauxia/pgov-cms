@@ -1,0 +1,29 @@
+uuid: 4b43a910-bff4-44b7-a381-920bceed0c90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subgoals
+    - node.type.milestone
+    - node.type.subgoal
+id: node.milestone.field_subgoals
+field_name: field_subgoals
+entity_type: node
+bundle: milestone
+label: Sub-goals
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      subgoal: subgoal
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

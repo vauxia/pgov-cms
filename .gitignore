@@ -3,6 +3,7 @@
 /drush/contrib/
 /vendor/
 /web/core/
+/web/core_compare
 /web/modules/contrib/
 /web/themes/contrib/
 /web/profiles/contrib/

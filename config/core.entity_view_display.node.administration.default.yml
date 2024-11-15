@@ -1,0 +1,28 @@
+uuid: 77a73a10-cd02-42e3-89ff-639c0afaede1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.administration.body
+    - node.type.administration
+  module:
+    - text
+    - user
+id: node.administration.default
+targetEntityType: node
+bundle: administration
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

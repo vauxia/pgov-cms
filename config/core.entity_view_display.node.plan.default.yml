@@ -1,0 +1,80 @@
+uuid: cf58558e-5247-403e-9263-13bc76a59193
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plan.body
+    - field.field.node.plan.field_agency
+    - field.field.node.plan.field_date
+    - field.field.node.plan.field_division
+    - field.field.node.plan.field_id
+    - field.field.node.plan.field_link
+    - node.type.plan
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.plan.default
+targetEntityType: node
+bundle: plan
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_agency:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_division:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

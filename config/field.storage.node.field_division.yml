@@ -1,0 +1,19 @@
+uuid: d9bf897c-790d-4b28-a647-b5934b2deffd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_division
+field_name: field_division
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: f03070d1-3924-4c9f-acf9-3e925d876c2b
+langcode: en
+status: true
+dependencies: {  }
+id: designations
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Strategic Portfolio: Designations'
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: Tags
+  filter: '{type}="Designation"'
+  constants:
+    uid: 1
+    body_format: basic_html
+process:
+  name: name
+  uid: constants/uid
+  description/value: description
+  description/format: constants/body_format
+  field_acronym: acronym
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: designations
+migration_dependencies: null

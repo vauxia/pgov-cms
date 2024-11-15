@@ -1,0 +1,29 @@
+uuid: 803a8823-478d-48af-818a-8b0e167fbfb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_division
+    - node.type.division
+    - node.type.plan
+id: node.plan.field_division
+field_name: field_division
+entity_type: node
+bundle: plan
+label: Division
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      division: division
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,42 @@
+uuid: cb85b9e0-5ab4-439a-86ac-1bbc62d2f727
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.goal.body
+    - field.field.node.goal.field_administration
+    - field.field.node.goal.field_agencies
+    - field.field.node.goal.field_coalition
+    - field.field.node.goal.field_divisions
+    - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_id
+    - node.type.goal
+  module:
+    - text
+    - user
+id: node.goal.teaser
+targetEntityType: node
+bundle: goal
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_administration: true
+  field_agencies: true
+  field_coalition: true
+  field_divisions: true
+  field_fiscal_cycle: true
+  field_id: true

@@ -1,0 +1,34 @@
+uuid: bc1f398e-4307-42c8-addd-093dbfe1c57c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.update.body
+    - field.field.node.update.field_fiscal_cycle
+    - field.field.node.update.field_subgoals
+    - node.type.update
+  module:
+    - text
+    - user
+id: node.update.teaser
+targetEntityType: node
+bundle: update
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_fiscal_cycle: true
+  field_subgoals: true

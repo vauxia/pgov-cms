@@ -2,8 +2,6 @@
 
 namespace Drupal\pgov_migrate\Plugin\migrate_plus\data_parser;
 
-use Drupal\Core\Url;
-use Drupal\Component\Utility\UrlHelper;
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
 
 /**
@@ -25,9 +23,18 @@ class Airtable extends Json {
   const AIRTABLE_THROTTLE = 5;
 
   /**
-   * Maximum number of results per page (max value is 100).
+   * The number of requests that have been made to Airtable.
+   *
+   * @var int
    */
-  const AIRTABLE_PAGESIZE = 100;
+  protected int $cooldown = 0;
+
+  /**
+   * The start time for a series of requests.
+   *
+   * @var float
+   */
+  protected float $cooldownStart;
 
   /**
    * {@inheritdoc}
@@ -36,68 +43,23 @@ class Airtable extends Json {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->itemSelector = 'records/';
+    $this->cooldownStart = microtime(TRUE);
   }
 
   /**
-   * Get the total count of records in the current Airtable table.
-   *
-   * There is no way to obtain a record count directly through the API, so we
-   * are in the business of paging through all pages of results and tallying
-   * the record count.
-   *
-   * Airtable has a 100-results-per-page record limit and can only receive 5
-   * requests per second, so it may take some time to count more than 500.
-   *
-   * This method adds result page URLs to $this->urls so that iterations like
-   * $this->nextSource() will work for data collection.
-   *
-   * @return int
-   *
-   * @todo add better caching for the resulting count.
+   * {@inheritdoc}
    */
-  public function count(): int {
-    if (isset($this->count)) {
-      return $this->count;
+  protected function getNextUrls(string $url): array {
+    // Respect Airtable's 5 requests/second limit :(.
+    if (++$this->cooldown > self::AIRTABLE_THROTTLE) {
+      $time = (microtime(TRUE) - $this->cooldownStart) * 1000;
+      if ($time < 1000000) {
+        usleep($time);
+      }
+      $this->cooldown = 0;
+      $this->cooldownStart = microtime(TRUE);
     }
-
-    $this->count = 0;
-
-    $urls = [];
-    $primary_url = UrlHelper::parse(current($this->urls));
-    $primary_url['query']['sort'] = [ ['field' => 'id', 'direction' => 'asc']];
-    $primary_url['query']['pageSize'] = self::AIRTABLE_PAGESIZE;
-    $primary_url['absolute'] = TRUE;
-
-    $next_url = $primary_url;
-    $cooldown = 0;
-    while ($next_url) {
-      $urls[] = $next_url;
-
-      // Respect Airtable's 5 requests/second limit :(.
-      if (++$cooldown > self::AIRTABLE_THROTTLE ) {
-        sleep(1);
-        $cooldown = 0;
-      }
-
-      // Send less data over the wire by omitting field data.
-      $next_url['query']['fields'] = [];
-      $url = Url::fromUri($next_url['path'], $next_url)->toString();
-      $data = $this->getSourceData($url, '');
-      $this->count += count($data['records']);
-
-      if (!isset($data['offset'])) {
-        // This will terminate the loop.
-        $next_url = FALSE;
-      }
-      else {
-        $next_url = $primary_url;
-        $next_url['query']['offset'] = $data['offset'];
-      }
-      $urls[] = $url;
-    }
-    $this->urls = $urls;
-
-    return $this->count;
+    return parent::getNextUrls($url);
   }
 
 }

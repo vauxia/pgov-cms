@@ -29,6 +29,11 @@ class Airtable extends Url {
   const string AIRTABLE_URL = 'https://api.airtable.com/v0/';
 
   /**
+   * Maximum number of results per page (max value is 99).
+   */
+  const AIRTABLE_PAGESIZE = 100;
+
+  /**
    * A list of Airtable bases available for this migration.
    *
    * @var array
@@ -50,6 +55,13 @@ class Airtable extends Url {
   protected string $table;
 
   /**
+   * Cache counts to avoid the overhead of paging through all tables.
+   *
+   * @var bool
+   */
+  protected $cacheCounts = TRUE;
+
+  /**
    * An API key to authorize this connection.
    *
    * This should be added to the hosting server's environment, or in
@@ -67,6 +79,7 @@ class Airtable extends Url {
    * Authorization headers to validate the API requests.
    *
    * @return string[]
+   *   A list of headers suitable for HTTP requests.
    */
   private function getAirtableHeaders() {
     return [
@@ -78,9 +91,11 @@ class Airtable extends Url {
   /**
    * Get the Airtable-specific base id using its label.
    *
-   * @param $name
+   * @param string $name
+   *   The human-readable name of an Airtable base.
    *
    * @return mixed|string|bool
+   *   The internal base ID or FALSE if not found.
    */
   protected function getAirtableBaseId($name) {
     if (!$this->airtableBases) {
@@ -88,7 +103,7 @@ class Airtable extends Url {
       $result = \Drupal::httpClient()->get($uri, ['headers' => $this->getAirtableHeaders()]);
 
       $this->airtableBases = [];
-      foreach(json_decode($result->getBody())->bases as $base) {
+      foreach (json_decode($result->getBody())->bases as $base) {
         $this->airtableBases[$base->id] = $base->name;
       }
     }
@@ -104,6 +119,8 @@ class Airtable extends Url {
    * and are sufficient for use migration.yaml mappings.
    *
    * @return array
+   *   A list of fields in the current Airtable table, suitable for mapping.
+   *
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   private function getAirtableFields() {
@@ -113,11 +130,11 @@ class Airtable extends Url {
     $result = \Drupal::httpClient()->get($uri, ['headers' => $this->getAirtableHeaders()]);
 
     // There doesn't seem to be a way to get fields for _a_ table, so find ours.
-    foreach(json_decode($result->getBody())->tables as $table) {
+    foreach (json_decode($result->getBody())->tables as $table) {
       if ($table->name == $this->table) {
         $fields = [];
-        $fields['airtable_id'] = ['name'  => 'airtable_id', 'selector' => 'id'];
-        $fields['airtable_created_time'] = ['name'  => 'airtable_created', 'selector' => 'createdTime'];
+        $fields['airtable_id'] = ['name' => 'airtable_id', 'selector' => 'id'];
+        $fields['airtable_created_time'] = ['name' => 'airtable_created', 'selector' => 'createdTime'];
         foreach ($table->fields as $field) {
           $fields[$field->name] = (array) $field;
           $fields[$field->name]['selector'] = 'fields/' . $field->name;
@@ -152,9 +169,14 @@ class Airtable extends Url {
     $configuration['data_parser_plugin'] = 'airtable_data';
 
     // Set source URLs based on configuration settings for base and table.
-    $url = $this::AIRTABLE_URL . $base;
-    if (isset($configuration['table'])) {
-     $url .= '/' . $configuration['table'];
+    $url = $this::AIRTABLE_URL . $base . '/' . $configuration['table'];
+    $url .= '?pageSize=' . $this::AIRTABLE_PAGESIZE;
+
+    if (isset($configuration['filter'])) {
+      $url .= '&filterByFormula=' . urlencode($configuration['filter']);
+    }
+    if (isset($configuration['view'])) {
+      $url .= '&view=' . urlencode($configuration['view']);
     }
     $configuration['urls'] = [$url];
 
@@ -162,11 +184,20 @@ class Airtable extends Url {
     $configuration['headers'] = $this->getAirtableHeaders();
 
     // The ID field is the same for all Airtable tables.
-    $configuration['ids'] = ['id' => ['type' => 'string']];
+    $configuration['ids'] = ['airtable_id' => ['type' => 'string']];
 
     // Automatically populate the list of available fields for this base/table.
     $configuration['fields'] = $this->getAirtableFields();
 
+    // Airtable paging works by using the value of 'offset' from the current
+    // page as part of the next request. Set the pager accordingly.
+    $configuration['pager'] = [
+      'selector' => 'offset',
+      'type' => 'cursor',
+      'key' => 'offset',
+    ];
+
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }
+
 }

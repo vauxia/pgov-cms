@@ -1,0 +1,29 @@
+uuid: 103b8e06-4e6e-442e-b745-7c9ee5333ee8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.administration.body
+    - node.type.administration
+  module:
+    - text
+    - user
+id: node.administration.full
+targetEntityType: node
+bundle: administration
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

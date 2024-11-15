@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Refer to the root-level migrate script to run site migrations.
+
+bin/migrate

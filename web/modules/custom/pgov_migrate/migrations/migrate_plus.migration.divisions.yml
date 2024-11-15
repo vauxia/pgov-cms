@@ -1,0 +1,39 @@
+id: divisions
+label: "Strategic Portfolio: Divisions"
+migration_dependencies:
+  required:
+    - agencies
+source:
+  plugin: airtable
+  base: 'U.S. Strategic Portfolio'
+  table: 'Divisions'
+  constants:
+    uid: 1
+    file_destination: 'public://images/'
+destination:
+  plugin: entity:node
+  default_bundle: division
+process:
+  title: name
+  uid: constants/uid
+  body/value: description
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+  field_id: id
+  field_acronym: acronym
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: parent_org
+    no_stub: true
+  field_topics:
+    plugin: migration_lookup
+    migration: topics
+    source: associated_tags
+    no_stub: true
+  field_designation:
+    plugin: migration_lookup
+    migration: designations
+    source: associated_tags
+    no_stub: true

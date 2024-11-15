@@ -1,0 +1,22 @@
+uuid: fabdbe43-b899-4211-9372-3d9d2c766b53
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fiscal_cycle.field_date_range
+    - node.type.fiscal_cycle
+  module:
+    - user
+id: node.fiscal_cycle.teaser
+targetEntityType: node
+bundle: fiscal_cycle
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_date_range: true

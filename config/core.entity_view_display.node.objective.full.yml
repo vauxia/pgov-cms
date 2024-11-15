@@ -1,0 +1,39 @@
+uuid: 65e6c053-9644-4dee-9223-781b28327372
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.objective.body
+    - field.field.node.objective.field_agency
+    - field.field.node.objective.field_goal
+    - field.field.node.objective.field_id
+    - field.field.node.objective.field_subgoal
+    - field.field.node.objective.field_subtitle
+    - node.type.objective
+  module:
+    - user
+id: node.objective.full
+targetEntityType: node
+bundle: objective
+mode: full
+content:
+  field_agency:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_goal: true
+  field_id: true
+  field_subgoal: true
+  field_subtitle: true
