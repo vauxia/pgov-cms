@@ -2,18 +2,15 @@ _core:
   default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
 module:
   announcements_feed: 0
-  automated_cron: 0
   basic_auth: 0
   big_pipe: 0
   block: 0
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
-  comment: 0
   config: 0
   config_views: 0
   consumers: 0
-  contact: 0
   content_model_documentation: 0
   contextual: 0
   ctools: 0
@@ -34,7 +31,6 @@ module:
   graphql: 0
   graphql_compose: 0
   help: 0
-  history: 0
   image: 0
   jsonapi: 0
   link: 0

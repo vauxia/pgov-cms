@@ -1,8 +1,9 @@
-uuid: 9153d491-9847-443b-8506-e431ca55a349
+uuid: 658e2fdd-2689-40b8-a927-fe535db2793d
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.field.node.article.body
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
@@ -12,10 +13,10 @@ dependencies:
     - user
 _core:
   default_config_hash: br6izr-iGEu--JvNbCJNtOBpRnxpFLXfoV5y61U9Nqc
-id: node.article.default
+id: node.article.card
 targetEntityType: node
 bundle: article
-mode: default
+mode: card
 content:
   body:
     type: text_default

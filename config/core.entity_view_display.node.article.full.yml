@@ -1,55 +1,50 @@
-uuid: 5e36c3e5-f9bf-461e-9754-9aabf4560b58
+uuid: 56d71912-6645-4262-9f0a-a0680b3b503a
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.full
     - field.field.node.article.body
-    - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.medium
     - node.type.article
   module:
-    - image
     - text
     - user
 _core:
-  default_config_hash: O8PxzfG8DOHHRu6M23kwR6TDPq_MNfYQ10Mp367ICUQ
-id: node.article.teaser
+  default_config_hash: br6izr-iGEu--JvNbCJNtOBpRnxpFLXfoV5y61U9Nqc
+id: node.article.full
 targetEntityType: node
 bundle: article
-mode: teaser
+mode: full
 content:
   body:
-    type: text_summary_or_trimmed
+    type: text_default
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
   field_image:
-    type: image
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: content
-      image_style: medium
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: -1
+    weight: 1
     region: content
   field_tags:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 2
     region: content
   links:
-    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
-hidden:
-  comment: true
+hidden: {  }

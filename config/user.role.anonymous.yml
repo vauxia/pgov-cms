@@ -2,12 +2,7 @@ uuid: d987c410-b15f-4b10-a759-4f34e4dd054a
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
-    - comment
-    - contact
-    - filter
     - media
     - search
     - system
@@ -18,9 +13,6 @@ label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'access site-wide contact form'
   - 'search content'
-  - 'use text format restricted_html'
   - 'view media'

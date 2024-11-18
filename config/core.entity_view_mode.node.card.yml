@@ -1,0 +1,11 @@
+uuid: ef9d356d-8391-45ea-9ca3-b6255cecc191
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.card
+label: Card
+description: 'A shortened display of the content, to be featured in list views, etc. as cards'
+targetEntityType: node
+cache: true
