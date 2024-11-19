@@ -11,7 +11,6 @@ dependencies:
     - node.type.administration
     - node.type.agency
     - node.type.article
-    - node.type.coalition
     - node.type.division
     - node.type.fiscal_cycle
     - node.type.goal
@@ -59,7 +58,6 @@ permissions:
   - 'create agency content'
   - 'create article content'
   - 'create basic block content'
-  - 'create coalition content'
   - 'create division content'
   - 'create document media'
   - 'create fiscal_cycle content'
@@ -88,7 +86,6 @@ permissions:
   - 'delete any article content'
   - 'delete any basic block content'
   - 'delete any basic block content revisions'
-  - 'delete any coalition content'
   - 'delete any division content'
   - 'delete any document media'
   - 'delete any document media revisions'
@@ -110,7 +107,6 @@ permissions:
   - 'delete any video media'
   - 'delete any video media revisions'
   - 'delete article revisions'
-  - 'delete coalition revisions'
   - 'delete division revisions'
   - 'delete fiscal_cycle revisions'
   - 'delete goal revisions'
@@ -120,7 +116,6 @@ permissions:
   - 'delete own administration content'
   - 'delete own agency content'
   - 'delete own article content'
-  - 'delete own coalition content'
   - 'delete own division content'
   - 'delete own document media'
   - 'delete own files'
@@ -151,7 +146,6 @@ permissions:
   - 'edit any agency content'
   - 'edit any article content'
   - 'edit any basic block content'
-  - 'edit any coalition content'
   - 'edit any division content'
   - 'edit any document media'
   - 'edit any fiscal_cycle content'
@@ -169,7 +163,6 @@ permissions:
   - 'edit own administration content'
   - 'edit own agency content'
   - 'edit own article content'
-  - 'edit own coalition content'
   - 'edit own division content'
   - 'edit own document media'
   - 'edit own fiscal_cycle content'
@@ -198,7 +191,6 @@ permissions:
   - 'revert any remote_video media revisions'
   - 'revert any video media revisions'
   - 'revert article revisions'
-  - 'revert coalition revisions'
   - 'revert division revisions'
   - 'revert fiscal_cycle revisions'
   - 'revert goal revisions'
@@ -226,7 +218,6 @@ permissions:
   - 'view any remote_video media revisions'
   - 'view any video media revisions'
   - 'view article revisions'
-  - 'view coalition revisions'
   - 'view division revisions'
   - 'view fiscal_cycle revisions'
   - 'view goal revisions'
