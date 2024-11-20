@@ -10,6 +10,8 @@ drush ci --partial --source=modules/custom/pgov_migrate/migrations/ -y
 drush migrate:import topics
 # Designations currently unused
 #drush migrate:import designations
+drush migrate:import files
+drush migrate:import media
 drush migrate:import agencies
 drush migrate:import divisions
 drush migrate:import subdivisions
