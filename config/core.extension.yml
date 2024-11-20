@@ -48,7 +48,6 @@ module:
   menu_ui: 0
   mermaid_diagram_field: 0
   migrate: 0
-  migrate_file: 0
   migrate_plus: 0
   mysql: 0
   next: 0
