@@ -10,7 +10,11 @@ dependencies:
     - field.field.node.goal.field_coalition
     - field.field.node.goal.field_divisions
     - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
+    - field.field.node.goal.field_parent
+    - field.field.node.goal.field_plan
+    - field.field.node.goal.field_topics
     - node.type.goal
   module:
     - text
@@ -66,4 +70,8 @@ content:
     region: content
 hidden:
   field_coalition: true
+  field_goal_type: true
   field_id: true
+  field_parent: true
+  field_plan: true
+  field_topics: true

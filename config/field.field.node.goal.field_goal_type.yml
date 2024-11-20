@@ -1,0 +1,21 @@
+uuid: 3764bde4-67ca-4ba2-8ae7-ca58e8476892
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_goal_type
+    - node.type.goal
+  module:
+    - options
+id: node.goal.field_goal_type
+field_name: field_goal_type
+entity_type: node
+bundle: goal
+label: 'Goal type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
