@@ -1,0 +1,21 @@
+uuid: 43fbc9e6-162c-4106-a653-c7638f98201a
+langcode: en
+status: true
+dependencies: {  }
+name: 1x1_third
+label: '1:1 Third'
+effects:
+  4debbc29-d84f-42df-9627-6f0e3415d1f4:
+    uuid: 4debbc29-d84f-42df-9627-6f0e3415d1f4
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 400
+      height: 400
+      anchor: center-center
+  fb933729-f7d1-4420-a356-a9091306248f:
+    uuid: fb933729-f7d1-4420-a356-a9091306248f
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

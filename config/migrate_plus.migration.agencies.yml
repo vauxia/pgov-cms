@@ -8,39 +8,25 @@ field_plugin_method: null
 cck_plugin_method: null
 migration_tags: null
 migration_group: null
-label: 'Strategic Portfolio: Organizations'
+label: 'StratML: Organizations'
 source:
   plugin: airtable
-  base: 'U.S. Strategic Portfolio'
-  table: Organizations
+  base: 'StratML x US Performance'
+  table: Organization
   constants:
     uid: 1
     body_format: basic_html
     file_destination: 'public://images/'
 process:
-  title: name
+  title: Name
   uid: constants/uid
-  body/value: description
-  body/format: constants/body_format
-  field_id: id
-  field_agency_code: agency_code
-  field_link/uri: website
-  field_acronym: acronym
-  field_topics:
-    plugin: migration_lookup
-    migration: topics
-    source: associated_tags
-    no_stub: true
-  field_designation:
-    plugin: migration_lookup
-    migration: designations
-    source: associated_tags
-    no_stub: true
+  field_id: Identifier
+  field_link/uri: WebAddress
+  field_acronym: Acronym
   field_logo:
-    plugin: image_import
-    source: seal_80px_2x/url
-    title: name
-    uid: constants/uid
+    plugin: migration_lookup
+    migration: media
+    source: Avatar
 destination:
   plugin: 'entity:node'
   default_bundle: agency
