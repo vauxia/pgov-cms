@@ -1,0 +1,26 @@
+id: media
+label: "StratML: Media"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'Media'
+  constants:
+    uid: 1
+migration_dependencies:
+  required:
+    - files
+destination:
+  plugin: entity:media
+  default_bundle: image
+process:
+  name: Name
+  uid: constants/uid
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: files
+    source: airtable_id
+  field_media_image/alt: AltText
+  thumbnail/target_id:
+    plugin: migration_lookup
+    migration: files
+    source: airtable_id
