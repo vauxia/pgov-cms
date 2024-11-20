@@ -1,0 +1,22 @@
+uuid: 688b4f13-cd0d-4315-8cb0-48ece7cfc2e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: divisions
+label: Divisions
+type: 'canonical_entities:node'
+pattern: '[node:field_parent:entity:url:path]/[node:field_acronym]'
+selection_criteria:
+  5227aa27-aff5-436d-9549-ca935a9de05d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 5227aa27-aff5-436d-9549-ca935a9de05d
+    context_mapping:
+      node: node
+    bundles:
+      division: division
+selection_logic: and
+weight: -5
+relationships: {  }

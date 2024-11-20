@@ -1,16 +1,15 @@
-uuid: 9296a4df-7f44-42e2-8c84-8972b28e74df
+uuid: 0be340ce-5f0c-4141-85fe-30684133e215
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_agency
-    - node.type.agency
+    - field.storage.node.field_parent
     - node.type.division
-id: node.division.field_agency
-field_name: field_agency
+id: node.division.field_parent
+field_name: field_parent
 entity_type: node
 bundle: division
-label: Agency
+label: Parent
 description: ''
 required: false
 translatable: false
@@ -20,7 +19,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      agency: agency
+      division: division
     sort:
       field: _none
       direction: ASC

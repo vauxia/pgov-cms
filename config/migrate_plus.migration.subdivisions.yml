@@ -1,18 +1,18 @@
-uuid: 82f02fc9-5d17-44ae-873a-0e662d5827e2
+uuid: 7c029b3a-59eb-4bbe-bcfe-ad8dcef50feb
 langcode: en
 status: true
 dependencies: {  }
-id: agencies
+id: subdivisions
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags: null
 migration_group: null
-label: 'StratML: Organizations'
+label: 'Strategic Portfolio: Subdivisions'
 source:
   plugin: airtable
   base: 'StratML x US Performance'
-  table: Organization
+  table: Subdivision
   constants:
     uid: 1
     body_format: basic_html
@@ -22,11 +22,13 @@ process:
   field_id: Identifier
   field_link/uri: WebAddress
   field_acronym: Acronym
-  field_logo:
+  field_parent:
     plugin: migration_lookup
-    migration: media
-    source: Avatar
+    migration: divisions
+    source: Division
 destination:
   plugin: 'entity:node'
-  default_bundle: agency
-migration_dependencies: null
+  default_bundle: division
+migration_dependencies:
+  required:
+    - agencies
