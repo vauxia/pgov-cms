@@ -11,33 +11,31 @@ migration_group: null
 label: 'Strategic Portfolio: Goals'
 source:
   plugin: airtable
-  base: 'U.S. Strategic Portfolio'
-  table: Goals
+  base: 'StratML x US Performance'
+  table: Goal
   constants:
     uid: 1
     body_format: basic_html
     file_destination: 'public://images/'
     delimiter: '-'
 process:
-  title: name
+  title: Name
   uid: constants/uid
-  field_id: id
-  body/value: description
+  field_id: PgovID
+  body/value: Description
   body/format: constants/body_format
-  field_administration:
-    plugin: entity_lookup
-    entity_type: node
-    bundle_key: type
-    bundle: administration
-    ignore_case: true
-    value_key: title
-    source: administration
+  field_goal_type:
+    plugin: static_map
+    source: Alias
+    map:
+      'Agency Priority Goal': apg
+      'Strategic Goal': strategic
   fiscal_cycle:
     plugin: concat
     source:
-      - fiscal_start_yr
+      - StartDate
       - constants/delimiter
-      - fiscal_end_yr
+      - EndDate
   field_fiscal_cycle:
     plugin: entity_lookup
     entity_type: node
@@ -46,27 +44,14 @@ process:
     ignore_case: true
     value_key: title
     source: '@fiscal_cycle'
-  agency_list:
-    plugin: get
-    source:
-      - org_owner_1
-      - org_owner_2
-      - org_owner_3
-  field_agencies:
+  field_plan:
     plugin: migration_lookup
-    migration: agencies
-    source: '@agency_list'
-    no_stub: true
-  field_divisions:
+    migration: plans
+    source: StrategicPlan
+  field_topics:
     plugin: migration_lookup
-    migration: divisions
-    source: associated_divisions
-    no_stub: true
-  field_coalition:
-    plugin: migration_lookup
-    migration: coalitions
-    source: coalition_owner
-    no_stub: true
+    migration: topics
+    source: Category
 destination:
   plugin: 'entity:node'
   default_bundle: goal

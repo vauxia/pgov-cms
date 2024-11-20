@@ -1,9 +1,9 @@
-uuid: 65e6c053-9644-4dee-9223-781b28327372
+uuid: 0dc3c105-87cc-47de-b124-b4f2a88201b1
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.card
     - field.field.node.objective.body
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
@@ -15,26 +15,18 @@ dependencies:
     - node.type.objective
   module:
     - user
-id: node.objective.full
+id: node.objective.card
 targetEntityType: node
 bundle: objective
-mode: full
+mode: card
 content:
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_division:
     type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 6
     region: content
   links:
     settings: {  }
@@ -43,6 +35,7 @@ content:
     region: content
 hidden:
   body: true
+  field_agency: true
   field_goal: true
   field_id: true
   field_objective_type: true

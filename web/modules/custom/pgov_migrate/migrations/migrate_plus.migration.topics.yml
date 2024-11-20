@@ -2,22 +2,21 @@ id: topics
 label: "Strategic Portfolio: Topics"
 source:
   plugin: airtable
-  base: 'U.S. Strategic Portfolio'
-  table: 'Tags'
-  filter: 'AND({type}="Topic", {is_administration_agnostic} = 1)'
+  base: 'StratML x US Performance'
+  table: 'Category'
+  #filter: 'AND({type}="Topic", {is_administration_agnostic} = 1)'
   constants:
     uid: 1
     body_format: basic_html
-    file_destination: 'public://images/'
 destination:
   plugin: entity:taxonomy_term
   default_bundle: 'topics'
 process:
-  name: name
+  name: Name
   #tid: tag_display_id
   uid:
     plugin: default_value
     default_value: 1
-  description/value: description
+  description/value: Description
   description/format: constants/body_format
-  field_tags: keywords
+  #field_tags: keywords

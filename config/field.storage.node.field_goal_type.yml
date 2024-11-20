@@ -1,0 +1,27 @@
+uuid: 7bfd967f-fe7f-45e4-8b67-81829d963a01
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_goal_type
+field_name: field_goal_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: apg
+      label: 'Agency Priority Goal'
+    -
+      value: strategic
+      label: 'Strategic Goal'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

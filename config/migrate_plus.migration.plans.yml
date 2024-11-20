@@ -11,29 +11,29 @@ migration_group: null
 label: 'Strategic Portfolio: Strategic Plans'
 source:
   plugin: airtable
-  base: 'U.S. Strategic Portfolio'
-  table: 'Strategic Plans'
+  base: 'StratML x US Performance'
+  table: StrategicPlan
   constants:
     uid: 1
     body_format: basic_html
-    file_destination: 'public://images/'
+    file_destination: 'public://files/'
     delimiter: '-'
 process:
-  title: name
+  title: Name
   uid: constants/uid
-  field_id: id
-  body/value: description
+  body/value: Description
   body/format: constants/body_format
-  field_link/uri: source_url
-  field_date/value: publication_date
+  field_link/uri: Source
   field_agency:
     plugin: migration_lookup
     migration: agencies
-    source: org_owner_1
+    source: Organization
   field_divisions:
     plugin: migration_lookup
     migration: divisions
-    source: associated_division
+    source:
+      - Division
+      - Subdivision
 destination:
   plugin: 'entity:node'
   default_bundle: plan

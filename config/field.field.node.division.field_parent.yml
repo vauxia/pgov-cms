@@ -1,15 +1,15 @@
-uuid: 3421b902-89b6-4c3e-b2e0-9c4242609bd9
+uuid: 0be340ce-5f0c-4141-85fe-30684133e215
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_coalition
-    - node.type.subgoal
-id: node.subgoal.field_coalition
-field_name: field_coalition
+    - field.storage.node.field_parent
+    - node.type.division
+id: node.division.field_parent
+field_name: field_parent
 entity_type: node
-bundle: subgoal
-label: Coalition
+bundle: division
+label: Parent
 description: ''
 required: false
 translatable: false
@@ -18,7 +18,8 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      division: division
     sort:
       field: _none
       direction: ASC

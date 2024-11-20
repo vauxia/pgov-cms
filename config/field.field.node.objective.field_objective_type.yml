@@ -1,0 +1,21 @@
+uuid: 4080213c-c00c-4e3e-a6be-60a698218271
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_objective_type
+    - node.type.objective
+  module:
+    - options
+id: node.objective.field_objective_type
+field_name: field_objective_type
+entity_type: node
+bundle: objective
+label: 'Objective type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -11,35 +11,21 @@ migration_group: null
 label: 'Strategic Portfolio: Divisions'
 source:
   plugin: airtable
-  base: 'U.S. Strategic Portfolio'
-  table: Divisions
+  base: 'StratML x US Performance'
+  table: Division
   constants:
     uid: 1
-    file_destination: 'public://images/'
+    body_format: basic_html
 process:
-  title: name
+  title: Name
   uid: constants/uid
-  body/value: description
-  body/format:
-    plugin: default_value
-    default_value: basic_html
-  field_id: id
-  field_acronym: acronym
-  field_agency:
+  field_id: Identifier
+  field_link/uri: WebAddress
+  field_acronym: Acronym
+  field_parent:
     plugin: migration_lookup
     migration: agencies
-    source: parent_org
-    no_stub: true
-  field_topics:
-    plugin: migration_lookup
-    migration: topics
-    source: associated_tags
-    no_stub: true
-  field_designation:
-    plugin: migration_lookup
-    migration: designations
-    source: associated_tags
-    no_stub: true
+    source: Organization
 destination:
   plugin: 'entity:node'
   default_bundle: division

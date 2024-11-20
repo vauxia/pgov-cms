@@ -1,16 +1,16 @@
-uuid: 47a922d1-0b8b-4738-8da5-86d66cf53304
+uuid: 3b9b6c7c-db7b-47a4-9ad5-83cd3741c1cf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_designation
-    - node.type.coalition
-    - taxonomy.vocabulary.designations
-id: node.coalition.field_designation
-field_name: field_designation
+    - field.storage.node.field_topics
+    - node.type.goal
+    - taxonomy.vocabulary.topics
+id: node.goal.field_topics
+field_name: field_topics
 entity_type: node
-bundle: coalition
-label: Designation
+bundle: goal
+label: Topics
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      designations: designations
+      topics: topics
     sort:
       field: name
       direction: asc

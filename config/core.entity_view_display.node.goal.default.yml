@@ -9,9 +9,14 @@ dependencies:
     - field.field.node.goal.field_coalition
     - field.field.node.goal.field_divisions
     - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
+    - field.field.node.goal.field_parent
+    - field.field.node.goal.field_plan
+    - field.field.node.goal.field_topics
     - node.type.goal
   module:
+    - options
     - text
     - user
 id: node.goal.default
@@ -66,6 +71,13 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_goal_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
   field_id:
     type: string
     label: hidden
@@ -73,6 +85,30 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_parent:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_plan:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }
