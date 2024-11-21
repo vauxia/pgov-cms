@@ -15,6 +15,7 @@ drush migrate:import media
 drush migrate:import agencies
 drush migrate:import divisions
 drush migrate:import subdivisions
+drush migrate:import missions
 drush migrate:import plans
 drush migrate:import goals
 #drush migrate:import subgoals

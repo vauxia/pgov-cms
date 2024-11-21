@@ -1,0 +1,40 @@
+id: missions
+label: "StratML: Mission Statements"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'Mission'
+  constants:
+    uid: 1
+    body_format: basic_html
+destination:
+  plugin: entity:node
+  overwrite_properties:
+    - body
+process:
+  _agency_nid:
+      plugin: migration_lookup
+      migration: agencies
+      source: Organization
+  _division_nid:
+    plugin: migration_lookup
+    migration: divisions
+    source: Division
+  _subdivision_nid:
+    plugin: migration_lookup
+    migration: subdivisions
+    source: Subdivision
+  nid:
+    -
+      plugin: null_coalesce
+      source:
+        - '@_agency_nid'
+        - '@_division_nid'
+        - '@_subdivision_nid'
+    -
+      plugin: extract
+      index:
+        - 0
+
+  body/value: Description
+  body/format: constants/body_format
