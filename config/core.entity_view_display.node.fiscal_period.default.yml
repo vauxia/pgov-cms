@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.fiscal_cycle.field_date_range
-    - node.type.fiscal_cycle
+    - field.field.node.fiscal_period.field_date_range
+    - node.type.fiscal_period
   module:
     - datetime_range
     - user
-id: node.fiscal_cycle.default
+id: node.fiscal_period.default
 targetEntityType: node
-bundle: fiscal_cycle
+bundle: fiscal_period
 mode: default
 content:
   field_date_range:

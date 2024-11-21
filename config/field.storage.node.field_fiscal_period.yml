@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_fiscal_cycle
-field_name: field_fiscal_cycle
+id: node.field_fiscal_period
+field_name: field_fiscal_period
 entity_type: node
 type: entity_reference
 settings:

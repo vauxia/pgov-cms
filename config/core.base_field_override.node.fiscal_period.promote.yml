@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.fiscal_cycle
-id: node.fiscal_cycle.promote
+    - node.type.fiscal_period
+id: node.fiscal_period.promote
 field_name: promote
 entity_type: node
-bundle: fiscal_cycle
+bundle: fiscal_period
 label: 'Promoted to front page'
 description: ''
 required: false

@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.update.body
-    - field.field.node.update.field_fiscal_cycle
+    - field.field.node.update.field_fiscal_period
     - field.field.node.update.field_subgoals
     - node.type.update
   module:
@@ -29,5 +29,5 @@ content:
     weight: 1
     region: content
 hidden:
-  field_fiscal_cycle: true
+  field_fiscal_period: true
   field_subgoals: true

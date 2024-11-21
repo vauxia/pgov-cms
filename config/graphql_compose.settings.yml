@@ -69,7 +69,7 @@ entity_config:
       enabled: false
     division:
       enabled: false
-    fiscal_cycle:
+    fiscal_period:
       enabled: false
     goal:
       enabled: true
@@ -158,7 +158,7 @@ field_config:
         enabled: true
       field_divisions:
         enabled: true
-      field_fiscal_cycle:
+      field_fiscal_period:
         enabled: true
       field_id:
         enabled: true
@@ -186,7 +186,7 @@ field_config:
         enabled: true
       field_divisions:
         enabled: true
-      field_fiscal_cycle:
+      field_fiscal_period:
         enabled: true
       field_id:
         enabled: true

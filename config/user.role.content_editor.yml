@@ -12,7 +12,7 @@ dependencies:
     - node.type.agency
     - node.type.article
     - node.type.division
-    - node.type.fiscal_cycle
+    - node.type.fiscal_period
     - node.type.goal
     - node.type.milestone
     - node.type.objective
@@ -60,7 +60,7 @@ permissions:
   - 'create basic block content'
   - 'create division content'
   - 'create document media'
-  - 'create fiscal_cycle content'
+  - 'create fiscal_period content'
   - 'create goal content'
   - 'create image media'
   - 'create media'
@@ -90,7 +90,7 @@ permissions:
   - 'delete any document media'
   - 'delete any document media revisions'
   - 'delete any file'
-  - 'delete any fiscal_cycle content'
+  - 'delete any fiscal_period content'
   - 'delete any goal content'
   - 'delete any image media'
   - 'delete any image media revisions'
@@ -108,7 +108,7 @@ permissions:
   - 'delete any video media revisions'
   - 'delete article revisions'
   - 'delete division revisions'
-  - 'delete fiscal_cycle revisions'
+  - 'delete fiscal_period revisions'
   - 'delete goal revisions'
   - 'delete media'
   - 'delete milestone revisions'
@@ -119,7 +119,7 @@ permissions:
   - 'delete own division content'
   - 'delete own document media'
   - 'delete own files'
-  - 'delete own fiscal_cycle content'
+  - 'delete own fiscal_period content'
   - 'delete own goal content'
   - 'delete own image media'
   - 'delete own milestone content'
@@ -148,7 +148,7 @@ permissions:
   - 'edit any basic block content'
   - 'edit any division content'
   - 'edit any document media'
-  - 'edit any fiscal_cycle content'
+  - 'edit any fiscal_period content'
   - 'edit any goal content'
   - 'edit any image media'
   - 'edit any milestone content'
@@ -165,7 +165,7 @@ permissions:
   - 'edit own article content'
   - 'edit own division content'
   - 'edit own document media'
-  - 'edit own fiscal_cycle content'
+  - 'edit own fiscal_period content'
   - 'edit own goal content'
   - 'edit own image media'
   - 'edit own milestone content'
@@ -192,7 +192,7 @@ permissions:
   - 'revert any video media revisions'
   - 'revert article revisions'
   - 'revert division revisions'
-  - 'revert fiscal_cycle revisions'
+  - 'revert fiscal_period revisions'
   - 'revert goal revisions'
   - 'revert milestone revisions'
   - 'revert objective revisions'
@@ -219,7 +219,7 @@ permissions:
   - 'view any video media revisions'
   - 'view article revisions'
   - 'view division revisions'
-  - 'view fiscal_cycle revisions'
+  - 'view fiscal_period revisions'
   - 'view goal revisions'
   - 'view migration messages'
   - 'view milestone revisions'

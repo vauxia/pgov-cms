@@ -30,20 +30,20 @@ process:
     ignore_case: true
     value_key: title
     source: administration
-  fiscal_cycle:
+  fiscal_period:
     plugin: concat
     source:
       - fiscal_start_yr
       - constants/delimiter
       - fiscal_end_yr
-  field_fiscal_cycle:
+  field_fiscal_period:
     plugin: entity_lookup
     entity_type: node
     bundle_key: type
-    bundle: fiscal_cycle
+    bundle: fiscal_period
     ignore_case: true
     value_key: title
-    source: '@fiscal_cycle'
+    source: '@fiscal_period'
   agency_list:
     plugin: get
     source:

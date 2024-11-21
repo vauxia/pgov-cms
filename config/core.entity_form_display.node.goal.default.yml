@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.goal.field_agencies
     - field.field.node.goal.field_coalition
     - field.field.node.goal.field_divisions
-    - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
     - field.field.node.goal.field_parent
@@ -63,7 +63,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_fiscal_cycle:
+  field_fiscal_period:
     type: options_select
     weight: 2
     region: content

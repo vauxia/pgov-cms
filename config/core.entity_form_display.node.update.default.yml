@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.update.body
-    - field.field.node.update.field_fiscal_cycle
+    - field.field.node.update.field_fiscal_period
     - field.field.node.update.field_subgoals
     - node.type.update
   module:
@@ -31,7 +31,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_fiscal_cycle:
+  field_fiscal_period:
     type: options_select
     weight: 2
     region: content
