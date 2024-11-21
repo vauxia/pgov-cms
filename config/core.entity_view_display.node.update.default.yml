@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.update.body
-    - field.field.node.update.field_fiscal_cycle
+    - field.field.node.update.field_fiscal_period
     - field.field.node.update.field_subgoals
     - node.type.update
   module:
@@ -22,7 +22,7 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_fiscal_cycle:
+  field_fiscal_period:
     type: entity_reference_label
     label: hidden
     settings:

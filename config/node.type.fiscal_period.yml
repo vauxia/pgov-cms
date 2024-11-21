@@ -17,7 +17,7 @@ third_party_settings:
     existing_nodes_link_text: ''
     type_weight: 0
 name: 'Fiscal cycle'
-type: fiscal_cycle
+type: fiscal_period
 description: 'A fiscal period that applies to goals and plans.'
 help: null
 new_revision: true
