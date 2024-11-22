@@ -1,0 +1,48 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: bd3221e6-5036-424a-8857-2c8152c27585
+  bundle: fiscal_period
+  default_langcode: en
+  depends:
+    a2e0fd3b-8209-4d9b-b92e-35e67211bfc5: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: FY2023-Q3
+  created:
+    -
+      value: 1732218962
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /fiscal-periods/fy2023-q3
+      langcode: en
+      pathauto: 1
+  field_date_range:
+    -
+      value: '2023-04-01'
+      end_value: '2023-06-30'
+  field_duration:
+    -
+      value: quarter
+  field_parent:
+    -
+      entity: a2e0fd3b-8209-4d9b-b92e-35e67211bfc5

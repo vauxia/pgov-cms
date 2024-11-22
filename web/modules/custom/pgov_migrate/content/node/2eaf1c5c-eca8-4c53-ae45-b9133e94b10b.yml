@@ -1,0 +1,43 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 2eaf1c5c-eca8-4c53-ae45-b9133e94b10b
+  bundle: fiscal_period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: FY2024
+  created:
+    -
+      value: 1732218571
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /fiscal-periods/fy2024
+      langcode: en
+      pathauto: 1
+  field_date_range:
+    -
+      value: '2023-10-01'
+      end_value: '2024-09-30'
+  field_duration:
+    -
+      value: 1_year
