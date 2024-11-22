@@ -113,6 +113,9 @@
             ]
         },
         "patches": {
+            "drupal/default_content": {
+                "Add a drush command to export all content to config (can be removed once a permanent database is established)": "https://www.drupal.org/files/issues/2020-08-13/3001618-10.patch"
+            }
         }
     },
     "require-dev": {
