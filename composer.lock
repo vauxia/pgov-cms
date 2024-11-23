@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82e0f183d5e2966a8fbfad1bd590b504",
+    "content-hash": "2d9cb2ddf97473de638f00f4999b9024",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2668,6 +2668,57 @@
             "homepage": "https://www.drupal.org/project/simple_oauth",
             "support": {
                 "source": "https://git.drupalcode.org/project/simple_oauth"
+            }
+        },
+        {
+            "name": "drupal/storage",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/storage.git",
+                "reference": "1.3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/storage-1.3.1.zip",
+                "reference": "1.3.1",
+                "shasum": "97d94b421b3db3060ef02e8cf993f3833b6882dd"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "require-dev": {
+                "drupal/rabbit_hole": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.1",
+                    "datestamp": "1692177788",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mandclu",
+                    "homepage": "https://www.drupal.org/user/52136"
+                },
+                {
+                    "name": "mxh",
+                    "homepage": "https://www.drupal.org/user/1124384"
+                }
+            ],
+            "description": "A Drupal module that provides lightweight, bundleable entities for storing structured data",
+            "homepage": "http://drupal.org/project/storage",
+            "support": {
+                "source": "https://git.drupalcode.org/project/storage"
             }
         },
         {
