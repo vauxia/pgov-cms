@@ -19,7 +19,6 @@ dependencies:
     - node.type.page
     - node.type.plan
     - node.type.project
-    - node.type.subgoal
     - node.type.update
     - taxonomy.vocabulary.designations
     - taxonomy.vocabulary.tags
@@ -70,7 +69,6 @@ permissions:
   - 'create plan content'
   - 'create project content'
   - 'create remote_video media'
-  - 'create subgoal content'
   - 'create terms in designations'
   - 'create terms in tags'
   - 'create terms in topics'
@@ -102,7 +100,6 @@ permissions:
   - 'delete any project content'
   - 'delete any remote_video media'
   - 'delete any remote_video media revisions'
-  - 'delete any subgoal content'
   - 'delete any update content'
   - 'delete any video media'
   - 'delete any video media revisions'
@@ -128,13 +125,11 @@ permissions:
   - 'delete own plan content'
   - 'delete own project content'
   - 'delete own remote_video media'
-  - 'delete own subgoal content'
   - 'delete own update content'
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
   - 'delete project revisions'
-  - 'delete subgoal revisions'
   - 'delete term revisions in designations'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
@@ -157,7 +152,6 @@ permissions:
   - 'edit any plan content'
   - 'edit any project content'
   - 'edit any remote_video media'
-  - 'edit any subgoal content'
   - 'edit any update content'
   - 'edit any video media'
   - 'edit own administration content'
@@ -174,7 +168,6 @@ permissions:
   - 'edit own plan content'
   - 'edit own project content'
   - 'edit own remote_video media'
-  - 'edit own subgoal content'
   - 'edit own update content'
   - 'edit own video media'
   - 'edit terms in designations'
@@ -199,7 +192,6 @@ permissions:
   - 'revert page revisions'
   - 'revert plan revisions'
   - 'revert project revisions'
-  - 'revert subgoal revisions'
   - 'revert term revisions in designations'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
@@ -229,7 +221,6 @@ permissions:
   - 'view page revisions'
   - 'view plan revisions'
   - 'view project revisions'
-  - 'view subgoal revisions'
   - 'view term revisions in designations'
   - 'view term revisions in tags'
   - 'view term revisions in topics'

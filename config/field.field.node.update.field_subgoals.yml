@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_subgoals
-    - node.type.subgoal
     - node.type.update
 id: node.update.field_subgoals
 field_name: field_subgoals
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles:
-      subgoal: subgoal
+    target_bundles: {  }
     sort:
       field: title
       direction: ASC
