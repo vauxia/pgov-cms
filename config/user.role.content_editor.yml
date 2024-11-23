@@ -18,7 +18,6 @@ dependencies:
     - node.type.objective
     - node.type.page
     - node.type.plan
-    - node.type.project
     - node.type.update
     - taxonomy.vocabulary.designations
     - taxonomy.vocabulary.tags
@@ -67,7 +66,6 @@ permissions:
   - 'create objective content'
   - 'create page content'
   - 'create plan content'
-  - 'create project content'
   - 'create remote_video media'
   - 'create terms in designations'
   - 'create terms in tags'
@@ -97,7 +95,6 @@ permissions:
   - 'delete any objective content'
   - 'delete any page content'
   - 'delete any plan content'
-  - 'delete any project content'
   - 'delete any remote_video media'
   - 'delete any remote_video media revisions'
   - 'delete any update content'
@@ -123,13 +120,11 @@ permissions:
   - 'delete own objective content'
   - 'delete own page content'
   - 'delete own plan content'
-  - 'delete own project content'
   - 'delete own remote_video media'
   - 'delete own update content'
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
-  - 'delete project revisions'
   - 'delete term revisions in designations'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
@@ -150,7 +145,6 @@ permissions:
   - 'edit any objective content'
   - 'edit any page content'
   - 'edit any plan content'
-  - 'edit any project content'
   - 'edit any remote_video media'
   - 'edit any update content'
   - 'edit any video media'
@@ -166,7 +160,6 @@ permissions:
   - 'edit own objective content'
   - 'edit own page content'
   - 'edit own plan content'
-  - 'edit own project content'
   - 'edit own remote_video media'
   - 'edit own update content'
   - 'edit own video media'
@@ -191,7 +184,6 @@ permissions:
   - 'revert objective revisions'
   - 'revert page revisions'
   - 'revert plan revisions'
-  - 'revert project revisions'
   - 'revert term revisions in designations'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
@@ -220,7 +212,6 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view plan revisions'
-  - 'view project revisions'
   - 'view term revisions in designations'
   - 'view term revisions in tags'
   - 'view term revisions in topics'
