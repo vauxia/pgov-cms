@@ -34,3 +34,8 @@ process:
     source:
       - Division
       - Subdivision
+  field_fiscal_period/target_id:
+    plugin: fiscal_period_lookup
+    source:
+      - StartDate
+      - EndDate
