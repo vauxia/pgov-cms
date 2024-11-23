@@ -150,8 +150,6 @@ field_config:
     goal:
       body:
         enabled: true
-      field_administration:
-        enabled: true
       field_agencies:
         enabled: true
       field_coalition:

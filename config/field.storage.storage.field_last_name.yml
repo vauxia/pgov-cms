@@ -1,16 +1,17 @@
-uuid: f5c7ac00-4109-46f0-9e2a-2bb30cb3a901
+uuid: 7ce5f4ca-6518-4eed-8bfb-fa4e0023363a
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - storage
-id: node.field_administration
-field_name: field_administration
-entity_type: node
-type: entity_reference
+id: storage.field_last_name
+field_name: field_last_name
+entity_type: storage
+type: string
 settings:
-  target_type: storage
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1

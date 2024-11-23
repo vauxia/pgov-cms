@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.plan.body
+    - field.field.node.plan.field_administration
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
@@ -36,6 +37,16 @@ content:
     weight: 9
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_administration:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_agency:
     type: options_select

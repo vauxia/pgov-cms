@@ -1,16 +1,16 @@
-uuid: f5c7ac00-4109-46f0-9e2a-2bb30cb3a901
+uuid: 03debe57-d18c-4202-ac7f-a7c643a8d810
 langcode: en
 status: true
 dependencies:
   module:
-    - node
+    - media
     - storage
-id: node.field_administration
-field_name: field_administration
-entity_type: node
+id: storage.field_image
+field_name: field_image
+entity_type: storage
 type: entity_reference
 settings:
-  target_type: storage
+  target_type: media
 module: core
 locked: false
 cardinality: 1

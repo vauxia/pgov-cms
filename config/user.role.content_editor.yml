@@ -8,7 +8,6 @@ dependencies:
     - media.type.image
     - media.type.remote_video
     - media.type.video
-    - node.type.administration
     - node.type.agency
     - node.type.article
     - node.type.division
@@ -49,7 +48,6 @@ permissions:
   - 'administer media types'
   - 'administer nodes'
   - 'administer url aliases'
-  - 'create administration content'
   - 'create agency content'
   - 'create article content'
   - 'create basic block content'
@@ -67,11 +65,9 @@ permissions:
   - 'create terms in topics'
   - 'create url aliases'
   - 'create video media'
-  - 'delete administration revisions'
   - 'delete agency revisions'
   - 'delete all revisions'
   - 'delete all taxonomy revisions'
-  - 'delete any administration content'
   - 'delete any agency content'
   - 'delete any article content'
   - 'delete any basic block content'
@@ -98,7 +94,6 @@ permissions:
   - 'delete goal revisions'
   - 'delete media'
   - 'delete objective revisions'
-  - 'delete own administration content'
   - 'delete own agency content'
   - 'delete own article content'
   - 'delete own division content'
@@ -118,7 +113,6 @@ permissions:
   - 'delete term revisions in topics'
   - 'delete terms in tags'
   - 'delete terms in topics'
-  - 'edit any administration content'
   - 'edit any agency content'
   - 'edit any article content'
   - 'edit any basic block content'
@@ -132,7 +126,6 @@ permissions:
   - 'edit any plan content'
   - 'edit any remote_video media'
   - 'edit any video media'
-  - 'edit own administration content'
   - 'edit own agency content'
   - 'edit own article content'
   - 'edit own division content'
@@ -148,7 +141,6 @@ permissions:
   - 'edit terms in tags'
   - 'edit terms in topics'
   - 'link to any page'
-  - 'revert administration revisions'
   - 'revert agency revisions'
   - 'revert all revisions'
   - 'revert all taxonomy revisions'
@@ -168,7 +160,6 @@ permissions:
   - 'revert term revisions in topics'
   - 'update any media'
   - 'update media'
-  - 'view administration revisions'
   - 'view agency revisions'
   - 'view all content model document revisions'
   - 'view all media revisions'

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.plan.body
+    - field.field.node.plan.field_administration
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
@@ -80,4 +81,5 @@ content:
     weight: 1
     region: content
 hidden:
+  field_administration: true
   field_fiscal_period: true

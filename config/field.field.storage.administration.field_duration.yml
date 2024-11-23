@@ -1,0 +1,21 @@
+uuid: 83fff870-0c75-4114-b30d-dfe57655002b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_duration
+    - storage.storage_type.administration
+  module:
+    - datetime_range
+id: storage.administration.field_duration
+field_name: field_duration
+entity_type: storage
+bundle: administration
+label: 'Administration dates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange
