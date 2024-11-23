@@ -1,0 +1,29 @@
+uuid: 56786e6a-8c7b-4df7-8a1a-df3daa04a2c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fiscal_period
+    - node.type.fiscal_period
+    - node.type.plan
+id: node.plan.field_fiscal_period
+field_name: field_fiscal_period
+entity_type: node
+bundle: plan
+label: 'Fiscal period'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      fiscal_period: fiscal_period
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
