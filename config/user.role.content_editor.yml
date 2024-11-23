@@ -14,7 +14,6 @@ dependencies:
     - node.type.division
     - node.type.fiscal_period
     - node.type.goal
-    - node.type.milestone
     - node.type.objective
     - node.type.page
     - node.type.plan
@@ -62,7 +61,6 @@ permissions:
   - 'create goal content'
   - 'create image media'
   - 'create media'
-  - 'create milestone content'
   - 'create objective content'
   - 'create page content'
   - 'create plan content'
@@ -91,7 +89,6 @@ permissions:
   - 'delete any image media'
   - 'delete any image media revisions'
   - 'delete any media'
-  - 'delete any milestone content'
   - 'delete any objective content'
   - 'delete any page content'
   - 'delete any plan content'
@@ -105,7 +102,6 @@ permissions:
   - 'delete fiscal_period revisions'
   - 'delete goal revisions'
   - 'delete media'
-  - 'delete milestone revisions'
   - 'delete objective revisions'
   - 'delete own administration content'
   - 'delete own agency content'
@@ -116,7 +112,6 @@ permissions:
   - 'delete own fiscal_period content'
   - 'delete own goal content'
   - 'delete own image media'
-  - 'delete own milestone content'
   - 'delete own objective content'
   - 'delete own page content'
   - 'delete own plan content'
@@ -141,7 +136,6 @@ permissions:
   - 'edit any fiscal_period content'
   - 'edit any goal content'
   - 'edit any image media'
-  - 'edit any milestone content'
   - 'edit any objective content'
   - 'edit any page content'
   - 'edit any plan content'
@@ -156,7 +150,6 @@ permissions:
   - 'edit own fiscal_period content'
   - 'edit own goal content'
   - 'edit own image media'
-  - 'edit own milestone content'
   - 'edit own objective content'
   - 'edit own page content'
   - 'edit own plan content'
@@ -180,7 +173,6 @@ permissions:
   - 'revert division revisions'
   - 'revert fiscal_period revisions'
   - 'revert goal revisions'
-  - 'revert milestone revisions'
   - 'revert objective revisions'
   - 'revert page revisions'
   - 'revert plan revisions'
@@ -206,7 +198,6 @@ permissions:
   - 'view fiscal_period revisions'
   - 'view goal revisions'
   - 'view migration messages'
-  - 'view milestone revisions'
   - 'view objective revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
