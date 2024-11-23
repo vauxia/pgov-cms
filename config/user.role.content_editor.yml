@@ -17,7 +17,6 @@ dependencies:
     - node.type.objective
     - node.type.page
     - node.type.plan
-    - node.type.update
     - taxonomy.vocabulary.designations
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.topics
@@ -68,7 +67,6 @@ permissions:
   - 'create terms in designations'
   - 'create terms in tags'
   - 'create terms in topics'
-  - 'create update content'
   - 'create url aliases'
   - 'create video media'
   - 'delete administration revisions'
@@ -94,7 +92,6 @@ permissions:
   - 'delete any plan content'
   - 'delete any remote_video media'
   - 'delete any remote_video media revisions'
-  - 'delete any update content'
   - 'delete any video media'
   - 'delete any video media revisions'
   - 'delete article revisions'
@@ -116,7 +113,6 @@ permissions:
   - 'delete own page content'
   - 'delete own plan content'
   - 'delete own remote_video media'
-  - 'delete own update content'
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
@@ -126,7 +122,6 @@ permissions:
   - 'delete terms in designations'
   - 'delete terms in tags'
   - 'delete terms in topics'
-  - 'delete update revisions'
   - 'edit any administration content'
   - 'edit any agency content'
   - 'edit any article content'
@@ -140,7 +135,6 @@ permissions:
   - 'edit any page content'
   - 'edit any plan content'
   - 'edit any remote_video media'
-  - 'edit any update content'
   - 'edit any video media'
   - 'edit own administration content'
   - 'edit own agency content'
@@ -154,7 +148,6 @@ permissions:
   - 'edit own page content'
   - 'edit own plan content'
   - 'edit own remote_video media'
-  - 'edit own update content'
   - 'edit own video media'
   - 'edit terms in designations'
   - 'edit terms in tags'
@@ -179,7 +172,6 @@ permissions:
   - 'revert term revisions in designations'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
-  - 'revert update revisions'
   - 'update any media'
   - 'update media'
   - 'view administration revisions'
@@ -207,4 +199,3 @@ permissions:
   - 'view term revisions in tags'
   - 'view term revisions in topics'
   - 'view the administration theme'
-  - 'view update revisions'
