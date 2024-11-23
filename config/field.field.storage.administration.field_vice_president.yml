@@ -1,0 +1,29 @@
+uuid: ce5f4ddb-0d14-4e82-b743-f2c8c9376496
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_vice_president
+    - storage.storage_type.administration
+    - storage.storage_type.person
+id: storage.administration.field_vice_president
+field_name: field_vice_president
+entity_type: storage
+bundle: administration
+label: 'Vice president'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

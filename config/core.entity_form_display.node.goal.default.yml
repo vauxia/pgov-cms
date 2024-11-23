@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.goal.body
-    - field.field.node.goal.field_administration
     - field.field.node.goal.field_agencies
     - field.field.node.goal.field_coalition
     - field.field.node.goal.field_divisions
@@ -36,12 +35,6 @@ content:
   created:
     type: datetime_timestamp
     weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_administration:
-    type: options_select
-    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

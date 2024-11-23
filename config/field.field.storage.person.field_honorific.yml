@@ -1,0 +1,19 @@
+uuid: 296be8ea-16ff-4d86-9de7-ad08daae56ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_honorific
+    - storage.storage_type.person
+id: storage.person.field_honorific
+field_name: field_honorific
+entity_type: storage
+bundle: person
+label: Honorific
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

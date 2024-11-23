@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.plan.body
+    - field.field.node.plan.field_administration
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
@@ -27,6 +28,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_administration:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_agency:
     type: entity_reference_label

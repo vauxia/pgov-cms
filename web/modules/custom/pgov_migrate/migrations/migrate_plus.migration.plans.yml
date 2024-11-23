@@ -24,6 +24,10 @@ process:
   field_link/uri: Source
   # TODO We need this
   #field_date/value: publication_date
+  field_administration:
+    plugin: migration_lookup
+    migration: administrations
+    source: Administration
   field_agency:
     plugin: migration_lookup
     migration: agencies
