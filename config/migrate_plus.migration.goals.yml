@@ -30,20 +30,11 @@ process:
     map:
       'Agency Priority Goal': apg
       'Strategic Goal': strategic
-  fiscal_period:
-    plugin: concat
+  field_fiscal_period/target_id:
+    plugin: fiscal_period_lookup
     source:
       - StartDate
-      - constants/delimiter
       - EndDate
-  field_fiscal_period:
-    plugin: entity_lookup
-    entity_type: node
-    bundle_key: type
-    bundle: fiscal_period
-    ignore_case: true
-    value_key: title
-    source: '@fiscal_period'
   field_plan:
     plugin: migration_lookup
     migration: plans
