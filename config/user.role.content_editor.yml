@@ -17,7 +17,6 @@ dependencies:
     - node.type.objective
     - node.type.page
     - node.type.plan
-    - taxonomy.vocabulary.designations
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.topics
   module:
@@ -64,7 +63,6 @@ permissions:
   - 'create page content'
   - 'create plan content'
   - 'create remote_video media'
-  - 'create terms in designations'
   - 'create terms in tags'
   - 'create terms in topics'
   - 'create url aliases'
@@ -116,10 +114,8 @@ permissions:
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
-  - 'delete term revisions in designations'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
-  - 'delete terms in designations'
   - 'delete terms in tags'
   - 'delete terms in topics'
   - 'edit any administration content'
@@ -149,7 +145,6 @@ permissions:
   - 'edit own plan content'
   - 'edit own remote_video media'
   - 'edit own video media'
-  - 'edit terms in designations'
   - 'edit terms in tags'
   - 'edit terms in topics'
   - 'link to any page'
@@ -169,7 +164,6 @@ permissions:
   - 'revert objective revisions'
   - 'revert page revisions'
   - 'revert plan revisions'
-  - 'revert term revisions in designations'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
   - 'update any media'
@@ -195,7 +189,6 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view plan revisions'
-  - 'view term revisions in designations'
   - 'view term revisions in tags'
   - 'view term revisions in topics'
   - 'view the administration theme'
