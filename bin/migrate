@@ -19,7 +19,5 @@ drush migrate:import missions
 drush migrate:import plans
 drush migrate:import goals
 drush migrate:import objectives
-# Skip updates until we have values for 'title'
-# drush migrate:import updates
 
 drush migrate:status
