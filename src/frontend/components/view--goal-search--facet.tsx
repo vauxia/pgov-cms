@@ -21,11 +21,13 @@ export function ViewGoalSearchFacet({
     return false
   }
 
+  const buttonClasses = activeTopics.indexOf(topic) > -1 ? "padding-05 text-white bg-primary-darker" : "padding-05"
+
   return (
     <Button
       type="button"
       outline
-      className={"padding-05"}
+      className={buttonClasses}
       onClick={() => updateTopicFilters(topic)}
       disabled={disableButton(topic)}
     >
