@@ -11,7 +11,7 @@ destination:
   default_bundle: person
 process:
   title: Name
-  uid: constants/uid
+  user_id: constants/uid
   field_first_name: FirstName
   field_honorific: Honorific
   field_last_name: LastName
