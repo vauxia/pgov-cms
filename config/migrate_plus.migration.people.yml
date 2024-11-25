@@ -16,8 +16,8 @@ source:
   constants:
     uid: 1
 process:
-  title: Name
-  uid: constants/uid
+  name: Name
+  user_id: constants/uid
   field_first_name: FirstName
   field_honorific: Honorific
   field_last_name: LastName
