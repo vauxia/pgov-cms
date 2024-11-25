@@ -11,7 +11,7 @@ destination:
   default_bundle: administration
 process:
   title: Name
-  uid: constants/uid
+  user_id: constants/uid
   field_president:
     plugin: migration_lookup
     migration: people
@@ -20,5 +20,5 @@ process:
     plugin: migration_lookup
     migration: people
     source: VicePresident
-  field_duration/date: StartDate
-  field_duration/end_date: EndDate
+  field_duration/value: StartDate
+  field_duration/end_value: EndDate
