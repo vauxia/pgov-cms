@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
+    - field.field.node.plan.field_file
     - field.field.node.plan.field_fiscal_period
     - field.field.node.plan.field_id
     - field.field.node.plan.field_link
@@ -61,6 +62,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_file:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_fiscal_period:
     type: entity_reference_label

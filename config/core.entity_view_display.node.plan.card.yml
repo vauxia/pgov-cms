@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
+    - field.field.node.plan.field_file
     - field.field.node.plan.field_fiscal_period
     - field.field.node.plan.field_id
     - field.field.node.plan.field_link
@@ -82,4 +83,5 @@ content:
     region: content
 hidden:
   field_administration: true
+  field_file: true
   field_fiscal_period: true
