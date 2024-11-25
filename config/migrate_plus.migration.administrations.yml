@@ -16,8 +16,8 @@ source:
   constants:
     uid: 1
 process:
-  title: Name
-  uid: constants/uid
+  name: Name
+  user_id: constants/uid
   field_president:
     plugin: migration_lookup
     migration: people
@@ -26,8 +26,8 @@ process:
     plugin: migration_lookup
     migration: people
     source: VicePresident
-  field_duration/date: StartDate
-  field_duration/end_date: EndDate
+  field_duration/value: StartDate
+  field_duration/end_value: EndDate
 destination:
   plugin: 'entity:storage'
   default_bundle: administration

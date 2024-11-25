@@ -10,7 +10,7 @@ destination:
   plugin: entity:storage
   default_bundle: person
 process:
-  title: Name
+  name: Name
   user_id: constants/uid
   field_first_name: FirstName
   field_honorific: Honorific
