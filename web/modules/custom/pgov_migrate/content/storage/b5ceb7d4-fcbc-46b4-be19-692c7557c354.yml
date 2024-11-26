@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
-  entity_type: node
-  uuid: ec2b006d-6b1f-4d0e-9185-e02cf85b2394
+  entity_type: storage
+  uuid: b5ceb7d4-fcbc-46b4-be19-692c7557c354
   bundle: fiscal_period
   default_langcode: en
+  depends:
+    ec2b006d-6b1f-4d0e-9185-e02cf85b2394: storage
 default:
   revision_uid:
     -
@@ -11,33 +13,25 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
-      value: FY2022
+      value: ' FY2022-Q4'
   created:
     -
-      value: 1732218463
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
+      value: 1732218768
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2022
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
-      value: '2021-10-01'
+      value: '2022-07-01'
       end_value: '2022-09-30'
   field_duration:
     -
-      value: 1_year
+      value: quarter
+  field_parent:
+    -
+      entity: ec2b006d-6b1f-4d0e-9185-e02cf85b2394

@@ -1,11 +1,9 @@
 _meta:
   version: '1.0'
-  entity_type: node
+  entity_type: storage
   uuid: f4926a33-bc23-4782-8e57-03745263222e
   bundle: fiscal_period
   default_langcode: en
-  depends:
-    defb8fea-f1fc-4cca-b8e1-e023a16f99ae: node
 default:
   revision_uid:
     -
@@ -13,29 +11,18 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
       value: FY2018-20
   created:
     -
       value: 1732216819
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2018-20
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
       value: '2017-10-01'
@@ -43,6 +30,3 @@ default:
   field_duration:
     -
       value: 2_year
-  field_parent:
-    -
-      entity: defb8fea-f1fc-4cca-b8e1-e023a16f99ae

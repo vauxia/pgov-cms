@@ -1,0 +1,37 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: a2e0fd3b-8209-4d9b-b92e-35e67211bfc5
+  bundle: fiscal_period
+  default_langcode: en
+  depends:
+    c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb: storage
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2023
+  created:
+    -
+      value: 1732218533
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2022-10-01'
+      end_value: '2023-09-30'
+  field_duration:
+    -
+      value: 1_year
+  field_parent:
+    -
+      entity: c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb

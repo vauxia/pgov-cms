@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
-  entity_type: node
-  uuid: a2e0fd3b-8209-4d9b-b92e-35e67211bfc5
+  entity_type: storage
+  uuid: 74544f6f-5672-411d-a2e5-db8b55c83f71
   bundle: fiscal_period
   default_langcode: en
+  depends:
+    c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb: storage
 default:
   revision_uid:
     -
@@ -11,33 +13,25 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
-      value: FY2023
+      value: FY2022-24
   created:
     -
-      value: 1732218533
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
+      value: 1732217485
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2023
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
-      value: '2022-10-01'
+      value: '2021-10-01'
       end_value: '2023-09-30'
   field_duration:
     -
-      value: 1_year
+      value: 2_year
+  field_parent:
+    -
+      entity: c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb

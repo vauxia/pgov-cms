@@ -1,11 +1,11 @@
 _meta:
   version: '1.0'
-  entity_type: node
+  entity_type: storage
   uuid: 987de4a7-3a7e-4a7c-9d3e-e7ef42a7685b
   bundle: fiscal_period
   default_langcode: en
   depends:
-    2eaf1c5c-eca8-4c53-ae45-b9133e94b10b: node
+    2eaf1c5c-eca8-4c53-ae45-b9133e94b10b: storage
 default:
   revision_uid:
     -
@@ -13,29 +13,18 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
       value: FY2024-Q4
   created:
     -
       value: 1732297201
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2024-q4
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
       value: '2024-07-01'

@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
-  entity_type: node
-  uuid: 2eaf1c5c-eca8-4c53-ae45-b9133e94b10b
+  entity_type: storage
+  uuid: 6bb55381-0f32-47dd-a0d9-76a4c2eb27e9
   bundle: fiscal_period
   default_langcode: en
+  depends:
+    2eaf1c5c-eca8-4c53-ae45-b9133e94b10b: storage
 default:
   revision_uid:
     -
@@ -11,33 +13,25 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
-      value: FY2024
+      value: FY2024-Q1
   created:
     -
-      value: 1732218571
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
+      value: 1732296755
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2024
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
       value: '2023-10-01'
-      end_value: '2024-09-30'
+      end_value: '2023-12-31'
   field_duration:
     -
-      value: 1_year
+      value: quarter
+  field_parent:
+    -
+      entity: 2eaf1c5c-eca8-4c53-ae45-b9133e94b10b

@@ -1,17 +1,18 @@
-uuid: 46edef86-4868-4c24-95d0-c6de904e4393
+uuid: ddf9a76a-98ba-4e7e-af81-318fc5424abe
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.storage.administration.field_date_range
-    - field.field.storage.administration.field_president
-    - field.field.storage.administration.field_vice_president
-    - storage.storage_type.administration
+    - field.field.storage.fiscal_period.field_date_range
+    - field.field.storage.fiscal_period.field_duration
+    - field.field.storage.fiscal_period.field_parent
+    - storage.storage_type.fiscal_period
   module:
     - datetime_range
-id: storage.administration.default
+    - options
+id: storage.fiscal_period.default
 targetEntityType: storage
-bundle: administration
+bundle: fiscal_period
 mode: default
 content:
   field_date_range:
@@ -25,21 +26,20 @@ content:
     third_party_settings: {  }
     weight: -2
     region: content
-  field_president:
-    type: entity_reference_label
+  field_duration:
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: -4
+    weight: -1
     region: content
-  field_vice_president:
+  field_parent:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: -3
+    weight: 0
     region: content
   name:
     type: string

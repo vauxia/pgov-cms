@@ -1,6 +1,6 @@
 _meta:
   version: '1.0'
-  entity_type: node
+  entity_type: storage
   uuid: 5d3b2b75-77fb-4d8c-b714-b63b14a13d90
   bundle: fiscal_period
   default_langcode: en
@@ -11,29 +11,18 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
       value: 'National Drug Control Strategy'
   created:
     -
       value: 1732216674
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/national-drug-control-strategy
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
       value: '2018-01-01'

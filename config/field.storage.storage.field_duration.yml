@@ -1,17 +1,33 @@
-uuid: 5fe463ec-bda3-4f92-b046-6a8eafb0dc8e
+uuid: ca3d51c8-d3e4-4a5d-a616-34c5fce6f9e9
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime_range
+    - options
     - storage
 id: storage.field_duration
 field_name: field_duration
 entity_type: storage
-type: daterange
+type: list_string
 settings:
-  datetime_type: date
-module: datetime_range
+  allowed_values:
+    -
+      value: quarter
+      label: 'Fiscal quarter'
+    -
+      value: 1_year
+      label: 'Fiscal year'
+    -
+      value: 2_year
+      label: '2 Years'
+    -
+      value: 4_year
+      label: '4 Years'
+    -
+      value: other
+      label: Other
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true
