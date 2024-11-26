@@ -1,13 +1,12 @@
-uuid: ad6cb09e-3225-48a7-a1f9-d9df606729f6
+uuid: c91dfd56-0a7e-4414-a793-4aabce6f7ddb
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - storage
-id: node.field_fiscal_period
-field_name: field_fiscal_period
-entity_type: node
+id: storage.field_parent
+field_name: field_parent
+entity_type: storage
 type: entity_reference
 settings:
   target_type: storage

@@ -56,11 +56,11 @@ content:
     region: content
   field_fiscal_period:
     type: entity_reference_label
-    label: inline
+    label: above
     settings:
-      link: false
+      link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 106
     region: content
   field_goal_type:
     type: list_default

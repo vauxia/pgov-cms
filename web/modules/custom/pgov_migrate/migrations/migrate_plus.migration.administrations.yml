@@ -20,5 +20,5 @@ process:
     plugin: migration_lookup
     migration: people
     source: VicePresident
-  field_duration/value: StartDate
-  field_duration/end_value: EndDate
+  field_date_range/value: StartDate
+  field_date_range/end_value: EndDate

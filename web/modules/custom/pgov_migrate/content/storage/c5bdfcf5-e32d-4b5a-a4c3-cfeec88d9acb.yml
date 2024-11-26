@@ -1,6 +1,6 @@
 _meta:
   version: '1.0'
-  entity_type: node
+  entity_type: storage
   uuid: c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb
   bundle: fiscal_period
   default_langcode: en
@@ -11,29 +11,18 @@ default:
   status:
     -
       value: true
-  uid:
+  user_id:
     -
       target_id: 1
-  title:
+  name:
     -
-      value: FY2022-27
+      value: FY2022-26
   created:
     -
       value: 1732216768
-  promote:
-    -
-      value: false
-  sticky:
-    -
-      value: false
   revision_translation_affected:
     -
       value: true
-  path:
-    -
-      alias: /fiscal-periods/fy2022-27
-      langcode: en
-      pathauto: 1
   field_date_range:
     -
       value: '2021-10-01'

@@ -1,0 +1,21 @@
+uuid: e1ccf8a6-e097-4e14-b6db-bc79e4be664f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_date_range
+    - storage.storage_type.administration
+  module:
+    - datetime_range
+id: storage.administration.field_date_range
+field_name: field_date_range
+entity_type: storage
+bundle: administration
+label: 'Date range'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange
