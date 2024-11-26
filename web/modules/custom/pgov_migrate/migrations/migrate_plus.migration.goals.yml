@@ -8,6 +8,7 @@ source:
   plugin: airtable
   base: 'StratML x US Performance'
   table: 'Goal'
+  filter: 'Name!=""'
   constants:
     uid: 1
     body_format: basic_html
@@ -36,6 +37,7 @@ process:
     map:
       'Agency Priority Goal': 'apg'
       'Strategic Goal': 'strategic'
+    default_value: NULL
   field_fiscal_period/target_id:
     plugin: fiscal_period_lookup
     source:

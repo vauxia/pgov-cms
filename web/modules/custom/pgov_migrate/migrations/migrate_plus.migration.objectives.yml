@@ -32,6 +32,7 @@ process:
     map:
       'Strategic Objective': 'strategic'
       'Achievement': 'achievement'
+    default_value: NULL
   #field_subgoal:
     #plugin: migration_lookup
     #migration: goals
