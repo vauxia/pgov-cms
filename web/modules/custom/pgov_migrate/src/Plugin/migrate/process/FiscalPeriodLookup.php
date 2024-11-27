@@ -32,7 +32,7 @@ class FiscalPeriodLookup extends EntityLookup {
    */
   protected function determineLookupProperties(string $destinationProperty): void {
     // Simply hard-code the values that were getting set by this method.
-    $this->lookupEntityType = 'node';
+    $this->lookupEntityType = 'storage';
     $this->lookupBundle = 'fiscal_period';
     $this->lookupBundleKey = 'type';
   }
