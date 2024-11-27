@@ -1,37 +1,28 @@
-uuid: 4d5d8e4e-263d-4157-aeed-de96fbeab853
+uuid: 2b7e3b2e-fdb6-442d-b6a5-1ca484999cd7
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.storage.inline
     - field.field.storage.measurement.field_fiscal_period
     - field.field.storage.measurement.field_indicator
     - field.field.storage.measurement.field_target_value
     - field.field.storage.measurement.field_value
     - storage.storage_type.measurement
-id: storage.measurement.default
+id: storage.measurement.inline
 targetEntityType: storage
 bundle: measurement
-mode: default
+mode: inline
 content:
   field_fiscal_period:
     type: options_select
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_indicator:
-    type: entity_reference_autocomplete
-    weight: 0
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_target_value:
     type: number
-    weight: 3
+    weight: 1
     region: content
     settings:
       placeholder: ''
@@ -44,6 +35,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_indicator: true
   name: true
   status: true
   user_id: true

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.storage.inline
     - field.field.node.objective.body
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
@@ -118,7 +119,7 @@ content:
     weight: 12
     region: content
     settings:
-      form_mode: default
+      form_mode: inline
       override_labels: false
       label_singular: ''
       label_plural: ''
