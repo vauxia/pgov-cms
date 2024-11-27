@@ -9,5 +9,5 @@ help: ''
 new_revision: false
 revision_expose: false
 revision_log: false
-name_pattern: ''
+name_pattern: '[storage:field_president:entity:field_last_name]-[storage:field_vice_president:entity:field_last_name]'
 has_canonical: false
