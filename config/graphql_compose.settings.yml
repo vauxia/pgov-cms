@@ -175,9 +175,7 @@ field_config:
         enabled: true
     subgoal: {  }
   taxonomy_term:
-    topics:
-      field_tags:
-        enabled: true
+    topics: {  }
 settings:
   exclude_unpublished: true
   expose_entity_ids: false
