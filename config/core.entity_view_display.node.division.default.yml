@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.division.body
     - field.field.node.division.field_acronym
-    - field.field.node.division.field_id
     - field.field.node.division.field_link
     - field.field.node.division.field_logo
     - field.field.node.division.field_parent
@@ -62,4 +61,3 @@ content:
     region: content
 hidden:
   field_acronym: true
-  field_id: true

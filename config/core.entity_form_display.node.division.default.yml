@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.division.body
     - field.field.node.division.field_acronym
-    - field.field.node.division.field_id
     - field.field.node.division.field_link
     - field.field.node.division.field_logo
     - field.field.node.division.field_parent
@@ -39,14 +38,6 @@ content:
   field_acronym:
     type: string_textfield
     weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_id:
-    type: string_textfield
-    weight: 4
     region: content
     settings:
       size: 60

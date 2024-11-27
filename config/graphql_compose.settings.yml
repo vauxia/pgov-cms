@@ -159,8 +159,6 @@ field_config:
         enabled: true
       field_division:
         enabled: true
-      field_id:
-        enabled: true
       field_link:
         enabled: true
     subgoal: {  }
