@@ -135,17 +135,11 @@ field_config:
         enabled: true
       field_acronym:
         enabled: true
-      field_agency_code:
-        enabled: true
-      field_designation:
-        enabled: true
       field_id:
         enabled: true
       field_link:
         enabled: true
       field_logo:
-        enabled: true
-      field_topics:
         enabled: true
     goal:
       body:
