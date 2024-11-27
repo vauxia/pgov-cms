@@ -19,16 +19,20 @@ source:
 process:
   title: Name
   uid: constants/uid
-  field_id: Identifier
   field_link/uri: WebAddress
   field_acronym: Acronym
   field_parent:
     plugin: migration_lookup
     migration: divisions
     source: Division
+  field_logo:
+    plugin: migration_lookup
+    migration: media
+    source: Avatar
 destination:
   plugin: 'entity:node'
   default_bundle: division
 migration_dependencies:
   required:
-    - agencies
+    - divisions
+    - media
