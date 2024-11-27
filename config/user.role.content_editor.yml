@@ -11,7 +11,6 @@ dependencies:
     - node.type.agency
     - node.type.article
     - node.type.division
-    - node.type.fiscal_period
     - node.type.goal
     - node.type.objective
     - node.type.page
@@ -53,7 +52,6 @@ permissions:
   - 'create basic block content'
   - 'create division content'
   - 'create document media'
-  - 'create fiscal_period content'
   - 'create goal content'
   - 'create image media'
   - 'create media'
@@ -76,7 +74,6 @@ permissions:
   - 'delete any document media'
   - 'delete any document media revisions'
   - 'delete any file'
-  - 'delete any fiscal_period content'
   - 'delete any goal content'
   - 'delete any image media'
   - 'delete any image media revisions'
@@ -90,7 +87,6 @@ permissions:
   - 'delete any video media revisions'
   - 'delete article revisions'
   - 'delete division revisions'
-  - 'delete fiscal_period revisions'
   - 'delete goal revisions'
   - 'delete media'
   - 'delete objective revisions'
@@ -99,7 +95,6 @@ permissions:
   - 'delete own division content'
   - 'delete own document media'
   - 'delete own files'
-  - 'delete own fiscal_period content'
   - 'delete own goal content'
   - 'delete own image media'
   - 'delete own objective content'
@@ -118,7 +113,6 @@ permissions:
   - 'edit any basic block content'
   - 'edit any division content'
   - 'edit any document media'
-  - 'edit any fiscal_period content'
   - 'edit any goal content'
   - 'edit any image media'
   - 'edit any objective content'
@@ -130,7 +124,6 @@ permissions:
   - 'edit own article content'
   - 'edit own division content'
   - 'edit own document media'
-  - 'edit own fiscal_period content'
   - 'edit own goal content'
   - 'edit own image media'
   - 'edit own objective content'
@@ -151,7 +144,6 @@ permissions:
   - 'revert any video media revisions'
   - 'revert article revisions'
   - 'revert division revisions'
-  - 'revert fiscal_period revisions'
   - 'revert goal revisions'
   - 'revert objective revisions'
   - 'revert page revisions'
@@ -172,7 +164,6 @@ permissions:
   - 'view any video media revisions'
   - 'view article revisions'
   - 'view division revisions'
-  - 'view fiscal_period revisions'
   - 'view goal revisions'
   - 'view migration messages'
   - 'view objective revisions'
