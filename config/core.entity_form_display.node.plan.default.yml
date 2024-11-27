@@ -15,10 +15,37 @@ dependencies:
     - node.type.plan
   module:
     - datetime
+    - field_group
     - link
     - media_library
     - path
     - text
+third_party_settings:
+  field_group:
+    group_administrative:
+      children:
+        - field_administration
+        - field_agency
+        - field_fiscal_period
+      label: Administrative
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: inline
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+        description: ''
 id: node.plan.default
 targetEntityType: node
 bundle: plan
@@ -26,7 +53,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 7
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -41,30 +68,26 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_administration:
-    type: entity_reference_autocomplete
-    weight: 26
+    type: options_select
+    weight: 12
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_agency:
     type: options_select
-    weight: 3
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_date:
     type: datetime_default
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_division:
-    type: entity_reference_autocomplete
-    weight: 5
+    type: entity_reference_autocomplete_tags
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -74,24 +97,20 @@ content:
     third_party_settings: {  }
   field_file:
     type: media_library_widget
-    weight: 27
+    weight: 5
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_fiscal_period:
-    type: entity_reference_autocomplete
-    weight: 28
+    type: options_select
+    weight: 14
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_goals:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -122,7 +141,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
