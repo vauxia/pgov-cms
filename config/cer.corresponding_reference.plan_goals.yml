@@ -1,0 +1,14 @@
+uuid: 0ff99c0e-ac9a-4ace-b8ac-0ee35e4bd658
+langcode: en
+status: true
+dependencies: {  }
+id: plan_goals
+label: 'Goals in a plan'
+enabled: true
+first_field: field_plan
+second_field: field_goals
+add_direction: append
+bundles:
+  node:
+    - goal
+    - plan
