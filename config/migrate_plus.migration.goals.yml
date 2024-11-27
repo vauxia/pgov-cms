@@ -50,4 +50,5 @@ destination:
   default_bundle: goal
 migration_dependencies:
   required:
-    - agencies
+    - plans
+    - topics

@@ -2,8 +2,8 @@ id: goals
 label: "Strategic Portfolio: Goals"
 migration_dependencies:
   required:
-    - agencies
-    #- divisions
+    - plans
+    - topics
 source:
   plugin: airtable
   base: 'StratML x US Performance'
@@ -23,14 +23,6 @@ process:
   field_id: PgovID
   body/value: Description
   body/format: constants/body_format
-  #field_administration:
-    #plugin: entity_lookup
-    #entity_type: node
-    #bundle_key: type
-    #bundle: administration
-    #ignore_case: true
-    #value_key: title
-    #source: administration
   field_goal_type:
     plugin: static_map
     source: Alias
@@ -51,24 +43,3 @@ process:
     plugin: migration_lookup
     migration: topics
     source: Category
-  #agency_list:
-    #plugin: get
-    #source:
-      #- org_owner_1
-      #- org_owner_2
-      #- org_owner_3
-  #field_agencies:
-    #plugin: migration_lookup
-    #migration: agencies
-    #source: '@agency_list'
-    #no_stub: true
-  #field_divisions:
-    #plugin: migration_lookup
-    #migration: divisions
-    #source: associated_divisions
-    #no_stub: true
-  #field_coalition:
-    #plugin: migration_lookup
-    #migration: coalitions
-    #source: coalition_owner
-    #no_stub: true

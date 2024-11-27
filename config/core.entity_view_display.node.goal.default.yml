@@ -4,14 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.goal.body
-    - field.field.node.goal.field_agencies
-    - field.field.node.goal.field_coalition
-    - field.field.node.goal.field_divisions
     - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
     - field.field.node.goal.field_objectives
-    - field.field.node.goal.field_parent
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
     - node.type.goal
@@ -30,30 +26,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
-    region: content
-  field_agencies:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_coalition:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
-    region: content
-  field_divisions:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 105
     region: content
   field_fiscal_period:
     type: entity_reference_label
@@ -85,14 +57,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 111
-    region: content
-  field_parent:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 109
     region: content
   field_plan:
     type: entity_reference_label
