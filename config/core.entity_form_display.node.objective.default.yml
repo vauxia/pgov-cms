@@ -7,11 +7,8 @@ dependencies:
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
-    - field.field.node.objective.field_id
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
-    - field.field.node.objective.field_subgoal
-    - field.field.node.objective.field_subtitle
     - node.type.objective
   module:
     - path
@@ -63,14 +60,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_id:
-    type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_indicators:
     type: entity_reference_autocomplete
     weight: 26
@@ -86,24 +75,6 @@ content:
     weight: 12
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_subgoal:
-    type: entity_reference_autocomplete
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_subtitle:
-    type: string_textfield
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   path:
     type: path

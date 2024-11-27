@@ -1,5 +1,11 @@
 id: objectives
 label: "Strategic Portfolio: Objectives"
+migration_dependencies:
+  required:
+    - goals
+    - agencies
+    - divisions
+    - subdivisions
 source:
   plugin: airtable
   base: 'StratML x US Performance'
@@ -13,15 +19,9 @@ destination:
   default_bundle: objective
 process:
   title: Name
-  #field_subtitle: objective_subtitle
   uid: constants/uid
-  #field_id: id
   body/value: Description
   body/format: constants/body_format
-  field_agency:
-    plugin: migration_lookup
-    migration: agencies
-    source: Organization
   field_goal:
     plugin: migration_lookup
     migration: goals
@@ -33,7 +33,15 @@ process:
       'Strategic Objective': 'strategic'
       'Achievement': 'achievement'
     default_value: NULL
-  #field_subgoal:
-    #plugin: migration_lookup
-    #migration: goals
-    #source: associated_subgoal
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: Organization
+  field_division:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source:
+      - Division
+      - Subdivision
