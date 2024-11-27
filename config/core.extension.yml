@@ -46,6 +46,7 @@ module:
   graphql_examples: 0
   help: 0
   image: 0
+  inline_entity_form: 0
   jsonapi: 0
   jsonapi_defaults: 0
   jsonapi_extras: 0

@@ -34,6 +34,7 @@
         "drupal/graphql": "^4.9",
         "drupal/graphql_compose": "^2.2",
         "drupal/group": "^3.2",
+        "drupal/inline_entity_form": "^3.0@RC",
         "drupal/jsonapi_extras": "^3.26",
         "drupal/login_gov": "^1.1",
         "drupal/migrate_plus": "^6.0",
