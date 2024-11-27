@@ -1,0 +1,29 @@
+uuid: 47a9d312-6ecb-4639-8e44-f272682bb5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_indicators
+    - node.type.objective
+    - storage.storage_type.indicator
+id: node.objective.field_indicators
+field_name: field_indicators
+entity_type: node
+bundle: objective
+label: 'Performance indicators'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      indicator: indicator
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

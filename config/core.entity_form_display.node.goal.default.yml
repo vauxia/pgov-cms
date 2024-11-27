@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
+    - field.field.node.goal.field_objectives
     - field.field.node.goal.field_parent
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
@@ -77,6 +78,16 @@ content:
     weight: 5
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_objectives:
+    type: entity_reference_autocomplete
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }

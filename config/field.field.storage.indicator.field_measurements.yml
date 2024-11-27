@@ -1,0 +1,29 @@
+uuid: 1de1ecb3-3ca8-40c8-bb4c-9d3ccada55ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_measurements
+    - storage.storage_type.indicator
+    - storage.storage_type.measurement
+id: storage.indicator.field_measurements
+field_name: field_measurements
+entity_type: storage
+bundle: indicator
+label: Measurements
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      measurement: measurement
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -7,6 +7,7 @@ dependencies:
     - field.field.storage.indicator.field_divisions
     - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
+    - field.field.storage.indicator.field_measurements
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
     - field.field.storage.indicator.field_target
@@ -47,6 +48,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_measurements:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_objective:
     type: entity_reference_label

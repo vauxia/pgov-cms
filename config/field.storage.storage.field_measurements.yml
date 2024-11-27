@@ -1,0 +1,19 @@
+uuid: 58a41c58-f425-4a43-b2b9-36e9a9edf2db
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.field_measurements
+field_name: field_measurements
+entity_type: storage
+type: entity_reference
+settings:
+  target_type: storage
+module: core
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
