@@ -1,0 +1,14 @@
+uuid: 09677abf-48d2-4e01-ba4d-41da202ecc12
+langcode: en
+status: true
+dependencies: {  }
+id: goal_objectives
+label: 'Objectives for a goal'
+enabled: true
+first_field: field_goal
+second_field: field_objectives
+add_direction: append
+bundles:
+  node:
+    - goal
+    - objective

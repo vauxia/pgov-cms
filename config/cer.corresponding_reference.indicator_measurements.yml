@@ -1,0 +1,14 @@
+uuid: 4009ecf5-ce55-4e0e-ae46-23073c68a500
+langcode: en
+status: true
+dependencies: {  }
+id: indicator_measurements
+label: 'Measurements for a performance indicator'
+enabled: true
+first_field: field_indicator
+second_field: field_measurements
+add_direction: append
+bundles:
+  storage:
+    - indicator
+    - measurement
