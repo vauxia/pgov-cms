@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.agency.body
     - field.field.node.agency.field_acronym
-    - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
     - node.type.agency
@@ -54,4 +53,3 @@ content:
     region: content
 hidden:
   field_acronym: true
-  field_id: true

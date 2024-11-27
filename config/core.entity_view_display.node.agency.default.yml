@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.agency.body
     - field.field.node.agency.field_acronym
-    - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
     - node.type.agency
@@ -32,14 +31,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
-    region: content
-  field_id:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 104
     region: content
   field_link:
     type: link

@@ -2,6 +2,7 @@ id: divisions
 label: "Strategic Portfolio: Divisions"
 migration_dependencies:
   required:
+    - media
     - agencies
 source:
   plugin: airtable
@@ -16,23 +17,13 @@ destination:
 process:
   title: Name
   uid: constants/uid
-  # TODO maybe this comes from mission/narrative
-  #body/value: description
-  #body/format: constants/basic_html
-  field_id: Identifier
   field_link/uri: WebAddress
   field_acronym: Acronym
   field_parent:
     plugin: migration_lookup
     migration: agencies
     source: Organization
-  #field_topics:
-  #  plugin: migration_lookup
-  #  migration: topics
-  #  source: associated_tags
-  #  no_stub: true
-  #field_designation:
-    #plugin: migration_lookup
-    #migration: designations
-    #source: associated_tags
-    #no_stub: true
+  field_logo:
+    plugin: migration_lookup
+    migration: media
+    source: Avatar
