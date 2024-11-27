@@ -1,0 +1,30 @@
+uuid: d0527144-6640-4fd9-9516-301cdaaf0d2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - storage
+id: storage.field_dimension
+field_name: field_dimension
+entity_type: storage
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: pct
+      label: '%'
+    -
+      value: dollar
+      label: $
+    -
+      value: m
+      label: M
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

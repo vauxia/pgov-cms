@@ -1,0 +1,33 @@
+uuid: 617d6ed1-d3e4-48cb-82ec-342f3ec2dc9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - storage
+id: storage.field_keyness
+field_name: field_keyness
+entity_type: storage
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: key
+      label: Key
+    -
+      value: secondary
+      label: Secondary
+    -
+      value: ancillary
+      label: Ancillary
+    -
+      value: tbd
+      label: 'To be determined'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

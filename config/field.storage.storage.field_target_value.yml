@@ -1,0 +1,20 @@
+uuid: 66cf2643-1a9d-4215-a241-28b3f61c777f
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.field_target_value
+field_name: field_target_value
+entity_type: storage
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

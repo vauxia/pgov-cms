@@ -1,0 +1,13 @@
+uuid: f460d7df-5799-400b-b9cc-ae23cb64a151
+langcode: en
+status: true
+dependencies: {  }
+id: indicator
+label: 'Performance indicator'
+description: ''
+help: ''
+new_revision: false
+revision_expose: false
+revision_log: false
+name_pattern: ''
+has_canonical: false

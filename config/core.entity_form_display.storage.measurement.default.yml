@@ -1,0 +1,60 @@
+uuid: 4d5d8e4e-263d-4157-aeed-de96fbeab853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.measurement.field_fiscal_period
+    - field.field.storage.measurement.field_indicator
+    - field.field.storage.measurement.field_target_value
+    - field.field.storage.measurement.field_value
+    - storage.storage_type.measurement
+id: storage.measurement.default
+targetEntityType: storage
+bundle: measurement
+mode: default
+content:
+  field_fiscal_period:
+    type: entity_reference_autocomplete
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_indicator:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_target_value:
+    type: number
+    weight: 28
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_value:
+    type: number
+    weight: 27
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  status: true
+  user_id: true

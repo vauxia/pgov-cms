@@ -1,0 +1,13 @@
+uuid: d2c225dd-359f-4bc3-8903-0dc674b73e5f
+langcode: en
+status: true
+dependencies: {  }
+id: measurement
+label: Measurement
+description: ''
+help: ''
+new_revision: false
+revision_expose: false
+revision_log: false
+name_pattern: '[storage:field_indicator]: [storage:field_fiscal_period]'
+has_canonical: false

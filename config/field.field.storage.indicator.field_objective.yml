@@ -1,0 +1,29 @@
+uuid: 4890e2b7-d409-4428-9adf-fdf8706b620d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_objective
+    - node.type.objective
+    - storage.storage_type.indicator
+id: storage.indicator.field_objective
+field_name: field_objective
+entity_type: storage
+bundle: indicator
+label: Objective
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      objective: objective
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
