@@ -1,0 +1,11 @@
+uuid: 2e5231de-4afc-4f66-9e11-8b2d401c5559
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.inline
+label: Inline
+description: 'A form mode intended for use with Inline Entity Form'
+targetEntityType: node
+cache: true
