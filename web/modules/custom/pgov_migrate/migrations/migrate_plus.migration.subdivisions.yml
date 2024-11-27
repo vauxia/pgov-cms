@@ -2,7 +2,8 @@ id: subdivisions
 label: "Strategic Portfolio: Subdivisions"
 migration_dependencies:
   required:
-    - agencies
+    - divisions
+    - media
 source:
   plugin: airtable
   base: 'StratML x US Performance'
@@ -16,23 +17,13 @@ destination:
 process:
   title: Name
   uid: constants/uid
-  # TODO maybe this comes from mission/narrative
-  #body/value: description
-  #body/format: constants/basic_html
-  field_id: Identifier
   field_link/uri: WebAddress
   field_acronym: Acronym
   field_parent:
     plugin: migration_lookup
     migration: divisions
     source: Division
-  #field_topics:
-  #  plugin: migration_lookup
-  #  migration: topics
-  #  source: associated_tags
-  #  no_stub: true
-  #field_designation:
-    #plugin: migration_lookup
-    #migration: designations
-    #source: associated_tags
-    #no_stub: true
+  field_logo:
+    plugin: migration_lookup
+    migration: media
+    source: Avatar
