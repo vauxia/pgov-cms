@@ -5,14 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.goal.body
-    - field.field.node.goal.field_agencies
-    - field.field.node.goal.field_coalition
-    - field.field.node.goal.field_divisions
     - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
     - field.field.node.goal.field_objectives
-    - field.field.node.goal.field_parent
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
     - node.type.goal
@@ -31,33 +27,15 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_agencies:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_divisions:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
-  field_coalition: true
   field_fiscal_period: true
   field_goal_type: true
   field_id: true
   field_objectives: true
-  field_parent: true
   field_plan: true
   field_topics: true
