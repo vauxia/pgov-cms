@@ -8,10 +8,13 @@ dependencies:
     - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
     - field.field.storage.indicator.field_measurements
+    - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
+  module:
+    - text
 id: storage.indicator.default
 targetEntityType: storage
 bundle: indicator
@@ -55,6 +58,14 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_notes:
+    type: text_textarea
+    weight: 34
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_objective:

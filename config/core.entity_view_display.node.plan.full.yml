@@ -57,6 +57,15 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_goals:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_link:
     type: link
     label: hidden
@@ -72,11 +81,10 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
 hidden:
   field_administration: true
   field_file: true
   field_fiscal_period: true
-  field_goals: true
   field_id: true

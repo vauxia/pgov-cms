@@ -9,5 +9,5 @@ help: ''
 new_revision: false
 revision_expose: false
 revision_log: false
-name_pattern: ''
+name_pattern: '[storage:field_id] [storage:field_objective]'
 has_canonical: false

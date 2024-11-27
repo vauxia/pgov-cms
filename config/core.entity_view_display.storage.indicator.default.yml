@@ -8,12 +8,14 @@ dependencies:
     - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
     - field.field.storage.indicator.field_measurements
+    - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
     - options
+    - text
 id: storage.indicator.default
 targetEntityType: storage
 bundle: indicator
@@ -56,6 +58,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_objective:
     type: entity_reference_label

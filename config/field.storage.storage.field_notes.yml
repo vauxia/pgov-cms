@@ -1,0 +1,19 @@
+uuid: 69fe72e4-4ca9-488a-8a0a-73a53d7c961a
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+    - text
+id: storage.field_notes
+field_name: field_notes
+entity_type: storage
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
