@@ -1,0 +1,66 @@
+id: indicators
+label: "Strategic Portfolio: Performance Indicators"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'PerformanceIndicator'
+  constants:
+    uid: 1
+    body_format: basic_html
+    delimiter: '-'
+destination:
+  plugin: entity:storage
+  default_bundle: indicator
+process:
+  name: UnitOfMeasurement
+  user_id: constants/uid
+  field_id: PgovID
+  body/value: OtherInformation
+  body/format: constants/body_format
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: Organization
+  field_plan:
+    plugin: migration_lookup
+    migration: plans
+    source: StrategicPlan
+  field_objective:
+    plugin: migration_lookup
+    migration: objectives
+    source: Objective
+  field_divisions:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source: Subdivision
+  field_target:
+    plugin: static_map
+    source: TargetDirection
+    map:
+      'Increase': 'increase'
+      'Maintain at or above threshold': 'maintain_above'
+      'Decrease': 'decrease'
+      'Complete': 'complete'
+      'Maintain at or below threshold': 'maintain_below'
+    default_value: NULL
+  field_keyness:
+    plugin: static_map
+    source: Keyness
+    map:
+      'Strategic Objective': 'strategic'
+      'Achievement': 'achievement'
+      'Key' : 'key'
+      'Secondary': 'secondary'
+      'Ancillary': 'anciliary'
+      'To_Be_Determined': 'tbd'
+    default_value: NULL
+  field_dimension:
+    plugin: static_map
+    source: MeasurementDimension
+    map:
+      '%': 'pct'
+      '$': 'dollar'
+      'M' : 'm'
+    default_value: NULL

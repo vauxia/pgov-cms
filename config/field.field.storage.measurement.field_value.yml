@@ -1,0 +1,23 @@
+uuid: 7f671dc8-81d1-4f67-b4ea-42a478019d40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_value
+    - storage.storage_type.measurement
+id: storage.measurement.field_value
+field_name: field_value
+entity_type: storage
+bundle: measurement
+label: Value
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

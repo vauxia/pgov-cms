@@ -36,6 +36,7 @@ process:
     map:
       'Strategic Objective': strategic
       Achievement: achievement
+    default_value: null
 destination:
   plugin: 'entity:node'
   default_bundle: objective
