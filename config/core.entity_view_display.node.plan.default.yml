@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.plan.field_division
     - field.field.node.plan.field_file
     - field.field.node.plan.field_fiscal_period
+    - field.field.node.plan.field_goals
     - field.field.node.plan.field_id
     - field.field.node.plan.field_link
     - node.type.plan
@@ -79,6 +80,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_goals:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_id:
     type: string

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
+    - field.field.node.goal.field_objectives
     - field.field.node.goal.field_parent
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
@@ -56,6 +57,7 @@ hidden:
   field_fiscal_period: true
   field_goal_type: true
   field_id: true
+  field_objectives: true
   field_parent: true
   field_plan: true
   field_topics: true

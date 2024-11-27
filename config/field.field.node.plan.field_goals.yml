@@ -1,0 +1,29 @@
+uuid: 27e167c4-e514-430e-9693-23416710dbb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_goals
+    - node.type.goal
+    - node.type.plan
+id: node.plan.field_goals
+field_name: field_goals
+entity_type: node
+bundle: plan
+label: Goals
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      goal: goal
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_id
+    - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
     - field.field.node.objective.field_subgoal
     - field.field.node.objective.field_subtitle
@@ -67,6 +68,16 @@ content:
     weight: 3
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_indicators:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }

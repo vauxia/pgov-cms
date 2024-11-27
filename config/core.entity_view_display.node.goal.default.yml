@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.goal.field_fiscal_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
+    - field.field.node.goal.field_objectives
     - field.field.node.goal.field_parent
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
@@ -76,6 +77,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_objectives:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
     region: content
   field_parent:
     type: entity_reference_label

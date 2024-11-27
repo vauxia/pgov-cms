@@ -7,6 +7,7 @@ dependencies:
     - field.field.storage.indicator.field_divisions
     - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
+    - field.field.storage.indicator.field_measurements
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
     - field.field.storage.indicator.field_target
@@ -45,6 +46,16 @@ content:
     weight: 31
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_measurements:
+    type: entity_reference_autocomplete
+    weight: 33
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_objective:
     type: entity_reference_autocomplete
