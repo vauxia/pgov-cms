@@ -68,7 +68,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        formatter: open
+        formatter: closed
         description: ''
         required_fields: false
 id: node.objective.default

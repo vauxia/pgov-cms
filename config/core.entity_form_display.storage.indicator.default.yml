@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.storage.inline
+    - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
     - field.field.storage.indicator.field_id
@@ -22,15 +23,23 @@ targetEntityType: storage
 bundle: indicator
 mode: default
 content:
+  field_description:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_dimension:
     type: options_select
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_divisions:
     type: entity_reference_autocomplete_tags
-    weight: 3
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -40,7 +49,7 @@ content:
     third_party_settings: {  }
   field_id:
     type: string_textfield
-    weight: 4
+    weight: 3
     region: content
     settings:
       size: 60
@@ -100,18 +109,11 @@ content:
     third_party_settings: {  }
   field_target:
     type: options_select
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
-  name:
-    type: string_textfield
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
+  name: true
   status: true
   user_id: true
