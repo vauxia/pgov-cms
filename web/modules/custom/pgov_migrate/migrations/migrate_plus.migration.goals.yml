@@ -18,7 +18,10 @@ destination:
   plugin: entity:node
   default_bundle: goal
 process:
-  title: Name
+  title:
+    plugin: callback
+    callable: trim
+    source: Name
   uid: constants/uid
   field_id: PgovID
   body/value: Description

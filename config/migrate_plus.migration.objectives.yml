@@ -18,7 +18,10 @@ source:
     body_format: basic_html
     delimiter: '-'
 process:
-  title: Name
+  title:
+    plugin: callback
+    callable: trim
+    source: Name
   uid: constants/uid
   body/value: Description
   body/format: constants/body_format
@@ -37,14 +40,18 @@ process:
     plugin: migration_lookup
     migration: agencies
     source: Organization
+  _divisions:
+    plugin: callback
+    callable: array_filter
+    source:
+      - Division
+      - Subdivision
   field_division:
     plugin: migration_lookup
     migration:
       - divisions
       - subdivisions
-    source:
-      - Division
-      - Subdivision
+    source: '@divisions'
 destination:
   plugin: 'entity:node'
   default_bundle: objective
