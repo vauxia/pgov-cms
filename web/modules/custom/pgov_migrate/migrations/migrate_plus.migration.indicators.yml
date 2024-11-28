@@ -31,12 +31,18 @@ process:
     plugin: migration_lookup
     migration: objectives
     source: Objective
+  _divisions:
+    plugin: callback
+    callable: array_filter
+    source:
+      - Division
+      - Subdivision
   field_divisions:
     plugin: migration_lookup
     migration:
       - divisions
       - subdivisions
-    source: Subdivision
+    source: '@_divisions'
   field_target:
     plugin: static_map
     source: TargetDirection
