@@ -25,7 +25,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_fiscal_period:
     type: entity_reference_label
@@ -33,14 +33,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 106
+    weight: 3
     region: content
   field_goal_type:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 110
+    weight: 6
     region: content
   field_id:
     type: string
@@ -48,7 +48,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 104
+    weight: 2
     region: content
   field_objectives:
     type: entity_reference_label
@@ -56,7 +56,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 111
+    weight: 7
     region: content
   field_plan:
     type: entity_reference_label
@@ -64,7 +64,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 107
+    weight: 4
     region: content
   field_topics:
     type: entity_reference_label
@@ -72,11 +72,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 108
+    weight: 5
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden: {  }

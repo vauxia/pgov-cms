@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.plan.field_link
     - node.type.plan
   module:
-    - datetime
     - link
     - text
     - user
@@ -29,41 +28,16 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
     weight: 0
-    region: content
-  field_date:
-    type: datetime_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_division:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_goals:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: default
-      link: true
+      view_mode: full
+      link: false
     third_party_settings: {  }
-    weight: 5
+    weight: 2
     region: content
   field_link:
     type: link
@@ -75,14 +49,17 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 3
     region: content
 hidden:
   field_administration: true
+  field_agency: true
+  field_date: true
+  field_division: true
   field_file: true
   field_fiscal_period: true

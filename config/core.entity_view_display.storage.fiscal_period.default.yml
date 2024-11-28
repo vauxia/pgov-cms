@@ -9,7 +9,6 @@ dependencies:
     - storage.storage_type.fiscal_period
   module:
     - datetime_range
-    - options
 id: storage.fiscal_period.default
 targetEntityType: storage
 bundle: fiscal_period
@@ -17,29 +16,14 @@ mode: default
 content:
   field_date_range:
     type: daterange_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: html_date
       from_to: both
       separator: '-'
     third_party_settings: {  }
-    weight: -2
-    region: content
-  field_duration:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: -1
-    region: content
-  field_parent:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   name:
     type: string
@@ -47,7 +31,9 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -5
+    weight: 0
     region: content
 hidden:
+  field_duration: true
+  field_parent: true
   user_id: true

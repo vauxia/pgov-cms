@@ -14,95 +14,20 @@ dependencies:
     - field.field.node.plan.field_link
     - node.type.plan
   module:
-    - datetime
-    - link
-    - text
     - user
 id: node.plan.default
 targetEntityType: node
 bundle: plan
 mode: default
-content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_administration:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_date:
-    type: datetime_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_division:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_file:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_fiscal_period:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
-    region: content
-  field_goals:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
-    region: content
-  field_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-hidden: {  }
+content: {  }
+hidden:
+  body: true
+  field_administration: true
+  field_agency: true
+  field_date: true
+  field_division: true
+  field_file: true
+  field_fiscal_period: true
+  field_goals: true
+  field_link: true
+  links: true

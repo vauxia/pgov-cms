@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.goal.field_topics
     - node.type.goal
   module:
+    - options
     - text
     - user
 id: node.goal.full
@@ -25,17 +26,38 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 3
+    region: content
+  field_fiscal_period:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_goal_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_objectives:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  field_fiscal_period: true
-  field_goal_type: true
   field_id: true
-  field_objectives: true
   field_plan: true
   field_topics: true

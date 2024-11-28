@@ -42,9 +42,7 @@ third_party_settings:
         width_breakpoint: 640
     group_info:
       children:
-        - field_administration
-        - field_agency
-        - field_fiscal_period
+        - group_administrative
         - title
         - field_division
         - field_date
@@ -77,8 +75,31 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        formatter: open
+        formatter: closed
         description: ''
+        required_fields: true
+    group_administrative:
+      children:
+        - field_administration
+        - field_agency
+        - field_fiscal_period
+      label: Administrative
+      region: hidden
+      parent_name: group_info
+      weight: 33
+      format_type: html_element
+      format_settings:
+        classes: form-elements-inline
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
 id: node.plan.default
 targetEntityType: node
@@ -87,7 +108,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 19
+    weight: 37
     region: content
     settings:
       rows: 5
@@ -103,25 +124,25 @@ content:
     third_party_settings: {  }
   field_administration:
     type: options_select
-    weight: 13
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   field_agency:
     type: options_select
-    weight: 14
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   field_date:
     type: datetime_default
-    weight: 18
+    weight: 36
     region: content
     settings: {  }
     third_party_settings: {  }
   field_division:
     type: entity_reference_autocomplete_tags
-    weight: 17
+    weight: 35
     region: content
     settings:
       match_operator: CONTAINS
@@ -131,14 +152,14 @@ content:
     third_party_settings: {  }
   field_file:
     type: media_library_widget
-    weight: 20
+    weight: 38
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_fiscal_period:
     type: options_select
-    weight: 15
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -162,7 +183,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 21
+    weight: 39
     region: content
     settings:
       placeholder_url: ''
@@ -183,7 +204,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 16
+    weight: 34
     region: content
     settings:
       size: 60
