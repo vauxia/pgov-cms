@@ -9,7 +9,7 @@ field_name: field_value
 entity_type: storage
 type: decimal
 settings:
-  precision: 10
+  precision: 20
   scale: 2
 module: core
 locked: false
