@@ -1,0 +1,52 @@
+id: plan_files
+label: "StratML: Strategic Plan Files"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'StrategicPlan'
+  filter: 'File!=""'
+  constants:
+    uid: 1
+    file_destination: 'public://documents/'
+  keys:
+    id:
+      plugin: extract
+      source: File
+      index:
+        - 0
+        - id
+destination:
+  plugin: entity:file
+process:
+  uid: constants/uid
+  # Path to file is available is at File[0][url].
+  source_full_path:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - url
+  # Path to Mime type is at File[0][mimetype].
+  filemime:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - type
+  # Filename is in File[0][filename].
+  filename:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - filename
+  destination_full_path:
+    plugin: concat
+    source:
+      - constants/file_destination
+      - '@filename'
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@destination_full_path'

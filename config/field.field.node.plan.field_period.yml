@@ -1,15 +1,15 @@
-uuid: 7c4900e1-0ba4-4a57-84e7-7523af08f8ac
+uuid: 47f66c7a-e49c-49d2-bef1-fda2929d47ec
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_fiscal_period
-    - node.type.report
-    - storage.storage_type.fiscal_period
-id: node.report.field_fiscal_period
-field_name: field_fiscal_period
+    - field.storage.node.field_period
+    - node.type.plan
+    - storage.storage_type.period
+id: node.plan.field_period
+field_name: field_period
 entity_type: node
-bundle: report
+bundle: plan
 label: 'Fiscal period'
 description: ''
 required: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:storage'
   handler_settings:
     target_bundles:
-      fiscal_period: fiscal_period
+      period: period
     sort:
       field: _none
       direction: ASC

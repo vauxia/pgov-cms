@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.report.field_administration
     - field.field.node.report.field_agency
     - field.field.node.report.field_divisions
-    - field.field.node.report.field_fiscal_period
+    - field.field.node.report.field_period
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
     - node.type.report
@@ -51,7 +51,7 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
-  field_fiscal_period:
+  field_period:
     type: entity_reference_label
     label: above
     settings:

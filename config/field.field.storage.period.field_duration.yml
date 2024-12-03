@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.storage.field_duration
-    - storage.storage_type.fiscal_period
+    - storage.storage_type.period
   module:
     - options
-id: storage.fiscal_period.field_duration
+id: storage.period.field_duration
 field_name: field_duration
 entity_type: storage
-bundle: fiscal_period
+bundle: period
 label: Duration
 description: ''
 required: false

@@ -24,8 +24,8 @@ process:
     plugin: migration_lookup
     migration: indicators
     source: PerformanceIndicator
-  field_fiscal_period/target_id:
-    plugin: fiscal_period_lookup
+  field_period/target_id:
+    plugin: period_lookup
     source:
       - StartDate
       - EndDate

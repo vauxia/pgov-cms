@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.storage.field_date_range
-    - storage.storage_type.fiscal_period
+    - storage.storage_type.period
   module:
     - datetime_range
-id: storage.fiscal_period.field_date_range
+id: storage.period.field_date_range
 field_name: field_date_range
 entity_type: storage
-bundle: fiscal_period
+bundle: period
 label: 'Date range'
 description: ''
 required: false

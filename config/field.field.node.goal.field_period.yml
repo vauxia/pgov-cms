@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_fiscal_period
+    - field.storage.node.field_period
     - node.type.goal
-    - storage.storage_type.fiscal_period
-id: node.goal.field_fiscal_period
-field_name: field_fiscal_period
+    - storage.storage_type.period
+id: node.goal.field_period
+field_name: field_period
 entity_type: node
 bundle: goal
 label: 'Fiscal period'
@@ -20,7 +20,7 @@ settings:
   handler: 'default:storage'
   handler_settings:
     target_bundles:
-      fiscal_period: fiscal_period
+      period: period
     sort:
       field: _none
       direction: ASC

@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
     - field.field.node.plan.field_file
-    - field.field.node.plan.field_fiscal_period
+    - field.field.node.plan.field_period
     - field.field.node.plan.field_goals
     - field.field.node.plan.field_link
     - node.type.plan
@@ -82,7 +82,7 @@ third_party_settings:
       children:
         - field_administration
         - field_agency
-        - field_fiscal_period
+        - field_period
       label: Administrative
       region: hidden
       parent_name: group_info
@@ -157,7 +157,7 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_fiscal_period:
+  field_period:
     type: options_select
     weight: 22
     region: content

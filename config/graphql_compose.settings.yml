@@ -69,7 +69,7 @@ entity_config:
       enabled: false
     division:
       enabled: false
-    fiscal_period:
+    period:
       enabled: false
     goal:
       enabled: true

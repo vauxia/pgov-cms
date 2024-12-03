@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.inline
     - field.field.node.goal.body
-    - field.field.node.goal.field_fiscal_period
+    - field.field.node.goal.field_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
     - field.field.node.goal.field_objectives
@@ -30,7 +30,7 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-  field_fiscal_period:
+  field_period:
     type: options_select
     weight: 3
     region: content

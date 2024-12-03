@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.goal.body
-    - field.field.node.goal.field_fiscal_period
+    - field.field.node.goal.field_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
     - field.field.node.goal.field_objectives
@@ -27,7 +27,7 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_fiscal_period:
+  field_period:
     type: entity_reference_label
     label: above
     settings:

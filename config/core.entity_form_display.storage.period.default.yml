@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.storage.fiscal_period.field_date_range
-    - field.field.storage.fiscal_period.field_duration
-    - field.field.storage.fiscal_period.field_parent
-    - storage.storage_type.fiscal_period
+    - field.field.storage.period.field_date_range
+    - field.field.storage.period.field_duration
+    - field.field.storage.period.field_parent
+    - storage.storage_type.period
   module:
     - datetime_range
-id: storage.fiscal_period.default
+id: storage.period.default
 targetEntityType: storage
-bundle: fiscal_period
+bundle: period
 mode: default
 content:
   field_date_range:

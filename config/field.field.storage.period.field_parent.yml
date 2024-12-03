@@ -1,16 +1,15 @@
-uuid: 47f66c7a-e49c-49d2-bef1-fda2929d47ec
+uuid: f24eef3f-7977-46ac-9805-1b1d3cbd6f75
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_fiscal_period
-    - node.type.plan
-    - storage.storage_type.fiscal_period
-id: node.plan.field_fiscal_period
-field_name: field_fiscal_period
-entity_type: node
-bundle: plan
-label: 'Fiscal period'
+    - field.storage.storage.field_parent
+    - storage.storage_type.period
+id: storage.period.field_parent
+field_name: field_parent
+entity_type: storage
+bundle: period
+label: Parent
 description: ''
 required: false
 translatable: false
@@ -20,7 +19,7 @@ settings:
   handler: 'default:storage'
   handler_settings:
     target_bundles:
-      fiscal_period: fiscal_period
+      period: period
     sort:
       field: _none
       direction: ASC

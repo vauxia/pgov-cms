@@ -1,0 +1,22 @@
+id: plan_media
+label: "StratML: Strategic Plan Media"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'StrategicPlan'
+  filter: 'File!=""'
+  constants:
+    uid: 1
+migration_dependencies:
+  required:
+    - plan_files
+destination:
+  plugin: entity:media
+  default_bundle: document
+process:
+  name: Name
+  uid: constants/uid
+  field_media_file/target_id:
+    plugin: migration_lookup
+    migration: plan_files
+    source: airtable_id

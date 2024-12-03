@@ -2,7 +2,7 @@ _meta:
   version: '1.0'
   entity_type: storage
   uuid: d1d23a9a-bf63-4cdf-ba57-27c0fa4d6774
-  bundle: fiscal_period
+  bundle: period
   default_langcode: en
   depends:
     2eaf1c5c-eca8-4c53-ae45-b9133e94b10b: storage

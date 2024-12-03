@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.storage.measurement.field_fiscal_period
+    - field.field.storage.measurement.field_period
     - field.field.storage.measurement.field_indicator
     - field.field.storage.measurement.field_target_value
     - field.field.storage.measurement.field_value
@@ -13,7 +13,7 @@ targetEntityType: storage
 bundle: measurement
 mode: default
 content:
-  field_fiscal_period:
+  field_period:
     type: entity_reference_label
     label: hidden
     settings:

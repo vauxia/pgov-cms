@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.storage.inline
-    - field.field.storage.measurement.field_fiscal_period
+    - field.field.storage.measurement.field_period
     - field.field.storage.measurement.field_indicator
     - field.field.storage.measurement.field_target_value
     - field.field.storage.measurement.field_value
@@ -14,7 +14,7 @@ targetEntityType: storage
 bundle: measurement
 mode: inline
 content:
-  field_fiscal_period:
+  field_period:
     type: options_select
     weight: 0
     region: content
