@@ -20,5 +20,8 @@ drush migrate:import missions
 drush migrate:import plans
 drush migrate:import goals
 drush migrate:import objectives
+drush migrate:import reports
+drush migrate:import indicators
+drush migrate:import measurements
 
 drush migrate:status
