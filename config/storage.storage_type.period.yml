@@ -2,8 +2,8 @@ uuid: 9628299a-9b28-4fce-9713-49f8a465fa12
 langcode: en
 status: true
 dependencies: {  }
-id: fiscal_period
-label: 'Fiscal period'
+id: period
+label: 'Time period'
 description: 'A fiscal period that applies to goals and plans. '
 help: ''
 new_revision: false
