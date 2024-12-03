@@ -12,17 +12,13 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: quarter
-      label: 'Fiscal quarter'
-    -
-      value: 1_year
+      value: fy
       label: 'Fiscal year'
     -
-      value: 2_year
-      label: '2 Years'
+      label: 'Fiscal quarter'
     -
-      value: 4_year
-      label: '4 Years'
+      value: year
+      label: 'Calendar year'
     -
       value: other
       label: Other

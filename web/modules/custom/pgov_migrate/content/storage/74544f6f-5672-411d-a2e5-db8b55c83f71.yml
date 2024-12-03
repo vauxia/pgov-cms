@@ -31,7 +31,7 @@ default:
       end_value: '2023-09-30'
   field_duration:
     -
-      value: 2_year
+      value: fy
   field_parent:
     -
       entity: c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb
