@@ -11,7 +11,7 @@ id: node.plan.field_date
 field_name: field_date
 entity_type: node
 bundle: plan
-label: Date
+label: 'Publish date'
 description: ''
 required: false
 translatable: false

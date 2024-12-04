@@ -67,9 +67,9 @@ content:
     region: content
     settings:
       form_mode: inline
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
+      override_labels: true
+      label_singular: measurement
+      label_plural: measurements
       allow_new: true
       allow_existing: false
       match_operator: CONTAINS

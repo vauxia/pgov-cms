@@ -7,9 +7,9 @@ dependencies:
     - field.field.node.report.field_administration
     - field.field.node.report.field_agency
     - field.field.node.report.field_divisions
-    - field.field.node.report.field_period
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
+    - field.field.node.report.field_period
     - node.type.report
   module:
     - link
@@ -22,10 +22,10 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 6
+    weight: 7
     region: content
     settings:
-      rows: 9
+      rows: 5
       summary_rows: 3
       placeholder: ''
       show_summary: false
@@ -37,24 +37,20 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_administration:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_agency:
     type: options_select
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_divisions:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -66,7 +62,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 7
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -74,7 +70,7 @@ content:
     third_party_settings: {  }
   field_period:
     type: options_select
-    weight: 3
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }

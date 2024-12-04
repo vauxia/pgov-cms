@@ -10,9 +10,9 @@ dependencies:
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
     - field.field.node.plan.field_file
-    - field.field.node.plan.field_period
     - field.field.node.plan.field_goals
     - field.field.node.plan.field_link
+    - field.field.node.plan.field_period
     - node.type.plan
   module:
     - datetime
@@ -44,11 +44,10 @@ third_party_settings:
       children:
         - group_administrative
         - title
-        - field_division
         - field_date
+        - field_link
         - body
         - field_file
-        - field_link
       label: 'Plan information'
       region: content
       parent_name: group_tabs
@@ -82,14 +81,15 @@ third_party_settings:
       children:
         - field_administration
         - field_agency
+        - field_division
         - field_period
       label: Administrative
-      region: hidden
+      region: content
       parent_name: group_info
-      weight: 33
+      weight: 21
       format_type: html_element
       format_settings:
-        classes: form-elements-inline
+        classes: form--inline
         show_empty_fields: false
         id: ''
         label_as_html: false
@@ -108,11 +108,11 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 37
+    weight: 25
     region: content
     settings:
       rows: 5
-      summary_rows: 3
+      summary_rows: 2
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
@@ -136,23 +136,19 @@ content:
     third_party_settings: {  }
   field_date:
     type: datetime_default
-    weight: 36
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
   field_division:
-    type: entity_reference_autocomplete_tags
-    weight: 35
+    type: options_select
+    weight: 22
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_file:
     type: media_library_widget
-    weight: 38
+    weight: 26
     region: content
     settings:
       media_types: {  }
@@ -177,7 +173,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 39
+    weight: 24
     region: content
     settings:
       placeholder_url: ''
@@ -185,7 +181,7 @@ content:
     third_party_settings: {  }
   field_period:
     type: options_select
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -204,7 +200,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 34
+    weight: 22
     region: content
     settings:
       size: 60

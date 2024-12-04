@@ -4,11 +4,38 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.storage.inline
-    - field.field.storage.measurement.field_period
     - field.field.storage.measurement.field_indicator
+    - field.field.storage.measurement.field_period
     - field.field.storage.measurement.field_target_value
     - field.field.storage.measurement.field_value
     - storage.storage_type.measurement
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_row:
+      children:
+        - field_period
+        - field_target_value
+        - field_value
+      label: Row
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: form--inline
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
 id: storage.measurement.inline
 targetEntityType: storage
 bundle: measurement
@@ -16,20 +43,20 @@ mode: inline
 content:
   field_period:
     type: options_select
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_target_value:
     type: number
-    weight: 1
+    weight: 2
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_value:
     type: number
-    weight: 2
+    weight: 3
     region: content
     settings:
       placeholder: ''
