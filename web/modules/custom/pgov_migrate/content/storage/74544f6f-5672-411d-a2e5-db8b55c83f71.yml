@@ -4,8 +4,6 @@ _meta:
   uuid: 74544f6f-5672-411d-a2e5-db8b55c83f71
   bundle: period
   default_langcode: en
-  depends:
-    c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb: storage
 default:
   revision_uid:
     -
@@ -32,6 +30,3 @@ default:
   field_duration:
     -
       value: fy
-  field_parent:
-    -
-      entity: c5bdfcf5-e32d-4b5a-a4c3-cfeec88d9acb

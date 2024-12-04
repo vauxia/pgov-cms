@@ -15,6 +15,7 @@ settings:
       value: fy
       label: 'Fiscal year'
     -
+      value: fiscal_quarter
       label: 'Fiscal quarter'
     -
       value: year

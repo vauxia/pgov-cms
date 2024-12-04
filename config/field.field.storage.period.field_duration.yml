@@ -11,7 +11,7 @@ id: storage.period.field_duration
 field_name: field_duration
 entity_type: storage
 bundle: period
-label: Duration
+label: 'Duration type'
 description: ''
 required: false
 translatable: false

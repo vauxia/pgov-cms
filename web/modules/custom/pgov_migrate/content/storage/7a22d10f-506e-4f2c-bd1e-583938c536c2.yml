@@ -4,8 +4,6 @@ _meta:
   uuid: 7a22d10f-506e-4f2c-bd1e-583938c536c2
   bundle: period
   default_langcode: en
-  depends:
-    2eaf1c5c-eca8-4c53-ae45-b9133e94b10b: storage
 default:
   revision_uid:
     -
@@ -32,6 +30,3 @@ default:
   field_duration:
     -
       value: quarter
-  field_parent:
-    -
-      entity: 2eaf1c5c-eca8-4c53-ae45-b9133e94b10b
