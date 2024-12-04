@@ -16,8 +16,34 @@ dependencies:
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
+    - field_group
     - inline_entity_form
     - text
+third_party_settings:
+  field_group:
+    group_details:
+      children:
+        - field_keyness
+        - field_dimension
+        - field_target
+      label: Details
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: form--inline
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
 id: storage.indicator.inline
 targetEntityType: storage
 bundle: indicator
@@ -57,13 +83,13 @@ content:
     third_party_settings: {  }
   field_keyness:
     type: options_select
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_measurements:
     type: inline_entity_form_complex
-    weight: 6
+    weight: 7
     region: content
     settings:
       form_mode: inline
@@ -81,7 +107,7 @@ content:
     third_party_settings: {  }
   field_target:
     type: options_select
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

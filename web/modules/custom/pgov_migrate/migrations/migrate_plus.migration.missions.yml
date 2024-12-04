@@ -24,6 +24,10 @@ process:
     plugin: migration_lookup
     migration: subdivisions
     source: Subdivision
+  _report_nid:
+    plugin: migration_lookup
+    migration: reports
+    source: PerformancePlanOrReport
   nid:
     -
       plugin: null_coalesce
@@ -31,6 +35,7 @@ process:
         - '@_agency_nid'
         - '@_division_nid'
         - '@_subdivision_nid'
+        - '@_report_nid'
     -
       plugin: extract
       index:

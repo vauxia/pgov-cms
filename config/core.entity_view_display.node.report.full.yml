@@ -5,12 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.report.body
-    - field.field.node.report.field_administration
-    - field.field.node.report.field_agency
-    - field.field.node.report.field_divisions
-    - field.field.node.report.field_period
+    - field.field.node.report.field_file
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
+    - field.field.node.report.field_period
+    - field.field.node.report.field_plan
     - node.type.report
   module:
     - link
@@ -20,22 +19,6 @@ targetEntityType: node
 bundle: report
 mode: full
 content:
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_divisions:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
-    region: content
   field_link:
     type: link
     label: hidden
@@ -55,7 +38,8 @@ content:
     region: content
 hidden:
   body: true
-  field_administration: true
+  field_file: true
   field_goals: true
   field_period: true
+  field_plan: true
   search_api_excerpt: true

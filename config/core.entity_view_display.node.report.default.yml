@@ -4,12 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.report.body
-    - field.field.node.report.field_administration
-    - field.field.node.report.field_agency
-    - field.field.node.report.field_divisions
-    - field.field.node.report.field_period
+    - field.field.node.report.field_file
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
+    - field.field.node.report.field_period
+    - field.field.node.report.field_plan
     - node.type.report
   module:
     - link
@@ -27,29 +26,13 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_administration:
+  field_file:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 104
-    region: content
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_divisions:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 105
+    weight: 108
     region: content
   field_goals:
     type: entity_reference_label
@@ -78,6 +61,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_plan:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
     region: content
   links:
     settings: {  }

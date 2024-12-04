@@ -21,32 +21,20 @@ source:
 process:
   title: Name
   uid: constants/uid
-  body/value: Description
-  body/format: constants/body_format
   field_link/uri: Source
-  field_administration:
+  field_plan:
     plugin: migration_lookup
-    migration: administrations
-    source: Administration
-  field_agency:
+    migration: plans
+    source: StrategicPlan
+  field_goals:
     plugin: migration_lookup
-    migration: agencies
-    source: Organization
-  field_divisions:
-    plugin: migration_lookup
-    migration: divisions
-    source:
-      - Division
-      - Subdivision
+    migration: goals
+    source: Goals
   field_period/target_id:
     plugin: period_lookup
     source:
       - StartDate
       - EndDate
-  field_goals:
-    plugin: migration_lookup
-    migration: goals
-    source: Goals
 destination:
   plugin: 'entity:node'
   default_bundle: report
