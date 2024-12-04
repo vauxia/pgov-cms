@@ -42,6 +42,9 @@ class FiscalPeriodLookup extends EntityLookup {
    * {@inheritdoc}
    */
   protected function query($value) {
+    if (empty($value[0]) || empty($value[1])) {
+      return NULL;
+    }
     $query = $this->entityTypeManager->getStorage($this->lookupEntityType)
       ->getQuery()
       ->accessCheck(FALSE)
@@ -51,7 +54,7 @@ class FiscalPeriodLookup extends EntityLookup {
 
     $results = $query->execute();
     if (empty($results)) {
-      return NULL;
+      throw new MigrateException(sprintf('No fiscal period exists for %s - %s.', $value[0], $value[1]));
     }
 
     return reset($results);
