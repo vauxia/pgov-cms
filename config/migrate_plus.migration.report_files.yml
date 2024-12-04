@@ -1,18 +1,18 @@
-uuid: 39dfdb97-79e2-4a60-8539-aa8504cd17f4
+uuid: 2954936d-755c-418a-93e4-d6373b7f714a
 langcode: en
 status: true
 dependencies: {  }
-id: plan_files
+id: report_files
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags: null
 migration_group: null
-label: 'StratML: Strategic Plan Files'
+label: 'StratML: Performance Plan or Report Files'
 source:
   plugin: airtable
   base: 'StratML x US Performance'
-  table: StrategicPlan
+  table: PerformancePlanOrReport
   filter: 'File!=""'
   constants:
     uid: 1

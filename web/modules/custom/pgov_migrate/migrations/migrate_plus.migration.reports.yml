@@ -33,7 +33,8 @@ process:
     source:
       - StartDate
       - EndDate
-  #field_file:
-  #  plugin: migration_lookup
-  #  migration: plan_media
-  #  source: File
+  field_file:
+    plugin: migration_lookup
+    migration: report_media
+    source: airtable_id
+    no_stub: true

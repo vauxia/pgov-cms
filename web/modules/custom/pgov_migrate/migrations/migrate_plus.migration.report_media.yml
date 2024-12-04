@@ -1,15 +1,15 @@
-id: plan_media
-label: "StratML: Strategic Plan Media"
+id: report_media
+label: "StratML: Performance Plan Or Report Media"
 source:
   plugin: airtable
   base: 'StratML x US Performance'
-  table: 'StrategicPlan'
+  table: 'PerformancePlanOrReport'
   filter: 'File!=""'
   constants:
     uid: 1
 migration_dependencies:
   required:
-    - plan_files
+    - report_files
 destination:
   plugin: entity:media
   default_bundle: document
@@ -18,5 +18,5 @@ process:
   uid: constants/uid
   field_media_document/target_id:
     plugin: migration_lookup
-    migration: plan_files
+    migration: report_files
     source: airtable_id

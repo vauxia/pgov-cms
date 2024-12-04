@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.inline
+    - core.entity_form_mode.storage.inline
     - field.field.node.objective.body
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
@@ -46,7 +47,7 @@ content:
     weight: 5
     region: content
     settings:
-      form_mode: default
+      form_mode: inline
       override_labels: true
       label_singular: 'performance indicators'
       label_plural: 'performance indicator'
