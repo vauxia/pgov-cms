@@ -27,7 +27,8 @@ hidden:
   field_date: true
   field_division: true
   field_file: true
-  field_period: true
   field_goals: true
   field_link: true
+  field_period: true
   links: true
+  search_api_excerpt: true

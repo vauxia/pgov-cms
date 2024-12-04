@@ -93,12 +93,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_period:
-    type: options_select
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_goal_type:
     type: options_select
     weight: 4
@@ -130,6 +124,12 @@ content:
       collapsed: false
       revision: false
       removed_reference: optional
+    third_party_settings: {  }
+  field_period:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_plan:
     type: options_select

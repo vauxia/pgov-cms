@@ -17,5 +17,6 @@ hidden:
   created: true
   field_media_oembed_video: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

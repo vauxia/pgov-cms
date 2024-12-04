@@ -157,12 +157,6 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_period:
-    type: options_select
-    weight: 22
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_goals:
     type: inline_entity_form_complex
     weight: 2
@@ -188,6 +182,12 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_period:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path

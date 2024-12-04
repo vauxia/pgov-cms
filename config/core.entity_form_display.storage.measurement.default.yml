@@ -13,12 +13,6 @@ targetEntityType: storage
 bundle: measurement
 mode: default
 content:
-  field_period:
-    type: options_select
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_indicator:
     type: entity_reference_autocomplete
     weight: 0
@@ -28,6 +22,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_period:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_target_value:
     type: number

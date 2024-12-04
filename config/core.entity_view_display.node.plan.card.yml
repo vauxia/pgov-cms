@@ -76,5 +76,6 @@ content:
 hidden:
   field_administration: true
   field_file: true
-  field_period: true
   field_goals: true
+  field_period: true
+  search_api_excerpt: true

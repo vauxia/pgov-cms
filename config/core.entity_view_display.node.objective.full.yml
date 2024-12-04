@@ -48,3 +48,4 @@ hidden:
   field_goal: true
   field_objective_type: true
   links: true
+  search_api_excerpt: true

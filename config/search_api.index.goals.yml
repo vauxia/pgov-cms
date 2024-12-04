@@ -6,9 +6,8 @@ dependencies:
     - field.storage.node.field_topics
     - search_api.server.database_search
   module:
-    - taxonomy
-    - search_api
     - node
+    - taxonomy
 id: goals
 name: Goals
 description: ''
@@ -17,7 +16,7 @@ field_settings:
   aggregated_field:
     label: 'Aggregated field'
     property_path: aggregated_field
-    type: string
+    type: text
     configuration:
       type: union
       fields:
@@ -28,7 +27,7 @@ field_settings:
     label: 'Topics » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_topics:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_topics
@@ -55,6 +54,7 @@ tracker_settings:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: true
   track_changes_in_references: true
 server: database_search

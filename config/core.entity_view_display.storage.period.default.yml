@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.storage.period.field_date_range
     - field.field.storage.period.field_duration
-    - field.field.storage.period.field_parent
     - storage.storage_type.period
   module:
     - datetime_range
@@ -35,5 +34,5 @@ content:
     region: content
 hidden:
   field_duration: true
-  field_parent: true
+  search_api_excerpt: true
   user_id: true

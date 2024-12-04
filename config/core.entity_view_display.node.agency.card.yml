@@ -34,3 +34,4 @@ hidden:
   body: true
   field_acronym: true
   field_link: true
+  search_api_excerpt: true
