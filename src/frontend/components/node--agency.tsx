@@ -1,14 +1,19 @@
 import Image from "next/image";
 import { DrupalNode } from "next-drupal";
 import { absoluteUrl, formatDate } from "lib/utils";
+import { USABreadcrumb } from "./usa--breadcrumb";
 
 interface NodeAgencyProps {
   node: DrupalNode;
 }
 
 export function NodeAgency({ node, ...props }: NodeAgencyProps) {
+  const breadcrumbLinks = [
+    {label: "Agencies", href: "/agencies"},
+  ];
   return (
     <>
+      <USABreadcrumb links={breadcrumbLinks} activeItem={node.field_acronym} />
       <div className="grid-row">
         <div className="desktop:grid-col-3">
           {node.field_logo && (
@@ -30,7 +35,7 @@ export function NodeAgency({ node, ...props }: NodeAgencyProps) {
             data-heading-elements=""
           >
             <nav aria-label="On this page" className="usa-in-page-nav__nav">
-              <h4 className="usa-in-page-nav__heading" tabIndex="0">
+              <h4 className="usa-in-page-nav__heading" tabIndex={0}>
                 On this page
               </h4>
               <ul className="usa-in-page-nav__list">

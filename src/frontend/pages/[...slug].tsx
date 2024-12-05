@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { GetStaticPathsResult, GetStaticPropsResult } from "next";
 import Head from "next/head";
 import { DrupalNode } from "next-drupal";
@@ -6,9 +7,11 @@ import { drupal } from "lib/drupal";
 import { NodeArticle } from "components/node--article";
 import { NodeBasicPage } from "components/node--basic-page";
 import { NodeAgency } from "../components/node--agency";
+import { NodeGoal } from "components/node--goal";
 import { Layout } from "components/layout";
+import { USABreadcrumb } from "components/usa--breadcrumb";
 
-const RESOURCE_TYPES = ["node--page", "node--article", "node--agency"];
+const RESOURCE_TYPES = ["node--page", "node--article", "node--agency", "node--goal"];
 
 interface NodePageProps {
   resource: DrupalNode;
@@ -26,6 +29,7 @@ export default function NodePage({ resource }: NodePageProps) {
       {resource.type === "node--page" && <NodeBasicPage node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
       {resource.type === "node--agency" && <NodeAgency node={resource} />}
+      {resource.type === "node--goal" && <NodeGoal node={resource} />}
     </Layout>
   );
 }
@@ -59,7 +63,11 @@ export async function getStaticProps(
     params = {
       include: "field_logo.field_media_image,field_topics",
     };
-  }
+  } else if (type === "node--goal") {
+  params = {
+    include: "field_plan, field_topics, field_plan.field_agency, field_plan.field_agency.field_logo.field_media_image",
+  };
+}
 
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,

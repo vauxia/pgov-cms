@@ -2,10 +2,10 @@ import Head from "next/head";
 import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
 import GoalsSearchView from "components/view--goal-search";
-import { NodeGoal, ViewFilter } from "lib/types";
+import { NodeGoalProps, ViewFilter } from "lib/types";
 
 interface IndexPageProps {
-  goals: Array<NodeGoal>,
+  goals: Array<NodeGoalProps>,
   description: string,
   filters: Array<ViewFilter>,
   total: number,
@@ -39,6 +39,7 @@ export const getStaticProps = async () => {
                 ... on NodeAgency {
                   id
                   title
+                  path
                 }
               }
               topics {

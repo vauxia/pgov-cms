@@ -1,0 +1,38 @@
+import * as React from "react";
+
+export function USAInPageNav({links}) {
+  
+
+
+  return (
+    <aside
+      className="usa-in-page-nav"
+      aria-label="On this page"
+      data-scroll-offset="-120"
+      data-root-margin="48px 0px -90% 0px"
+      data-threshold="1"
+      data-heading-elements=""
+    >
+      <nav aria-label="On this page" className="usa-in-page-nav__nav">
+        <h4 className="usa-in-page-nav__heading" tabIndex={0}>
+          On this page
+        </h4>
+        <ul className="usa-in-page-nav__list">
+          {links.map((link) => (
+            <li key={link.href} className="usa-in-page-nav__item usa-in-page-nav__item--primary">
+              <a
+                href={link.href}
+                className="usa-in-page-nav__link"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  );
+}
+
+
+
