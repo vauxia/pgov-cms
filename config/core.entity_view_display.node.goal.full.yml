@@ -5,18 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.goal.body
-    - field.field.node.goal.field_administration
-    - field.field.node.goal.field_agencies
-    - field.field.node.goal.field_coalition
-    - field.field.node.goal.field_divisions
-    - field.field.node.goal.field_fiscal_cycle
+    - field.field.node.goal.field_period
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_id
-    - field.field.node.goal.field_parent
+    - field.field.node.goal.field_objectives
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
     - node.type.goal
   module:
+    - options
     - text
     - user
 id: node.goal.full
@@ -29,49 +26,39 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 3
     region: content
-  field_administration:
-    type: entity_reference_label
+  field_goal_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_objectives:
+    type: entity_reference_entity_view
     label: above
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_period:
+    type: entity_reference_label
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 102
-    region: content
-  field_agencies:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_divisions:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_fiscal_cycle:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  field_coalition: true
-  field_goal_type: true
   field_id: true
-  field_parent: true
   field_plan: true
   field_topics: true
+  search_api_excerpt: true

@@ -1,0 +1,27 @@
+id: measurements
+label: "Strategic Portfolio: Measurements"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'MeasurementInstance'
+  constants:
+    uid: 1
+    body_format: basic_html
+destination:
+  plugin: entity:storage
+  default_bundle: measurement
+process:
+  user_id: constants/uid
+  body/value: OtherInformation
+  body/format: constants/body_format
+  field_indicator:
+    plugin: migration_lookup
+    migration: indicators
+    source: PerformanceIndicator
+  field_period/target_id:
+    plugin: period_lookup
+    source:
+      - StartDate
+      - EndDate
+  field_value: ActualResult
+  field_target_value: TargetResult

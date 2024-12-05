@@ -8,10 +8,8 @@ dependencies:
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
-    - field.field.node.objective.field_id
+    - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
-    - field.field.node.objective.field_subgoal
-    - field.field.node.objective.field_subtitle
     - node.type.objective
   module:
     - user
@@ -26,7 +24,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_division:
     type: entity_reference_label
@@ -36,15 +34,18 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  links:
-    settings: {  }
+  field_indicators:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
 hidden:
   body: true
   field_goal: true
-  field_id: true
   field_objective_type: true
-  field_subgoal: true
-  field_subtitle: true
+  links: true
+  search_api_excerpt: true

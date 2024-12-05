@@ -1,0 +1,13 @@
+uuid: eac1dba8-500b-4a49-b51f-b3c6d41d50e7
+langcode: en
+status: true
+dependencies: {  }
+id: person
+label: Person
+description: ''
+help: ''
+new_revision: false
+revision_expose: false
+revision_log: false
+name_pattern: ''
+has_canonical: false

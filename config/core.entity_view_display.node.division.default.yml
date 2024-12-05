@@ -5,11 +5,9 @@ dependencies:
   config:
     - field.field.node.division.body
     - field.field.node.division.field_acronym
-    - field.field.node.division.field_designation
-    - field.field.node.division.field_id
     - field.field.node.division.field_link
+    - field.field.node.division.field_logo
     - field.field.node.division.field_parent
-    - field.field.node.division.field_topics
     - node.type.division
   module:
     - link
@@ -27,14 +25,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_designation:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
-    region: content
   field_link:
     type: link
     label: hidden
@@ -47,6 +37,15 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_logo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
   field_parent:
     type: entity_reference_label
     label: above
@@ -55,14 +54,6 @@ content:
     third_party_settings: {  }
     weight: 109
     region: content
-  field_topics:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 108
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -70,4 +61,4 @@ content:
     region: content
 hidden:
   field_acronym: true
-  field_id: true
+  search_api_excerpt: true

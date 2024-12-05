@@ -13,13 +13,17 @@ source:
   plugin: airtable
   base: 'StratML x US Performance'
   table: Goal
+  filter: 'Name!=""'
   constants:
     uid: 1
     body_format: basic_html
     file_destination: 'public://images/'
     delimiter: '-'
 process:
-  title: Name
+  title:
+    plugin: callback
+    callable: trim
+    source: Name
   uid: constants/uid
   field_id: PgovID
   body/value: Description
@@ -30,20 +34,12 @@ process:
     map:
       'Agency Priority Goal': apg
       'Strategic Goal': strategic
-  fiscal_cycle:
-    plugin: concat
+    default_value: null
+  field_period/target_id:
+    plugin: period_lookup
     source:
       - StartDate
-      - constants/delimiter
       - EndDate
-  field_fiscal_cycle:
-    plugin: entity_lookup
-    entity_type: node
-    bundle_key: type
-    bundle: fiscal_cycle
-    ignore_case: true
-    value_key: title
-    source: '@fiscal_cycle'
   field_plan:
     plugin: migration_lookup
     migration: plans
@@ -57,4 +53,5 @@ destination:
   default_bundle: goal
 migration_dependencies:
   required:
-    - agencies
+    - plans
+    - topics

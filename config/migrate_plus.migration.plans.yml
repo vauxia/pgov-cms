@@ -24,19 +24,42 @@ process:
   body/value: Description
   body/format: constants/body_format
   field_link/uri: Source
+  field_administration:
+    plugin: migration_lookup
+    migration: administrations
+    source: Administration
   field_agency:
     plugin: migration_lookup
     migration: agencies
     source: Organization
-  field_divisions:
-    plugin: migration_lookup
-    migration: divisions
+  _divisions:
+    plugin: callback
+    callable: array_filter
     source:
       - Division
       - Subdivision
+  field_divisions:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source: '@_divisions'
+  field_period/target_id:
+    plugin: period_lookup
+    source:
+      - StartDate
+      - EndDate
+  field_file:
+    plugin: migration_lookup
+    migration: plan_media
+    source: airtable_id
+    no_stub: true
 destination:
   plugin: 'entity:node'
   default_bundle: plan
 migration_dependencies:
   required:
+    - administrations
     - agencies
+    - divisions
+    - subdivisions

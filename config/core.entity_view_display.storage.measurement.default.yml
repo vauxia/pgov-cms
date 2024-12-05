@@ -1,0 +1,50 @@
+uuid: 8110af44-99db-4453-8c34-3f0daf96bae1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.measurement.field_period
+    - field.field.storage.measurement.field_indicator
+    - field.field.storage.measurement.field_target_value
+    - field.field.storage.measurement.field_value
+    - storage.storage_type.measurement
+id: storage.measurement.default
+targetEntityType: storage
+bundle: measurement
+mode: default
+content:
+  field_period:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_target_value:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_value:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_indicator: true
+  name: true
+  search_api_excerpt: true
+  user_id: true

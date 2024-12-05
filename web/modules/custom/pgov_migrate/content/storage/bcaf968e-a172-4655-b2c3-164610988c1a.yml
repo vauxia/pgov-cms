@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: bcaf968e-a172-4655-b2c3-164610988c1a
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: '2022'
+  created:
+    -
+      value: 1733265413
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2022-01-01'
+      end_value: '2022-12-31'
+  field_duration:
+    -
+      value: year

@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: bd3221e6-5036-424a-8857-2c8152c27585
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2023-Q3
+  created:
+    -
+      value: 1732218962
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2023-04-01'
+      end_value: '2023-06-30'
+  field_duration:
+    -
+      value: quarter

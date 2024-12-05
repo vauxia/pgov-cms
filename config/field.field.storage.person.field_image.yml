@@ -1,0 +1,29 @@
+uuid: 2fe9b00a-5e4b-4616-af0a-92c2f9e4ed5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_image
+    - media.type.image
+    - storage.storage_type.person
+id: storage.person.field_image
+field_name: field_image
+entity_type: storage
+bundle: person
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

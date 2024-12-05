@@ -1,0 +1,33 @@
+uuid: 1c7c2e46-705f-4f62-ac0e-480e61aff8ce
+langcode: en
+status: true
+dependencies: {  }
+id: administrations
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'StratML: Administration'
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: Administration
+  constants:
+    uid: 1
+process:
+  user_id: constants/uid
+  field_president:
+    plugin: migration_lookup
+    migration: people
+    source: President
+  field_vice_president:
+    plugin: migration_lookup
+    migration: people
+    source: VicePresident
+  field_date_range/value: StartDate
+  field_date_range/end_value: EndDate
+destination:
+  plugin: 'entity:storage'
+  default_bundle: administration
+migration_dependencies: null

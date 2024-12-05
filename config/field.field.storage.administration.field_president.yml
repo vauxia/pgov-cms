@@ -1,0 +1,29 @@
+uuid: 2502c311-2f51-4767-880c-32b9a47b2287
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_president
+    - storage.storage_type.administration
+    - storage.storage_type.person
+id: storage.administration.field_president
+field_name: field_president
+entity_type: storage
+bundle: administration
+label: President
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

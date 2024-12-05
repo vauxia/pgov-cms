@@ -1,0 +1,25 @@
+uuid: cae2a45d-20c6-45b2-8c8d-6c38ac8c0c5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: 'Performance plan or report'
+type: report
+description: 'Identifies inputs and processes required to accomplish objectives and establishing metrics by which progress will be assessed within a single budgetary planning and resource allocation cycle.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

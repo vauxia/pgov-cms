@@ -5,14 +5,16 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.plan.body
+    - field.field.node.plan.field_administration
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
-    - field.field.node.plan.field_id
+    - field.field.node.plan.field_file
+    - field.field.node.plan.field_period
+    - field.field.node.plan.field_goals
     - field.field.node.plan.field_link
     - node.type.plan
   module:
-    - datetime
     - link
     - text
     - user
@@ -26,32 +28,16 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_agency:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
     weight: 0
     region: content
-  field_date:
-    type: datetime_default
-    label: hidden
+  field_goals:
+    type: entity_reference_entity_view
+    label: above
     settings:
-      timezone_override: ''
-      format_type: medium
+      view_mode: full
+      link: false
     third_party_settings: {  }
     weight: 2
-    region: content
-  field_division:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_link:
     type: link
@@ -63,12 +49,18 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
 hidden:
-  field_id: true
+  field_administration: true
+  field_agency: true
+  field_date: true
+  field_division: true
+  field_file: true
+  field_period: true
+  search_api_excerpt: true

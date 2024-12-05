@@ -1,0 +1,39 @@
+uuid: 7bb342b3-51fc-4ad8-ba38-2d38cccefbb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.division.body
+    - field.field.node.division.field_acronym
+    - field.field.node.division.field_link
+    - field.field.node.division.field_logo
+    - field.field.node.division.field_parent
+    - node.type.division
+  module:
+    - user
+id: node.division.card
+targetEntityType: node
+bundle: division
+mode: card
+content:
+  field_logo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_acronym: true
+  field_link: true
+  field_parent: true
+  search_api_excerpt: true

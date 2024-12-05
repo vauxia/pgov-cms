@@ -5,10 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.plan.body
+    - field.field.node.plan.field_administration
     - field.field.node.plan.field_agency
     - field.field.node.plan.field_date
     - field.field.node.plan.field_division
-    - field.field.node.plan.field_id
+    - field.field.node.plan.field_file
+    - field.field.node.plan.field_period
+    - field.field.node.plan.field_goals
     - field.field.node.plan.field_link
     - node.type.plan
   module:
@@ -53,14 +56,6 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_id:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 5
-    region: content
   field_link:
     type: link
     label: hidden
@@ -78,4 +73,9 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-hidden: {  }
+hidden:
+  field_administration: true
+  field_file: true
+  field_goals: true
+  field_period: true
+  search_api_excerpt: true

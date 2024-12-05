@@ -1,0 +1,40 @@
+id: reports
+label: "Strategic Portfolio: Reports"
+migration_dependencies:
+  required:
+    - agencies
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'PerformancePlanOrReport'
+  constants:
+    uid: 1
+    body_format: basic_html
+    file_destination: 'public://files/'
+    delimiter: '-'
+destination:
+  plugin: entity:node
+  default_bundle: report
+process:
+  title: Name
+  uid: constants/uid
+  #field_id: id
+  field_link/uri: Source
+  field_plan:
+    plugin: migration_lookup
+    migration: plans
+    source: StrategicPlan
+  field_goals:
+    plugin: migration_lookup
+    migration: goals
+    source: Goals
+  field_period/target_id:
+    plugin: period_lookup
+    source:
+      - StartDate
+      - EndDate
+  field_file:
+    plugin: migration_lookup
+    migration: report_media
+    source: airtable_id
+    no_stub: true

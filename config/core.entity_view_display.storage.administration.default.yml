@@ -1,0 +1,40 @@
+uuid: 46edef86-4868-4c24-95d0-c6de904e4393
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.administration.field_date_range
+    - field.field.storage.administration.field_president
+    - field.field.storage.administration.field_vice_president
+    - storage.storage_type.administration
+  module:
+    - datetime_range
+id: storage.administration.default
+targetEntityType: storage
+bundle: administration
+mode: default
+content:
+  field_date_range:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      from_to: both
+      separator: '-'
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_president: true
+  field_vice_president: true
+  search_api_excerpt: true
+  user_id: true

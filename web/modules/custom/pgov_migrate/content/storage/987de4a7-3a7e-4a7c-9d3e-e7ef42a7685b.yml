@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: 987de4a7-3a7e-4a7c-9d3e-e7ef42a7685b
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2024-Q4
+  created:
+    -
+      value: 1732297201
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2024-07-01'
+      end_value: '2024-09-30'
+  field_duration:
+    -
+      value: quarter

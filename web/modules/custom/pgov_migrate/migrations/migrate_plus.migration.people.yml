@@ -1,0 +1,23 @@
+id: people
+label: "StratML: Person"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'Person'
+  constants:
+    uid: 1
+destination:
+  plugin: entity:storage
+  default_bundle: person
+process:
+  name: Name
+  user_id: constants/uid
+  field_first_name: FirstName
+  field_honorific: Honorific
+  field_last_name: LastName
+  field_middle_initial: MiddleInitial
+  field_suffix: Suffix
+  field_image:
+    plugin: migration_lookup
+    migration: media
+    source: Avatar

@@ -1,0 +1,42 @@
+uuid: 3a8b1229-f4fa-417c-a018-14b5557f25d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.person.field_first_name
+    - field.field.storage.person.field_honorific
+    - field.field.storage.person.field_image
+    - field.field.storage.person.field_last_name
+    - field.field.storage.person.field_middle_initial
+    - field.field.storage.person.field_suffix
+    - storage.storage_type.person
+id: storage.person.default
+targetEntityType: storage
+bundle: person
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_first_name: true
+  field_honorific: true
+  field_last_name: true
+  field_middle_initial: true
+  field_suffix: true
+  search_api_excerpt: true
+  user_id: true

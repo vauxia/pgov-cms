@@ -1,0 +1,38 @@
+uuid: ddf9a76a-98ba-4e7e-af81-318fc5424abe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.period.field_date_range
+    - field.field.storage.period.field_duration
+    - storage.storage_type.period
+  module:
+    - datetime_range
+id: storage.period.default
+targetEntityType: storage
+bundle: period
+mode: default
+content:
+  field_date_range:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: html_date
+      from_to: both
+      separator: '-'
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_duration: true
+  search_api_excerpt: true
+  user_id: true

@@ -1,0 +1,79 @@
+uuid: 7bd40713-e7dc-4368-86c5-09b42773c432
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.report.body
+    - field.field.node.report.field_file
+    - field.field.node.report.field_goals
+    - field.field.node.report.field_link
+    - field.field.node.report.field_period
+    - field.field.node.report.field_plan
+    - node.type.report
+  module:
+    - link
+    - text
+    - user
+id: node.report.default
+targetEntityType: node
+bundle: report
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_file:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_goals:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_period:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_plan:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

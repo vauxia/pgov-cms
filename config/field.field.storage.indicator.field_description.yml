@@ -1,0 +1,24 @@
+uuid: d798cb1b-96cd-4f9c-99cd-995d68894ac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_description
+    - filter.format.basic_html
+    - storage.storage_type.indicator
+  module:
+    - text
+id: storage.indicator.field_description
+field_name: field_description
+entity_type: storage
+bundle: indicator
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

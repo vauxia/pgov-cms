@@ -2,12 +2,13 @@ id: goals
 label: "Strategic Portfolio: Goals"
 migration_dependencies:
   required:
-    - agencies
-    #- divisions
+    - plans
+    - topics
 source:
   plugin: airtable
   base: 'StratML x US Performance'
   table: 'Goal'
+  filter: 'Name!=""'
   constants:
     uid: 1
     body_format: basic_html
@@ -17,40 +18,26 @@ destination:
   plugin: entity:node
   default_bundle: goal
 process:
-  title: Name
+  title:
+    plugin: callback
+    callable: trim
+    source: Name
   uid: constants/uid
   field_id: PgovID
   body/value: Description
   body/format: constants/body_format
-  #field_administration:
-    #plugin: entity_lookup
-    #entity_type: node
-    #bundle_key: type
-    #bundle: administration
-    #ignore_case: true
-    #value_key: title
-    #source: administration
   field_goal_type:
     plugin: static_map
     source: Alias
     map:
       'Agency Priority Goal': 'apg'
       'Strategic Goal': 'strategic'
-  # TODO fiscal setup needs work
-  fiscal_cycle:
-    plugin: concat
+    default_value: NULL
+  field_period/target_id:
+    plugin: period_lookup
     source:
       - StartDate
-      - constants/delimiter
       - EndDate
-  field_fiscal_cycle:
-    plugin: entity_lookup
-    entity_type: node
-    bundle_key: type
-    bundle: fiscal_cycle
-    ignore_case: true
-    value_key: title
-    source: '@fiscal_cycle'
   field_plan:
      plugin: migration_lookup
      migration: plans
@@ -59,24 +46,3 @@ process:
     plugin: migration_lookup
     migration: topics
     source: Category
-  #agency_list:
-    #plugin: get
-    #source:
-      #- org_owner_1
-      #- org_owner_2
-      #- org_owner_3
-  #field_agencies:
-    #plugin: migration_lookup
-    #migration: agencies
-    #source: '@agency_list'
-    #no_stub: true
-  #field_divisions:
-    #plugin: migration_lookup
-    #migration: divisions
-    #source: associated_divisions
-    #no_stub: true
-  #field_coalition:
-    #plugin: migration_lookup
-    #migration: coalitions
-    #source: coalition_owner
-    #no_stub: true

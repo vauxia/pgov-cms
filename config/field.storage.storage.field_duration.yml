@@ -1,0 +1,33 @@
+uuid: ca3d51c8-d3e4-4a5d-a616-34c5fce6f9e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - storage
+id: storage.field_duration
+field_name: field_duration
+entity_type: storage
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fy
+      label: 'Fiscal year'
+    -
+      value: fiscal_quarter
+      label: 'Fiscal quarter'
+    -
+      value: year
+      label: 'Calendar year'
+    -
+      value: other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

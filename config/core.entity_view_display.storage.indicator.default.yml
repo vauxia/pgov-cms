@@ -1,0 +1,64 @@
+uuid: 689bec1d-f120-43e7-90fe-f13ae4f16014
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.storage.indicator.field_description
+    - field.field.storage.indicator.field_dimension
+    - field.field.storage.indicator.field_divisions
+    - field.field.storage.indicator.field_id
+    - field.field.storage.indicator.field_keyness
+    - field.field.storage.indicator.field_measurements
+    - field.field.storage.indicator.field_notes
+    - field.field.storage.indicator.field_objective
+    - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_target
+    - storage.storage_type.indicator
+  module:
+    - text
+id: storage.indicator.default
+targetEntityType: storage
+bundle: indicator
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_measurements:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_notes:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_dimension: true
+  field_divisions: true
+  field_keyness: true
+  field_objective: true
+  field_plan: true
+  field_target: true
+  name: true
+  search_api_excerpt: true
+  user_id: true

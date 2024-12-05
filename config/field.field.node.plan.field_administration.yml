@@ -1,0 +1,29 @@
+uuid: 016299ec-fee1-4150-8622-3f81075e5fde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_administration
+    - node.type.plan
+    - storage.storage_type.administration
+id: node.plan.field_administration
+field_name: field_administration
+entity_type: node
+bundle: plan
+label: Administration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      administration: administration
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

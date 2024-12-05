@@ -5,14 +5,13 @@ dependencies:
   config:
     - field.field.node.division.body
     - field.field.node.division.field_acronym
-    - field.field.node.division.field_designation
-    - field.field.node.division.field_id
     - field.field.node.division.field_link
+    - field.field.node.division.field_logo
     - field.field.node.division.field_parent
-    - field.field.node.division.field_topics
     - node.type.division
   module:
     - link
+    - media_library
     - path
     - text
 id: node.division.default
@@ -25,8 +24,8 @@ content:
     weight: 7
     region: content
     settings:
-      rows: 9
-      summary_rows: 3
+      rows: 5
+      summary_rows: 2
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
@@ -44,20 +43,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_designation:
-    type: options_select
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_id:
-    type: string_textfield
-    weight: 4
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_link:
     type: link_default
     weight: 10
@@ -66,21 +51,18 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_logo:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_parent:
     type: options_select
     weight: 1
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_topics:
-    type: entity_reference_autocomplete_tags
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   path:
     type: path

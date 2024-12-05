@@ -1,0 +1,23 @@
+uuid: 40bff844-0560-46f6-b7d9-570a9f023a2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_target_value
+    - storage.storage_type.measurement
+id: storage.measurement.field_target_value
+field_name: field_target_value
+entity_type: storage
+bundle: measurement
+label: 'Target value'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

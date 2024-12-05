@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: acc0346c-714a-4f34-8dfe-f3d2b94127ae
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2024-25
+  created:
+    -
+      value: 1733261950
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2023-10-01'
+      end_value: '2025-09-30'
+  field_duration:
+    -
+      value: fy

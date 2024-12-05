@@ -69,7 +69,7 @@ entity_config:
       enabled: false
     division:
       enabled: false
-    fiscal_cycle:
+    period:
       enabled: false
     goal:
       enabled: true
@@ -135,30 +135,12 @@ field_config:
         enabled: true
       field_acronym:
         enabled: true
-      field_agency_code:
-        enabled: true
-      field_designation:
-        enabled: true
-      field_id:
-        enabled: true
       field_link:
         enabled: true
       field_logo:
         enabled: true
-      field_topics:
-        enabled: true
     goal:
       body:
-        enabled: true
-      field_administration:
-        enabled: true
-      field_agencies:
-        enabled: true
-      field_coalition:
-        enabled: true
-      field_divisions:
-        enabled: true
-      field_fiscal_cycle:
         enabled: true
       field_id:
         enabled: true
@@ -173,31 +155,11 @@ field_config:
         enabled: true
       field_division:
         enabled: true
-      field_id:
-        enabled: true
       field_link:
         enabled: true
-    subgoal:
-      body:
-        enabled: true
-      field_administration:
-        enabled: true
-      field_agencies:
-        enabled: true
-      field_coalition:
-        enabled: true
-      field_divisions:
-        enabled: true
-      field_fiscal_cycle:
-        enabled: true
-      field_id:
-        enabled: true
-      field_topics:
-        enabled: true
+    subgoal: {  }
   taxonomy_term:
-    topics:
-      field_tags:
-        enabled: true
+    topics: {  }
 settings:
   exclude_unpublished: true
   expose_entity_ids: false

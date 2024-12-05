@@ -1,0 +1,21 @@
+uuid: 15f0a8e5-6c83-425e-98de-37fa06f91c17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_target
+    - storage.storage_type.indicator
+  module:
+    - options
+id: storage.indicator.field_target
+field_name: field_target
+entity_type: storage
+bundle: indicator
+label: Target
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 45b9ff0e-5d83-459f-ae7d-829725efc10d
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+    - text
+id: storage.field_description
+field_name: field_description
+entity_type: storage
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

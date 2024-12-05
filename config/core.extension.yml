@@ -8,6 +8,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  cer: 0
   ckeditor5: 0
   config: 0
   config_views: 0
@@ -27,6 +28,7 @@ module:
   facets_exposed_filters: 0
   facets_rest: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -44,6 +46,7 @@ module:
   graphql_examples: 0
   help: 0
   image: 0
+  inline_entity_form: 0
   jsonapi: 0
   jsonapi_defaults: 0
   jsonapi_extras: 0
@@ -74,6 +77,7 @@ module:
   serialization: 0
   shortcut: 0
   simple_oauth: 0
+  storage: 0
   subrequests: 0
   svg_image: 0
   system: 0

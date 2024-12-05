@@ -2,7 +2,10 @@ id: plans
 label: "Strategic Portfolio: Strategic Plans"
 migration_dependencies:
   required:
+    - administrations
     - agencies
+    - divisions
+    - subdivisions
 source:
   plugin: airtable
   base: 'StratML x US Performance'
@@ -18,19 +21,38 @@ destination:
 process:
   title: Name
   uid: constants/uid
-  #field_id: id
   body/value: Description
   body/format: constants/body_format
   field_link/uri: Source
   # TODO We need this
   #field_date/value: publication_date
+  field_administration:
+    plugin: migration_lookup
+    migration: administrations
+    source: Administration
   field_agency:
     plugin: migration_lookup
     migration: agencies
     source: Organization
-  field_divisions:
-    plugin: migration_lookup
-    migration: divisions
+  _divisions:
+    plugin: callback
+    callable: array_filter
     source:
       - Division
       - Subdivision
+  field_divisions:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source: '@_divisions'
+  field_period/target_id:
+    plugin: period_lookup
+    source:
+      - StartDate
+      - EndDate
+  field_file:
+    plugin: migration_lookup
+    migration: plan_media
+    source: airtable_id
+    no_stub: true

@@ -1,9 +1,0 @@
-uuid: c81f77a7-602c-44c2-a0fb-4c437606dffd
-langcode: en
-status: true
-dependencies: {  }
-name: Designations
-vid: designations
-description: 'Type of agency or division'
-weight: 0
-new_revision: false

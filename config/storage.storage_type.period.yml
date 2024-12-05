@@ -1,0 +1,13 @@
+uuid: 9628299a-9b28-4fce-9713-49f8a465fa12
+langcode: en
+status: true
+dependencies: {  }
+id: period
+label: 'Time period'
+description: 'A fiscal period that applies to goals and plans. '
+help: ''
+new_revision: false
+revision_expose: false
+revision_log: false
+name_pattern: ''
+has_canonical: false

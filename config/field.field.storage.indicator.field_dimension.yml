@@ -1,0 +1,21 @@
+uuid: 9d5f758c-3240-4637-be0a-81249ae18824
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_dimension
+    - storage.storage_type.indicator
+  module:
+    - options
+id: storage.indicator.field_dimension
+field_name: field_dimension
+entity_type: storage
+bundle: indicator
+label: Dimension
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

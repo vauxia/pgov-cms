@@ -1,0 +1,58 @@
+uuid: 2954936d-755c-418a-93e4-d6373b7f714a
+langcode: en
+status: true
+dependencies: {  }
+id: report_files
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'StratML: Performance Plan or Report Files'
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: PerformancePlanOrReport
+  filter: 'File!=""'
+  constants:
+    uid: 1
+    file_destination: 'public://documents/'
+process:
+  uid: constants/uid
+  source_full_path:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - url
+  filemime:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - type
+  filename:
+    plugin: extract
+    source: File
+    index:
+      - 0
+      - filename
+  _subfolder:
+    plugin: format_date
+    from_format: Y-m-d
+    to_format: Y/m/
+    source: StartDate
+  destination_full_path:
+    plugin: concat
+    source:
+      - constants/file_destination
+      - '@_subfolder'
+      - filename
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@destination_full_path'
+destination:
+  plugin: 'entity:file'
+migration_dependencies: null

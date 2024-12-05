@@ -18,14 +18,13 @@ source:
     body_format: basic_html
     delimiter: '-'
 process:
-  title: Name
+  title:
+    plugin: callback
+    callable: trim
+    source: Name
   uid: constants/uid
   body/value: Description
   body/format: constants/body_format
-  field_agency:
-    plugin: migration_lookup
-    migration: agencies
-    source: Organization
   field_goal:
     plugin: migration_lookup
     migration: goals
@@ -36,7 +35,29 @@ process:
     map:
       'Strategic Objective': strategic
       Achievement: achievement
+    default_value: null
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: Organization
+  _divisions:
+    plugin: callback
+    callable: array_filter
+    source:
+      - Division
+      - Subdivision
+  field_division:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source: '@divisions'
 destination:
   plugin: 'entity:node'
   default_bundle: objective
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - goals
+    - agencies
+    - divisions
+    - subdivisions

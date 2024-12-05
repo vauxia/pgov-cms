@@ -1,0 +1,20 @@
+uuid: a9febb5e-e97a-416e-babc-c5793604bab6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - storage
+id: storage.field_divisions
+field_name: field_divisions
+entity_type: storage
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

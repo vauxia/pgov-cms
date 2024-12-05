@@ -1,0 +1,20 @@
+uuid: 74fe31a5-3504-4c1b-bd98-3c5ee1d3ddc7
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.field_value
+field_name: field_value
+entity_type: storage
+type: decimal
+settings:
+  precision: 20
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

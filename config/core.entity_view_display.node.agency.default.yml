@@ -5,12 +5,8 @@ dependencies:
   config:
     - field.field.node.agency.body
     - field.field.node.agency.field_acronym
-    - field.field.node.agency.field_agency_code
-    - field.field.node.agency.field_designation
-    - field.field.node.agency.field_id
     - field.field.node.agency.field_link
     - field.field.node.agency.field_logo
-    - field.field.node.agency.field_topics
     - node.type.agency
   module:
     - link
@@ -36,30 +32,6 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
-  field_agency_code:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_designation:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
-    region: content
-  field_id:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 104
-    region: content
   field_link:
     type: link
     label: hidden
@@ -81,17 +53,10 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
-  field_topics:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 108
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  search_api_excerpt: true

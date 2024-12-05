@@ -1,0 +1,25 @@
+id: administrations
+label: "StratML: Administration"
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: 'Administration'
+  constants:
+    uid: 1
+destination:
+  plugin: entity:storage
+  default_bundle: administration
+process:
+  # Use auto-title
+  # name: Name
+  user_id: constants/uid
+  field_president:
+    plugin: migration_lookup
+    migration: people
+    source: President
+  field_vice_president:
+    plugin: migration_lookup
+    migration: people
+    source: VicePresident
+  field_date_range/value: StartDate
+  field_date_range/end_value: EndDate

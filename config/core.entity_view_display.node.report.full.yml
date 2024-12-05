@@ -1,0 +1,45 @@
+uuid: 4cc269ed-6b3e-419c-87a7-0b5c3adfb7a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.report.body
+    - field.field.node.report.field_file
+    - field.field.node.report.field_goals
+    - field.field.node.report.field_link
+    - field.field.node.report.field_period
+    - field.field.node.report.field_plan
+    - node.type.report
+  module:
+    - link
+    - user
+id: node.report.full
+targetEntityType: node
+bundle: report
+mode: full
+content:
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_file: true
+  field_goals: true
+  field_period: true
+  field_plan: true
+  search_api_excerpt: true

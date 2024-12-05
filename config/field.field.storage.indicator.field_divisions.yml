@@ -1,0 +1,29 @@
+uuid: 0fa3c962-23bf-4dcf-bb40-e1396b5d9204
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_divisions
+    - node.type.division
+    - storage.storage_type.indicator
+id: storage.indicator.field_divisions
+field_name: field_divisions
+entity_type: storage
+bundle: indicator
+label: Divisions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      division: division
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

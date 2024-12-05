@@ -1,0 +1,83 @@
+uuid: 625a73f9-8e58-400a-b1ae-0477b4c9bc7a
+langcode: en
+status: true
+dependencies: {  }
+id: indicators
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Strategic Portfolio: Performance Indicators'
+source:
+  plugin: airtable
+  base: 'StratML x US Performance'
+  table: PerformanceIndicator
+  constants:
+    uid: 1
+    body_format: basic_html
+    delimiter: '-'
+process:
+  user_id: constants/uid
+  field_id: PgovID
+  field_description/value: UnitOfMeasurement
+  field_description/format: constants/body_format
+  field_notes/value: OtherInformation
+  field_notes/format: constants/body_format
+  field_agency:
+    plugin: migration_lookup
+    migration: agencies
+    source: Organization
+  field_plan:
+    plugin: migration_lookup
+    migration: plans
+    source: StrategicPlan
+  field_objective:
+    plugin: migration_lookup
+    migration: objectives
+    source: Objective
+  _divisions:
+    plugin: callback
+    callable: array_filter
+    source:
+      - Division
+      - Subdivision
+  field_divisions:
+    plugin: migration_lookup
+    migration:
+      - divisions
+      - subdivisions
+    source: '@_divisions'
+  field_target:
+    plugin: static_map
+    source: TargetDirection
+    map:
+      Increase: increase
+      'Maintain at or above threshold': maintain_above
+      Decrease: decrease
+      Complete: complete
+      'Maintain at or below threshold': maintain_below
+    default_value: null
+  field_keyness:
+    plugin: static_map
+    source: Keyness
+    map:
+      'Strategic Objective': strategic
+      Achievement: achievement
+      Key: key
+      Secondary: secondary
+      Ancillary: anciliary
+      To_Be_Determined: tbd
+    default_value: null
+  field_dimension:
+    plugin: static_map
+    source: MeasurementDimension
+    map:
+      '%': pct
+      $: dollar
+      M: m
+    default_value: null
+destination:
+  plugin: 'entity:storage'
+  default_bundle: indicator
+migration_dependencies: null

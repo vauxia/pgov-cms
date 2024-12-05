@@ -1,0 +1,15 @@
+uuid: f4f9e637-083b-47b9-8c63-15b96379fb91
+langcode: en
+status: true
+dependencies: {  }
+id: objective_indicators
+label: 'Performance indicators for an objective'
+enabled: true
+first_field: field_objective
+second_field: field_indicators
+add_direction: append
+bundles:
+  node:
+    - objective
+  storage:
+    - indicator

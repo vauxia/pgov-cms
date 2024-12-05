@@ -1,0 +1,21 @@
+uuid: 5e2a8f54-8849-4dd9-b779-e91e128522a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_keyness
+    - storage.storage_type.indicator
+  module:
+    - options
+id: storage.indicator.field_keyness
+field_name: field_keyness
+entity_type: storage
+bundle: indicator
+label: Keyness
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

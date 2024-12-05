@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: 5d3b2b75-77fb-4d8c-b714-b63b14a13d90
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'National Drug Control Strategy'
+  created:
+    -
+      value: 1732216674
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2018-01-01'
+      end_value: '2025-12-31'
+  field_duration:
+    -
+      value: other

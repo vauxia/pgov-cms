@@ -1,0 +1,120 @@
+uuid: 1bd7ed78-0b9d-40d3-b9bc-5ac47be75c6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.storage.inline
+    - field.field.storage.indicator.field_description
+    - field.field.storage.indicator.field_dimension
+    - field.field.storage.indicator.field_divisions
+    - field.field.storage.indicator.field_id
+    - field.field.storage.indicator.field_keyness
+    - field.field.storage.indicator.field_measurements
+    - field.field.storage.indicator.field_notes
+    - field.field.storage.indicator.field_objective
+    - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_target
+    - storage.storage_type.indicator
+  module:
+    - field_group
+    - inline_entity_form
+    - text
+third_party_settings:
+  field_group:
+    group_details:
+      children:
+        - field_keyness
+        - field_dimension
+        - field_target
+      label: Details
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: form--inline
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+id: storage.indicator.inline
+targetEntityType: storage
+bundle: indicator
+mode: inline
+content:
+  field_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_dimension:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_divisions:
+    type: entity_reference_autocomplete_tags
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_id:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_keyness:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_measurements:
+    type: inline_entity_form_complex
+    weight: 7
+    region: content
+    settings:
+      form_mode: inline
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: optional
+    third_party_settings: {  }
+  field_target:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_notes: true
+  field_objective: true
+  field_plan: true
+  name: true
+  status: true
+  user_id: true
