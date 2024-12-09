@@ -1,4 +1,5 @@
-import { useState} from 'react';
+import { useRef } from 'react';
+import Link from 'next/link'
 import { DrupalNode } from "next-drupal";
 import { USAInPageNav } from "./usa--in-page-nav";
 import { FieldGoalType } from "./field--goal-type";
@@ -11,6 +12,7 @@ interface NodeGoalProps {
 }
 
 export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
+  let mainContentRef = useRef();
   const { title, field_topics, field_goal_type, field_plan } = node;
   const { field_agency } = field_plan;
   let goalTypeString = field_goal_type;
@@ -21,6 +23,21 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     {label: "Agencies", href: "/agencies"},
     {label: field_agency.field_acronym, href: field_agency.path.alias}
   ];
+
+  function buildInPageLinks() {
+    let links = [
+      {href: "#goal-description", label: `About this ${field_agency.field_acronym} ${goalTypeString} goal`, primary: true}
+    ];
+    if (storageData.objectives) {
+      links.push({href: "#objectives", label: `Objectives`, primary: true});
+      storageData.objectives.forEach((objective) => {
+        links.push({href: `#${objective.id}`, label: objective.title, primary: false });
+      })
+
+    }
+    return links;
+  }
+
   return (
     <>
       <USABreadcrumb activeItem={title} links={breadcrumbLinks} />
@@ -29,23 +46,18 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
           <FieldGoalType field_goal_type={field_goal_type} />
         </div>
       </div>
-      
       <div className="grid-row">
         <div className="desktop:grid-col-4">
           <USAInPageNav 
             logo={field_agency.field_logo ? field_agency.field_logo : null}
             logoAbove={false}
-            links={[
-              {href: "#about-goal", label: `About this ${field_agency.field_acronym} ${goalTypeString} goal`},
-              {href: "#what-is-goal", label: `What is a ${goalTypeString} goal?`},
-              {href: "#related-goals", label: "Related goals"}
-            ]}
+            links={buildInPageLinks()}
           />
         </div>
         <div className="desktop:grid-col-8">
           <h1 className="font-sans-2xl">{title}</h1>
-          <main id="main-content" className="main-content">
-            <h2 className="font-sans-xl" id="about-goal">
+          <main id="main-content" className="main-content" ref={mainContentRef}>
+            <h2 className="font-sans-xl" id="goal-description">
               About this {field_agency.field_acronym} {goalTypeString} goal
             </h2>
             {node.body?.processed && (
@@ -54,8 +66,13 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
                 className="font-body-md"
               />
             )}
-            <p><span className="text-bold">Strategic plan:</span> {field_plan.title}</p>
-            <FieldObjectives fieldObjectives={storageData.objectives} />
+            <p>
+              <span className="text-bold">Strategic plan:</span>{" "}
+              <Link href={`${field_agency.path.alias}`}>{field_plan.title}</Link>
+            </p>
+            {storageData.objectives && (
+              <FieldObjectives fieldObjectives={storageData.objectives} />
+            )}
             {field_topics.length > 0 && (
               <ul className="add-list-reset grid-row">
                 {field_topics.map((topic) => (

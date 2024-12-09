@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { GetStaticPathsResult, GetStaticPropsResult } from "next";
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import Head from "next/head";

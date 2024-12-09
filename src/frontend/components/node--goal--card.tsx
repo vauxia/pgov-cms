@@ -1,8 +1,9 @@
-import { NodeGoal } from "lib/types";
+import Link from 'next/link'
+import { NodeGoalProps } from "lib/types";
 import { truncateString } from "lib/utils";
 
 interface NodeGoalCardProps {
-  goal: NodeGoal
+  goal: NodeGoalProps
 }
 
 export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
@@ -18,9 +19,9 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
         </div>
       }
       <div className="usa-card__footer">
-        <a href={path} className="usa-button">
+        <Link href={path} className="usa-button">
           Explore goal
-        </a>
+        </Link>
       </div>
     </div>
   );

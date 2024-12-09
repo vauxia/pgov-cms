@@ -1,18 +1,9 @@
 import * as React from "react";
-import { FieldLogo, FieldLogoProps } from './field--logo';
-
-interface USAInPageNavProps {
-  logo: FieldLogoProps;
-  logoAbove: boolean;
-  links: Array<{
-    label: string;
-    href: string;
-  }>;
-}
+import { FieldLogo } from './field--logo';
 
 // TODO: Add scrollTo code for long pages when using in page navigation.
 
-export function USAInPageNav({links, logo, logoAbove = true}: USAInPageNavProps) {
+export function USAInPageNav({links, logo, logoAbove = true}) {
   return (
     <aside
       className="usa-in-page-nav"
@@ -20,7 +11,7 @@ export function USAInPageNav({links, logo, logoAbove = true}: USAInPageNavProps)
       data-scroll-offset="-120"
       data-root-margin="48px 0px -90% 0px"
       data-threshold="1"
-      data-heading-elements=""
+      data-main-content-selector="#main-content"
     >
       {(logo && logoAbove) && (
         <FieldLogo field_logo={logo} />
@@ -32,7 +23,7 @@ export function USAInPageNav({links, logo, logoAbove = true}: USAInPageNavProps)
         
         <ul className="usa-in-page-nav__list">
           {links.map((link) => (
-            <li key={link.href} className="usa-in-page-nav__item usa-in-page-nav__item--primary">
+            <li key={link.href} className={`usa-in-page-nav__item${link.primary ? " usa-in-page-nav__item--primary" : ""}`}>
               <a
                 href={link.href}
                 className="usa-in-page-nav__link"

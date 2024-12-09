@@ -2,6 +2,7 @@ import Link from "next/link";
 import { GovBanner } from "@trussworks/react-uswds";
 import { PreviewAlert } from "components/preview-alert";
 
+
 export function Layout({ children }) {
   return (
     <>
@@ -11,7 +12,6 @@ export function Layout({ children }) {
           <GovBanner />
         </header>
         <main className="grid-container margin-bottom-4">{children}</main>
-        
       </div>
       <footer className="width-full display-block height-8 bg-black"></footer>
     </>
