@@ -14,7 +14,7 @@ export function NodeAgency({ node, ...props }: NodeAgencyProps) {
     <>
       <USABreadcrumb links={breadcrumbLinks} activeItem={node.field_acronym} />
       <div className="grid-row">
-        <div className="desktop:grid-col-3">
+        <div className="desktop:grid-col-4">
           <USAInPageNav
             logo={node.field_logo ? node.field_logo : null}
             links={[
@@ -25,7 +25,7 @@ export function NodeAgency({ node, ...props }: NodeAgencyProps) {
             ]}
           />
         </div>
-        <div className="desktop:grid-col-9">
+        <div className="desktop:grid-col-8">
           <h1 className="font-sans-3xl">{node.title}</h1>
           <main id="main-content" className="main-content">
             <h2 className="font-sans-2xl" id="mission">

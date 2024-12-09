@@ -55,10 +55,7 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName;
   const params = new DrupalJsonApiParams();
-  
-  
-  // ?include=field_topics%2Cfield_objectives%2Cfield_objectives.field_indicators%2Cfield_objectives.field_indicators.field_measurements%2Cfield_plan%2Cfield_plan.field_agency%2Cfield_plan.field_agency.field_logo%2Cfield_plan.field_agency.field_logo.field_media_image&fields%5Bnode--plan%5D=field_agency&fields%5Bnode--objective%5D=title%2Cbody%2Cfield_indicators&fields%5Bstorage--indicator%5D=name
-  
+
   if (type === "node--article") {
     params.addInclude(["field_image, uid"]);
   } else if (type === "node--agency") {
@@ -77,50 +74,48 @@ export async function getStaticProps(
     ]);
     params.addFields("node--plan", ["field_agency", "title"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
-    // params.addFields("storage--indicator", ["name, id, field_measurements"]);
   }
 
-  // if (type !== "node--goal") {
-    const resource = await drupal.getResourceFromContext<DrupalNode>(
-      path,
-      context,
-      {
-        params: params.getQueryObject(),
-      },
-    );
+  const resource = await drupal.getResourceFromContext<DrupalNode>(
+    path,
+    context,
+    {
+      params: params.getQueryObject(),
+    },
+  );
   
-    // At this point, we know the path exists and it points to a resource.
-    // If we receive an error, it means something went wrong on Drupal.
-    // We throw an error to tell revalidation to skip this for now.
-    // Revalidation can try again on next request.
-    if (!resource) {
-      throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`);
-    }
-  
-    // If we're not in preview mode and the resource is not published,
-    // Return page not found.
-    if (!context.preview && resource?.status === false) {
-      return {
-        notFound: true,
-      };
-    }
-    let storageData = {};
-    if (type === "node--goal") {
-      const graphqlUrl = drupal.buildUrl("/graphql");
-      const response = await drupal.fetch(graphqlUrl.toString(), {
-        method: "POST",
-        withAuth: true, // Make authenticated requests using OAuth.
-        body: JSON.stringify({
-          query: nodeQueries.nodeGoal(path?.entity?.path),
-        }),
-      });
-      const { data } = await response.json();
-      storageData = data?.route.entity;
-    }
+  // At this point, we know the path exists and it points to a resource.
+  // If we receive an error, it means something went wrong on Drupal.
+  // We throw an error to tell revalidation to skip this for now.
+  // Revalidation can try again on next request.
+  if (!resource) {
+    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`);
+  }
+
+  // If we're not in preview mode and the resource is not published,
+  // Return page not found.
+  if (!context.preview && resource?.status === false) {
     return {
-      props: {
-        resource,
-        storageData,
-      },
+      notFound: true,
     };
+  }
+  let storageData = {};
+  if (type === "node--goal") {
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: nodeQueries.nodeGoal(path?.entity?.path),
+      }),
+    });
+    const { data } = await response.json();
+    storageData = data?.route?.entity;
+  }
+  return {
+    props: {
+      resource,
+      storageData,
+    },
+  };
 }

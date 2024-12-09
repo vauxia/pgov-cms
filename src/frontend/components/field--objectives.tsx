@@ -1,8 +1,45 @@
 import { formatDate } from "lib/utils";
 
 
-export function FieldObjectives({fieldObjectives}) {
-  console.log(fieldObjectives)
+interface FieldPeriodProps {
+  dateRange: {
+    end: {
+      time: string;
+    }
+    start: {
+      time: string;
+    }
+  }
+  duration: string;
+  id: string;
+  name: string;
+}
+
+interface FieldMeasurementProps {
+  id: string;
+  name: string;
+  status: boolean;
+  targetValue: number;
+  value: number;
+  period: FieldPeriodProps;
+}
+
+interface FieldIndicatorProps {
+  id: string;
+  measurements: Array<FieldMeasurementProps>;
+  name: string;
+}
+
+interface FieldObjectiveProps {
+  fieldObjectives: Array<{
+    id: string;
+    title: string;
+    indicators: Array<FieldIndicatorProps>
+  }>
+}
+
+
+export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
   return (
     <div>
       <h2 className="font-sans-2xl margin-bottom-1" id="related-resources">
@@ -47,10 +84,5 @@ export function FieldObjectives({fieldObjectives}) {
         ))}
       </ol>
     </div>
-    
-    
   );
 }
-
-
-

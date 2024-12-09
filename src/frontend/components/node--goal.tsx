@@ -11,9 +11,8 @@ interface NodeGoalProps {
 }
 
 export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
-  const { title, field_topics, field_goal_type, field_plan, field_objectives } = node;
+  const { title, field_topics, field_goal_type, field_plan } = node;
   const { field_agency } = field_plan;
-  const [objectives, setObjectives] = useState([]);
   let goalTypeString = field_goal_type;
   if (field_goal_type == "apg") {
     goalTypeString = "priority";
@@ -22,7 +21,6 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     {label: "Agencies", href: "/agencies"},
     {label: field_agency.field_acronym, href: field_agency.path.alias}
   ];
-  console.log(node)
   return (
     <>
       <USABreadcrumb activeItem={title} links={breadcrumbLinks} />
@@ -33,7 +31,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
       </div>
       
       <div className="grid-row">
-        <div className="desktop:grid-col-3">
+        <div className="desktop:grid-col-4">
           <USAInPageNav 
             logo={field_agency.field_logo ? field_agency.field_logo : null}
             logoAbove={false}
@@ -44,7 +42,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
             ]}
           />
         </div>
-        <div className="desktop:grid-col-9">
+        <div className="desktop:grid-col-8">
           <h1 className="font-sans-2xl">{title}</h1>
           <main id="main-content" className="main-content">
             <h2 className="font-sans-xl" id="about-goal">
