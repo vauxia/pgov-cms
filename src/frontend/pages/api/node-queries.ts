@@ -14,6 +14,9 @@ export const nodeQueries = {
                     ... on StorageIndicator {
                       id
                       name
+                      notes {
+                        processed
+                      }
                       measurements {
                         ... on StorageMeasurement {
                           id

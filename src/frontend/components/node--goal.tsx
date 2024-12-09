@@ -67,7 +67,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
               />
             )}
             <p>
-              <span className="text-bold">Strategic plan:</span>{" "}
+              <span className="font-body-md text-bold">Strategic plan:</span>{" "}
               <Link href={`${field_agency.path.alias}`}>{field_plan.title}</Link>
             </p>
             {storageData.objectives && (

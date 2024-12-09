@@ -28,6 +28,9 @@ interface FieldIndicatorProps {
   id: string;
   measurements: Array<FieldMeasurementProps>;
   name: string;
+  notes: {
+    processed: string
+  }
 }
 
 interface FieldObjectiveProps {
@@ -40,6 +43,7 @@ interface FieldObjectiveProps {
 
 
 export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
+  console.log(fieldObjectives)
   return (
     <div>
       <h2 className="font-sans-2xl margin-bottom-1" id="objectives">
@@ -80,6 +84,9 @@ export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
                         </tbody>
                       </table>
                       )}
+                    {indicator.notes?.processed && (
+                      <div dangerouslySetInnerHTML={{ __html: indicator.notes?.processed }} />
+                    )}
                   </li>
                 ))}
               </ol>
