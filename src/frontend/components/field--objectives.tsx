@@ -42,7 +42,7 @@ interface FieldObjectiveProps {
 export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
   return (
     <div>
-      <h2 className="font-sans-2xl margin-bottom-1" id="related-resources">
+      <h2 className="font-sans-2xl margin-bottom-1" id="objectives">
         Objectives
       </h2>
       <ol className="add-list-reset">
