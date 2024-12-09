@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
@@ -25,6 +26,7 @@ export const getStaticProps = async () => {
           }
           filters {
             options
+            value
           }
           description
           results {
@@ -35,13 +37,7 @@ export const getStaticProps = async () => {
               body {
                 value
               }
-              agencies {
-                ... on NodeAgency {
-                  id
-                  title
-                  path
-                }
-              }
+              
               topics {
                 ... on TermTopic {
                   id
@@ -54,6 +50,14 @@ export const getStaticProps = async () => {
       }`,
     }),
   });
+
+  // agencies {
+  //   ... on NodeAgency {
+  //     id
+  //     title
+  //     path
+  //   }
+  // }
 
   const { data } = await response.json();
   
@@ -68,6 +72,25 @@ export const getStaticProps = async () => {
 };
 
 export default function IndexPage(props: IndexPageProps) {
+  // useEffect(() => {
+  //   async function fetchjsonapi() {
+  //     const url = "https://performance.ddev.site/jsonapi/storage/indicator"
+  //     try {
+  //       const response = await fetch(url);
+  //       if (!response.ok) {
+  //         throw new Error(`Response status: ${response.status}`);
+  //       }
+    
+  //       const json = await response.json();
+  //       console.log(json);
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   }
+  //   fetchjsonapi()
+  // }, [])
+
+
   return (
     <Layout>
       <Head>

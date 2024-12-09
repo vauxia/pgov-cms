@@ -1,28 +1,23 @@
-import { usePathname } from "next/navigation";
+import { Breadcrumb, BreadcrumbBar, BreadcrumbLink } from "@trussworks/react-uswds";
 
 export function USABreadcrumb({activeItem, links}) {
-  console.log(links)
   return (
-    <nav className="usa-breadcrumb" aria-label="Breadcrumbs,,">
-      <ol className="usa-breadcrumb__list">
-        <li className="usa-breadcrumb__list-item">
-          <a href="/" className="usa-breadcrumb__link">
-            <span>Home</span>
-          </a>
-        </li>
-        {links.map((link) => (
-          <li key={link.href} className="usa-breadcrumb__list-item">
-            <a href={link.href} className="usa-breadcrumb__link">
-              <span>{link.label}</span>
-            </a>
-          </li>
-        ))}
-        <li className="usa-breadcrumb__list-item usa-current" aria-current="page">
-          <span>
-            {activeItem}
-          </span>
-        </li>
-      </ol>
-    </nav>
+    <BreadcrumbBar>
+      <Breadcrumb>
+        <BreadcrumbLink href="/">
+          <span>Home</span>
+        </BreadcrumbLink>
+      </Breadcrumb>
+      {links.map((link) => (
+        <Breadcrumb key={link.href}>
+          <BreadcrumbLink href={link.href}>
+            <span>{link.label}</span>
+          </BreadcrumbLink>
+        </Breadcrumb>
+      ))}
+      <Breadcrumb current>
+        <span>{activeItem}</span>
+      </Breadcrumb>
+    </BreadcrumbBar>
   );
 }

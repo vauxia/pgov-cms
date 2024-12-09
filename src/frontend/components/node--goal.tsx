@@ -2,15 +2,16 @@ import { useState} from 'react';
 import { DrupalNode } from "next-drupal";
 import { USAInPageNav } from "./usa--in-page-nav";
 import { FieldGoalType } from "./field--goal-type";
-import { FieldLogo } from './field--logo';
 import { USABreadcrumb } from './usa--breadcrumb';
+import { FieldObjectives } from './field--objectives';
 
 interface NodeGoalProps {
   node: DrupalNode;
+  storageData: any;
 }
 
-export function NodeGoal({ node, ...props }: NodeGoalProps) {
-  const { title, field_topics, field_goal_type, field_plan } = node;
+export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
+  const { title, field_topics, field_goal_type, field_plan, field_objectives } = node;
   const { field_agency } = field_plan;
   const [objectives, setObjectives] = useState([]);
   let goalTypeString = field_goal_type;
@@ -33,14 +34,15 @@ export function NodeGoal({ node, ...props }: NodeGoalProps) {
       
       <div className="grid-row">
         <div className="desktop:grid-col-3">
-          <USAInPageNav links={[
-            {href: "#about-goal", label: `About this ${field_agency.field_acronym} ${goalTypeString} goal`},
-            {href: "#what-is-goal", label: `What is a ${goalTypeString} goal?`},
-            {href: "#related-goals", label: "Related goals"}
-          ]} />
-          {field_agency.field_logo && (
-            <FieldLogo field_logo={field_agency.field_logo} />
-          )}
+          <USAInPageNav 
+            logo={field_agency.field_logo ? field_agency.field_logo : null}
+            logoAbove={false}
+            links={[
+              {href: "#about-goal", label: `About this ${field_agency.field_acronym} ${goalTypeString} goal`},
+              {href: "#what-is-goal", label: `What is a ${goalTypeString} goal?`},
+              {href: "#related-goals", label: "Related goals"}
+            ]}
+          />
         </div>
         <div className="desktop:grid-col-9">
           <h1 className="font-sans-2xl">{title}</h1>
@@ -54,14 +56,8 @@ export function NodeGoal({ node, ...props }: NodeGoalProps) {
                 className="font-body-md"
               />
             )}
-            <p>Strategic plan: link to strategic plan</p>
-            <h2 className="font-sans-2xl" id="related-resources">
-              Objectives
-            </h2>
-            <ol>
-              <li>objective1</li>
-              <li>objective2</li>
-            </ol>
+            <p><span className="text-bold">Strategic plan:</span> {field_plan.title}</p>
+            <FieldObjectives fieldObjectives={storageData.objectives} />
             {field_topics.length > 0 && (
               <ul className="add-list-reset grid-row">
                 {field_topics.map((topic) => (
