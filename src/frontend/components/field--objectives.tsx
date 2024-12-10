@@ -43,7 +43,6 @@ interface FieldObjectiveProps {
 
 
 export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
-  console.log(fieldObjectives)
   return (
     <div>
       <h2 className="font-sans-2xl margin-bottom-1" id="objectives">
