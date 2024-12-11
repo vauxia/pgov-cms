@@ -24,7 +24,7 @@ export default function NodePage({ resource, storageData }: NodePageProps) {
     <Layout>
       <Head>
         <title>{resource.title}</title>
-        <meta name="description" content="A Next.js site powered by Drupal." />
+        <meta name="description" content="Track the U.S. Government's goals."/>
       </Head>
       {resource.type === "node--page" && <NodeBasicPage node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
@@ -45,7 +45,7 @@ export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<NodePageProps>> {
   const path = await drupal.translatePathFromContext(context);
-  
+
   if (!path) {
     return {
       notFound: true,
@@ -54,11 +54,18 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName;
   const params = new DrupalJsonApiParams();
+  const graphqlUrl = drupal.buildUrl("/graphql");
+  let storageData = {};
+
 
   if (type === "node--article") {
     params.addInclude(["field_image, uid"]);
   } else if (type === "node--agency") {
     params.addInclude(["field_logo.field_media_image"]);//missing field topics
+    // @TODO I think I can do the extra strategic plan by agency stuff here
+    // If I have the nid for the agency here so I can use it in the graphql query for the strategic plan to get the plan by agency. But what if I don't?
+    console.log(path.entity.id);
+    // @TODO construct a function to pass the nid to a strategic plan node query in node-queries.ts. then move the other agency graphql query in there
   } else if (type === "node--goal") {
     params.addInclude([
       "field_topics",
@@ -73,6 +80,16 @@ export async function getStaticProps(
     ]);
     params.addFields("node--plan", ["field_agency", "title"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
+
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: nodeQueries.nodeGoal(path?.entity?.path),
+      }),
+    });
+    const { data } = await response.json();
+    storageData = data?.route?.entity;
   }
 
   const resource = await drupal.getResourceFromContext<DrupalNode>(
@@ -82,7 +99,7 @@ export async function getStaticProps(
       params: params.getQueryObject(),
     },
   );
-  
+
   // At this point, we know the path exists and it points to a resource.
   // If we receive an error, it means something went wrong on Drupal.
   // We throw an error to tell revalidation to skip this for now.
@@ -98,19 +115,8 @@ export async function getStaticProps(
       notFound: true,
     };
   }
-  let storageData = {};
-  if (type === "node--goal") {
-    const graphqlUrl = drupal.buildUrl("/graphql");
-    const response = await drupal.fetch(graphqlUrl.toString(), {
-      method: "POST",
-      withAuth: true, // Make authenticated requests using OAuth.
-      body: JSON.stringify({
-        query: nodeQueries.nodeGoal(path?.entity?.path),
-      }),
-    });
-    const { data } = await response.json();
-    storageData = data?.route?.entity;
-  }
+
+
   return {
     props: {
       resource,
