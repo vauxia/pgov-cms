@@ -44,9 +44,9 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     if(fulltext.length > 0) {
       currentGoals = currentGoals.filter((goal) => {
         let hasFulltext = false;
-        const searchFields = [goal.body?.value, goal.title];
+        const searchFields = [goal?.body?.value, goal.title];
         searchFields.forEach((field) => {
-          if(field.toLowerCase().includes(fulltext.toLowerCase())) {
+          if(field && field.toLowerCase().includes(fulltext.toLowerCase())) {
             hasFulltext = true
             if (goal.topics?.length) {
               goal.topics.forEach((topic) => {

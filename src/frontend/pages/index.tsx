@@ -50,15 +50,6 @@ export const getStaticProps = async () => {
       }`,
     }),
   });
-
-  // agencies {
-  //   ... on NodeAgency {
-  //     id
-  //     title
-  //     path
-  //   }
-  // }
-
   const { data } = await response.json();
   
   return {
@@ -72,24 +63,6 @@ export const getStaticProps = async () => {
 };
 
 export default function IndexPage(props: IndexPageProps) {
-  // useEffect(() => {
-  //   async function fetchjsonapi() {
-  //     const url = "https://performance.ddev.site/jsonapi/storage/indicator"
-  //     try {
-  //       const response = await fetch(url);
-  //       if (!response.ok) {
-  //         throw new Error(`Response status: ${response.status}`);
-  //       }
-    
-  //       const json = await response.json();
-  //       console.log(json);
-  //     } catch (error) {
-  //       console.error(error.message);
-  //     }
-  //   }
-  //   fetchjsonapi()
-  // }, [])
-
 
   return (
     <Layout>
