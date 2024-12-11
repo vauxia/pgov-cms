@@ -15,6 +15,7 @@ dependencies:
     - node.type.objective
     - node.type.page
     - node.type.plan
+    - node.type.report
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.topics
   module:
@@ -59,6 +60,7 @@ permissions:
   - 'create page content'
   - 'create plan content'
   - 'create remote_video media'
+  - 'create report content'
   - 'create terms in tags'
   - 'create terms in topics'
   - 'create url aliases'
@@ -83,6 +85,7 @@ permissions:
   - 'delete any plan content'
   - 'delete any remote_video media'
   - 'delete any remote_video media revisions'
+  - 'delete any report content'
   - 'delete any video media'
   - 'delete any video media revisions'
   - 'delete article revisions'
@@ -101,9 +104,11 @@ permissions:
   - 'delete own page content'
   - 'delete own plan content'
   - 'delete own remote_video media'
+  - 'delete own report content'
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
+  - 'delete report revisions'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
   - 'delete terms in tags'
@@ -119,6 +124,7 @@ permissions:
   - 'edit any page content'
   - 'edit any plan content'
   - 'edit any remote_video media'
+  - 'edit any report content'
   - 'edit any video media'
   - 'edit own agency content'
   - 'edit own article content'
@@ -130,6 +136,7 @@ permissions:
   - 'edit own page content'
   - 'edit own plan content'
   - 'edit own remote_video media'
+  - 'edit own report content'
   - 'edit own video media'
   - 'edit terms in tags'
   - 'edit terms in topics'
@@ -148,6 +155,7 @@ permissions:
   - 'revert objective revisions'
   - 'revert page revisions'
   - 'revert plan revisions'
+  - 'revert report revisions'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
   - 'update any media'
@@ -171,6 +179,7 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view plan revisions'
+  - 'view report revisions'
   - 'view term revisions in tags'
   - 'view term revisions in topics'
   - 'view the administration theme'
