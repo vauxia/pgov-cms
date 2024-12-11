@@ -16,6 +16,11 @@ dependencies:
     - node.type.page
     - node.type.plan
     - node.type.report
+    - storage.storage_type.administration
+    - storage.storage_type.indicator
+    - storage.storage_type.measurement
+    - storage.storage_type.period
+    - storage.storage_type.person
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.topics
   module:
@@ -27,6 +32,7 @@ dependencies:
     - migrate
     - node
     - path
+    - storage
     - system
     - taxonomy
     - toolbar
@@ -44,6 +50,12 @@ permissions:
   - 'access media overview'
   - 'access taxonomy overview'
   - 'access toolbar'
+  - 'add administration storage entities'
+  - 'add indicator storage entities'
+  - 'add measurement storage entities'
+  - 'add period storage entities'
+  - 'add person storage entities'
+  - 'add storage entities'
   - 'administer media'
   - 'administer media types'
   - 'administer nodes'
@@ -67,6 +79,7 @@ permissions:
   - 'create video media'
   - 'delete agency revisions'
   - 'delete all revisions'
+  - 'delete all storage revisions'
   - 'delete all taxonomy revisions'
   - 'delete any agency content'
   - 'delete any article content'
@@ -109,6 +122,7 @@ permissions:
   - 'delete page revisions'
   - 'delete plan revisions'
   - 'delete report revisions'
+  - 'delete storage entities'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
   - 'delete terms in tags'
@@ -138,6 +152,7 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own report content'
   - 'edit own video media'
+  - 'edit storage entities'
   - 'edit terms in tags'
   - 'edit terms in topics'
   - 'link to any page'
@@ -179,7 +194,9 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view plan revisions'
+  - 'view published storage entities'
   - 'view report revisions'
   - 'view term revisions in tags'
   - 'view term revisions in topics'
   - 'view the administration theme'
+  - 'view unpublished storage entities'
