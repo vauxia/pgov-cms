@@ -8,27 +8,28 @@ import { NodeBasicPage } from "components/node--basic-page";
 import { NodeAgency } from "../components/node--agency";
 import { NodeGoal } from "components/node--goal";
 import { Layout } from "components/layout";
-import { nodeQueries } from "./api/node-queries";
+import { nodeQueries, strategicPlanQueries } from "./api/node-queries";
 
 const RESOURCE_TYPES = ["node--page", "node--article", "node--agency", "node--goal"];
 
 interface NodePageProps {
   resource: DrupalNode;
   storageData: any;
+  planData: any;
 }
 
-export default function NodePage({ resource, storageData }: NodePageProps) {
+export default function NodePage({ resource, storageData, planData }: NodePageProps) {
   if (!resource) return null;
 
   return (
     <Layout>
       <Head>
         <title>{resource.title}</title>
-        <meta name="description" content="Track the U.S. Government's goals."/>
+        <meta name="description" content="A Next.js site powered by Drupal." />
       </Head>
       {resource.type === "node--page" && <NodeBasicPage node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
-      {resource.type === "node--agency" && <NodeAgency node={resource} />}
+      {resource.type === "node--agency" && <NodeAgency node={resource} planData={planData} />}
       {resource.type === "node--goal" && <NodeGoal node={resource} storageData={storageData} />}
     </Layout>
   );
@@ -54,18 +55,11 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName;
   const params = new DrupalJsonApiParams();
-  const graphqlUrl = drupal.buildUrl("/graphql");
-  let storageData = {};
-
 
   if (type === "node--article") {
     params.addInclude(["field_image, uid"]);
   } else if (type === "node--agency") {
     params.addInclude(["field_logo.field_media_image"]);//missing field topics
-    // @TODO I think I can do the extra strategic plan by agency stuff here
-    // If I have the nid for the agency here so I can use it in the graphql query for the strategic plan to get the plan by agency. But what if I don't?
-    console.log(path.entity.id);
-    // @TODO construct a function to pass the nid to a strategic plan node query in node-queries.ts. then move the other agency graphql query in there
   } else if (type === "node--goal") {
     params.addInclude([
       "field_topics",
@@ -80,16 +74,6 @@ export async function getStaticProps(
     ]);
     params.addFields("node--plan", ["field_agency", "title"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
-
-    const response = await drupal.fetch(graphqlUrl.toString(), {
-      method: "POST",
-      withAuth: true, // Make authenticated requests using OAuth.
-      body: JSON.stringify({
-        query: nodeQueries.nodeGoal(path?.entity?.path),
-      }),
-    });
-    const { data } = await response.json();
-    storageData = data?.route?.entity;
   }
 
   const resource = await drupal.getResourceFromContext<DrupalNode>(
@@ -116,11 +100,39 @@ export async function getStaticProps(
     };
   }
 
+  let storageData = {};
+  let planData = {}
+
+  if (type === "node--goal") {
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: nodeQueries.nodeGoal(path?.entity?.path),
+      }),
+    });
+    const { data } = await response.json();
+    storageData = data?.route?.entity;
+  } else if (type === "node--agency") {
+    const agencyId = parseInt(path?.entity?.id);
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: strategicPlanQueries.planNodeByAgency(agencyId),
+      }),
+    });
+    const { data } = await response.json();
+    planData = data.strategicPlansByAgencyGraphql1.results;
+  }
 
   return {
     props: {
       resource,
       storageData,
+      planData
     },
   };
 }

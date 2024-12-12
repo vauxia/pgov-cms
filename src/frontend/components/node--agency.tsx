@@ -4,12 +4,15 @@ import { USAInPageNav } from "./usa--in-page-nav";
 
 interface NodeAgencyProps {
   node: DrupalNode;
+  planData: any;
 }
 
-export function NodeAgency({ node, ...props }: NodeAgencyProps) {
+export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
   const breadcrumbLinks = [
     {label: "Agencies", href: "/agencies"},
   ];
+  console.log(planData);
+
   return (
     <>
       <USABreadcrumb links={breadcrumbLinks} activeItem={node.field_acronym} />
