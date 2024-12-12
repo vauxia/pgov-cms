@@ -13,7 +13,7 @@ dependencies:
     - node.type.objective
   module:
     - field_group
-    - inline_entity_form
+    - ief_table_view_mode
     - path
     - text
 third_party_settings:
@@ -115,7 +115,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_indicators:
-    type: inline_entity_form_complex
+    type: inline_entity_form_complex_table_view_mode
     weight: 12
     region: content
     settings:
