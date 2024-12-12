@@ -31,7 +31,6 @@ dependencies:
     - media
     - migrate
     - node
-    - path
     - storage
     - system
     - taxonomy
@@ -56,8 +55,6 @@ permissions:
   - 'add period storage entities'
   - 'add person storage entities'
   - 'add storage entities'
-  - 'administer nodes'
-  - 'administer url aliases'
   - 'create agency content'
   - 'create article content'
   - 'create basic block content'
@@ -73,7 +70,6 @@ permissions:
   - 'create report content'
   - 'create terms in tags'
   - 'create terms in topics'
-  - 'create url aliases'
   - 'create video media'
   - 'delete agency revisions'
   - 'delete all revisions'
