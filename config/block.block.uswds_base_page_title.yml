@@ -1,6 +1,6 @@
 uuid: b4f8aa74-08c3-4f42-b320-bfdc75f82837
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - uswds_base
@@ -8,7 +8,7 @@ _core:
   default_config_hash: nCwPdh9v96oDlivWz71bLHUdUjXmXNGzCtZZg3hxmco
 id: uswds_base_page_title
 theme: uswds_base
-region: content
+region: header_top
 weight: 0
 provider: null
 plugin: page_title_block

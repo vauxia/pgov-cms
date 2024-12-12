@@ -1,6 +1,6 @@
 uuid: c0788b9b-6a86-4100-a562-f0606d2905f7
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - help
@@ -10,7 +10,7 @@ _core:
   default_config_hash: kZYm0IFDqdGZFVnT4IcGM4VknJc3u4SBbsI71Gz8qFM
 id: uswds_base_help
 theme: uswds_base
-region: help
+region: header_top
 weight: -30
 provider: null
 plugin: help_block

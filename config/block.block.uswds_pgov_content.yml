@@ -1,4 +1,4 @@
-uuid: 82a7f261-8808-4ff5-a77f-aa5db5d340e6
+uuid: 88fa25fb-88c6-40ea-9ece-46a0c72112cb
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: uswds_pgov_content
 theme: uswds_pgov
 region: content
-weight: -4
+weight: -5
 provider: null
 plugin: system_main_block
 settings:

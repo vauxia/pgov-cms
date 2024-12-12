@@ -1,6 +1,6 @@
 uuid: e7385fce-a343-4945-b703-539613aed87a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -12,7 +12,7 @@ _core:
   default_config_hash: fe18X2hTQjshk7BVrSy8SiJPuRZKzP3KTKc5puymUOc
 id: uswds_base_footer
 theme: uswds_base
-region: footer_menu
+region: header_top
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'
