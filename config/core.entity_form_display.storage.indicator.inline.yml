@@ -17,7 +17,7 @@ dependencies:
     - storage.storage_type.indicator
   module:
     - field_group
-    - inline_entity_form
+    - ief_table_view_mode
     - text
 third_party_settings:
   field_group:
@@ -88,14 +88,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_measurements:
-    type: inline_entity_form_complex
+    type: inline_entity_form_complex_table_view_mode
     weight: 7
     region: content
     settings:
       form_mode: inline
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
+      override_labels: true
+      label_singular: measurement
+      label_plural: measurements
       allow_new: true
       allow_existing: false
       match_operator: CONTAINS

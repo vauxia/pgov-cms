@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.objective.field_objective_type
     - node.type.objective
   module:
-    - inline_entity_form
+    - ief_table_view_mode
     - text
 id: node.objective.inline
 targetEntityType: node
@@ -43,7 +43,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_indicators:
-    type: inline_entity_form_complex
+    type: inline_entity_form_complex_table_view_mode
     weight: 5
     region: content
     settings:
