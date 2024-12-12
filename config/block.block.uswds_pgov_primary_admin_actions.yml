@@ -1,0 +1,20 @@
+uuid: 305292dc-9230-4c42-99b1-3d55418fb322
+langcode: en
+status: true
+dependencies:
+  theme:
+    - uswds_pgov
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: uswds_pgov_primary_admin_actions
+theme: uswds_pgov
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
