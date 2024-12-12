@@ -64,6 +64,9 @@ export const strategicPlanQueries = {
       ... on NodePlan {
         id
         title
+        link {
+          url
+        }
         goals {
           ... on NodeGoal {
             id
