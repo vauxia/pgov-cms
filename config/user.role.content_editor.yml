@@ -56,8 +56,6 @@ permissions:
   - 'add period storage entities'
   - 'add person storage entities'
   - 'add storage entities'
-  - 'administer media'
-  - 'administer media types'
   - 'administer nodes'
   - 'administer url aliases'
   - 'create agency content'
