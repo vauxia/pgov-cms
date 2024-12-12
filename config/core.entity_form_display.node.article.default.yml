@@ -10,6 +10,7 @@ dependencies:
   module:
     - media_library
     - path
+    - tagify
     - text
 _core:
   default_config_hash: ewbd6G2uX456-bgwseM2Q-KQG3RkASoyHmTh-XR3oLU
@@ -42,14 +43,17 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_tags:
-    type: entity_reference_autocomplete_tags
+    type: tagify_entity_reference_autocomplete_widget
     weight: 3
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
       placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
     third_party_settings: {  }
   path:
     type: path
