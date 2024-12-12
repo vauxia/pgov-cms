@@ -52,3 +52,32 @@ export const nodeQueries = {
     }`
   ),
 }
+
+export const strategicPlanQueries = {
+  planNodeByAgency: (id: number) => (
+   `query StrategicPlansByAgency {
+  strategicPlansByAgencyGraphql1(filter: {field_agency_target_id: ${id}}) {
+    pageInfo {
+      total
+    }
+    results {
+      ... on NodePlan {
+        id
+        title
+        link {
+          url
+        }
+        goals {
+          ... on NodeGoal {
+            id
+            title
+            goalType
+            path
+          }
+        }
+      }
+    }
+  }
+}`
+  ),
+}

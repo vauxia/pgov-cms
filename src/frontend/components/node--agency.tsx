@@ -1,15 +1,18 @@
 import { DrupalNode } from "next-drupal";
 import { USABreadcrumb } from "./usa--breadcrumb";
 import { USAInPageNav } from "./usa--in-page-nav";
+import { NodePlan } from "./node--plan";
 
 interface NodeAgencyProps {
   node: DrupalNode;
+  planData: any;
 }
 
-export function NodeAgency({ node, ...props }: NodeAgencyProps) {
+export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
   const breadcrumbLinks = [
     {label: "Agencies", href: "/agencies"},
   ];
+
   return (
     <>
       <USABreadcrumb links={breadcrumbLinks} activeItem={node.field_acronym} />
@@ -31,12 +34,22 @@ export function NodeAgency({ node, ...props }: NodeAgencyProps) {
             <h2 className="font-sans-2xl" id="mission">
               Mission
             </h2>
+
             {node.body?.processed && (
               <div
-                dangerouslySetInnerHTML={{ __html: node.body?.processed }}
+                dangerouslySetInnerHTML={{__html: node.body?.processed}}
                 className="font-body-md"
               />
             )}
+
+            {planData.length > 0 && (
+              <section>
+                {planData.map((plan) => (
+                  <NodePlan key={plan.id} plan={plan} />
+                ))}
+              </section>
+            )}
+
             <h2 className="font-sans-2xl" id="related-resources">
               Related Resources
             </h2>

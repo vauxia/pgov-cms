@@ -70,7 +70,7 @@ export default function IndexPage(props: IndexPageProps) {
         <title>Performance.gov</title>
         <meta
           name="description"
-          content="A Next.js site powered by a Drupal backend."
+          content="Track the U.S. Government's goals."
         />
       </Head>
       <div className="grid-container">

@@ -55,7 +55,10 @@ entity_config:
     article:
       enabled: false
     division:
-      enabled: false
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
     goal:
       enabled: true
       query_load_enabled: true
@@ -75,6 +78,9 @@ entity_config:
       routes_enabled: true
     report:
       enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
   storage:
     administration:
       enabled: false
@@ -155,13 +161,34 @@ field_config:
     plan:
       body:
         enabled: true
+      field_administration:
+        enabled: true
       field_agency:
         enabled: true
       field_date:
         enabled: true
       field_division:
         enabled: true
+      field_file:
+        enabled: true
+      field_goals:
+        enabled: true
       field_link:
+        enabled: true
+      field_period:
+        enabled: true
+    report:
+      body:
+        enabled: true
+      field_file:
+        enabled: true
+      field_goals:
+        enabled: true
+      field_link:
+        enabled: true
+      field_period:
+        enabled: true
+      field_plan:
         enabled: true
   storage:
     indicator:
