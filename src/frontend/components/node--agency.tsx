@@ -12,6 +12,27 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
   const breadcrumbLinks = [
     {label: "Agencies", href: "/agencies"},
   ];
+  console.log(planData)
+  function buildInPageLinks() {
+    let links = [
+      {href: "#mission", label: `Mission`, primary: true}
+    ];
+    if (planData && planData.length > 0) {
+      planData.forEach((plan) => {
+        links.push({href: `#${plan.id}`, label: plan.title, primary: true})
+      })
+    }
+    // if (storageData.objectives) {
+    //   links.push({href: "#objectives", label: `Objectives`, primary: true});
+    //   storageData.objectives.forEach((objective) => {
+    //     links.push({href: `#${objective.id}`, label: objective.title, primary: false });
+    //   })
+
+    // }
+
+    links.push({href: "#related-resources", label: `Related Resources`, primary: true})
+    return links;
+  }
 
   return (
     <>
@@ -20,12 +41,7 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
         <div className="desktop:grid-col-4">
           <USAInPageNav
             logo={node.field_logo ? node.field_logo : null}
-            links={[
-              {href: "#mission", label: `Mission`},
-              {href: "#component-preview", label: `Admin`},
-              {href: "#component-code", label: `Fiscal period`},
-              {href: "#related-resources", label: `Related Resources`},
-            ]}
+            links={buildInPageLinks()}
           />
         </div>
         <div className="desktop:grid-col-8">

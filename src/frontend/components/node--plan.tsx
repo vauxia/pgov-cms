@@ -11,7 +11,7 @@ export function NodePlan({plan, ...props}: NodeGoalProps) {
   const strategic = plan?.goals?.filter((goal) => goal.goalType === "strategic");
   return (
     <>
-      <h2>{plan.title}</h2>
+      <h2 id={plan.id}>{plan.title}</h2>
       {strategic?.length > 0 && (
         <FieldGoals goals={strategic} title={"Strategic goals"} />
       )}
