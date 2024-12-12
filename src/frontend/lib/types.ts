@@ -1,5 +1,6 @@
 export interface NodeGoalProps {
   title: string,
+  id: string,
   body: {
     value: string
   },

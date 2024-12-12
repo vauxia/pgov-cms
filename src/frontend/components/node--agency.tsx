@@ -12,25 +12,25 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
   const breadcrumbLinks = [
     {label: "Agencies", href: "/agencies"},
   ];
-  console.log(planData)
   function buildInPageLinks() {
     let links = [
       {href: "#mission", label: `Mission`, primary: true}
     ];
     if (planData && planData.length > 0) {
       planData.forEach((plan) => {
-        links.push({href: `#${plan.id}`, label: plan.title, primary: true})
+        links.push({href: `#${plan.id}`, label: plan.title, primary: true});
+        if(plan.goals?.filter((goal) => goal.goalType === "strategic").length > 0) {
+          links.push({href: `#${plan.id}-strategic`, label: "Strategic goals", primary: false});
+        }
+        if(plan.goals?.filter((goal) => goal.goalType === "apg").length > 0) {
+          links.push({href: `#${plan.id}-apg`, label: "Agency priority goals", primary: false});
+        }
+        if(plan.link) {
+          links.push({href: `#${plan.id}-documents`, label: "Related documents", primary: false});
+        }
       })
     }
-    // if (storageData.objectives) {
-    //   links.push({href: "#objectives", label: `Objectives`, primary: true});
-    //   storageData.objectives.forEach((objective) => {
-    //     links.push({href: `#${objective.id}`, label: objective.title, primary: false });
-    //   })
-
-    // }
-
-    links.push({href: "#related-resources", label: `Related Resources`, primary: true})
+    links.push({href: "#related-resources", label: `Related Resources`, primary: true});
     return links;
   }
 
