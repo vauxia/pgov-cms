@@ -1,0 +1,11 @@
+uuid: c31ea93a-2484-4046-b523-97e3d6b258ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.ief_table
+label: 'Inline Entity Form Table'
+description: ''
+targetEntityType: storage
+cache: true
