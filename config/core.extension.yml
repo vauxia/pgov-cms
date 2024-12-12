@@ -45,6 +45,7 @@ module:
   graphql_compose_views: 0
   graphql_examples: 0
   help: 0
+  ief_table_view_mode: 0
   image: 0
   inline_entity_form: 0
   jsonapi: 0
