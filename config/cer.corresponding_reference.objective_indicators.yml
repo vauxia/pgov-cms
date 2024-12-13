@@ -5,8 +5,8 @@ dependencies: {  }
 id: objective_indicators
 label: 'Performance indicators for an objective'
 enabled: true
-first_field: field_objective
-second_field: field_indicators
+first_field: field_indicators
+second_field: field_objective
 add_direction: append
 bundles:
   node:
