@@ -12,6 +12,27 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
   const breadcrumbLinks = [
     {label: "Agencies", href: "/agencies"},
   ];
+  function buildInPageLinks() {
+    let links = [
+      {href: "#mission", label: `Mission`, primary: true}
+    ];
+    if (planData && planData.length > 0) {
+      planData.forEach((plan) => {
+        links.push({href: `#${plan.id}`, label: plan.title, primary: true});
+        if(plan.goals?.filter((goal) => goal.goalType === "strategic").length > 0) {
+          links.push({href: `#${plan.id}-strategic`, label: "Strategic goals", primary: false});
+        }
+        if(plan.goals?.filter((goal) => goal.goalType === "apg").length > 0) {
+          links.push({href: `#${plan.id}-apg`, label: "Agency priority goals", primary: false});
+        }
+        if(plan.link) {
+          links.push({href: `#${plan.id}-documents`, label: "Related documents", primary: false});
+        }
+      })
+    }
+    links.push({href: "#related-resources", label: `Related Resources`, primary: true});
+    return links;
+  }
 
   return (
     <>
@@ -20,12 +41,7 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
         <div className="desktop:grid-col-4">
           <USAInPageNav
             logo={node.field_logo ? node.field_logo : null}
-            links={[
-              {href: "#mission", label: `Mission`},
-              {href: "#component-preview", label: `Admin`},
-              {href: "#component-code", label: `Fiscal period`},
-              {href: "#related-resources", label: `Related Resources`},
-            ]}
+            links={buildInPageLinks()}
           />
         </div>
         <div className="desktop:grid-col-8">

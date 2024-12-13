@@ -153,8 +153,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
         <ul className="usa-card-group">
           {filteredGoals.map((goal) => (
             <li
-              // Not all goals have an ID, so path is the next most unique.
-              key={goal.path}
+              key={goal.id}
               className="usa-card tablet-lg:grid-col-6 desktop:grid-col-4"
             >
               <NodeGoalCard goal={goal} />
