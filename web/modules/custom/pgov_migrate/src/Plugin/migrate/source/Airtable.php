@@ -2,6 +2,7 @@
 
 namespace Drupal\pgov_migrate\Plugin\migrate\source;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate_plus\Plugin\migrate\source\Url;
 
@@ -22,6 +23,8 @@ use Drupal\migrate_plus\Plugin\migrate\source\Url;
  * )
  */
 class Airtable extends Url {
+
+  use StringTranslationTrait;
 
   /**
    * Airtable's API URL; is the base of all requests.
@@ -177,6 +180,14 @@ class Airtable extends Url {
     }
     if (isset($configuration['view'])) {
       $url .= '&view=' . urlencode($configuration['view']);
+    }
+    if (isset($configuration['sort'])) {
+      $sort = $this->t('sort[0][field]=@sort', ['@sort' => $configuration['sort']]);
+      $url .= urlencode($sort);
+      if (isset($configuration['direction'])) {
+        $sort = $this->t('sort[0][direction]=@direction', ['@direction' => $configuration['direction']]);
+        $url .= urlencode($sort);
+      }
     }
     $configuration['urls'] = [$url];
 
