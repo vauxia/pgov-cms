@@ -14,6 +14,8 @@ source:
     body_format: basic_html
     file_destination: 'public://images/'
     delimiter: '-'
+    sort: 'EndDate'
+    direction: 'asc'
 destination:
   plugin: entity:node
   default_bundle: goal

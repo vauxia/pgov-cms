@@ -5,8 +5,8 @@ dependencies: {  }
 id: plan_goals
 label: 'Goals in a plan'
 enabled: true
-first_field: field_plan
-second_field: field_goals
+first_field: field_goals
+second_field: field_plan
 add_direction: append
 bundles:
   node:

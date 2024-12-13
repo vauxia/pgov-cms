@@ -5,8 +5,8 @@ dependencies: {  }
 id: indicator_measurements
 label: 'Measurements for a performance indicator'
 enabled: true
-first_field: field_indicator
-second_field: field_measurements
+first_field: field_measurements
+second_field: field_indicator
 add_direction: append
 bundles:
   storage:
