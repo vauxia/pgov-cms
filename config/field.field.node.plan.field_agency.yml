@@ -20,6 +20,6 @@ settings:
   handler_settings:
     view:
       view_name: agencies
-      display_name: entity_reference_1
+      display_name: agency_acronym_entity_reference
       arguments: {  }
 field_type: entity_reference

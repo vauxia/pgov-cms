@@ -182,8 +182,8 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_acronym'
-  entity_reference_1:
-    id: entity_reference_1
+  divisions_acronym_entity_reference:
+    id: divisions_acronym_entity_reference
     display_title: 'Entity Reference by Acronym'
     display_plugin: entity_reference
     position: 1
