@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_agency
-    - node.type.agency
     - node.type.plan
 id: node.plan.field_agency
 field_name: field_agency
@@ -17,13 +16,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      agency: agency
-    sort:
-      field: title
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
+    view:
+      view_name: agencies
+      display_name: agency_acronym_entity_reference
+      arguments: {  }
 field_type: entity_reference
