@@ -5,6 +5,7 @@ import { NodeGoalProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
 import { ViewGoalSearchFacet } from "./view--goal-search--facet";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
+import { ViewGoalSearchResults } from "./view--goal-search--results";
 
 interface ViewGoalSearch {
   goals: Array<NodeGoalProps>,
@@ -13,11 +14,39 @@ interface ViewGoalSearch {
   total: number
 }
 
+async function getData(fulltext: string) {
+  const url = `/api/goal-search?fulltext=${fulltext}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    
+    const { data } = await response.json();
+    console.log(data);
+    return {
+      goals: data?.goalsGraphql1?.results ?? [],
+      filters: data?.goalsGraphql1?.filters ?? [],
+      total: data?.goalsGraphql1?.pageInfo?.total ?? 0,
+      description: data?.goalsGraphql1?.description ?? "",
+    };
+  } catch (error) {
+    console.error(error.message);
+  }
+  
+}
+
 export default function GoalsSearchView({ filters, goals, total, description }: ViewGoalSearch) {
+<<<<<<< HEAD
   const offsetAmount = 15;
 
   const [fulltext, setFulltext] = useState(filters[0].value ? filters[0].value : "")
   const [facets] = useState([...Object.keys(filters[1].options)])
+=======
+  const [fulltext, setFulltext] = useState(filters[0]?.value ? filters[0].value : "")
+  const [displayGoals, setDisplayGoals] = useState(goals)
+  const [facets] = useState(filters[1] ? [...Object.keys(filters[1]?.options)] : [])
+>>>>>>> 7a191ae (Initial nextjs api endpoint commit)
   const [search, setSearch] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [offset, setOffset] = useState(offsetAmount);
@@ -26,9 +55,29 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
   const [filteredGoals, setFilteredGoals] = useState([...goals])
   const [filteredGoalsCount, setFilteredGoalsCount] = useState(total)
 
-  function handleSearch(e: FormEvent) {
+  async function handleSearch(e: FormEvent) {
     e.preventDefault()
-    setSearch(true)
+    const url = `/api/goal-search?fulltext=${fulltext}`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+    
+      const { data } = await response.json();
+      console.log(data)
+      setDisplayGoals(data?.goalsGraphql1?.results ?? [])
+      setFilteredGoalsCount(data?.goalsGraphql1?.pageInfo?.total ?? 0)
+      // console.log(data);
+      // return {
+      //   goals: data?.goalsGraphql1?.results ?? [],
+      //   filters: data?.goalsGraphql1?.filters ?? [],
+      //   total: data?.goalsGraphql1?.pageInfo?.total ?? 0,
+      //   description: data?.goalsGraphql1?.description ?? "",
+      // };
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   function updateTopicFilters(topic) {
