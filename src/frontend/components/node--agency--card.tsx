@@ -1,8 +1,16 @@
 import Image from "next/image";
-import { DrupalNode } from "next-drupal";
 
 interface NodeAgencyCardProps {
-  node: DrupalNode;
+  node: {
+    path: string
+    title: string
+    logo: {
+      mediaImage: {
+        url: string
+        alt: string
+      }
+    }
+  };
 }
 
 export function NodeAgencyCard({ node, ...props }: NodeAgencyCardProps) {

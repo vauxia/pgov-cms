@@ -1,6 +1,5 @@
 import { formatDate } from "lib/utils";
 
-
 interface FieldPeriodProps {
   dateRange: {
     end: {
@@ -41,7 +40,6 @@ interface FieldObjectiveProps {
   }>
 }
 
-
 export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
   return (
     <div>
@@ -49,13 +47,13 @@ export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
         Objectives
       </h2>
       <ol className="add-list-reset">
-        {fieldObjectives.map((objective, index) => (
+        {fieldObjectives?.map((objective, index) => (
           <li key={objective.id} className={`${index > 0 ? "border-top" : ""}`}>
             <h3 id={objective.id}>{objective.title}</h3>
             <h4 className="margin-bottom-0">Performance indicators</h4>
-            {objective.indicators.length > 0 && (
+            {objective.indicators?.length > 0 && (
               <ol className="add-list-reset">
-                {objective.indicators.map((indicator) => (
+                {objective.indicators?.map((indicator) => (
                   <li key={indicator.id}>
                     <p>{indicator.name}</p>
                     {(indicator.measurements && indicator.measurements.length > 0) && (
@@ -72,17 +70,17 @@ export function FieldObjectives({fieldObjectives} : FieldObjectiveProps) {
                           </tr>
                         </thead>
                         <tbody>
-                          {indicator.measurements.map((measurement) => (
+                          {indicator.measurements?.map((measurement) => (
                             <tr key={measurement.id}>
-                              <td>{formatDate(measurement.period.dateRange.start.time)}</td>
-                              <td>{formatDate(measurement.period.dateRange.end.time)}</td>
+                              <td>{formatDate(measurement.period?.dateRange?.start.time)}</td>
+                              <td>{formatDate(measurement.period?.dateRange?.end.time)}</td>
                               <td>{measurement.value ? measurement.value : "N/A"}</td>
                               <td>{measurement.targetValue ? measurement.targetValue : "N/A"}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      )}
+                    )}
                     {indicator.notes?.processed && (
                       <div dangerouslySetInnerHTML={{ __html: indicator.notes?.processed }} />
                     )}
