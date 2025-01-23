@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a528add00c98fb63d9f4fd20d7c4d02",
+    "content-hash": "460dc2c2c1f4dc6238251a6cb05b027c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3228,37 +3228,42 @@
         },
         {
             "name": "drupal/simple_oauth",
-            "version": "6.0.0-beta8",
+            "version": "5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_oauth.git",
-                "reference": "6.0.0-beta8"
+                "reference": "5.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_oauth-6.0.0-beta8.zip",
-                "reference": "6.0.0-beta8",
-                "shasum": "5629128e55b4834c169f3c4a18b30aa9b48b49fc"
+                "url": "https://ftp.drupal.org/files/projects/simple_oauth-5.2.5.zip",
+                "reference": "5.2.5",
+                "shasum": "3517d07e4896a32eddda7446b85a2afa945321a2"
             },
             "require": {
-                "drupal/consumers": "^1.17",
-                "drupal/core": "^10.2 || ^11",
-                "league/oauth2-server": "^8.5 || ^9.0",
-                "php": ">=8.1",
-                "steverhoades/oauth2-openid-connect-server": "^2.6"
+                "drupal/consumers": "^1.14",
+                "drupal/core": "^9 || ^10",
+                "lcobucci/jwt": "^4",
+                "league/oauth2-server": "^8.3",
+                "php": ">=7.4",
+                "steverhoades/oauth2-openid-connect-server": "^2.4"
             },
             "require-dev": {
-                "drupal/simple_oauth_static_scope": "*",
                 "phpspec/prophecy-phpunit": "^2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.0.0-beta8",
-                    "datestamp": "1734959037",
+                    "version": "5.2.5",
+                    "datestamp": "1700206902",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10 || ^11"
                     }
                 }
             },
@@ -3268,9 +3273,8 @@
             ],
             "authors": [
                 {
-                    "name": "Mateu Aguiló Bosch",
-                    "homepage": "https://www.drupal.org/user/2801849",
-                    "email": "mateu.aguilo.bosch@gmail.com"
+                    "name": "bojan_dev",
+                    "homepage": "https://www.drupal.org/user/2801849"
                 },
                 {
                     "name": "bradjones1",
