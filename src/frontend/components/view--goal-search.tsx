@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, useCallback } from "react";
 import { Button } from "@trussworks/react-uswds";
 import { NodeGoalProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
@@ -38,81 +38,83 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     setActiveTopics(currentFilters)
   }
 
-  function filterGoals(resetOffset = false) {
-    let currentGoals = [...goals];
-    let notDisabled = []
-    if(fulltext.length > 0) {
-      currentGoals = currentGoals.filter((goal) => {
-        let hasFulltext = false;
-        const searchFields = [goal?.body?.value, goal.title];
-        searchFields.forEach((field) => {
-          if(field && field.toLowerCase().includes(fulltext.toLowerCase())) {
-            hasFulltext = true
-            if (goal.topics?.length) {
-              goal.topics.forEach((topic) => {
-                if(!notDisabled.includes(topic.name)) {
-                  notDisabled.push(topic.name)
-                }
-              })
+  const filterGoals = useCallback (
+    (resetOffset = false) => {
+      let currentGoals = [...goals];
+      let notDisabled = []
+      if(fulltext.length > 0) {
+        currentGoals = currentGoals.filter((goal) => {
+          let hasFulltext = false;
+          const searchFields = [goal?.body?.value, goal.title];
+          searchFields.forEach((field) => {
+            if(field && field.toLowerCase().includes(fulltext.toLowerCase())) {
+              hasFulltext = true
+              if (goal.topics?.length) {
+                goal.topics.forEach((topic) => {
+                  if(!notDisabled.includes(topic.name)) {
+                    notDisabled.push(topic.name)
+                  }
+                })
+              }
             }
+          })
+
+          if(hasFulltext ) {
+            
+            return goal
+          } else {
+            return null
           }
         })
+        
+      }
 
-        if(hasFulltext ) {
-          
-          return goal
-        } else {
-          return null
-        }
-      })
+      if (activeTopics.length > 0) {
+        currentGoals = currentGoals.filter((goal) => {
+          let hasActiveTopic = false
+          if (!goal.topics) {
+            return null;
+          }
+          goal.topics.forEach((topic) => {
+            if(activeTopics.indexOf(topic.name) > -1) {
+              hasActiveTopic = true
+            }
+          })
+          if(hasActiveTopic) {
+            return goal
+          } else {
+            return null
+          }
+        })
+      }
+
+      setNotDisabledTopics(notDisabled)
+      setFilteredGoalsCount(currentGoals.length)
       
-    }
-
-    if (activeTopics.length > 0) {
-      currentGoals = currentGoals.filter((goal) => {
-        let hasActiveTopic = false
-        if (!goal.topics) {
-          return null;
-        }
-        goal.topics.forEach((topic) => {
-          if(activeTopics.indexOf(topic.name) > -1) {
-            hasActiveTopic = true
-          }
-        })
-        if(hasActiveTopic) {
-          return goal
-        } else {
-          return null
-        }
-      })
-    }
-
-    setNotDisabledTopics(notDisabled)
-    setFilteredGoalsCount(currentGoals.length)
-    
-    if (resetOffset) {
-      currentGoals = currentGoals.slice(0, 9);
-      setOffset(9)
-    } else {
-      currentGoals = currentGoals.slice(0, offset);
-    }
-    setFilteredGoals(currentGoals)
-    setSearch(false)
-  }
+      if (resetOffset) {
+        currentGoals = currentGoals.slice(0, 9);
+        setOffset(9)
+      } else {
+        currentGoals = currentGoals.slice(0, offset);
+      }
+      setFilteredGoals(currentGoals)
+      setSearch(false)
+    }, [activeTopics, fulltext, goals,offset]
+  );
 
   useEffect(() => {
     if(search) {
       filterGoals(true)
     }
-  }, [search])
+  }, [search, filterGoals])
 
   useEffect(() => {
     filterGoals(true)
-  }, [activeTopics])
+  }, [activeTopics, filterGoals])
 
   useEffect(() => {
     filterGoals()
-  }, [offset])
+  }, [offset, filterGoals])
 
   return (
     <div>

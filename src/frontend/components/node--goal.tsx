@@ -70,7 +70,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
               <span className="font-body-md text-bold">Strategic plan:</span>{" "}
               <Link href={`${field_agency.path.alias}`}>{field_plan.title}</Link>
             </p>
-            {storageData.objectives && (
+            {storageData?.objectives && (
               <FieldObjectives fieldObjectives={storageData.objectives} />
             )}
             {field_topics.length > 0 && (
