@@ -1,0 +1,20 @@
+{
+  "name": "pgov-tests",
+  "version": "1.0.0",
+  "description": "Cypress for PGOV",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:smoke": "cypress run --env grepTags=@smoke",
+    "cy:goalSearch": "cypress run --env grepTags=@goalSearch",
+    "cy:homepage": "cypress run --env grepTags=@homepage",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/grep": "^4.1.0",
+    "@testing-library/cypress": "^10.0.3",
+    "cypress": "^14.0.0"
+  }
+}
