@@ -1,9 +1,7 @@
-export async function GET(request: Request) {
-  console.log("GET /api/basicauth/route.ts");
-  return new Response("Authentication Required!", {
-    status: 401,
-    headers: {
-      "WWW-Authenticate": "Basic realm='private_pages'",
-    },
-  });
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+export default function handler(_: NextApiRequest, res: NextApiResponse) {
+  res.setHeader('WWW-authenticate', 'Basic realm="Secure Area"')
+  res.statusCode = 401
+  res.end(`Auth Required.`)
 }
