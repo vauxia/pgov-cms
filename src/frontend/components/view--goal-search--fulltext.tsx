@@ -18,7 +18,7 @@ export function ViewGoalSearchFulltext({
       <input 
         id="search-goals"
         className="usa-input"
-        name="search"
+        name="Search goals"
         type="search"
         value={fulltext}
         onChange={(e) => setFulltext(e.target.value)}
