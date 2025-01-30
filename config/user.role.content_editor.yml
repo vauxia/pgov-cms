@@ -25,7 +25,6 @@ dependencies:
     - taxonomy.vocabulary.topics
   module:
     - block_content
-    - content_model_documentation
     - contextual
     - file
     - media
@@ -170,7 +169,6 @@ permissions:
   - 'update any media'
   - 'update media'
   - 'view agency revisions'
-  - 'view all content model document revisions'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view all taxonomy revisions'
