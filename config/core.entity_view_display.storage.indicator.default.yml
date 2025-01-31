@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.storage.indicator.field_administration
     - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
@@ -20,6 +21,14 @@ targetEntityType: storage
 bundle: indicator
 mode: default
 content:
+  field_administration:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_description:
     type: text_default
     label: hidden
