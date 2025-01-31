@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.report.body
+    - field.field.node.report.field_administration
     - field.field.node.report.field_file
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
@@ -126,5 +127,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_administration: true
   promote: true
   sticky: true

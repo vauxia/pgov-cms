@@ -1,0 +1,29 @@
+uuid: 71a38433-1704-4afb-8e1f-cdd6790c5057
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_administration
+    - node.type.report
+    - storage.storage_type.administration
+id: node.report.field_administration
+field_name: field_administration
+entity_type: node
+bundle: report
+label: Administration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      administration: administration
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
