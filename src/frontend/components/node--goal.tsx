@@ -41,20 +41,20 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
   return (
     <>
       <USABreadcrumb activeItem={title} links={breadcrumbLinks} />
-      <div className="grid-row">
-        <div className="desktop:grid-col-12">
+      {/* <div className="">
+        <div className="">
           <FieldGoalType field_goal_type={field_goal_type} />
         </div>
-      </div>
+      </div> */}
       <div className="grid-row">
-        <div className="desktop:grid-col-4">
+        <div className="side-bar">
           <USAInPageNav 
             logo={field_agency.field_logo ? field_agency.field_logo : null}
             logoAbove={false}
             links={buildInPageLinks()}
           />
         </div>
-        <div className="desktop:grid-col-8">
+        <div className="content-area">
           <h1 className="font-sans-2xl">{title}</h1>
           <main id="main-content" className="main-content" ref={mainContentRef}>
             <h2 className="font-sans-xl" id="goal-description">
