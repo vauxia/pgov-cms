@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+echo "Executing .git/hooks/pre-commit..."
+
+# Check frontend
+cd src/frontend
+npm run lint-staged
+npm run build
+git update-index --again
+
+
