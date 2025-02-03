@@ -5,6 +5,8 @@ import { USAInPageNav } from "./usa--in-page-nav";
 import { FieldGoalType } from "./field--goal-type";
 import { USABreadcrumb } from './usa--breadcrumb';
 import { FieldObjectives } from './field--objectives';
+import AgencyInfoBox from './agency-info-box';
+import { FieldPeriod } from './field--period';
 
 interface NodeGoalProps {
   node: DrupalNode;
@@ -13,8 +15,9 @@ interface NodeGoalProps {
 
 export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
   let mainContentRef = useRef();
-  const { title, field_topics, field_goal_type, field_plan } = node;
+  const { title, field_topics, field_goal_type, field_plan, field_period } = node;
   const { field_agency } = field_plan;
+  console.log(field_agency)
   let goalTypeString = field_goal_type;
   if (field_goal_type == "apg") {
     goalTypeString = "priority";
@@ -23,7 +26,11 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     {label: "Agencies", href: "/agencies"},
     {label: field_agency.field_acronym, href: field_agency.path.alias}
   ];
-
+<USAInPageNav 
+            logo={field_agency.field_logo ? field_agency.field_logo : null}
+            logoAbove={false}
+            links={buildInPageLinks()}
+          />
   function buildInPageLinks() {
     let links = [
       {href: "#goal-description", label: `About this ${field_agency.field_acronym} ${goalTypeString} goal`, primary: true}
@@ -37,7 +44,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     }
     return links;
   }
-
+  console.log(storageData)
   return (
     <>
       <USABreadcrumb activeItem={title} links={breadcrumbLinks} />
@@ -48,11 +55,21 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
       </div> */}
       <div className="grid-row">
         <div className="side-bar">
-          <USAInPageNav 
+          <div>
+            <FieldGoalType field_goal_type={field_goal_type} />
+            <FieldPeriod field_period={storageData?.period} />
+          </div>
+          {title}
+          <AgencyInfoBox
+            acronym={field_agency.field_acronym}
+            logo={field_agency.field_logo}
+            title={field_agency.title}
+          />
+          {/* <USAInPageNav 
             logo={field_agency.field_logo ? field_agency.field_logo : null}
             logoAbove={false}
             links={buildInPageLinks()}
-          />
+          /> */}
         </div>
         <div className="content-area">
           <h1 className="font-sans-2xl">{title}</h1>

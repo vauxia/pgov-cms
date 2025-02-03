@@ -1,22 +1,22 @@
 import Image from "next/image";
+import { FieldLogo } from "./field--logo";
 
-
-const AgencyInfoBox = ({agency}) => {
-  const { acronym: agencyAcronym, logo: agencyLogo, title: agencyTitle } = agency;
-
+const AgencyInfoBox = ({acronym, logo, title}) => {
   return(
-    <div className="grid-row flex-column">
-        <span className="text-bold">{agencyAcronym}</span>
-        <span className="font-sans-3xs">{agencyTitle}</span>
+    <div className="grid-row flex-justify flex-no-wrap">
+      <div className="grid-row flex-column">
+        <span className="text-bold">{acronym}</span>
+        <span className="font-sans-3xs">{title}</span>
       </div>
-      <Image
-        src={agencyLogo?.mediaImage.url}
-        width={24}
-        height={24}
-        alt={agencyLogo?.mediaImage.alt}
-        priority
-        className="flex-align-self-center"
-      />
+      <div className="flex-align-self-center">
+        <FieldLogo
+          field_logo={logo}
+          height={24}
+          width={24}
+        />
+      </div>
     </div>
   )
 }
+
+export default AgencyInfoBox;

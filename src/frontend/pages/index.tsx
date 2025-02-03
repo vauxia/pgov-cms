@@ -26,6 +26,7 @@ export const getStaticProps = async () => {
       ... on NodeGoal {
         id
         title
+        goalType
         path
         body {
           value
@@ -57,6 +58,12 @@ export const getStaticProps = async () => {
                 }
               }
             }
+          }
+        }
+        period {
+          ... on StoragePeriod {
+            id
+            name
           }
         }
       }

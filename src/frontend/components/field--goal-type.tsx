@@ -11,16 +11,14 @@ export function FieldGoalType({field_goal_type}) {
       goalTypeClasses = "bg-base-darkest";
       break;
     default:
+      goalTypeName = "Default"
       goalTypeClasses = "bg-base";
       break;
   }
-
   return (
-    <div className={`goal-type goal-type--${field_goal_type}`}>
-      <span className={`usa-tag ${goalTypeClasses} text-white`}>
-        {goalTypeName}
-      </span>
-    </div>
+    <span className={`border padding-x-105 font-sans-3xs radius-pill`}>
+      {goalTypeName}
+    </span>
   );
 }
 

@@ -45,6 +45,12 @@ export const nodeQueries = {
                   }
                 }
               }
+              period {
+                ... on StoragePeriod {
+                  id
+                  name
+                }
+              }
             }
           }
         }
