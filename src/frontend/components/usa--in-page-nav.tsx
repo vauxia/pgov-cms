@@ -13,9 +13,9 @@ export function USAInPageNav({links, logo, logoAbove = true}) {
       data-threshold="1"
       data-main-content-selector="#main-content"
     >
-      {(logo && logoAbove) && (
+      {/* {(logo && logoAbove) && (
         <FieldLogo field_logo={logo} />
-      )}
+      )} */}
       <nav aria-label="On this page" className="usa-in-page-nav__nav">
         <h4 className="usa-in-page-nav__heading" tabIndex={0}>
           On this page
@@ -35,9 +35,9 @@ export function USAInPageNav({links, logo, logoAbove = true}) {
           ))}
         </ul>
       </nav>
-      {(logo && !logoAbove) && (
+      {/* {(logo && !logoAbove) && (
         <FieldLogo field_logo={logo} />
-      )}
+      )} */}
     </aside>
   );
 }

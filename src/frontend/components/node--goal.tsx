@@ -15,9 +15,8 @@ interface NodeGoalProps {
 
 export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
   let mainContentRef = useRef();
-  const { title, field_topics, field_goal_type, field_plan, field_period } = node;
+  const { title, field_topics, field_goal_type, field_plan } = node;
   const { field_agency } = field_plan;
-  console.log(field_agency)
   let goalTypeString = field_goal_type;
   if (field_goal_type == "apg") {
     goalTypeString = "priority";
@@ -44,7 +43,6 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     }
     return links;
   }
-  console.log(storageData)
   return (
     <>
       <USABreadcrumb activeItem={title} links={breadcrumbLinks} />

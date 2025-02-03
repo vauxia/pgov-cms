@@ -13,7 +13,6 @@ interface NodeGoalCardProps {
 export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
   const { title, body, path, plan, goalType,period } = goal;
   const { agency } = plan;
-  console.log(goal)
   const { acronym: agencyAcronym, logo: agencyLogo, title: agencyTitle } = agency;
   return (
     <div className="goal-card padding-1">

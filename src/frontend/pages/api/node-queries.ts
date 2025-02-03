@@ -76,7 +76,6 @@ export const strategicPlanQueries = {
         goals {
           ... on NodeGoal {
             id
-            fieldId
             title
             goalType
             path
