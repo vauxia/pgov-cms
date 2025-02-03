@@ -42,7 +42,7 @@
     "typescript": "^4.9.3"
   },
   "lint-staged": {
-    "**/*": "npm run format:check",
+    "**/*": "prettier --write --ignore-unknown",
     "**/*.tsx": "tsc-files --noEmit --pretty"
   },
   "engines": {
