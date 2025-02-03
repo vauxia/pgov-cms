@@ -43,7 +43,7 @@
   },
   "lint-staged": {
     "**/*": "npm run format:check",
-    "**/*.ts": "tsc-files --noEmit"
+    "**/*.tsx": "tsc-files --noEmit --pretty"
   },
   "engines": {
     "node": "22.11.0",
