@@ -1,9 +1,9 @@
-export function FieldGoalType({field_goal_type}) {
+export function FieldGoalType({ field_goal_type }) {
   let goalTypeName = "";
   let goalTypeClasses = "";
   switch (field_goal_type) {
     case "apg":
-      goalTypeName = "Agency priority goal" ;
+      goalTypeName = "Agency priority goal";
       goalTypeClasses = "bg-primary-vivid";
       break;
     case "strategic":
@@ -23,6 +23,3 @@ export function FieldGoalType({field_goal_type}) {
     </div>
   );
 }
-
-
-
