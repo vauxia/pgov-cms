@@ -41,7 +41,7 @@
     "typescript": "^4.9.3"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\\\ |g') --write --ignore-unknown"
   },
   "engines": {
     "node": "22.11.0",
