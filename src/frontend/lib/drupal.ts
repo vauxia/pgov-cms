@@ -5,10 +5,11 @@ export const drupal = new DrupalClient(
   {
     auth: {
       clientId: process.env.DRUPAL_CLIENT_ID,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET
     },
     headers: {
       "Content-Type": "application/json",
+      'Authorization': `Basic ${btoa(process.env.BASIC_AUTH_USER + ':' + process.env.BASIC_AUTH_PASSWORD)}`
     },
   },
 );
