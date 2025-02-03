@@ -5,12 +5,15 @@ dependencies:
   config:
     - field.field.node.goal.body
     - field.field.node.goal.field_goal_type
+    - field.field.node.goal.field_image
     - field.field.node.goal.field_objectives
     - field.field.node.goal.field_period
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_topics
+    - image.style.1x1_third
     - node.type.goal
   module:
+    - media
     - options
     - text
     - user
@@ -32,6 +35,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: 1x1_third
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_objectives:
     type: entity_reference_label
