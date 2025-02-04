@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo "Executing .git/hooks/pre-commit..."
+VIOLATIONS=0
 
 # Check backend
 STANDARD="Drupal"
@@ -25,9 +26,18 @@ echo "Running Drupal Coder."
 echo
 PHPCS=("$BIN/phpcs" "--standard=$STANDARD" "--filter=gitstaged" "--encoding=utf-8" "-p" ".")
 "${PHPCS[@]}"
+VIOLATIONS=$(($VIOLATIONS + $?))
 
-# Syntax Error
-if [ $? != 0 ]
+# Check frontend
+echo "Running Frontend Lints."
+echo
+cd src/frontend
+npm run lint-staged
+# Add frontend violations to the total
+VIOLATIONS=$(($VIOLATIONS + $?))
+
+# One or more violations detected
+if [ $VIOLATIONS != 0 ]
 then
   echo "Please fix each violations detected."
   echo
@@ -35,16 +45,13 @@ then
 fi
 
 # Syntax OK
-if [ $? == 0 ]
+if [ $VIOLATIONS == 0 ]
 then
   echo "No violations detected"
   echo
   exit 0
 fi
 
-# Check frontend
-cd src/frontend
-npm run lint-staged
 git update-index --again
 
 
