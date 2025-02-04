@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.goal.body
+    - field.field.node.goal.field_administration
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_image
     - field.field.node.goal.field_objectives
     - field.field.node.goal.field_period
     - field.field.node.goal.field_plan
+    - field.field.node.goal.field_sequence
     - field.field.node.goal.field_topics
     - image.style.1x1_third
     - node.type.goal
@@ -34,10 +36,12 @@ content:
     region: content
 hidden:
   body: true
+  field_administration: true
   field_goal_type: true
   field_objectives: true
   field_period: true
   field_plan: true
+  field_sequence: true
   field_topics: true
   links: true
   search_api_excerpt: true

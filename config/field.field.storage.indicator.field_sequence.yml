@@ -1,0 +1,19 @@
+uuid: 17b38202-1f6c-4696-a6be-f3d3224cf98c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_sequence
+    - storage.storage_type.indicator
+id: storage.indicator.field_sequence
+field_name: field_sequence
+entity_type: storage
+bundle: indicator
+label: Sequence
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

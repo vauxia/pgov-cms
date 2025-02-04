@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
     - node.type.objective
   module:
     - user
@@ -17,7 +18,15 @@ id: node.objective.default
 targetEntityType: node
 bundle: objective
 mode: default
-content: {  }
+content:
+  field_sequence:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
 hidden:
   body: true
   field_administration: true

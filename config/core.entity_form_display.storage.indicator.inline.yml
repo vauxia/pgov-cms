@@ -13,6 +13,7 @@ dependencies:
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
@@ -81,7 +82,7 @@ content:
     third_party_settings: {  }
   field_measurements:
     type: inline_entity_form_complex_table_view_mode
-    weight: 7
+    weight: 4
     region: content
     settings:
       form_mode: inline
@@ -96,6 +97,14 @@ content:
       collapsed: false
       revision: false
       removed_reference: optional
+    third_party_settings: {  }
+  field_sequence:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_target:
     type: options_select

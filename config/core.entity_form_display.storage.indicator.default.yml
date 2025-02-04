@@ -13,6 +13,7 @@ dependencies:
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
@@ -29,7 +30,7 @@ third_party_settings:
       label: Details
       region: content
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
         classes: form--inline
@@ -51,7 +52,7 @@ mode: default
 content:
   field_description:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -81,7 +82,7 @@ content:
     third_party_settings: {  }
   field_measurements:
     type: inline_entity_form_complex_table_view_mode
-    weight: 5
+    weight: 6
     region: content
     settings:
       form_mode: inline
@@ -99,7 +100,7 @@ content:
     third_party_settings: {  }
   field_notes:
     type: text_textarea
-    weight: 6
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -125,6 +126,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_sequence:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_target:
     type: options_select
     weight: 8
@@ -132,7 +141,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_administration: true
   name: true
   status: true
   user_id: true
-  field_administration: true
