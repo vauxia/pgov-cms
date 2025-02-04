@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Strategic plans, goals, and objectives module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_presave().
+ *
+ * Automatically populate field_administration on Goals, Objectives, and
+ * Performance indicators based on the value of field_administration in the
+ * parent plan.
+ *
+ * When field_administration is empty, use the Hierarchy service to traverse
+ * the tree of parents until it reaches the value of field_administration on
+ * the nearest item.
+ */
+function pgov_plan_entity_presave(EntityInterface $entity) {
+  if ($entity->hasField('field_administration') && $entity->get('field_administration')->isEmpty()) {
+    if ($administration = \Drupal::service('pgov_plan_hierarchy')->getNearestParentEntity($entity, 'administration')) {
+      $entity->set('field_administration', ['target_id' => $administration->id()]);
+    }
+  }
+}
