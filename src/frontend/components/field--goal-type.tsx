@@ -1,4 +1,4 @@
-export function FieldGoalType({field_goal_type}) {
+export function FieldGoalType({ field_goal_type }) {
   let goalTypeName = "";
   let goalTypeClasses = "";
   switch (field_goal_type) {
@@ -21,6 +21,3 @@ export function FieldGoalType({field_goal_type}) {
     </span>
   );
 }
-
-
-

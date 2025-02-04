@@ -11,7 +11,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@trussworks/react-uswds": "^9.1.0",
@@ -35,15 +35,17 @@
     "eslint-config-next": "^14.2.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.4.3",
     "postcss": "^8.4.19",
     "prettier": "^3.2.5",
     "sass": "^1.79.5",
+    "tsc-files": "^1.1.4",
     "typescript": "^4.9.3"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "!(*.ts|*.tsx|*.js|*.jsx)": "prettier --write --ignore-unknown",
+    "*.{ts, tsx}": ["tsc-files --noEmit --pretty","eslint", "prettier --write"],
+    "*.{js, jsx}": ["eslint", "prettier --write"]
   },
   "engines": {
     "node": "22.11.0",

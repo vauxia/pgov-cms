@@ -37,9 +37,12 @@ vendor
 
 # testing
 /coverage
+/tests/cypress/screenshots
 
 # production
 /build
+/db/
+/keys
 
 # misc
 .DS_Store
