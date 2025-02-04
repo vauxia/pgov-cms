@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.objective.body
+    - field.field.node.objective.field_administration
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
@@ -19,6 +20,7 @@ mode: default
 content: {  }
 hidden:
   body: true
+  field_administration: true
   field_agency: true
   field_division: true
   field_goal: true

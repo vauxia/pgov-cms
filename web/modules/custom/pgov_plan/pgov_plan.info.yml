@@ -1,0 +1,8 @@
+name: 'Strategic plans, goals, and objectives'
+type: module
+description: 'Custom business logic that applies to Strategic plans and their components.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - node:node
+  - drupal:storage

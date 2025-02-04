@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.inline
     - field.field.node.goal.body
+    - field.field.node.goal.field_administration
     - field.field.node.goal.field_goal_type
     - field.field.node.goal.field_image
     - field.field.node.goal.field_objectives
@@ -86,6 +87,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_administration: true
   field_image: true
   field_objectives: true
   field_plan: true

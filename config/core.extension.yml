@@ -68,6 +68,7 @@ module:
   path_alias: 0
   pgov_indicator: 0
   pgov_migrate: 0
+  pgov_plan: 0
   rest: 0
   search: 0
   search_api: 0

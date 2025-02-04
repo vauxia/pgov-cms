@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.ief_table
     - field.field.node.objective.body
+    - field.field.node.objective.field_administration
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
@@ -33,6 +34,7 @@ content:
     region: content
 hidden:
   body: true
+  field_administration: true
   field_agency: true
   field_division: true
   field_goal: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.storage.ief_table
+    - field.field.storage.indicator.field_administration
     - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
@@ -29,6 +30,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_administration: true
   field_dimension: true
   field_divisions: true
   field_keyness: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.storage.inline
+    - field.field.storage.indicator.field_administration
     - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
@@ -103,6 +104,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_administration: true
   field_notes: true
   field_objective: true
   field_plan: true

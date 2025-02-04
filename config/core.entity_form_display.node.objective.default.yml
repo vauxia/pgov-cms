@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.storage.inline
     - field.field.node.objective.body
+    - field.field.node.objective.field_administration
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
@@ -88,7 +89,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -140,13 +141,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -161,7 +162,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -170,5 +171,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_administration: true
   promote: true
   sticky: true
