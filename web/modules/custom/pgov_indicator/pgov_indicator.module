@@ -5,6 +5,10 @@
  * Module hooks that affect Indicators and Measurements.
  */
 
+use Drupal\pgov_indicator\Entity\Storage\Indicator;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\storage\Entity\StorageInterface;
+
 /**
  * Implements hook_ENTITY_TYPE_load().
  *
@@ -59,4 +63,54 @@ function _pgov_indicator_get_date($entity): int {
     }
   }
   return 0;
+}
+
+/**
+ * Implements hook_entity_bundle_info_alter().
+ */
+function pgov_indicator_entity_bundle_info_alter(array &$bundles): void {
+  if (isset($bundles['storage']['indicator'])) {
+    // phpcs:ignore Drupal.Classes.FullyQualifiedNamespace.UseStatementMissing
+    $bundles['storage']['indicator']['class'] = \Drupal\pgov_indicator\Entity\Storage\Indicator::class;
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function pgov_indicator_entity_extra_field_info() {
+  $extra['storage']['indicator']['display']['measurements'] = [
+    'label' => 'Measurement details for this indicator.',
+    'visible' => FALSE,
+  ];
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ *
+ * Crudely renders the field as a table so the data appears when the field is
+ * enabled.
+ *
+ * @todo better handle theme/template if this gets real use.
+ */
+function pgov_indicator_storage_view(array &$build, StorageInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity instanceof Indicator) {
+    if ($display->getComponent('measurements')) {
+      $measurements = $entity->getMeasurements($view_mode);
+      $rows = [];
+      foreach ($measurements['data'] as $measurement) {
+        $rows[] =  [
+          $measurement['name'],
+          $measurement['target'],
+          $measurement['value'],
+        ];
+      }
+      $build['measurements'] = [
+        '#theme' => 'table',
+        '#header' => [t('Date'), t('Target'), t('Value')],
+        '#rows' => $rows,
+      ];
+    }
+  }
 }
