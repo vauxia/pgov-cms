@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
 
 /**
  * Implements hook_ENTITY_presave().
@@ -19,7 +20,7 @@ use Drupal\Core\Entity\EntityInterface;
  * the nearest item.
  */
 function pgov_plan_entity_presave(EntityInterface $entity) {
-  if ($entity->hasField('field_administration') && $entity->get('field_administration')->isEmpty()) {
+  if ($entity instanceof FieldableEntityInterface && $entity->hasField('field_administration') && $entity->get('field_administration')->isEmpty()) {
     if ($administration = \Drupal::service('pgov_plan_hierarchy')->getNearestParentEntity($entity, 'administration')) {
       $entity->set('field_administration', ['target_id' => $administration->id()]);
     }
