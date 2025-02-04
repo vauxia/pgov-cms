@@ -132,7 +132,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_administration: true
   name: true
   status: true
   user_id: true
-  field_administration: true
