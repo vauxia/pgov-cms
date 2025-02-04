@@ -35,7 +35,6 @@ export const getStaticProps = async () => {
 };
 
 export default function IndexPage(props: IndexPageProps) {
-  console.log(props)
   return (
     <Layout>
       <Head>

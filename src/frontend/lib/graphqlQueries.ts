@@ -83,38 +83,62 @@ export const graphqlQueries = {
    }
  }`
   ),
-  goalsView: (fulltext: string, facets: Array<string>) => (
+  goalsView: (fulltext: string | string[], facets: string | string[]) => (
     `query GoalsQuery {
-        goalsGraphql1(filter: {
-          aggregated_field: "${fulltext}",
-          Topics: [${facets}],
-        }) {
-          pageInfo {
-            total
-          }
-          filters {
-            options
-            value
-          }
-          description
-          results {
-            ... on NodeGoal {
-              id
-              title
-              path
-              body {
-                value
+      goalsGraphql1(filter: {
+        aggregated_field: "${fulltext}",
+        Topics: ${JSON.stringify(facets)},
+      }) {
+        pageInfo {
+          total
+        }
+        filters {
+          options
+          value
+        }
+        description
+        results {
+          ... on NodeGoal {
+            id
+            title
+            path
+            goalType
+            topics {
+              ... on TermTopic {
+                id
+                name
               }
-              
-              topics {
-                ... on TermTopic {
-                  id
-                  name
+            }
+            plan {
+              ... on NodePlan {
+                id
+                agency {
+                  ... on NodeAgency {
+                    id
+                    acronym
+                    logo {
+                      ... on MediaImage {
+                        id
+                        name
+                        mediaImage {
+                          url
+                        }
+                      }
+                    }
+                    title
+                  }
                 }
+              }
+            }
+            period {
+              ... on StoragePeriod {
+                id
+                name
               }
             }
           }
         }
-      }`
+      }
+    }`
   ),
 }
