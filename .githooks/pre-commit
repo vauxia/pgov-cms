@@ -23,15 +23,15 @@ echo "Running Drupal Coder."
 echo
 PHPCS=("$BIN/phpcs" "--standard=$STANDARD" "--filter=gitstaged" "--encoding=utf-8" "-p" ".")
 "${PHPCS[@]}"
-VIOLATIONS=$(($VIOLATIONS + $?))
+VIOLATIONS=$((VIOLATIONS + $?))
 
 # Check frontend
 echo "Running Frontend Lints."
 echo
-cd src/frontend
+cd src/frontend || exit 1
 npm run lint-staged
 # Add frontend violations to the total
-VIOLATIONS=$(($VIOLATIONS + $?))
+VIOLATIONS=$((VIOLATIONS + $?))
 
 # One or more violations detected
 if [ $VIOLATIONS != 0 ]
