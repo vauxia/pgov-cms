@@ -1,4 +1,4 @@
-uuid: 63c242f1-d51a-4e87-8190-b0c8d6441ada
+uuid: 8a470ab5-3cee-48a9-864a-685e4a16fd9f
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: storage.field_sequence
 field_name: field_sequence
 entity_type: storage
-type: string
+type: decimal
 settings:
-  max_length: 10
-  case_sensitive: false
-  is_ascii: false
+  precision: 10
+  scale: 1
 module: core
 locked: false
 cardinality: 1

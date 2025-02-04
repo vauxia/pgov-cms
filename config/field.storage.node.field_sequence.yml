@@ -1,4 +1,4 @@
-uuid: ed8625e6-8760-44a7-a074-115d8bfc5f4d
+uuid: d88eda91-8dd7-40e2-88f2-af27353a2156
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: node.field_sequence
 field_name: field_sequence
 entity_type: node
-type: string
+type: decimal
 settings:
-  max_length: 10
-  case_sensitive: false
-  is_ascii: false
+  precision: 10
+  scale: 1
 module: core
 locked: false
 cardinality: 1

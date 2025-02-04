@@ -98,14 +98,6 @@ content:
       revision: false
       removed_reference: optional
     third_party_settings: {  }
-  field_sequence:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_target:
     type: options_select
     weight: 6
@@ -117,6 +109,7 @@ hidden:
   field_notes: true
   field_objective: true
   field_plan: true
+  field_sequence: true
   name: true
   status: true
   user_id: true
