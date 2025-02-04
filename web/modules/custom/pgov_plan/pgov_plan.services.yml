@@ -1,0 +1,3 @@
+services:
+  pgov_plan_hierarchy:
+    class: Drupal\pgov_plan\Hierarchy
