@@ -8,20 +8,31 @@ export interface FieldLogoProps {
       uri: {
         url: string;
       }
+    };
+    mediaImage?: {
+      url: string;
     }
   };
+  height: number;
+  width: number;
 }
 
-export function FieldLogo({field_logo} : FieldLogoProps) {
-  const { field_media_image, name } = field_logo;
+export function FieldLogo({field_logo, height = 150, width = 150} : FieldLogoProps) {
+  const { field_media_image, name, mediaImage } = field_logo;
+  let url;
+  if (mediaImage?.url) {
+    url = mediaImage.url
+  } else if (field_media_image?.uri.url) {
+    url = absoluteUrl(field_media_image?.uri.url)
+  }
   return (
     <Image
-      src={absoluteUrl(field_media_image.uri.url)}
-      width={150}
-      height={150}
+      src={url}
+      width={width}
+      height={height}
       alt={name}
       priority
-      className="margin-top-3"
+      className=""
     />
   );
 }

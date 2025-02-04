@@ -1,5 +1,6 @@
 import { useState, useEffect, FormEvent, useCallback } from "react";
 import { Button } from "@trussworks/react-uswds";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import { NodeGoalProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
 import { ViewGoalSearchFacet } from "./view--goal-search--facet";
@@ -13,10 +14,13 @@ interface ViewGoalSearch {
 }
 
 export default function GoalsSearchView({ filters, goals, total, description }: ViewGoalSearch) {
+  const offsetAmount = 15;
+
   const [fulltext, setFulltext] = useState(filters[0].value ? filters[0].value : "")
   const [facets] = useState([...Object.keys(filters[1].options)])
   const [search, setSearch] = useState(false);
-  const [offset, setOffset] = useState(9);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [offset, setOffset] = useState(offsetAmount);
   const [activeTopics, setActiveTopics] = useState([])
   const [notDisabledTopics, setNotDisabledTopics] = useState([])
   const [filteredGoals, setFilteredGoals] = useState([...goals])
@@ -92,8 +96,8 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
       setFilteredGoalsCount(currentGoals.length)
       
       if (resetOffset) {
-        currentGoals = currentGoals.slice(0, 9);
-        setOffset(9)
+        currentGoals = currentGoals.slice(0, offsetAmount);
+        setOffset(offsetAmount)
       } else {
         currentGoals = currentGoals.slice(0, offset);
       }
@@ -116,17 +120,20 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     filterGoals()
   }, [offset, filterGoals])
 
+  const masonryBP = filtersOpen ? {350: 1, 750: 2, 1400: 3} : {350: 1, 750: 2, 1060: 3, 1400: 4};
+
   return (
     <div>
       <div className="grid-row flex-justify-center">
         <h1 className="font-heading-2xl">{description}</h1>
       </div>
+      <button onClick={() => setFiltersOpen(!filtersOpen)}>Filter</button>
       <ViewGoalSearchFulltext
         fulltext={fulltext}
         setFulltext={setFulltext}
         handleSearch={handleSearch}
       />
-      <ul className="add-list-reset grid-row flex-justify-center margin-bottom-205">
+      {/* <ul className="add-list-reset grid-row flex-justify-center margin-bottom-205">
         {facets.length ? (
           facets.map((topic) => (
             <li
@@ -150,37 +157,45 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
             </div>
           </div>
         )}
-      </ul>
-      {filteredGoals?.length ? (
-        <ul className="usa-card-group">
-          {filteredGoals.map((goal) => (
-            <li
-              key={goal.id}
-              className="usa-card tablet-lg:grid-col-6 desktop:grid-col-4"
-            >
-              <NodeGoalCard goal={goal} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-          <div className="usa-alert usa-alert--warning usa-alert--slim">
-            <div className="usa-alert__body">
-              <p className="usa-alert__text">
-                No matching goals.
-              </p>
-            </div>
-          </div>
-        )}
-
-      <div className="grid-row flex-justify-center margin-bottom-205">
-        {offset < filteredGoalsCount &&
-          <Button
-            type="button"
-            onClick={() => setOffset(offset + 9)}
+      </ul> */}
+      <div className="grid-row">
+        <div className={`side-bar ${filtersOpen ? "" : "filters-closed"}`}>
+          <p>iajghjgojg</p>
+        </div>
+        <div className="content-area">
+          {filteredGoals?.length ? (
+          <ResponsiveMasonry
+              columnsCountBreakPoints={masonryBP}
+              gutterBreakpoints={{350: "12px", 750: "16px", 900: "24px"}}
           >
-            Show more
-          </Button>
-        }
+              <Masonry>
+              {filteredGoals.map((goal) => (
+                  <NodeGoalCard key={goal.id} goal={goal} />
+                ))}
+              </Masonry>
+          </ResponsiveMasonry>
+          
+        ) : (
+            <div className="usa-alert usa-alert--warning usa-alert--slim">
+              <div className="usa-alert__body">
+                <p className="usa-alert__text">
+                  No matching goals.
+                </p>
+              </div>
+            </div>
+          )}
+
+        <div className="grid-row flex-justify-center margin-bottom-205">
+          {offset < filteredGoalsCount &&
+            <Button
+              type="button"
+              onClick={() => setOffset(offset + offsetAmount)}
+            >
+              Show more
+            </Button>
+          }
+        </div>
+        </div>
       </div>
     </div>
   );

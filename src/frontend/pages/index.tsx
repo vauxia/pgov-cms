@@ -20,34 +20,60 @@ export const getStaticProps = async () => {
     withAuth: true, // Make authenticated requests using OAuth.
     body: JSON.stringify({
       query: `query GoalsQuery {
-        goalsGraphql1 {
-          pageInfo {
-            total
+  goalsGraphql1 {
+    description
+    results {
+      ... on NodeGoal {
+        id
+        title
+        goalType
+        path
+        body {
+          value
+        }
+        topics {
+          ... on TermTopic {
+            id
+            name
           }
-          filters {
-            options
-            value
-          }
-          description
-          results {
-            ... on NodeGoal {
-              id
-              title
-              path
-              body {
-                value
-              }
-              
-              topics {
-                ... on TermTopic {
-                  id
-                  name
+        }
+        plan {
+          ... on NodePlan {
+            id
+            agency {
+              ... on NodeAgency {
+                id
+                title
+                acronym
+                logo {
+                  ... on MediaImage {
+                    id
+                    name
+                    mediaImage {
+                      url
+                      alt
+                      title
+                    }
+                  }
                 }
               }
             }
           }
         }
-      }`,
+        period {
+          ... on StoragePeriod {
+            id
+            name
+          }
+        }
+      }
+    }
+    filters {
+      options
+      value
+    }
+  }
+}`,
     }),
   });
   const { data } = await response.json();
@@ -73,7 +99,7 @@ export default function IndexPage(props: IndexPageProps) {
           content="Track the U.S. Government's goals."
         />
       </Head>
-      <div className="grid-container">
+      <div className="">
         <GoalsSearchView
            filters={props.filters}
            goals={props.goals}
