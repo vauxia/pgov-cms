@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.goal.field_objectives
     - field.field.node.goal.field_period
     - field.field.node.goal.field_plan
+    - field.field.node.goal.field_sequence
     - field.field.node.goal.field_topics
     - node.type.goal
   module:
@@ -70,5 +71,6 @@ content:
 hidden:
   field_administration: true
   field_plan: true
+  field_sequence: true
   field_topics: true
   search_api_excerpt: true

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
     - node.type.objective
   module:
     - field_group
@@ -39,6 +40,7 @@ third_party_settings:
       children:
         - field_goal
         - field_objective_type
+        - field_sequence
         - title
         - field_agency
         - field_division
@@ -79,7 +81,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -95,13 +97,13 @@ content:
     third_party_settings: {  }
   field_agency:
     type: options_select
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_division:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -139,6 +141,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_sequence:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   path:
     type: path
     weight: 3
@@ -154,7 +163,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60

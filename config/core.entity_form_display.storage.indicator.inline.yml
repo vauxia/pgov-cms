@@ -13,6 +13,7 @@ dependencies:
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
@@ -81,7 +82,7 @@ content:
     third_party_settings: {  }
   field_measurements:
     type: inline_entity_form_complex_table_view_mode
-    weight: 7
+    weight: 4
     region: content
     settings:
       form_mode: inline
@@ -108,6 +109,7 @@ hidden:
   field_notes: true
   field_objective: true
   field_plan: true
+  field_sequence: true
   name: true
   status: true
   user_id: true

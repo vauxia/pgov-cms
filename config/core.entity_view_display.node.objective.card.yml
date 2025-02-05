@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
     - node.type.objective
   module:
     - user
@@ -39,4 +40,5 @@ hidden:
   field_goal: true
   field_indicators: true
   field_objective_type: true
+  field_sequence: true
   search_api_excerpt: true

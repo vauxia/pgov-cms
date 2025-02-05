@@ -13,6 +13,7 @@ dependencies:
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
@@ -38,6 +39,7 @@ hidden:
   field_notes: true
   field_objective: true
   field_plan: true
+  field_sequence: true
   field_target: true
   label: true
   name: true
