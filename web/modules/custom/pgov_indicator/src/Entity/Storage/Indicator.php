@@ -103,6 +103,10 @@ class Indicator extends Storage {
 
     // Return a percentage only if all numbers have been touched.
     if (!empty($start) && !empty($value) && !empty($target)) {
+      // No progress if target == start (no division by zero).
+      if ($target == $start) {
+        return 0;
+      }
       return (($value - $start) / ($target - $start)) * 100;
     }
 
