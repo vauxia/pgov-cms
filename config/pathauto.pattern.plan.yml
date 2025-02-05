@@ -1,22 +1,22 @@
-uuid: 2e0e5832-3a42-4b66-8451-092421bc836e
+uuid: 22b82eb8-3c08-402a-8b2c-09d4f3949bfc
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: goal
-label: Goal
+id: plan
+label: Plan
 type: 'canonical_entities:node'
-pattern: '/[node:field_plan:entity:title]/[node:title]'
+pattern: '[node:title]'
 selection_criteria:
-  b5440aeb-90d2-4fd3-84cd-fef14143c418:
+  d6e42181-82a8-4cde-b299-fbfc9384f2e1:
     id: 'entity_bundle:node'
     negate: false
-    uuid: b5440aeb-90d2-4fd3-84cd-fef14143c418
+    uuid: d6e42181-82a8-4cde-b299-fbfc9384f2e1
     context_mapping:
       node: node
     bundles:
-      goal: goal
+      plan: plan
 selection_logic: and
 weight: -5
 relationships: {  }

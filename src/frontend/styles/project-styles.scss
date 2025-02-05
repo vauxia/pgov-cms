@@ -1,3 +1,19 @@
 @import "./components/field--goal-type.scss";
 @import "./components/usa--header.scss";
 @import "./components/usa--in-page-nav.scss";
+@import "./components/usa--breadcrumb.scss";
+
+body {
+  background-color: #e6e6e6;
+}
+
+.dark-blue-bg {
+  background-color: #162152;
+  color: #ffffff;
+}
+
+.dark-blue-bg a {
+  color: #ffffff;
+}
+
+// [node:title]
