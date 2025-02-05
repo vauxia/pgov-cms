@@ -98,9 +98,12 @@ function pgov_indicator_storage_view(array &$build, StorageInterface $entity, En
   if ($entity instanceof Indicator) {
     if ($display->getComponent('measurements')) {
       $measurements = $entity->getMeasurements($view_mode);
+      if (!$measurements['data']) {
+        return;
+      }
       $rows = [];
       foreach ($measurements['data'] as $measurement) {
-        $rows[] =  [
+        $rows[] = [
           $measurement['name'],
           $measurement['target'],
           $measurement['value'],
@@ -110,6 +113,7 @@ function pgov_indicator_storage_view(array &$build, StorageInterface $entity, En
         '#theme' => 'table',
         '#header' => [t('Date'), t('Target'), t('Value')],
         '#rows' => $rows,
+        '#caption' => t('Percent complete: progress @percent%', ['@percent' => $measurements['progress']]),
       ];
     }
   }

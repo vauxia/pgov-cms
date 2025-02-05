@@ -34,6 +34,7 @@ content:
     region: content
 hidden:
   body: true
+  field_administration: true
   field_goal_type: true
   field_objectives: true
   field_period: true
