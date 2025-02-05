@@ -16,6 +16,7 @@ source:
   constants:
     uid: 1
 process:
+  name: Name
   user_id: constants/uid
   field_president:
     plugin: migration_lookup

@@ -10,8 +10,7 @@ destination:
   plugin: entity:storage
   default_bundle: administration
 process:
-  # Use auto-title
-  # name: Name
+  name: Name
   user_id: constants/uid
   field_president:
     plugin: migration_lookup
