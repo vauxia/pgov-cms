@@ -48,7 +48,6 @@ class FiscalPeriodLookup extends EntityLookup {
     $query = $this->entityTypeManager->getStorage($this->lookupEntityType)
       ->getQuery()
       ->accessCheck(FALSE)
-      ->condition('type', 'period')
       ->condition('field_date_range.value', $value[0])
       ->condition('field_date_range.end_value', $value[1]);
 

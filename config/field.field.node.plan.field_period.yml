@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_period
     - node.type.plan
+    - storage.storage_type.administration
     - storage.storage_type.period
 id: node.plan.field_period
 field_name: field_period
@@ -20,10 +21,11 @@ settings:
   handler: 'default:storage'
   handler_settings:
     target_bundles:
+      administration: administration
       period: period
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: administration
 field_type: entity_reference
