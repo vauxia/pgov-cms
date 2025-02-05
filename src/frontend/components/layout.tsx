@@ -8,9 +8,6 @@ export function Layout({ children }) {
     <>
       <PreviewAlert />
       <GovBanner />
-      <Alert className="margin-top-0" type="info" headingLevel="h4">
-        This is a minimum viable product (MVP) build of the next iteration of performance.gov.
-      </Alert>
       <div className="px-6 mx-auto">
         <USAHeader />
         <main className="">{children}</main>

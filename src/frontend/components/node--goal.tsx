@@ -22,8 +22,7 @@ export function NodeGoal({ node, storageData, ...props }: NodeGoalProps) {
     goalTypeString = "priority";
   }
   const breadcrumbLinks = [
-    {label: "Agencies", href: "/agencies"},
-    {label: field_agency.field_acronym, href: field_agency.path.alias}
+    {label: field_plan.title, href: field_plan.path.alias}
   ];
 <USAInPageNav 
             logo={field_agency.field_logo ? field_agency.field_logo : null}

@@ -1,5 +1,5 @@
 // BreadcrumbBar expects single elements, wrapping the map function in <></> fixes type issue.
-import { Breadcrumb, BreadcrumbBar, BreadcrumbLink } from "@trussworks/react-uswds";
+import { Breadcrumb, BreadcrumbBar, BreadcrumbLink, Icon } from "@trussworks/react-uswds";
 
 interface USABreadcrumbProps {
   activeItem: string;
@@ -11,9 +11,10 @@ interface USABreadcrumbProps {
 
 export function USABreadcrumb({activeItem, links}: USABreadcrumbProps) {
   return (
-    <BreadcrumbBar>
+    <BreadcrumbBar className="dark-blue-bg padding-x-3">
       <Breadcrumb>
-        <BreadcrumbLink href="/">
+        <BreadcrumbLink href="/" className="home-breadcrumb">
+          <Icon.Home size={3} className="home-icon"/>
           <span>Home</span>
         </BreadcrumbLink>
       </Breadcrumb>

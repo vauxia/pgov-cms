@@ -1,5 +1,19 @@
 @media (min-width: 64em) {
-  .usa-header + .usa-section, .usa-header + main {
+  .usa-header + .usa-section,
+  .usa-header + main {
     border-top: none !important;
+  }
+}
+
+.site-header .usa-nav__link {
+  display: block;
+  height: 100%;
+  align-content: center;
+  text-decoration: none;
+  border-bottom: 2px transparent solid;
+  &:hover,
+  &:focus,
+  &.usa-current {
+    border-bottom: 2px #ffffff solid;
   }
 }

@@ -72,7 +72,7 @@ export async function getStaticProps(
       "field_plan.field_agency.field_logo",
       "field_plan.field_agency.field_logo.field_media_image"
     ]);
-    params.addFields("node--plan", ["field_agency", "title"]);
+    params.addFields("node--plan", ["field_agency", "title", "path"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
   }
 
