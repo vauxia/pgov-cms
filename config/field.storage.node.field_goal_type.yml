@@ -23,6 +23,9 @@ settings:
     -
       value: Strategic
       label: 'Strategic Goal'
+    -
+      value: pma
+      label: PMA
   allowed_values_function: ''
 module: options
 locked: false

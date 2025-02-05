@@ -35,6 +35,7 @@ process:
       'Agency Priority Goal': 'APG'
       'Cross-Agency Priority Goal': 'CAPG'
       'National Strategy Goal': 'National'
+      'PMA': 'PMA'
       'Strategic Goal': 'Strategic'
     default_value: NULL
   field_period/target_id:
