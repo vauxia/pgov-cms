@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: 77a86fe0-f429-4e7a-af6e-e210b5f18c8b
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2026-Q3
+  created:
+    -
+      value: 1738768332
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2026-04-01'
+      end_value: '2026-06-30'
+  field_duration:
+    -
+      value: fiscal_quarter

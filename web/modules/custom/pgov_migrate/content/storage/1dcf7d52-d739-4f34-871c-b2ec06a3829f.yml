@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: storage
+  uuid: 1dcf7d52-d739-4f34-871c-b2ec06a3829f
+  bundle: period
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  user_id:
+    -
+      target_id: 1
+  name:
+    -
+      value: FY2025-Q2
+  created:
+    -
+      value: 1738728991
+  revision_translation_affected:
+    -
+      value: true
+  field_date_range:
+    -
+      value: '2025-01-01'
+      end_value: '2025-03-31'
+  field_duration:
+    -
+      value: fiscal_quarter
