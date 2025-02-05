@@ -81,6 +81,8 @@ class Indicator extends Storage {
   public function getProgress() {
     $start = $target = $value = NULL;
 
+    $target_direction = $this->get('field_target')->getString();
+
     foreach ($this->getData() as $row) {
       if ($row['target'] != $target && !empty($row['target'])) {
         $target = $row['target'];
@@ -103,15 +105,16 @@ class Indicator extends Storage {
 
     // Return a percentage only if all numbers have been touched.
     if (!empty($start) && !empty($value) && !empty($target)) {
-      // No progress if target == start (no division by zero).
-      if ($target == $start) {
-        return 0;
+      // Full progress if target == start (no division by zero).
+      // @todo confirm if we should exceed 100 when the data supports that.
+      if ($target >= $start) {
+        return 100;
       }
-      return (($value - $start) / ($target - $start)) * 100;
+      return round((($value - $start) / ($target - $start)) * 100);
     }
 
-    // Return 0 on failure.
-    return 0;
+    // Return NULL on failure.
+    return NULL;
   }
 
 }
