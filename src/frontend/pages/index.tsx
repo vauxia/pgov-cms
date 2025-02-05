@@ -4,6 +4,7 @@ import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
 import GoalsSearchView from "components/view--goal-search";
 import { NodeGoalProps, ViewFilter } from "lib/types";
+import { graphqlQueries } from "lib/graphqlQueries";
 
 interface IndexPageProps {
   goals: Array<NodeGoalProps>,
@@ -19,65 +20,10 @@ export const getStaticProps = async () => {
     method: "POST",
     withAuth: true, // Make authenticated requests using OAuth.
     body: JSON.stringify({
-      query: `query GoalsQuery {
-  goalsGraphql1 {
-    description
-    results {
-      ... on NodeGoal {
-        id
-        title
-        goalType
-        path
-        body {
-          value
-        }
-        topics {
-          ... on TermTopic {
-            id
-            name
-          }
-        }
-        plan {
-          ... on NodePlan {
-            id
-            agency {
-              ... on NodeAgency {
-                id
-                title
-                acronym
-                logo {
-                  ... on MediaImage {
-                    id
-                    name
-                    mediaImage {
-                      url
-                      alt
-                      title
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        period {
-          ... on StoragePeriod {
-            id
-            name
-          }
-        }
-      }
-    }
-    filters {
-      options
-      value
-    }
-  }
-}`,
+      query: graphqlQueries.goalsView("", []),
     }),
   });
   const { data } = await response.json();
-  
   return {
     props: {
       goals: data?.goalsGraphql1?.results ?? [],
@@ -89,7 +35,6 @@ export const getStaticProps = async () => {
 };
 
 export default function IndexPage(props: IndexPageProps) {
-
   return (
     <Layout>
       <Head>
@@ -101,10 +46,10 @@ export default function IndexPage(props: IndexPageProps) {
       </Head>
       <div className="">
         <GoalsSearchView
-           filters={props.filters}
-           goals={props.goals}
-           total={props.total}
-           description={props.description}
+          filters={props.filters}
+          goals={props.goals}
+          total={props.total}
+          description={props.description}
         />
       </div>
     </Layout>

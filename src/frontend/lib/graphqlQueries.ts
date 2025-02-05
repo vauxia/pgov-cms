@@ -1,4 +1,4 @@
-export const nodeQueries = {
+export const graphqlQueries = {
   nodeGoal: (path: string) => (
     `query NodeGoalQuery {
       route(path: "${path}") {
@@ -57,33 +57,88 @@ export const nodeQueries = {
       }
     }`
   ),
-}
-
-export const strategicPlanQueries = {
   planNodeByAgency: (id: number) => (
-   `query StrategicPlansByAgency {
-  strategicPlansByAgencyGraphql1(filter: {field_agency_target_id: ${id}}) {
-    pageInfo {
-      total
-    }
-    results {
-      ... on NodePlan {
-        id
-        title
-        link {
-          url
+    `query StrategicPlansByAgency {
+   strategicPlansByAgencyGraphql1(filter: {field_agency_target_id: ${id}}) {
+     pageInfo {
+       total
+     }
+     results {
+       ... on NodePlan {
+         id
+         title
+         link {
+           url
+         }
+         goals {
+           ... on NodeGoal {
+             id
+             title
+             goalType
+             path
+           }
+         }
+       }
+     }
+   }
+ }`
+  ),
+  goalsView: (fulltext: string | string[], facets: string | string[]) => (
+    `query GoalsQuery {
+      goalsGraphql1(filter: {
+        aggregated_field: "${fulltext}",
+        Topics: ${JSON.stringify(facets)},
+      }) {
+        pageInfo {
+          total
         }
-        goals {
+        filters {
+          options
+          value
+        }
+        description
+        results {
           ... on NodeGoal {
             id
             title
-            goalType
             path
+            goalType
+            topics {
+              ... on TermTopic {
+                id
+                name
+              }
+            }
+            plan {
+              ... on NodePlan {
+                id
+                agency {
+                  ... on NodeAgency {
+                    id
+                    acronym
+                    logo {
+                      ... on MediaImage {
+                        id
+                        name
+                        mediaImage {
+                          url
+                        }
+                      }
+                    }
+                    title
+                  }
+                }
+              }
+            }
+            period {
+              ... on StoragePeriod {
+                id
+                name
+              }
+            }
           }
         }
       }
-    }
-  }
-}`
+    }`
   ),
 }
