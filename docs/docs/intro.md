@@ -1,7 +1,7 @@
 ---
 sidebar-position: 1
 slug: /
-title: Overview
+title: PGOV Overview
 ---
 # Technical documentation
 
