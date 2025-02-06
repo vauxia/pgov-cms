@@ -42,6 +42,7 @@ hidden:
   field_sequence: true
   field_target: true
   label: true
+  measurements: true
   name: true
   search_api_excerpt: true
   user_id: true

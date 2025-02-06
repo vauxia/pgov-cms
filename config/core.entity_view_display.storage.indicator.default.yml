@@ -22,36 +22,24 @@ targetEntityType: storage
 bundle: indicator
 mode: default
 content:
-  field_administration:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
   field_description:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_measurements:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
   field_notes:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
+    region: content
+  measurements:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_sequence:
     type: number_decimal
@@ -65,9 +53,11 @@ content:
     weight: 5
     region: content
 hidden:
+  field_administration: true
   field_dimension: true
   field_divisions: true
   field_keyness: true
+  field_measurements: true
   field_objective: true
   field_plan: true
   field_target: true
