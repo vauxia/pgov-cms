@@ -58,14 +58,6 @@ export function NodeAgency({ node, planData, ...props }: NodeAgencyProps) {
               />
             )}
 
-            {planData.length > 0 && (
-              <section>
-                {planData.map((plan) => (
-                  <NodePlan key={plan.id} plan={plan} />
-                ))}
-              </section>
-            )}
-
             <h2 className="font-sans-2xl" id="related-resources">
               Related Resources
             </h2>

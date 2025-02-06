@@ -14,7 +14,7 @@ export function USABreadcrumb({activeItem, links}: USABreadcrumbProps) {
     <BreadcrumbBar className="dark-blue-bg padding-x-3">
       <Breadcrumb>
         <BreadcrumbLink href="/" className="home-breadcrumb">
-          <Icon.Home size={3} className="home-icon"/>
+          <Icon.Home size={3} className="home-icon" aria-hidden={true} />
           <span>Home</span>
         </BreadcrumbLink>
       </Breadcrumb>
