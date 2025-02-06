@@ -35,3 +35,20 @@ ddev start
 ```
 
 The site will now be available at the above URLs.
+
+## Site Database
+
+Throughout the MVP development process, the database is considered disposable.
+A new site can be bootstrapped from code and populated from a fresh migration:
+
+A migration requires access to the source bases ([more here](../back-end/airtable))
+With a proper access token in place, these commands will generate a fresh site,
+populated with content and images from Airtable.
+
+```shell
+# Bootstrap the site
+drush site-install --existing-config
+
+# Migrate content from Airtable
+ddev migrate
+```
