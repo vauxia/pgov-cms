@@ -7,6 +7,7 @@ import { NodeArticle } from "components/node--article";
 import { NodeBasicPage } from "components/node--basic-page";
 import { NodeAgency } from "../components/node--agency";
 import { NodeGoal } from "components/node--goal";
+import { NodePlan } from "components/node--plan";
 import { Layout } from "components/layout";
 import { graphqlQueries } from "../lib/graphqlQueries";
 
@@ -31,6 +32,7 @@ export default function NodePage({ resource, storageData, planData }: NodePagePr
       {resource.type === "node--article" && <NodeArticle node={resource} />}
       {resource.type === "node--agency" && <NodeAgency node={resource} planData={planData} />}
       {resource.type === "node--goal" && <NodeGoal node={resource} storageData={storageData} />}
+      {resource.type === "node--plan" && <NodePlan node={resource} storageData={storageData} />}
     </Layout>
   );
 }
@@ -73,6 +75,17 @@ export async function getStaticProps(
       "field_plan.field_agency.field_logo.field_media_image"
     ]);
     params.addFields("node--plan", ["field_agency", "title", "path"]);
+    params.addFields("node--objective", ["title", "body", "field_indicators"]);
+  } else if (type === "node--plan") {
+    params.addInclude([
+      "field_period",
+      "field_goals",
+      "field_agency",
+      "field_agency.field_logo",
+      "field_agency.field_logo.field_media_image",
+      "field_goals.field_objectives",
+    ]);
+    params.addFields("node--goal", ["title", "field_objectives", "path"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
   }
 
@@ -126,6 +139,17 @@ export async function getStaticProps(
     });
     const { data } = await response.json();
     planData = data.strategicPlansByAgencyGraphql1.results;
+  } else if (type === "node--plan") {
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: graphqlQueries.nodePlan(path?.entity?.path),
+      }),
+    });
+    const { data } = await response.json();
+    storageData = data?.route?.entity;
   }
 
   return {
