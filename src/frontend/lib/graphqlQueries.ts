@@ -1,5 +1,5 @@
 export const graphqlQueries = {
-  nodeGoal: (path: string) => (
+  nodeGoal: (path: string) =>
     `query NodeGoalQuery {
       route(path: "${path}") {
         ... on RouteInternal {
@@ -49,15 +49,58 @@ export const graphqlQueries = {
                 ... on StoragePeriod {
                   id
                   name
+                  
                 }
               }
             }
           }
         }
       }
-    }`
-  ),
-  planNodeByAgency: (id: number) => (
+    }`,
+  nodePlan: (path: string) =>
+    `query NodePlanQuery {
+      route(path: "${path}") {
+        ... on RouteInternal {
+          entity {
+            __typename
+            ... on NodePlan {
+              period {
+                ... on StoragePeriod {
+                  id
+                  name
+                  dateRange {
+                    end {
+                      time
+                    }
+                    start {
+                      time
+                    }
+                  }
+                }
+              }
+              goals {
+                ... on NodeGoal {
+                  id
+                  objectives {
+                    ... on NodeObjective {
+                      id
+                      indicators {
+                        ... on StorageIndicator {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+  planNodeByAgency: (id: number) =>
     `query StrategicPlansByAgency {
    strategicPlansByAgencyGraphql1(filter: {field_agency_target_id: ${id}}) {
      pageInfo {
@@ -81,9 +124,8 @@ export const graphqlQueries = {
        }
      }
    }
- }`
-  ),
-  goalsView: (fulltext: string | string[], facets: string | string[]) => (
+ }`,
+  goalsView: (fulltext: string | string[], facets: string | string[]) =>
     `query GoalsQuery {
       goalsGraphql1(filter: {
         aggregated_field: "${fulltext}",
@@ -139,6 +181,5 @@ export const graphqlQueries = {
           }
         }
       }
-    }`
-  ),
-}
+    }`,
+};
