@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Performance.gov',
   tagline: 'Track the U.S. government\'s goals',
-  favicon: 'img/favicon.ico',
+  //favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -39,8 +39,9 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          routeBasePath: '/',
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/CivicActions/pgov-cms/tree/main/',
         },
         /** Will not use blog on this site.
         blog: {
@@ -70,7 +71,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Performance.gov Docs',
+      title: 'PGOV DOCS ',
       logo: {
         alt: 'Performance.gov',
         src: 'img/docusaurus.png',
@@ -78,9 +79,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           href: 'https://github.com/CivicActions/pgov-cms',

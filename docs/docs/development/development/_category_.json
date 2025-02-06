@@ -1,0 +1,8 @@
+{
+  "label": "Development & Testing",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Set up a local environment."
+  }
+}
