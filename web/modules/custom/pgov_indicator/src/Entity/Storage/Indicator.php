@@ -33,11 +33,11 @@ class Indicator extends Storage {
    * @return array
    *   Target and actual values for measurements associated with this indicator.
    */
-  public function getData() {
+  public function getData($column = NULL) {
     $data = [];
     if ($this->hasField('field_measurements') && $measurements = $this->get('field_measurements')) {
       foreach ($measurements->referencedEntities() as $measurement) {
-        $date = _pgov_indicator_get_date($measurement);
+        $date = date('Y-m-d', _pgov_indicator_get_date($measurement));
         $period = $measurement->get('field_period')->referencedEntities()[0];
         $data[$date] = [
           'name' => $period->getName(),
@@ -46,6 +46,9 @@ class Indicator extends Storage {
           'value' => $measurement->get('field_value')->getString(),
         ];
       }
+    }
+    if ($data && isset($column)) {
+      return array_column($data, $column);
     }
     return $data;
   }
@@ -56,7 +59,8 @@ class Indicator extends Storage {
    * Based on the measurement values for this indicator, calculate the progress
    * to measurement target.
    *
-   * See https://docs.google.com/document/d/1b9x03CS2blmTmhEjiLgVf1gQDhcmT7ARuo6EOYpHpBY/edit?pli=1&tab=t.0
+   * See
+   * https://docs.google.com/document/d/1b9x03CS2blmTmhEjiLgVf1gQDhcmT7ARuo6EOYpHpBY/edit?pli=1&tab=t.0
    *
    *   In short: the formula divides the absolute distance between the
    *   start/current values by the absolute distance between the start/target
@@ -80,8 +84,6 @@ class Indicator extends Storage {
    */
   public function getProgress() {
     $start = $target = $value = NULL;
-
-    $target_direction = $this->get('field_target')->getString();
 
     foreach ($this->getData() as $row) {
       if ($row['target'] != $target && !empty($row['target'])) {
@@ -107,7 +109,7 @@ class Indicator extends Storage {
     if (!empty($start) && !empty($value) && !empty($target)) {
       // Full progress if target == start (no division by zero).
       // @todo confirm if we should exceed 100 when the data supports that.
-      if ($target >= $start) {
+      if ($value >= $target) {
         return 100;
       }
       return round((($value - $start) / ($target - $start)) * 100);

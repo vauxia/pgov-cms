@@ -8,6 +8,10 @@
 use Drupal\pgov_indicator\Entity\Storage\Indicator;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\storage\Entity\StorageInterface;
+use Drupal\graphql_compose\Plugin\GraphQLCompose\GraphQLComposeFieldTypeInterface;
+use Drupal\graphql\GraphQL\Execution\FieldContext;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 
 /**
  * Implements hook_ENTITY_TYPE_load().
@@ -79,8 +83,8 @@ function pgov_indicator_entity_bundle_info_alter(array &$bundles): void {
  * Implements hook_entity_extra_field_info().
  */
 function pgov_indicator_entity_extra_field_info() {
-  $extra['storage']['indicator']['display']['measurements'] = [
-    'label' => 'Measurement details for this indicator.',
+  $extra['storage']['indicator']['display']['data'] = [
+    'label' => 'Measurement details for this indicator',
     'visible' => FALSE,
   ];
   return $extra;
@@ -90,13 +94,13 @@ function pgov_indicator_entity_extra_field_info() {
  * Implements hook_entity_view().
  *
  * Crudely renders the field as a table so the data appears when the field is
- * enabled.
+ * enabled on a Drupal view mode.
  *
  * @todo better handle theme/template if this gets real use.
  */
 function pgov_indicator_storage_view(array &$build, StorageInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   if ($entity instanceof Indicator) {
-    if ($display->getComponent('measurements')) {
+    if ($display->getComponent('data')) {
       $measurements = $entity->getMeasurements($view_mode);
       if (!$measurements['data']) {
         return;
@@ -109,12 +113,72 @@ function pgov_indicator_storage_view(array &$build, StorageInterface $entity, En
           $measurement['value'],
         ];
       }
-      $build['measurements'] = [
+      $build['data'] = [
         '#theme' => 'table',
         '#header' => [t('Date'), t('Target'), t('Value')],
         '#rows' => $rows,
         '#caption' => t('Percent complete: progress @percent%', ['@percent' => $measurements['progress']]),
       ];
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function pgov_indicator_entity_base_field_info(EntityTypeInterface $entity_type): ?array {
+  if ($entity_type->id() === 'storage') {
+    $fields = [];
+    $fields['progress'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Progress'))
+      ->setDescription(t('Progress to goal.'))
+      ->setComputed(TRUE);
+    $fields['names'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Dates'))
+      ->setComputed(TRUE);
+    $fields['dates'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Dates'))
+      ->setComputed(TRUE);
+    $fields['target_values'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Target values'))
+      ->setComputed(TRUE);
+    $fields['values'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Values'))
+      ->setComputed(TRUE);
+    return $fields;
+  }
+  return [];
+}
+
+/**
+ * Implements hook_graphql_compose_entity_base_fields_alter().
+ *
+ * Add the measurements field to the interface.
+ */
+function pgov_indicator_graphql_compose_entity_base_fields_alter(array &$fields, string $entity_type_id): void {
+  if ($entity_type_id === 'storage') {
+    // @see https://drupal-graphql-compose.github.io/documentation/#/extending/entity_type
+    $fields['progress'] = ['required' => FALSE];
+    $fields['names'] = ['required' => FALSE, 'spl_type' => 'String!', 'multiple' => TRUE];
+    $fields['dates'] = ['required' => FALSE, 'spl_type' => 'Int!', 'multiple' => TRUE];
+    $fields['values'] = ['required' => FALSE, 'spl_type' => 'Float!', 'multiple' => TRUE];
+    $fields['target_values'] = ['required' => FALSE, 'spl_type' => 'Float!', 'multiple' => TRUE];
+  }
+}
+
+/**
+ * Implements hook_graphql_compose_field_results_alter().
+ *
+ * Modify the entity results as they are given to the schema.
+ */
+function pgov_indicator_graphql_compose_field_results_alter(array &$results, $entity, GraphQLComposeFieldTypeInterface $plugin, FieldContext $context) {
+  foreach ($results as $result) {
+    if ($result instanceof Indicator) {
+      $result->set('progress', $result->getProgress());
+      $result->set('names', $result->getData('name'));
+      $result->set('dates', $result->getData('date'));
+      $result->set('target_values', $result->getData('target'));
+      $result->set('values', $result->getData('value'));
     }
   }
 }
