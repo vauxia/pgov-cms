@@ -49,7 +49,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          **/
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -59,6 +58,7 @@ const config: Config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
+         **/
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -73,7 +73,7 @@ const config: Config = {
       title: 'Performance.gov Docs',
       logo: {
         alt: 'Performance.gov',
-        src: 'img/logo.svg',
+        src: 'img/docusaurus.png',
       },
       items: [
         {
