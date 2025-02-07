@@ -25,11 +25,15 @@ web_extra_exposed_ports:
     http_port: 4001
 web_extra_daemons:
   - name: "frontend"
-    command: "npm install && npm run dev -H 0.0.0.0 -p 3000"
+    command: "npm install && npm run dev -- -H 0.0.0.0 -p 3000"
     directory: /var/www/html/src/frontend
   - name: "docs"
     command: "npm install && npm run start -- -h 0.0.0.0 -p 4000"
     directory: /var/www/html/docs
+hooks:
+  # Ensure the .env file is present.
+  pre-start:
+    - exec-host: "ls .ddev/.env || (cd .ddev && cp .env.pgov-example .env)"
 
 # Key features of DDEV's config.yaml:
 
