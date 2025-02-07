@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: Cypress
+---
+
 # Cypress tags available for grep
 
 The list below contains tags currently used in the Cypress tests. These are available as variables when using cypress-grep.
