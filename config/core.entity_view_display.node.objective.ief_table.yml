@@ -1,0 +1,46 @@
+uuid: 5f8ba2fe-7212-4cf6-ade9-f650dc2a5109
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.ief_table
+    - field.field.node.objective.body
+    - field.field.node.objective.field_administration
+    - field.field.node.objective.field_agency
+    - field.field.node.objective.field_division
+    - field.field.node.objective.field_goal
+    - field.field.node.objective.field_indicators
+    - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
+    - node.type.objective
+  module:
+    - options
+    - user
+id: node.objective.ief_table
+targetEntityType: node
+bundle: objective
+mode: ief_table
+content:
+  field_objective_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_administration: true
+  field_agency: true
+  field_division: true
+  field_goal: true
+  field_indicators: true
+  field_sequence: true
+  links: true
+  search_api_excerpt: true
+  status: true

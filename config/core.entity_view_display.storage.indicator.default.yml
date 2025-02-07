@@ -3,15 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.storage.indicator.field_administration
     - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
-    - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
     - field.field.storage.indicator.field_measurements
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
@@ -26,36 +27,37 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_id:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
     weight: 0
-    region: content
-  field_measurements:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
-    weight: 2
     region: content
   field_notes:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
+    region: content
+  measurements:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_sequence:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
+  field_administration: true
   field_dimension: true
   field_divisions: true
   field_keyness: true
+  field_measurements: true
   field_objective: true
   field_plan: true
   field_target: true

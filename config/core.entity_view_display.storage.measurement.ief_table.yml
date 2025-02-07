@@ -1,0 +1,52 @@
+uuid: f0afb107-58ba-422c-9f36-6ca9112f2710
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.storage.ief_table
+    - field.field.storage.measurement.field_indicator
+    - field.field.storage.measurement.field_period
+    - field.field.storage.measurement.field_target_value
+    - field.field.storage.measurement.field_value
+    - storage.storage_type.measurement
+id: storage.measurement.ief_table
+targetEntityType: storage
+bundle: measurement
+mode: ief_table
+content:
+  field_period:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_target_value:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_value:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_indicator: true
+  label: true
+  name: true
+  search_api_excerpt: true
+  user_id: true

@@ -7,12 +7,12 @@ dependencies:
 id: goal
 label: Goal
 type: 'canonical_entities:node'
-pattern: '/agencies[node:field_plan:entity:field_agency:entity:field_acronym]/[node:title]'
+pattern: '/[node:field_plan:entity:title]/[node:title]'
 selection_criteria:
-  9702f5f9-3d17-4be3-baea-5c2cf4f01fe3:
+  b5440aeb-90d2-4fd3-84cd-fef14143c418:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 9702f5f9-3d17-4be3-baea-5c2cf4f01fe3
+    uuid: b5440aeb-90d2-4fd3-84cd-fef14143c418
     context_mapping:
       node: node
     bundles:

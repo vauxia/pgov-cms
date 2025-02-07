@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Strategic plans, goals, and objectives module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+
+/**
+ * Implements hook_ENTITY_presave().
+ *
+ * Automatically populate field_administration on Goals, Objectives, and
+ * Performance indicators based on the value of field_administration in the
+ * parent plan.
+ *
+ * When field_administration is empty, use the Hierarchy service to traverse
+ * the tree of parents until it reaches the value of field_administration on
+ * the nearest item.
+ */
+function pgov_plan_entity_presave(EntityInterface $entity) {
+  if ($entity instanceof FieldableEntityInterface && $entity->hasField('field_administration') && $entity->get('field_administration')->isEmpty()) {
+    if ($administration = \Drupal::service('pgov_plan_hierarchy')->getNearestParentEntity($entity, 'administration')) {
+      $entity->set('field_administration', ['target_id' => $administration->id()]);
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_load().
+ *
+ * Inspects parent entities and orders their reference fields by the sequence
+ * number of the child items.
+ *
+ * @todo refactor based on similarity to pgov_indicator_sort
+ */
+function pgov_plan_node_load(array $entities): void {
+  $parent_bundles = ['plan', 'goal', 'objective'];
+  $child_fields = ['field_goals', 'field_objectives', 'field_indicators'];
+
+  foreach ($entities as $entity) {
+
+    if (in_array($entity->bundle(), $parent_bundles)) {
+      foreach ($child_fields as $child_field) {
+        if ($entity->hasField($child_field)) {
+          $field = $entity->get($child_field);
+          $values_original = $field->getValue();
+          if ($values = $field->referencedEntities()) {
+            // Sort the current value.
+            usort($values, '_pgov_plan_sequence_sort');
+
+            // Re-set field values if the new deltas are in a different sequence.
+            foreach ($values as $delta => $value) {
+              if ($values_original[$delta]['target_id'] != $value->id()) {
+                $field->set($delta, $value);
+              }
+            }
+            // Nothing more to do after we've processed a field.
+            return;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * A callback for usort() that orders entities by the value of field_sequence.
+ */
+function _pgov_plan_sequence_sort($entity1, $entity2): int {
+  $seq1 = $entity1->get('field_sequence')?->first()?->getValue()['value'];
+  $seq2 = $entity2->get('field_sequence')?->first()?->getValue()['value'];
+  return ($seq1 > $seq2) ? 1 : 0;
+}

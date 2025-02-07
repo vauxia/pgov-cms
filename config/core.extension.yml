@@ -11,9 +11,7 @@ module:
   cer: 0
   ckeditor5: 0
   config: 0
-  config_views: 0
   consumers: 0
-  content_model_documentation: 0
   contextual: 0
   ctools: 0
   datetime: 0
@@ -32,7 +30,6 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  flexible_permissions: 0
   gin_toolbar: 0
   graphql: 0
   graphql_compose: 0
@@ -45,6 +42,7 @@ module:
   graphql_compose_views: 0
   graphql_examples: 0
   help: 0
+  ief_table_view_mode: 0
   image: 0
   inline_entity_form: 0
   jsonapi: 0
@@ -55,7 +53,6 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
-  mermaid_diagram_field: 0
   migrate: 0
   migrate_plus: 0
   mysql: 0
@@ -69,7 +66,9 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  pgov_indicator: 0
   pgov_migrate: 0
+  pgov_plan: 0
   rest: 0
   search: 0
   search_api: 0
@@ -81,6 +80,7 @@ module:
   subrequests: 0
   svg_image: 0
   system: 0
+  tagify: 0
   taxonomy: 0
   text: 0
   title_length: 0
@@ -90,7 +90,6 @@ module:
   typed_data: 0
   update: 0
   user: 0
-  variationcache: 0
   views_ui: 0
   pathauto: 1
   views: 10
@@ -99,4 +98,6 @@ theme:
   claro: 0
   gin: 0
   olivero: 0
+  uswds_base: 0
+  uswds_pgov: 0
 profile: minimal

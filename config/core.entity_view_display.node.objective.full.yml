@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.objective.body
+    - field.field.node.objective.field_administration
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
     - node.type.objective
   module:
     - user
@@ -45,7 +47,9 @@ content:
     region: content
 hidden:
   body: true
+  field_administration: true
   field_goal: true
   field_objective_type: true
+  field_sequence: true
   links: true
   search_api_excerpt: true

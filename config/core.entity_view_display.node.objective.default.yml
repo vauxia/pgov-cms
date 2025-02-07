@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.objective.body
+    - field.field.node.objective.field_administration
     - field.field.node.objective.field_agency
     - field.field.node.objective.field_division
     - field.field.node.objective.field_goal
     - field.field.node.objective.field_indicators
     - field.field.node.objective.field_objective_type
+    - field.field.node.objective.field_sequence
     - node.type.objective
   module:
     - user
@@ -16,9 +18,21 @@ id: node.objective.default
 targetEntityType: node
 bundle: objective
 mode: default
-content: {  }
+content:
+  field_sequence:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
+  field_administration: true
   field_agency: true
   field_division: true
   field_goal: true

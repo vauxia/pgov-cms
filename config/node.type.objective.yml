@@ -10,16 +10,16 @@ third_party_settings:
     available_menus: {  }
     parent: ''
   type_tray:
-    type_category: _none
+    type_category: strategic-plan
     type_thumbnail: ''
     type_icon: ''
     type_description: ''
     existing_nodes_link_text: ''
-    type_weight: 0
+    type_weight: 20
 name: Objective
 type: objective
 description: 'Objectives break down goals and sub-goals into specific, actionable objectives whose progress can be measured.'
 help: null
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

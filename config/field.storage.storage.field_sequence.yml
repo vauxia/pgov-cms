@@ -1,0 +1,20 @@
+uuid: 8a470ab5-3cee-48a9-864a-685e4a16fd9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.field_sequence
+field_name: field_sequence
+entity_type: storage
+type: decimal
+settings:
+  precision: 10
+  scale: 1
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

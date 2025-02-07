@@ -13,6 +13,7 @@ source:
   plugin: airtable
   base: 'StratML x US Performance'
   table: Objective
+  filter: 'Name!=""'
   constants:
     uid: 1
     body_format: basic_html
@@ -25,6 +26,7 @@ process:
   uid: constants/uid
   body/value: Description
   body/format: constants/body_format
+  field_sequence: SequenceIndicator
   field_goal:
     plugin: migration_lookup
     migration: goals

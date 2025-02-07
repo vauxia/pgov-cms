@@ -14,6 +14,8 @@ source:
     body_format: basic_html
     file_destination: 'public://images/'
     delimiter: '-'
+    sort: 'EndDate'
+    direction: 'asc'
 destination:
   plugin: entity:node
   default_bundle: goal
@@ -23,15 +25,18 @@ process:
     callable: trim
     source: Name
   uid: constants/uid
-  field_id: PgovID
+  field_sequence: SequenceIndicator
   body/value: Description
   body/format: constants/body_format
   field_goal_type:
     plugin: static_map
     source: Alias
     map:
-      'Agency Priority Goal': 'apg'
-      'Strategic Goal': 'strategic'
+      'Agency Priority Goal': 'APG'
+      'Cross-Agency Priority Goal': 'CAPG'
+      'National Strategy Goal': 'National'
+      'PMA': 'PMA'
+      'Strategic Goal': 'Strategic'
     default_value: NULL
   field_period/target_id:
     plugin: period_lookup
@@ -46,3 +51,7 @@ process:
     plugin: migration_lookup
     migration: topics
     source: Category
+  field_image:
+    plugin: migration_lookup
+    migration: media
+    source: Media

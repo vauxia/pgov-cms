@@ -1,0 +1,19 @@
+uuid: 5f9a8370-4540-40a0-88ff-642fa01a0c30
+langcode: en
+status: true
+dependencies:
+  module:
+    - storage
+id: storage.field_administration
+field_name: field_administration
+entity_type: storage
+type: entity_reference
+settings:
+  target_type: storage
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

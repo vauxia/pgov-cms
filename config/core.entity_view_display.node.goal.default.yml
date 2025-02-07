@@ -4,14 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.goal.body
-    - field.field.node.goal.field_period
+    - field.field.node.goal.field_administration
     - field.field.node.goal.field_goal_type
-    - field.field.node.goal.field_id
+    - field.field.node.goal.field_image
     - field.field.node.goal.field_objectives
+    - field.field.node.goal.field_period
     - field.field.node.goal.field_plan
+    - field.field.node.goal.field_sequence
     - field.field.node.goal.field_topics
+    - image.style.1x1_third
     - node.type.goal
   module:
+    - media
     - options
     - text
     - user
@@ -32,15 +36,18 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
-  field_id:
-    type: string
+  field_image:
+    type: media_thumbnail
     label: hidden
     settings:
-      link_to_entity: false
+      image_link: content
+      image_style: 1x1_third
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_objectives:
     type: entity_reference_label
@@ -48,7 +55,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   field_period:
     type: entity_reference_label
@@ -56,7 +63,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_plan:
     type: entity_reference_label
@@ -64,7 +71,18 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
+    region: content
+  field_sequence:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_topics:
     type: entity_reference_label
@@ -72,7 +90,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   links:
     settings: {  }
@@ -80,4 +98,5 @@ content:
     weight: 0
     region: content
 hidden:
+  field_administration: true
   search_api_excerpt: true

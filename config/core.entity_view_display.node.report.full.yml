@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.report.body
+    - field.field.node.report.field_administration
     - field.field.node.report.field_file
     - field.field.node.report.field_goals
     - field.field.node.report.field_link
@@ -38,6 +39,7 @@ content:
     region: content
 hidden:
   body: true
+  field_administration: true
   field_file: true
   field_goals: true
   field_period: true

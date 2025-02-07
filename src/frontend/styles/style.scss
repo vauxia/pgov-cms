@@ -6,3 +6,32 @@
 
 //// 3. Load custom Sass
 @forward "project-styles.scss";
+
+.goal-card {
+  min-width: 360px;
+  max-width: 400px;
+}
+
+.goal-card a {
+  text-decoration: none;
+}
+
+.goal-card .usa-card {
+  margin-bottom: 0 !important;
+}
+
+.side-bar {
+  background-color: white;
+  min-height: 100%;
+  width: 394px;
+  max-width: 394px;
+  padding: 24px;
+}
+
+.filters-closed {
+  display: none;
+}
+
+.content-area {
+  flex: 1;
+}

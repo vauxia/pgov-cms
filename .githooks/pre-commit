@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+echo "Executing .git/hooks/pre-commit..."
+VIOLATIONS=0
+
+# Check backend
+STANDARD="Drupal"
+BIN="./vendor/bin"
+
+echo
+echo "Drupal Coder pre-commit hook – commit with the --no-verify option to skip the hook"
+echo
+
+# Check whether PHP_CodeSniffer can be found
+if [ ! -f "$BIN/phpcs" ]
+then
+  echo "Drupal Coder not found – is it installed? 'composer require drupal/coder'"
+  echo
+  exit 1
+fi
+
+# Run the sniffer
+echo "Running Drupal Coder."
+echo
+PHPCS=("$BIN/phpcs" "--standard=$STANDARD" "--filter=gitstaged" "--encoding=utf-8" "-p" ".")
+"${PHPCS[@]}"
+VIOLATIONS=$((VIOLATIONS + $?))
+
+# Check frontend
+echo "Running Frontend Lints."
+echo
+cd src/frontend || exit 1
+npm run lint-staged
+# Add frontend violations to the total
+VIOLATIONS=$((VIOLATIONS + $?))
+
+# One or more violations detected
+if [ $VIOLATIONS != 0 ]
+then
+  echo "Please fix each violations detected."
+  echo
+  exit 1
+fi
+
+# Syntax OK
+if [ $VIOLATIONS == 0 ]
+then
+  echo "No violations detected"
+  echo
+  exit 0
+fi
+
+git update-index --again
+
+

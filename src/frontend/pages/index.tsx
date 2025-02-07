@@ -4,6 +4,7 @@ import { drupal } from "lib/drupal";
 import { Layout } from "components/layout";
 import GoalsSearchView from "components/view--goal-search";
 import { NodeGoalProps, ViewFilter } from "lib/types";
+import { graphqlQueries } from "lib/graphqlQueries";
 
 interface IndexPageProps {
   goals: Array<NodeGoalProps>,
@@ -19,39 +20,10 @@ export const getStaticProps = async () => {
     method: "POST",
     withAuth: true, // Make authenticated requests using OAuth.
     body: JSON.stringify({
-      query: `query GoalsQuery {
-        goalsGraphql1 {
-          pageInfo {
-            total
-          }
-          filters {
-            options
-            value
-          }
-          description
-          results {
-            ... on NodeGoal {
-              id
-              title
-              path
-              body {
-                value
-              }
-              
-              topics {
-                ... on TermTopic {
-                  id
-                  name
-                }
-              }
-            }
-          }
-        }
-      }`,
+      query: graphqlQueries.goalsView("", []),
     }),
   });
   const { data } = await response.json();
-  
   return {
     props: {
       goals: data?.goalsGraphql1?.results ?? [],
@@ -63,22 +35,21 @@ export const getStaticProps = async () => {
 };
 
 export default function IndexPage(props: IndexPageProps) {
-
   return (
     <Layout>
       <Head>
         <title>Performance.gov</title>
         <meta
           name="description"
-          content="A Next.js site powered by a Drupal backend."
+          content="Track the U.S. Government's goals."
         />
       </Head>
-      <div className="grid-container">
+      <div className="">
         <GoalsSearchView
-           filters={props.filters}
-           goals={props.goals}
-           total={props.total}
-           description={props.description}
+          filters={props.filters}
+          goals={props.goals}
+          total={props.total}
+          description={props.description}
         />
       </div>
     </Layout>

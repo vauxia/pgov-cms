@@ -1,0 +1,47 @@
+uuid: bc5a1cd5-335b-48d0-9f3d-6f905b7b9291
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.goal.body
+    - field.field.node.goal.field_administration
+    - field.field.node.goal.field_goal_type
+    - field.field.node.goal.field_image
+    - field.field.node.goal.field_objectives
+    - field.field.node.goal.field_period
+    - field.field.node.goal.field_plan
+    - field.field.node.goal.field_sequence
+    - field.field.node.goal.field_topics
+    - image.style.1x1_third
+    - node.type.goal
+  module:
+    - media
+    - user
+id: node.goal.card
+targetEntityType: node
+bundle: goal
+mode: card
+content:
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: 1x1_third
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_administration: true
+  field_goal_type: true
+  field_objectives: true
+  field_period: true
+  field_plan: true
+  field_sequence: true
+  field_topics: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,23 @@
+uuid: 8e746106-0ac7-4fa2-b6a5-c8ee8558d39f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_sequence
+    - storage.storage_type.indicator
+id: storage.indicator.field_sequence
+field_name: field_sequence
+entity_type: storage
+bundle: indicator
+label: Sequence
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 100.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

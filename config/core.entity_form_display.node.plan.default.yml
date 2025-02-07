@@ -17,7 +17,7 @@ dependencies:
   module:
     - datetime
     - field_group
-    - inline_entity_form
+    - ief_table_view_mode
     - link
     - media_library
     - path
@@ -154,7 +154,7 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_goals:
-    type: inline_entity_form_complex
+    type: inline_entity_form_complex_table_view_mode
     weight: 2
     region: content
     settings:

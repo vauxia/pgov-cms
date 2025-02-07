@@ -4,20 +4,21 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.storage.inline
+    - field.field.storage.indicator.field_administration
     - field.field.storage.indicator.field_description
     - field.field.storage.indicator.field_dimension
     - field.field.storage.indicator.field_divisions
-    - field.field.storage.indicator.field_id
     - field.field.storage.indicator.field_keyness
     - field.field.storage.indicator.field_measurements
     - field.field.storage.indicator.field_notes
     - field.field.storage.indicator.field_objective
     - field.field.storage.indicator.field_plan
+    - field.field.storage.indicator.field_sequence
     - field.field.storage.indicator.field_target
     - storage.storage_type.indicator
   module:
     - field_group
-    - inline_entity_form
+    - ief_table_view_mode
     - text
 third_party_settings:
   field_group:
@@ -73,14 +74,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_id:
-    type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_keyness:
     type: options_select
     weight: 6
@@ -88,8 +81,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_measurements:
-    type: inline_entity_form_complex
-    weight: 8
+    type: inline_entity_form_complex_table_view_mode
+    weight: 6
     region: content
     settings:
       form_mode: inline
@@ -107,7 +100,7 @@ content:
     third_party_settings: {  }
   field_notes:
     type: text_textarea
-    weight: 9
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -133,6 +126,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_sequence:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_target:
     type: options_select
     weight: 8
@@ -140,6 +140,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_administration: true
   name: true
   status: true
   user_id: true

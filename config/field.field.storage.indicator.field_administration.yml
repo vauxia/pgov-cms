@@ -1,0 +1,29 @@
+uuid: b9f9b84c-88a3-4c8b-95fd-5e048dc14b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.storage.field_administration
+    - storage.storage_type.administration
+    - storage.storage_type.indicator
+id: storage.indicator.field_administration
+field_name: field_administration
+entity_type: storage
+bundle: indicator
+label: Administration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:storage'
+  handler_settings:
+    target_bundles:
+      administration: administration
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

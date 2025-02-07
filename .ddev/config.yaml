@@ -14,6 +14,15 @@ composer_version: "2"
 web_environment:
   - DRUSH_ALLOW_XDEBUG=1
 corepack_enable: false
+web_extra_exposed_ports:
+  - name: "Documentation"
+    container_port: 4000
+    https_port: 4000
+    http_port: 4001
+web_extra_daemons:
+  - name: "docs"
+    command: "npm install && npm run start -- -h 0.0.0.0 -p 4000"
+    directory: /var/www/html/docs
 
 # Key features of DDEV's config.yaml:
 

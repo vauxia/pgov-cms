@@ -1,5 +1,6 @@
 export interface NodeGoalProps {
   title: string,
+  id: string,
   body: {
     value: string
   },
@@ -10,6 +11,9 @@ export interface NodeGoalProps {
       name: string,
     }
   ],
+  plan: any,
+  goalType: any,
+  period: any,
 }
 
 export interface ViewFilter {

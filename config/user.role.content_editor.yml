@@ -15,17 +15,22 @@ dependencies:
     - node.type.objective
     - node.type.page
     - node.type.plan
+    - node.type.report
+    - storage.storage_type.administration
+    - storage.storage_type.indicator
+    - storage.storage_type.measurement
+    - storage.storage_type.period
+    - storage.storage_type.person
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.topics
   module:
     - block_content
-    - content_model_documentation
     - contextual
     - file
     - media
     - migrate
     - node
-    - path
+    - storage
     - system
     - taxonomy
     - toolbar
@@ -43,10 +48,12 @@ permissions:
   - 'access media overview'
   - 'access taxonomy overview'
   - 'access toolbar'
-  - 'administer media'
-  - 'administer media types'
-  - 'administer nodes'
-  - 'administer url aliases'
+  - 'add administration storage entities'
+  - 'add indicator storage entities'
+  - 'add measurement storage entities'
+  - 'add period storage entities'
+  - 'add person storage entities'
+  - 'add storage entities'
   - 'create agency content'
   - 'create article content'
   - 'create basic block content'
@@ -59,12 +66,13 @@ permissions:
   - 'create page content'
   - 'create plan content'
   - 'create remote_video media'
+  - 'create report content'
   - 'create terms in tags'
   - 'create terms in topics'
-  - 'create url aliases'
   - 'create video media'
   - 'delete agency revisions'
   - 'delete all revisions'
+  - 'delete all storage revisions'
   - 'delete all taxonomy revisions'
   - 'delete any agency content'
   - 'delete any article content'
@@ -83,6 +91,7 @@ permissions:
   - 'delete any plan content'
   - 'delete any remote_video media'
   - 'delete any remote_video media revisions'
+  - 'delete any report content'
   - 'delete any video media'
   - 'delete any video media revisions'
   - 'delete article revisions'
@@ -101,9 +110,12 @@ permissions:
   - 'delete own page content'
   - 'delete own plan content'
   - 'delete own remote_video media'
+  - 'delete own report content'
   - 'delete own video media'
   - 'delete page revisions'
   - 'delete plan revisions'
+  - 'delete report revisions'
+  - 'delete storage entities'
   - 'delete term revisions in tags'
   - 'delete term revisions in topics'
   - 'delete terms in tags'
@@ -119,6 +131,7 @@ permissions:
   - 'edit any page content'
   - 'edit any plan content'
   - 'edit any remote_video media'
+  - 'edit any report content'
   - 'edit any video media'
   - 'edit own agency content'
   - 'edit own article content'
@@ -130,7 +143,9 @@ permissions:
   - 'edit own page content'
   - 'edit own plan content'
   - 'edit own remote_video media'
+  - 'edit own report content'
   - 'edit own video media'
+  - 'edit storage entities'
   - 'edit terms in tags'
   - 'edit terms in topics'
   - 'link to any page'
@@ -148,12 +163,12 @@ permissions:
   - 'revert objective revisions'
   - 'revert page revisions'
   - 'revert plan revisions'
+  - 'revert report revisions'
   - 'revert term revisions in tags'
   - 'revert term revisions in topics'
   - 'update any media'
   - 'update media'
   - 'view agency revisions'
-  - 'view all content model document revisions'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view all taxonomy revisions'
@@ -171,6 +186,9 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view plan revisions'
+  - 'view published storage entities'
+  - 'view report revisions'
   - 'view term revisions in tags'
   - 'view term revisions in topics'
   - 'view the administration theme'
+  - 'view unpublished storage entities'

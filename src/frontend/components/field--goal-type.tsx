@@ -1,7 +1,7 @@
-export function FieldGoalType({field_goal_type}) {
+export function FieldGoalType({ field_goal_type }) {
   let goalTypeName = "";
   let goalTypeClasses = "";
-  switch (field_goal_type) {
+  switch (field_goal_type.toLowerCase()) {
     case "apg":
       goalTypeName = "Agency priority goal";
       goalTypeClasses = "bg-primary-vivid";
@@ -10,19 +10,18 @@ export function FieldGoalType({field_goal_type}) {
       goalTypeName = "Strategic goal";
       goalTypeClasses = "bg-base-darkest";
       break;
+    case "national":
+        goalTypeName = "National";
+        goalTypeClasses = "bg-base-darkest";
+        break;
     default:
+      goalTypeName = "Default"
       goalTypeClasses = "bg-base";
       break;
   }
-
   return (
-    <div className={`goal-type goal-type--${field_goal_type}`}>
-      <span className={`usa-tag ${goalTypeClasses} text-white`}>
-        {goalTypeName}
-      </span>
-    </div>
+    <span className={`border padding-x-105 font-sans-3xs radius-pill`}>
+      {goalTypeName}
+    </span>
   );
 }
-
-
-

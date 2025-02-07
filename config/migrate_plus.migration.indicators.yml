@@ -19,11 +19,11 @@ source:
     delimiter: '-'
 process:
   user_id: constants/uid
-  field_id: PgovID
   field_description/value: UnitOfMeasurement
   field_description/format: constants/body_format
   field_notes/value: OtherInformation
   field_notes/format: constants/body_format
+  field_sequence: SequenceIndicator
   field_agency:
     plugin: migration_lookup
     migration: agencies

@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.goal.body
-    - field.field.node.goal.field_period
+    - field.field.node.goal.field_administration
     - field.field.node.goal.field_goal_type
-    - field.field.node.goal.field_id
+    - field.field.node.goal.field_image
     - field.field.node.goal.field_objectives
+    - field.field.node.goal.field_period
     - field.field.node.goal.field_plan
+    - field.field.node.goal.field_sequence
     - field.field.node.goal.field_topics
     - node.type.goal
   module:
@@ -26,12 +28,21 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_goal_type:
     type: list_default
     label: inline
     settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content
@@ -42,7 +53,7 @@ content:
       view_mode: full
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_period:
     type: entity_reference_label
@@ -50,7 +61,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   links:
     settings: {  }
@@ -58,7 +69,8 @@ content:
     weight: 0
     region: content
 hidden:
-  field_id: true
+  field_administration: true
   field_plan: true
+  field_sequence: true
   field_topics: true
   search_api_excerpt: true

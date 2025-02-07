@@ -7,17 +7,19 @@ import { NodeArticle } from "components/node--article";
 import { NodeBasicPage } from "components/node--basic-page";
 import { NodeAgency } from "../components/node--agency";
 import { NodeGoal } from "components/node--goal";
+import { NodePlan } from "components/node--plan";
 import { Layout } from "components/layout";
-import { nodeQueries } from "./api/node-queries";
+import { graphqlQueries } from "../lib/graphqlQueries";
 
 const RESOURCE_TYPES = ["node--page", "node--article", "node--agency", "node--goal"];
 
 interface NodePageProps {
   resource: DrupalNode;
   storageData: any;
+  planData: any;
 }
 
-export default function NodePage({ resource, storageData }: NodePageProps) {
+export default function NodePage({ resource, storageData, planData }: NodePageProps) {
   if (!resource) return null;
 
   return (
@@ -28,8 +30,9 @@ export default function NodePage({ resource, storageData }: NodePageProps) {
       </Head>
       {resource.type === "node--page" && <NodeBasicPage node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
-      {resource.type === "node--agency" && <NodeAgency node={resource} />}
+      {resource.type === "node--agency" && <NodeAgency node={resource} planData={planData} />}
       {resource.type === "node--goal" && <NodeGoal node={resource} storageData={storageData} />}
+      {resource.type === "node--plan" && <NodePlan node={resource} storageData={storageData} />}
     </Layout>
   );
 }
@@ -45,7 +48,7 @@ export async function getStaticProps(
   context,
 ): Promise<GetStaticPropsResult<NodePageProps>> {
   const path = await drupal.translatePathFromContext(context);
-  
+
   if (!path) {
     return {
       notFound: true,
@@ -71,7 +74,18 @@ export async function getStaticProps(
       "field_plan.field_agency.field_logo",
       "field_plan.field_agency.field_logo.field_media_image"
     ]);
-    params.addFields("node--plan", ["field_agency", "title"]);
+    params.addFields("node--plan", ["field_agency", "title", "path"]);
+    params.addFields("node--objective", ["title", "body", "field_indicators"]);
+  } else if (type === "node--plan") {
+    params.addInclude([
+      "field_period",
+      "field_goals",
+      "field_agency",
+      "field_agency.field_logo",
+      "field_agency.field_logo.field_media_image",
+      "field_goals.field_objectives",
+    ]);
+    params.addFields("node--goal", ["title", "field_objectives", "path"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
   }
 
@@ -82,7 +96,7 @@ export async function getStaticProps(
       params: params.getQueryObject(),
     },
   );
-  
+
   // At this point, we know the path exists and it points to a resource.
   // If we receive an error, it means something went wrong on Drupal.
   // We throw an error to tell revalidation to skip this for now.
@@ -98,23 +112,51 @@ export async function getStaticProps(
       notFound: true,
     };
   }
+
   let storageData = {};
+  let planData = {}
+
   if (type === "node--goal") {
     const graphqlUrl = drupal.buildUrl("/graphql");
     const response = await drupal.fetch(graphqlUrl.toString(), {
       method: "POST",
       withAuth: true, // Make authenticated requests using OAuth.
       body: JSON.stringify({
-        query: nodeQueries.nodeGoal(path?.entity?.path),
+        query: graphqlQueries.nodeGoal(path?.entity?.path),
+      }),
+    });
+    const { data } = await response.json();
+    storageData = data?.route?.entity;
+  } else if (type === "node--agency") {
+    const agencyId = parseInt(path?.entity?.id);
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: graphqlQueries.planNodeByAgency(agencyId),
+      }),
+    });
+    const { data } = await response.json();
+    planData = data.strategicPlansByAgencyGraphql1.results;
+  } else if (type === "node--plan") {
+    const graphqlUrl = drupal.buildUrl("/graphql");
+    const response = await drupal.fetch(graphqlUrl.toString(), {
+      method: "POST",
+      withAuth: true, // Make authenticated requests using OAuth.
+      body: JSON.stringify({
+        query: graphqlQueries.nodePlan(path?.entity?.path),
       }),
     });
     const { data } = await response.json();
     storageData = data?.route?.entity;
   }
+
   return {
     props: {
       resource,
       storageData,
+      planData
     },
   };
 }
