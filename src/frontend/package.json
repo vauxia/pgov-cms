@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.13.1",
     "react-responsive-masonry": "2.2.0",
+    "recharts": "^2.15.1",
     "sharp": "^0.32.6"
   },
   "devDependencies": {
@@ -44,8 +45,15 @@
   },
   "lint-staged": {
     "!(*.ts|*.tsx|*.js|*.jsx)": "prettier --write --ignore-unknown",
-    "*.{ts, tsx}": ["tsc-files --noEmit --pretty","eslint", "prettier --write"],
-    "*.{js, jsx}": ["eslint", "prettier --write"]
+    "*.{ts, tsx}": [
+      "tsc-files --noEmit --pretty",
+      "eslint",
+      "prettier --write"
+    ],
+    "*.{js, jsx}": [
+      "eslint",
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": "22.11.0",
