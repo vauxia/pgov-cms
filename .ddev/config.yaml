@@ -33,7 +33,7 @@ web_extra_daemons:
 hooks:
   # Ensure the .env file is present.
   pre-start:
-    - exec-host: "ls .ddev/.env || (cd .ddev && cp .env.pgov-example .env)"
+    - exec-host: "(ls .ddev/.envs > /dev/null 2>error) || (cd .ddev && cp .env.pgov-example .env)"
 
 # Key features of DDEV's config.yaml:
 
