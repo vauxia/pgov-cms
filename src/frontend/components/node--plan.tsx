@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Link from 'next/link'
 import { DrupalNode } from "next-drupal";
+import { Icon, Button, ButtonGroup } from "@trussworks/react-uswds";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import { USABreadcrumb } from "./usa--breadcrumb";
 import GoalsTotals from "./goal-totals";
@@ -75,30 +76,42 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
             <h2 className="font-sans-3xs text-semibold margin-bottom-05">Description</h2>
           </div>
           <div>
-            <Link href={`${field_link.uri}`}>View as PDF</Link>
-          </div>
-          <div>
-            Tags
+            <Link
+              className="text-no-underline grid-row flex-align-center flex-justify-center border radius-md width-full padding-y-1 padding-x-205"
+              href={`${field_link.uri}`}
+            >
+              <Icon.FilePresent size={3} aria-hidden={true} />
+              <span>View as PDF</span>
+            </Link>
           </div>
         </div>
         <div className="content-area">
           
-          <main id="main-content" className="main-content padding-x-4 padding-bottom-5" ref={mainContentRef}>
-            <div>
-              <button
-                onClick={() => setListView(false)}
-                disabled={!listView}
-              >
-                Cards
-              </button>
-              <button
-                onClick={() => setListView(true)}
-                disabled={listView}
-              >
-                List
-              </button>
+          <main id="main-content" className="main-content padding-x-4 padding-bottom-5 padding-top-8" ref={mainContentRef}>
+            <div className="grid-row flex-justify">
+              <h2>Goals</h2>
+              <ButtonGroup type="segmented">
+                <Button
+                  outline
+                  type="button"
+                  onClick={() => setListView(false)}
+                  disabled={!listView}
+                >
+                  <Icon.GridView size={3} aria-hidden={true} />
+                  <span className="usa-sr-only">Goals grid view</span>
+                </Button>
+                <Button
+                  outline
+                  type="button"
+                  onClick={() => setListView(true)}
+                  disabled={listView}
+                >
+                  <Icon.List size={3} aria-hidden={true} />
+                  <span className="usa-sr-only">Goals list view</span>
+                </Button>
+              </ButtonGroup>
             </div>
-            <h2>Goals</h2>
+            
             {listView
             ? (
               <ul className="add-list-reset">
@@ -114,9 +127,10 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
                   return(
                     <li key={goal.id} className={`bg-white ${listBorders}`}>
                       <Link
-                        className={`text-no-underline font-sans-md display-block padding-2 text-base-darkest ${linkBorders}`}
+                        className={`grid-row flex-no-wrap flex-justify text-no-underline font-sans-md padding-2 text-base-darkest ${linkBorders}`}
                         href={goal.path.alias}>
-                          {goal.title}
+                          <span>{goal.title}</span>
+                          <Icon.NavigateNext size={3} aria-hidden={true} />
                       </Link>
                     </li>
                   );
@@ -133,7 +147,7 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
                     <Masonry>
                       {field_goals.map((goal) => {
                         return(
-                          <Link href={goal.path.alias} className="text-no-underline">
+                          <Link key={goal.id} href={goal.path.alias} className="text-no-underline">
                             <div className="usa-card__container">
                               <div className="usa-card__header">
                                 <h4 className="usa-card__heading ">{goal.title}</h4>
