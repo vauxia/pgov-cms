@@ -71,15 +71,19 @@ export async function getStaticProps(
       // "field_objectives.field_indicators.field_measurements",
       "field_plan",
       "field_plan.field_agency",
+      "field_plan.field_file",
+      "field_plan.field_file.field_media_document",
       "field_plan.field_agency.field_logo",
-      "field_plan.field_agency.field_logo.field_media_image"
+      "field_plan.field_agency.field_logo.field_media_image",
     ]);
-    params.addFields("node--plan", ["field_agency", "title", "path"]);
+    params.addFields("node--plan", ["field_agency", "title", "path", "field_file"]);
     params.addFields("node--objective", ["title", "body", "field_indicators"]);
   } else if (type === "node--plan") {
     params.addInclude([
       "field_period",
       "field_goals",
+      "field_file",
+      "field_file.field_media_document",
       "field_agency",
       "field_agency.field_logo",
       "field_agency.field_logo.field_media_image",

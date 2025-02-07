@@ -36,12 +36,12 @@ function calculateObjectiveIndicatorTotals(goals) {
 
 export function NodePlan({node, storageData, ...props}: NodePlanProps) {
   let mainContentRef = useRef();
-  const { title, field_agency, field_link, field_goals } = node;
+  const { title, field_agency, field_file, field_goals } = node;
   const [listView, setListView] = useState(true);
   const totals = calculateObjectiveIndicatorTotals(field_goals);
   const masonryBP = {350: 1, 750: 2, 1060: 3, 1400: 4};
-  const startDate = new Date(storageData.period.dateRange.start.time);
-  const endDate = new Date(storageData.period.dateRange.end.time)
+  const startDate = new Date(storageData.administration?.dateRange?.start.time);
+  const endDate = new Date(storageData.administration?.dateRange?.end.time)
   const dateOptions: Intl.DateTimeFormatOptions = {year: "numeric"}
   return (
     <>
@@ -50,12 +50,14 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
         <div className="side-bar">
           <span className="text-white radius-pill bg-black padding-x-1 font-sans-3xs">Plan</span>
           <h1 className="font-sans-xl">{title}</h1>
-          <GoalsTotals
-            goals={totals.goals}
-            objectives={totals.objectives}
-            indicators={totals.indicators}
-          />
-          <div className="grid-row flex-justify flex-no-wrap">
+          <div className="margin-bottom-2 padding-top-1 border-top border-base-lighter">
+            <GoalsTotals
+              goals={totals.goals}
+              objectives={totals.objectives}
+              indicators={totals.indicators}
+            />
+          </div>
+          <div className="grid-row flex-justify flex-no-wrap margin-bottom-2 border-top border-base-lighter">
             <div className="grid-row flex-column">
               <h2 className="font-sans-3xs text-semibold margin-bottom-05">Owner</h2>
               <span className="font-sans-3xs">{field_agency.title}</span>
@@ -68,28 +70,39 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
               />
             </div>
           </div>
-          <div>
-            <h2 className="font-sans-3xs text-semibold margin-bottom-05">Duration</h2>
-            <span>Fiscal Year {startDate.toLocaleDateString('en-US', dateOptions)}-{endDate.toLocaleDateString('en-US', dateOptions)}</span>
-          </div>
-          <div>
-            <h2 className="font-sans-3xs text-semibold margin-bottom-05">Description</h2>
-          </div>
-          <div>
-            <Link
-              className="text-no-underline grid-row flex-align-center flex-justify-center border radius-md width-full padding-y-1 padding-x-205"
-              href={`${field_link.uri}`}
-            >
-              <Icon.FilePresent size={3} aria-hidden={true} />
-              <span>View as PDF</span>
-            </Link>
-          </div>
+          {startDate && endDate &&
+            <div className="margin-bottom-2 border-top border-base-lighter">
+              <h2 className="font-sans-3xs text-semibold margin-bottom-05">Duration</h2>
+              <span>Fiscal Year {startDate.toLocaleDateString('en-US', dateOptions)}-{endDate.toLocaleDateString('en-US', dateOptions)}</span>
+            </div>
+          }
+          {node.body &&
+          (
+            <div className="margin-bottom-2 border-top border-base-lighter">
+              <h2 className="font-sans-3xs text-semibold margin-bottom-05">Description</h2>
+              <div
+                dangerouslySetInnerHTML={{ __html: node.body?.processed }}
+                className="font-body-sm"
+              />
+            </div>
+          )}
+          {field_file &&
+            <div>
+              <Link
+                className="text-no-underline grid-row flex-align-center flex-justify-center border radius-md width-full padding-y-1 padding-x-205"
+                href={field_file.field_media_document.uri.url}
+              >
+                <Icon.FilePresent size={3} aria-hidden={true} />
+                <span>View as PDF</span>
+              </Link>
+            </div>
+          }
         </div>
         <div className="content-area">
           
           <main id="main-content" className="main-content padding-x-4 padding-bottom-5 padding-top-8" ref={mainContentRef}>
             <div className="grid-row flex-justify">
-              <h2>Goals</h2>
+              <h2 className="font-sans-xl margin-top-0">Goals</h2>
               <ButtonGroup type="segmented">
                 <Button
                   outline
