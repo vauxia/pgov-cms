@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - storage.storage_type.administration
     - storage.storage_type.indicator
     - storage.storage_type.measurement
     - storage.storage_type.period
@@ -25,6 +26,7 @@ permissions:
   - 'issue subrequests'
   - 'use graphql_compose_server graphql explorer'
   - 'use graphql_compose_server graphql voyager'
+  - 'view published administration storage entities'
   - 'view published indicator storage entities'
   - 'view published measurement storage entities'
   - 'view published period storage entities'
