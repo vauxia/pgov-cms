@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Executing .git/hooks/pre-commit..."
 VIOLATIONS=0
-echo $PATH
+
 # Check backend
 STANDARD="Drupal"
 BIN="./vendor/bin"
