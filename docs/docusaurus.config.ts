@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/CivicActions/pgov-cms/tree/main/',
+            'https://github.com/CivicActions/pgov-cms/tree/main/docs/',
         },
         /** Will not use blog on this site.
         blog: {
