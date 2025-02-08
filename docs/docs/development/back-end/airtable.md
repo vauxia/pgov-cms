@@ -43,6 +43,6 @@ modules is in `web/modules/custom/pgov_migrate`. The module also contains
 preconfigured migrations and default content, which will be added to the site
 each time it's rebuilt.
 
-Migrations can be listed using `drush migrate:status` (this may take some time)
+Migrations can be listed using `ddev drush migrate:status` (this may take some time)
 Migrations can be executed using `ddev migrate` (local environment) or
 `bin/migrate` (hosted environment).
