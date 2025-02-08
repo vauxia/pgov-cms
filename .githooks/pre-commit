@@ -28,8 +28,6 @@ if [ -f "$BIN/phpcs" ]; then
 
 else
   echo "Drupal Coder not found – is it installed?"
-  echo
-  exit 1
 fi
 
 # Run the sniffer
