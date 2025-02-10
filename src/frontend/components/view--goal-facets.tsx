@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Icon } from "@trussworks/react-uswds";
 
-const ViewGoalFacets = ({handleSearch}) => {
+const ViewGoalFacets = ({handleSearch, handleClose}) => {
   const [facets, setFacets] = useState(null);
   const url = `/api/get-facets`;
 
@@ -34,6 +35,12 @@ const ViewGoalFacets = ({handleSearch}) => {
 
   return(
     <div>
+      <div className="grid-row flex-justify">
+        <h2>Filter by topic</h2>
+        <button className="close-button" onClick={() => handleClose()} aria-label="Close filters">
+          <Icon.Close size={3} aria-hidden={true} />
+        </button>
+      </div>
       {facets.data.termTopics.nodes.map(( facetKey ) => (
         <div className="usa-checkbox" key={facetKey.id}>
           <input
