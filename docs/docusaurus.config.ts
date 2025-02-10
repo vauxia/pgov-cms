@@ -30,7 +30,10 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',
@@ -40,8 +43,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/CivicActions/pgov-cms/tree/main/',
+          editUrl: 'https://github.com/CivicActions/pgov-cms/tree/main/docs/docs/'
         },
         /** Will not use blog on this site.
         blog: {
