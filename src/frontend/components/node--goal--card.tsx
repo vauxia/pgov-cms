@@ -19,7 +19,7 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
       <Link href={path}>
       <div className="padding-y-1 bg-white usa-card margin-bottom-0">
         <div className="usa-card__container" >
-          <div className="grid-row flex-justify padding-top-1 padding-x-3">
+          <div className="grid-row flex-justify padding-top-1 padding-x-2">
             <FieldGoalType field_goal_type={goalType} />
             <FieldPeriod field_period={period} />
           </div>
@@ -28,14 +28,16 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
           </div>
 
           <div className="usa-card__body grid-row flex-column flex-align-center">
-          <Image
-            src={image?.mediaImage.url}
-            width={150}
-            height={150}
-            alt={title}
-            priority
-            className="flex-align-self-center"
-          />
+            {image?.mediaImage?.url && (
+              <Image
+                src={image.mediaImage.url}
+                width={150}
+                height={150}
+                alt={title}
+                priority
+                className="flex-align-self-center"
+              />
+            )}
           </div>
           <div className="usa-card__footer padding-bottom-1 border-top-2px border-base-lighter">
             <AgencyInfoBox

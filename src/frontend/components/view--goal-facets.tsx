@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const ViewGoalFacets = ({filter_options, handleSearch}) => {
   const facetKeys = filter_options ? Object.keys(filter_options) : [];
+  facetKeys.sort();
 
   const [checkedFacets, setCheckedFacets] = useState([])
 

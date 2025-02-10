@@ -17,7 +17,7 @@ export function NodePlanCard({ goal, ...props }: NodePlanCardProps) {
       <Link href={path}>
       <div className="padding-y-1 bg-white usa-card margin-bottom-0">
         <div className="usa-card__container" >
-          <div className="grid-row flex-justify padding-top-1 padding-x-3">
+          <div className="grid-row flex-justify padding-top-1 padding-x-2">
             <FieldGoalType field_goal_type={'plan'} />
             <FieldPeriod field_period={period} />
           </div>
