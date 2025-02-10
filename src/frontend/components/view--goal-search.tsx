@@ -50,6 +50,8 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     }
   }, [fulltext, administration])
 
+
+
   const masonryBP = filtersOpen ? {350: 1, 750: 2, 1400: 3} : {350: 1, 750: 2, 1060: 3, 1400: 4};
   return (
     <div>
@@ -82,8 +84,33 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
           </form>
         </div>
       </div>
-      <div className="grid-row">
-
+      <div className="grid-row margin-y-3 padding-x-205 padding-y-105">
+        <ul className="add-list-reset search-goals--toggle hr-lines">
+          <li>
+            <button
+              className={"usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill active"}>
+              Everything
+            </button>
+          </li>
+          <li>
+            <button
+              className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
+              Plans
+            </button>
+          </li>
+          <li>
+            <button
+              className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
+              Goals
+            </button>
+          </li>
+          <li>
+            <button
+              className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
+              Indicators
+            </button>
+          </li>
+        </ul>
       </div>
 
       <div className="grid-row">

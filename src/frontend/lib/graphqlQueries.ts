@@ -153,14 +153,14 @@ export const graphqlQueries = {
         Topics: ${JSON.stringify(facets)},
         Administration: ${administration}
       }) {
-        pageInfo {
-          total
-        }
-        filters {
-          options
-          value
-        }
-        description
+    pageInfo {
+      total
+    }
+    filters {
+      options
+      value
+    }
+    description
     results {
       ... on NodeGoal {
         id
@@ -182,6 +182,33 @@ export const graphqlQueries = {
               title
               variations(styles: THIRD1X1) {
                 url
+              }
+            }
+          }
+        }
+        objectives {
+          ... on NodeObjective {
+            id
+            title
+            indicators {
+              ... on StorageIndicator {
+                id
+                name
+                progress
+                dates
+                target
+                targetValues
+                names
+                values
+                measurements {
+                  ... on StorageMeasurement{
+                    id
+                    name
+                    targetValue
+                    value
+                    status
+                  }
+                }
               }
             }
           }
@@ -215,8 +242,8 @@ export const graphqlQueries = {
         }
       }
       ... on NodePlan {
-        id
         title
+        id
         path
         agency {
           ... on NodeAgency {
@@ -242,7 +269,7 @@ export const graphqlQueries = {
         }
       }
     }
-      }
+  }
     }`,
   taxonomyTopics: () =>
     `

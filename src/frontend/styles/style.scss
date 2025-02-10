@@ -7,6 +7,8 @@
 //// 3. Load custom Sass
 @forward "project-styles.scss";
 
+$goals-gray: rgba(202, 204, 216, 1);
+
 .goal-card {
   min-width: 360px;
   max-width: 400px;
@@ -49,10 +51,10 @@
 
 .search-goals {
   &--container {
-    border-bottom: 1px solid rgba(202, 204, 216, 1);
+    border-bottom: 1px solid $goals-gray;
   }
   &--filter {
-    border: 1px solid rgba(202, 204, 216, 1); // Add outline with the specified color
+    border: 1px solid $goals-gray;
   }
   &--wrapper {
     position: relative;
@@ -63,7 +65,7 @@
       height: 2.5em;
       flex: 1;
       width: 100%;
-      border: 1px solid rgba(202, 204, 216, 1);
+      border: 1px solid $goals-gray;
       outline: none;
     }
     button {
@@ -76,7 +78,7 @@
     }
   }
   &--administration {
-    border: 1px solid rgba(202, 204, 216, 1);
+    border: 1px solid $goals-gray;
 
     /* Arrow */
     appearance: none;
@@ -84,5 +86,41 @@
     background-repeat: no-repeat;
     background-position: right 0.5em top 50%;
     background-size: 0.65em auto;
+  }
+
+  &--toggle {
+    margin: 0 auto;
+    > li {
+      display: inline-block;
+      width: auto;
+    }
+    .active {
+      background: white;
+    }
+  }
+}
+
+.hr-lines {
+  position: relative;
+  text-align: center;
+  &:before {
+    content: " ";
+    display: block;
+    height: 1px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: -525px;
+    background: $goals-gray;
+  }
+  &::after {
+    content: " ";
+    height: 1px;
+    width: 500px;
+    background: $goals-gray;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -500px;
   }
 }
