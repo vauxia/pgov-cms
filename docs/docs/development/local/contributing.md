@@ -1,6 +1,6 @@
 ---
-sidebar_position: 0
-title: Overview
+sidebar_position: 3
+title: Contributing
 ---
 # Contributing to Performance.gov
 
