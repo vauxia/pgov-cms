@@ -4,10 +4,18 @@
 // 2. Load USWDS source code
 @forward "uswds";
 
-//// 3. Load custom Sass
+// 3. Load extra utility files & helpers.
+@use './utilities/mixins.scss' as mixin;
+
+// 3. Load custom Sass
 @forward "project-styles.scss";
 
 $goals-gray: rgba(202, 204, 216, 1);
+$ink: #1b1b1b;
+
+a {
+  @include mixin.link-styles;
+}
 
 .goal-card {
   min-width: 360px;
@@ -24,6 +32,21 @@ $goals-gray: rgba(202, 204, 216, 1);
 
 .container-open {
   padding-left: 394px;
+}
+
+.goal-card .usa-card__container {
+  border-width: 1px;
+}
+
+.usa-card__footer {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.goal-card:hover .usa-card__container {
+  border-color: $ink;
 }
 
 .side-bar {
@@ -109,13 +132,24 @@ $goals-gray: rgba(202, 204, 216, 1);
 
   &--toggle {
     margin: 0 auto;
+
+    // 30em = mobile-lg breakpoint for USWDS. Source: https://designsystem.digital.gov/utilities/layout-grid/#responsive-variants.
+    @media (min-width: 40em) {
+      display: flex;
+      gap: 4px;
+    }
+
     > li {
       display: inline-block;
       width: auto;
     }
     .active {
       background: white;
+      &:hover {
+        background: white;
+      }
     }
+
   }
 }
 
