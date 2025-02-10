@@ -43,7 +43,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/CivicActions/pgov-cms/tree/main/docs/docs/'
+          editUrl: 'https://github.com/CivicActions/pgov-cms/blob/main/docs/',
         },
         /** Will not use blog on this site.
         blog: {
