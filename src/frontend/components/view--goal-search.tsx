@@ -32,7 +32,8 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     if (e) {
       e.preventDefault();
     }
-    const url = `/api/goal-search?fulltext=${fulltext}&facets=${facets}&administration=${administration}`;
+    const cleanFacets = facets.map((f) => encodeURIComponent(f));
+    const url = `/api/goal-search?fulltext=${fulltext}&facets=${cleanFacets}&administration=${administration}`;
     setOffset(offsetAmount)
     try {
       const response = await fetch(url);
@@ -41,7 +42,6 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
       }
 
       const { data } = await response.json();
-      console.log(data);
       setDisplayGoals(data?.goalsGraphql1?.results ?? []);
       setTotalResults(data?.goalsGraphql1?.pageInfo.total);
       setFacets(data?.goalsGraphql1?.filters[1].options)
