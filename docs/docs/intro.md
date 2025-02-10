@@ -24,6 +24,6 @@ When used as the frontend for a decoupled Drupal site, Next.js becomes the prese
 
 Combining Next.js with a decoupled Drupal backend provides a powerful and flexible architecture. Drupal handles content creation, management, and storage, while Next.js focuses on delivering a performant and engaging user experience. This separation of concerns allows developers to leverage the strengths of both technologies, resulting in a scalable and maintainable web application.
 
-## Next.Js for Drupal
+## Next.js for Drupal
 
 This site utilizes the [Next.js for Drupal](https://next-drupal.org/) project. Next.js for Drupal is a powerful toolkit designed to streamline the development of decoupled Drupal websites using Next.js as the frontend. It provides a set of pre-built components, functions, and utilities that simplify common tasks like fetching Drupal content, handling authentication, and managing routing. By abstracting away much of the boilerplate code typically associated with decoupled Drupal development, Next.js for Drupal allows developers to focus on building unique features and delivering exceptional user experiences. It offers a well-defined structure and best practices, making it easier to create performant, scalable, and maintainable decoupled Drupal applications with Next.js.
