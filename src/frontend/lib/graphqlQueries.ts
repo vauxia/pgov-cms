@@ -168,6 +168,19 @@ export const graphqlQueries = {
             name
           }
         }
+        image {
+          ... on MediaImage {
+            id
+            name
+            mediaImage {
+              alt
+              title
+              variations(styles: THIRD1X1) {
+                url
+              }
+            }
+          }
+        }
         plan {
           ... on NodePlan {
             id

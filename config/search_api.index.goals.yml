@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_administration
     - field.storage.node.field_topics
     - search_api.server.database_search
   module:
@@ -21,8 +22,16 @@ field_settings:
       type: union
       fields:
         - 'entity:node/body'
-        - 'entity:node/field_administration'
+        - 'entity:node/field_agency'
         - 'entity:node/title'
+  field_administration:
+    label: Administration
+    datasource_id: 'entity:node'
+    property_path: field_administration
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_administration
   name:
     label: 'Topics » Taxonomy term » Name'
     datasource_id: 'entity:node'

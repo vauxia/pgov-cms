@@ -1,19 +1,20 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 import { drupal } from "lib/drupal";
 import { graphqlQueries } from "lib/graphqlQueries";
 
 type ResponseData = {
   message: string;
   data: any;
-}
- 
+};
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<ResponseData>,
 ) {
   const graphqlUrl = drupal.buildUrl("/graphql");
   const fulltext = req.query.fulltext ? req.query.fulltext : "";
   const facets = req.query.facets ? req.query.facets : [];
+  console.log(facets);
   const response = await drupal.fetch(graphqlUrl.toString(), {
     method: "POST",
     withAuth: true, // Make authenticated requests using OAuth.
@@ -22,5 +23,5 @@ export default async function handler(
     }),
   });
   const { data } = await response.json();
-  res.status(200).json({ message: 'Hello from Next.js!', data: data })
+  res.status(200).json({ message: "Hello from Next.js!", data: data });
 }

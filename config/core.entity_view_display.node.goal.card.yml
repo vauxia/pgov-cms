@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.goal.field_plan
     - field.field.node.goal.field_sequence
     - field.field.node.goal.field_topics
-    - image.style.1x1_third
+    - image.style.third_1x1
     - node.type.goal
   module:
     - media
@@ -28,7 +28,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: 1x1_third
+      image_style: third_1x1
       image_loading:
         attribute: lazy
     third_party_settings: {  }

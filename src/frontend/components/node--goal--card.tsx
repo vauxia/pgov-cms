@@ -11,7 +11,7 @@ interface NodeGoalCardProps {
 }
 
 export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
-  const { title, body, path, plan, goalType,period } = goal;
+  const { title, body, path, plan, goalType,period, image } = goal;
   const { agency } = plan;
   const { acronym: agencyAcronym, logo: agencyLogo, title: agencyTitle } = agency;
   return (
@@ -29,10 +29,10 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
 
           <div className="usa-card__body grid-row flex-column flex-align-center">
           <Image
-            src={agencyLogo?.mediaImage.url}
+            src={image?.mediaImage.url}
             width={150}
             height={150}
-            alt={agencyTitle}
+            alt={title}
             priority
             className="flex-align-self-center"
           />

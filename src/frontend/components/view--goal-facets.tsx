@@ -35,7 +35,6 @@ const ViewGoalFacets = ({filter_options, handleSearch}) => {
             value={facetKey}
             onChange={() => handleCheck(facetKey)}
             checked={checkedFacets.includes(facetKey)}
-            disabled={checkedFacets.length > 0 && !checkedFacets.includes(facetKey) ? true : false}
           />
           <label
             className="usa-checkbox__label"
