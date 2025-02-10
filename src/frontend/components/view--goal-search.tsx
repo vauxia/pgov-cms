@@ -1,24 +1,30 @@
 import { useState, useEffect, useRef, FormEvent, useCallback } from "react";
 import { Button } from "@trussworks/react-uswds";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
-import { NodeGoalProps, ViewFilter } from "lib/types";
+import { NodeGoalProps, NodePlanProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
+import { NodePlanCard } from "./node--plan--card";
 import { ViewGoalSearchFacet } from "./view--goal-search--facet";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
 import { ViewGoalSearchResults } from "./view--goal-search--results";
 import { ViewGoalSearchAdministration } from "./view--goal-search--administration"
 import ViewGoalFacets from "./view--goal-facets";
+import goalTotals from "./goal-totals";
 
 interface ViewGoalSearch {
-  goals: Array<NodeGoalProps>,
+  goals: Array<NodeGoalProps | NodePlanProps>,
   description: string,
   filters: Array<ViewFilter>,
   total: number
 }
 
+const isNodeGoalProps = (goal: NodeGoalProps | NodePlanProps): goal is NodeGoalProps => {
+  return 'goalType' in goal;
+};
+
 export default function GoalsSearchView({ filters, goals, total, description }: ViewGoalSearch) {
   const offsetAmount = 15;
-  const [fulltext, setFulltext] = useState(filters[0].value ? filters[0].value : "");
+  const [fulltext, setFulltext] = useState(filters[0]?.value ? filters[0].value : "");
   const [totalResults, setTotalResults] = useState(total)
   const [displayGoals, setDisplayGoals] = useState(goals)
   const [facets, setFacets] = useState(filters[1]?.options ? filters[1].options : [])
@@ -74,7 +80,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
         </div>
       </div>
       <div className="grid-row">
-        
+
       </div>
 
       <div className="grid-row">
@@ -89,7 +95,11 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
           >
               <Masonry>
               {displayGoals.slice(0, offset).map((goal) => (
+                isNodeGoalProps(goal) ? (
                   <NodeGoalCard key={goal.id} goal={goal} />
+                ) : (
+                  <NodePlanCard key={goal.id} goal={goal} />
+                )
                 ))}
               </Masonry>
           </ResponsiveMasonry>

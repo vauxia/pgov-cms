@@ -21,6 +21,7 @@ field_settings:
       type: union
       fields:
         - 'entity:node/body'
+        - 'entity:node/field_administration'
         - 'entity:node/title'
   name:
     label: 'Topics » Taxonomy term » Name'
@@ -38,6 +39,7 @@ datasource_settings:
       default: false
       selected:
         - goal
+        - plan
     languages:
       default: true
       selected: {  }

@@ -29,7 +29,7 @@ export function ViewGoalSearchFulltext({
           className="text-bold padding-left-3 padding-y-1"
           type="submit"
         >
-          <Icon.Search size={3} className="search-icon"/>
+          <Icon.Search size={3} className="search-icon" aria-label="search the US government's goals"/>
         </button>
       </div>
     </form>

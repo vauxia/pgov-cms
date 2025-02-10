@@ -43,7 +43,7 @@ export const graphqlQueries = {
                           targetValue
                           value
                           status
-                          
+
                         }
                       }
                     }
@@ -156,47 +156,73 @@ export const graphqlQueries = {
           value
         }
         description
-        results {
-          ... on NodeGoal {
+    results {
+      ... on NodeGoal {
+        id
+        title
+        path
+        goalType
+        topics {
+          ... on TermTopic {
             id
-            title
-            path
-            goalType
-            topics {
-              ... on TermTopic {
+            name
+          }
+        }
+        plan {
+          ... on NodePlan {
+            id
+            agency {
+              ... on NodeAgency {
                 id
-                name
-              }
-            }
-            plan {
-              ... on NodePlan {
-                id
-                agency {
-                  ... on NodeAgency {
+                acronym
+                logo {
+                  ... on MediaImage {
                     id
-                    acronym
-                    logo {
-                      ... on MediaImage {
-                        id
-                        name
-                        mediaImage {
-                          url
-                        }
-                      }
+                    name
+                    mediaImage {
+                      url
                     }
-                    title
                   }
                 }
-              }
-            }
-            period {
-              ... on StoragePeriod {
-                id
-                name
+                title
               }
             }
           }
         }
+        period {
+          ... on StoragePeriod {
+            id
+            name
+          }
+        }
+      }
+      ... on NodePlan {
+        title
+        path
+        agency {
+          ... on NodeAgency {
+            id
+            acronym
+            logo {
+              ... on MediaImage {
+                id
+                name
+                mediaImage {
+                  url
+                }
+              }
+            }
+            title
+          }
+        }
+        period {
+          ... on StoragePeriod {
+            id
+            name
+          }
+        }
+      }
+    }
       }
     }`,
 };
