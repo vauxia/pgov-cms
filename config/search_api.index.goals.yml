@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_administration
     - field.storage.node.field_topics
     - search_api.server.database_search
   module:
@@ -21,7 +22,17 @@ field_settings:
       type: union
       fields:
         - 'entity:node/body'
+        - 'entity:node/field_agency'
+        - 'entity:node/field_goals'
         - 'entity:node/title'
+  field_administration:
+    label: Administration
+    datasource_id: 'entity:node'
+    property_path: field_administration
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_administration
   name:
     label: 'Topics » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -38,6 +49,7 @@ datasource_settings:
       default: false
       selected:
         - goal
+        - plan
     languages:
       default: true
       selected: {  }
@@ -55,6 +67,7 @@ processor_settings:
       - aggregated_field
   language_with_fallback: {  }
   rendered_item: {  }
+  reverse_entity_references: {  }
   tokenizer:
     weights:
       preprocess_index: -6

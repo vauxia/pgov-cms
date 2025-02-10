@@ -43,7 +43,7 @@ export const graphqlQueries = {
                           targetValue
                           value
                           status
-                          
+
                         }
                       }
                     }
@@ -142,61 +142,144 @@ export const graphqlQueries = {
      }
    }
  }`,
-  goalsView: (fulltext: string | string[], facets: string | string[]) =>
+  goalsView: (
+    fulltext: string | string[],
+    facets: string | string[],
+    administration: string | string[],
+  ) =>
     `query GoalsQuery {
       goalsGraphql1(filter: {
         aggregated_field: "${fulltext}",
         Topics: ${JSON.stringify(facets)},
+        Administration: ${administration}
       }) {
-        pageInfo {
-          total
-        }
-        filters {
-          options
-          value
-        }
-        description
-        results {
-          ... on NodeGoal {
+    pageInfo {
+      total
+    }
+    filters {
+      options
+      value
+    }
+    description
+    results {
+      ... on NodeGoal {
+        id
+        title
+        path
+        goalType
+        topics {
+          ... on TermTopic {
             id
-            title
-            path
-            goalType
-            topics {
-              ... on TermTopic {
-                id
-                name
-              }
-            }
-            plan {
-              ... on NodePlan {
-                id
-                agency {
-                  ... on NodeAgency {
-                    id
-                    acronym
-                    logo {
-                      ... on MediaImage {
-                        id
-                        name
-                        mediaImage {
-                          url
-                        }
-                      }
-                    }
-                    title
-                  }
-                }
-              }
-            }
-            period {
-              ... on StoragePeriod {
-                id
-                name
+            name
+          }
+        }
+        image {
+          ... on MediaImage {
+            id
+            name
+            mediaImage {
+              alt
+              title
+              variations(styles: THIRD1X1) {
+                url
               }
             }
           }
         }
+        objectives {
+          ... on NodeObjective {
+            id
+            title
+            indicators {
+              ... on StorageIndicator {
+                id
+                name
+                progress
+                dates
+                target
+                targetValues
+                names
+                values
+                measurements {
+                  ... on StorageMeasurement{
+                    id
+                    name
+                    targetValue
+                    value
+                    status
+                  }
+                }
+              }
+            }
+          }
+        }
+        plan {
+          ... on NodePlan {
+            id
+            agency {
+              ... on NodeAgency {
+                id
+                acronym
+                logo {
+                  ... on MediaImage {
+                    id
+                    name
+                    mediaImage {
+                      url
+                    }
+                  }
+                }
+                title
+              }
+            }
+          }
+        }
+        period {
+          ... on StoragePeriod {
+            id
+            name
+          }
+        }
       }
+      ... on NodePlan {
+        title
+        id
+        path
+        agency {
+          ... on NodeAgency {
+            id
+            acronym
+            logo {
+              ... on MediaImage {
+                id
+                name
+                mediaImage {
+                  url
+                }
+              }
+            }
+            title
+          }
+        }
+        period {
+          ... on StoragePeriod {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
     }`,
+  taxonomyTopics: () =>
+    `
+    query getTopics {
+  termTopics(first: 100, sortKey: TITLE) {
+    nodes {
+      id
+      name
+    }
+  }
+}
+    `,
 };

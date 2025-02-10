@@ -1,22 +1,34 @@
 export interface NodeGoalProps {
-  title: string,
-  id: string,
+  title: string;
+  id: string;
   body: {
-    value: string
-  },
-  path: string,
+    value: string;
+  };
+  image: any;
+  path: string;
   topics: [
     {
-      id: string,
-      name: string,
-    }
-  ],
-  plan: any,
-  goalType: any,
-  period: any,
+      id: string;
+      name: string;
+    },
+  ];
+  plan: any;
+  goalType: any;
+  period: any;
+}
+
+export interface NodePlanProps {
+  title: string;
+  id: string;
+  body: {
+    value: string;
+  };
+  agency: any;
+  path: string;
+  period: any;
 }
 
 export interface ViewFilter {
-  options: Object,
-  value: any
+  options: Object;
+  value: any;
 }

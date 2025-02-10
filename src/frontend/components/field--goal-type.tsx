@@ -14,6 +14,10 @@ export function FieldGoalType({ field_goal_type }) {
         goalTypeName = "National";
         goalTypeClasses = "bg-base-darkest";
         break;
+    case "plan":
+      goalTypeName = "Plan";
+      goalTypeClasses = "bg-base-darkest";
+      break;
     default:
       goalTypeName = "Default"
       goalTypeClasses = "bg-base";
