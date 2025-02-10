@@ -6,17 +6,15 @@ const ViewGoalFacets = ({filter_options, handleSearch}) => {
 
   const [checkedFacets, setCheckedFacets] = useState([])
 
+  const removeFacet = (facetToRemove) => {
+    setCheckedFacets(checkedFacets.filter((facetKey) => facetKey !== facetToRemove));
+  };
+
   function handleCheck(facetKey) {
-    if (checkedFacets.includes(facetKey)) {
-      const newFacetList = checkedFacets.filter((facet) => {
-        if (facet == facetKey) {
-          return null;
-        }
-        return facet;
-      })
-      setCheckedFacets(newFacetList)
-    } else {
+    if (!checkedFacets.includes(facetKey)) {
       setCheckedFacets([...checkedFacets, facetKey])
+    } else {
+      removeFacet(facetKey);
     }
   }
 

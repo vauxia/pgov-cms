@@ -142,11 +142,16 @@ export const graphqlQueries = {
      }
    }
  }`,
-  goalsView: (fulltext: string | string[], facets: string | string[]) =>
+  goalsView: (
+    fulltext: string | string[],
+    facets: string | string[],
+    administration: string | string[],
+  ) =>
     `query GoalsQuery {
       goalsGraphql1(filter: {
         aggregated_field: "${fulltext}",
         Topics: ${JSON.stringify(facets)},
+        Administration: ${administration}
       }) {
         pageInfo {
           total

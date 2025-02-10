@@ -7,7 +7,6 @@ import { NodePlanCard } from "./node--plan--card";
 import { ViewGoalSearchFacet } from "./view--goal-search--facet";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
 import { ViewGoalSearchResults } from "./view--goal-search--results";
-import { ViewGoalSearchAdministration } from "./view--goal-search--administration"
 import ViewGoalFacets from "./view--goal-facets";
 import goalTotals from "./goal-totals";
 
@@ -25,6 +24,7 @@ const isNodeGoalProps = (goal: NodeGoalProps | NodePlanProps): goal is NodeGoalP
 export default function GoalsSearchView({ filters, goals, total, description }: ViewGoalSearch) {
   const offsetAmount = 15;
   const [fulltext, setFulltext] = useState(filters[0]?.value ? filters[0].value : "");
+  const [administration, setAdministration] = useState("53");
   const [totalResults, setTotalResults] = useState(total)
   const [displayGoals, setDisplayGoals] = useState(goals)
   const [facets, setFacets] = useState(filters[1]?.options ? filters[1].options : [])
@@ -35,7 +35,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     if (e) {
       e.preventDefault();
     }
-    const url = `/api/goal-search?fulltext=${fulltext}&facets=${facets}`;
+    const url = `/api/goal-search?fulltext=${fulltext}&facets=${facets}&administration=${administration}`;
     setOffset(offsetAmount)
     try {
       const response = await fetch(url);
@@ -51,7 +51,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     } catch (error) {
       console.error(error.message);
     }
-  }, [fulltext])
+  }, [fulltext, administration])
 
 
   const masonryBP = filtersOpen ? {350: 1, 750: 2, 1400: 3} : {350: 1, 750: 2, 1060: 3, 1400: 4};
@@ -76,7 +76,14 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
           />
         </div>
         <div className="grid-col flex-auto">
-          <ViewGoalSearchAdministration />
+          <form className="usa-form">
+            <label className="usa-sr-only" htmlFor="options">Dropdown label</label>
+            <select className="search-goals--administration padding-left-105 padding-right-3 padding-y-1 text-bold"
+                    name="options" id="options" value={administration} onChange={e => setAdministration(e.target.value)}>
+              <option value="53">Trump 47</option>
+              <option value="55">Trump 45</option>
+            </select>
+          </form>
         </div>
       </div>
       <div className="grid-row">
@@ -89,7 +96,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
         </div>
         <div className="content-area">
           {displayGoals?.length ? (
-          <ResponsiveMasonry
+            <ResponsiveMasonry
               columnsCountBreakPoints={masonryBP}
               gutterBreakpoints={{350: "12px", 750: "16px", 900: "24px"}}
           >

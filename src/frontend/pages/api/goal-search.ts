@@ -14,12 +14,14 @@ export default async function handler(
   const graphqlUrl = drupal.buildUrl("/graphql");
   const fulltext = req.query.fulltext ? req.query.fulltext : "";
   const facets = req.query.facets ? req.query.facets : [];
-  console.log(facets);
+  const administration = req.query.administration
+    ? req.query.administration
+    : "53";
   const response = await drupal.fetch(graphqlUrl.toString(), {
     method: "POST",
     withAuth: true, // Make authenticated requests using OAuth.
     body: JSON.stringify({
-      query: graphqlQueries.goalsView(fulltext, facets),
+      query: graphqlQueries.goalsView(fulltext, facets, administration),
     }),
   });
   const { data } = await response.json();
