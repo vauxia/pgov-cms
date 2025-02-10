@@ -215,6 +215,7 @@ export const graphqlQueries = {
         }
       }
       ... on NodePlan {
+        id
         title
         path
         agency {
