@@ -22,7 +22,7 @@ Next.js is a popular open-source React framework for building fast and modern we
 
 When used as the frontend for a decoupled Drupal site, Next.js becomes the presentation layer, responsible for fetching content from Drupal and displaying it to the user. Next.js can communicate with Drupal's API endpoints, including those provided by JSON:API or a GraphQL endpoint.
 
-Combining Next.js with a decoupled Drupal backend provides a powerful and flexible architecture. Drupal handles content creation, management, and storage, while Next.js focuses on delivering a performant and engaging user experience. This separation of concerns allows developers to leverage the strengths of both technologies, resulting in a scalable and maintainable web application. Next.js's features like incremental static regeneration (ISR) further enhance the ability to deliver updated content quickly without rebuilding the entire site.
+Combining Next.js with a decoupled Drupal backend provides a powerful and flexible architecture. Drupal handles content creation, management, and storage, while Next.js focuses on delivering a performant and engaging user experience. This separation of concerns allows developers to leverage the strengths of both technologies, resulting in a scalable and maintainable web application.
 
 ## Next.Js for Drupal
 
