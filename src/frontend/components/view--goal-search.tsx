@@ -1,14 +1,11 @@
-import { useState, useEffect, useRef, FormEvent, useCallback } from "react";
+import { useState, FormEvent, useCallback } from "react";
 import { Button } from "@trussworks/react-uswds";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import { NodeGoalProps, NodePlanProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
 import { NodePlanCard } from "./node--plan--card";
-import { ViewGoalSearchFacet } from "./view--goal-search--facet";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
-import { ViewGoalSearchResults } from "./view--goal-search--results";
 import ViewGoalFacets from "./view--goal-facets";
-import goalTotals from "./goal-totals";
 
 interface ViewGoalSearch {
   goals: Array<NodeGoalProps | NodePlanProps>,

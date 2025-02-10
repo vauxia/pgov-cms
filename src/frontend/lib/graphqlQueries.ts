@@ -244,4 +244,15 @@ export const graphqlQueries = {
     }
       }
     }`,
+  taxonomyTopics: () =>
+    `
+    query getTopics {
+  termTopics(first: 100, sortKey: TITLE) {
+    nodes {
+      id
+      name
+    }
+  }
+}
+    `,
 };
