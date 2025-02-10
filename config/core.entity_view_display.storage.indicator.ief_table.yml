@@ -31,6 +31,7 @@ content:
     weight: 1
     region: content
 hidden:
+  data: true
   field_administration: true
   field_dimension: true
   field_divisions: true

@@ -36,11 +36,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  measurements:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_sequence:
     type: number_decimal
     label: above
@@ -52,7 +47,13 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  measurements:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
+  data: true
   field_administration: true
   field_dimension: true
   field_divisions: true

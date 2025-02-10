@@ -6,6 +6,19 @@ export const graphqlQueries = {
           entity {
             __typename
             ... on NodeGoal {
+              image {
+                ... on MediaImage {
+                  id
+                  name
+                  mediaImage {
+                    alt
+                    title
+                    variations(styles: THIRD1X1) {
+                      url
+                    }
+                  }
+                }
+              }
               objectives {
                 ... on NodeObjective {
                   id
@@ -14,6 +27,12 @@ export const graphqlQueries = {
                     ... on StorageIndicator {
                       id
                       name
+                      progress
+                      dates
+                      target
+                      targetValues
+                      names
+                      values
                       notes {
                         processed
                       }
@@ -24,32 +43,30 @@ export const graphqlQueries = {
                           targetValue
                           value
                           status
-                          period {
-                            ... on StoragePeriod {
-                              id
-                              name
-                              duration
-                              dateRange {
-                                end {
-                                  time
-                                }
-                                start {
-                                  time
-                                }
-                              }
-                            }
-                          }
+                          
                         }
                       }
                     }
                   }
                 }
               }
-              period {
-                ... on StoragePeriod {
+              plan {
+                ... on NodePlan {
                   id
-                  name
-                  
+                  administration {
+                    ... on StorageAdministration {
+                      id
+                      name
+                      dateRange {
+                        end {
+                          time
+                        }
+                        start {
+                          time
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -64,8 +81,8 @@ export const graphqlQueries = {
           entity {
             __typename
             ... on NodePlan {
-              period {
-                ... on StoragePeriod {
+              administration {
+                ... on StorageAdministration {
                   id
                   name
                   dateRange {

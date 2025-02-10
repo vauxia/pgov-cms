@@ -7,11 +7,15 @@ interface GoalsTotalsProps {
 const GoalsTotals = ({goals, objectives, indicators}: GoalsTotalsProps) => {
   return (
     <div>
-      <ul className="font-sans-3xs grid-row add-list-reset flex-justify text-bold">
-        <li>
-          <span className="font-sans-lg display-block">{goals}</span> Goals
-        </li>
-        <li>
+      <ul className="font-sans-3xs grid-row add-list-reset text-bold">
+        {goals > 0
+          && (
+            <li className="margin-right-3">
+              <span className="font-sans-lg display-block">{goals}</span> Goals
+            </li>
+          )
+        }
+        <li className="margin-right-3">
           <span className="font-sans-lg display-block">{objectives}</span> Objectives
         </li>
         <li>
