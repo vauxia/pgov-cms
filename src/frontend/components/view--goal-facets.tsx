@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ViewGoalFacets = ({filter_options, handleSearch}) => {
+const ViewGoalFacets = ({handleSearch}) => {
   const [facets, setFacets] = useState(null);
   const url = `/api/get-facets`;
 
@@ -9,9 +9,6 @@ const ViewGoalFacets = ({filter_options, handleSearch}) => {
       .then((res) => res.json())
       .then((data) => setFacets(data));
   }, []);
-
-  const facetKeys = filter_options ? Object.keys(filter_options) : [];
-  facetKeys.sort();
 
   const [checkedFacets, setCheckedFacets] = useState([])
 
@@ -31,7 +28,7 @@ const ViewGoalFacets = ({filter_options, handleSearch}) => {
     handleSearch(null, checkedFacets)
   }, [checkedFacets, handleSearch])
 
-  
+
   if (!facets) return <div>Loading...</div>;
 
 

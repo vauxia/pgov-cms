@@ -50,7 +50,6 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
     }
   }, [fulltext, administration])
 
-
   const masonryBP = filtersOpen ? {350: 1, 750: 2, 1400: 3} : {350: 1, 750: 2, 1060: 3, 1400: 4};
   return (
     <div>
@@ -89,7 +88,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
 
       <div className="grid-row">
         <div className={`side-bar ${filtersOpen ? "" : "filters-closed"}`}>
-          <ViewGoalFacets filter_options={facets} handleSearch={handleSearch} />
+          <ViewGoalFacets handleSearch={handleSearch} />
         </div>
         <div className="content-area">
           {displayGoals?.length ? (

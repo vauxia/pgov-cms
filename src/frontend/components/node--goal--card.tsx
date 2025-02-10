@@ -14,6 +14,7 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
   const { title, body, path, plan, goalType,period, image } = goal;
   const { agency } = plan;
   const { acronym: agencyAcronym, logo: agencyLogo, title: agencyTitle } = agency;
+  const imageUrl = image?.mediaImage?.variations[0]?.url;
   return (
     <div className="goal-card padding-1">
       <Link href={path}>
@@ -28,9 +29,9 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
           </div>
 
           <div className="usa-card__body grid-row flex-column flex-align-center">
-            {image?.mediaImage?.url && (
+            {imageUrl && (
               <Image
-                src={image.mediaImage.url}
+                src={imageUrl}
                 width={150}
                 height={150}
                 alt={title}
