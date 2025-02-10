@@ -1,11 +1,12 @@
 import { useState, FormEvent, useCallback } from "react";
 import { Button } from "@trussworks/react-uswds";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import { NodeGoalProps, NodePlanProps, ViewFilter } from "lib/types";
 import { NodeGoalCard } from "./node--goal--card";
 import { NodePlanCard } from "./node--plan--card";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
 import ViewGoalFacets from "./view--goal-facets";
+import CustomButton from "./button--custom";
 
 interface ViewGoalSearch {
   goals: Array<NodeGoalProps | NodePlanProps>,
@@ -55,7 +56,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
 
 
 
-  const masonryBP = filtersOpen ? {350: 1, 750: 2, 1400: 3} : {350: 1, 750: 2, 1060: 3, 1400: 4};
+  const masonryBP = filtersOpen ? { 350: 1, 750: 2, 1400: 3 } : { 350: 1, 750: 2, 1060: 3, 1400: 4 };
   return (
     <div>
       <div className="grid-row flex-column flex-align-center hero text-white padding-y-5">
@@ -63,92 +64,95 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
         <p className="font-sans-lg margin-y-0">Smart Strategy. Strong Execution.</p>
         <p className="font-sans-lg margin-top-0">Data-Driven Updates on America’s Strategic Goals.</p>
       </div>
-      <div className={`position-relative ${filtersOpen ? "container-open" : ""}`}> 
-        <div className="grid-row flex-row flex-align-center padding-x-205 padding-y-105 bg-white search-goals--container">
-          <div className={`side-bar filter-bar position-absolute ${filtersOpen ? "" : "filters-closed"}`}>
-            <ViewGoalFacets handleSearch={handleSearch} handleClose={toggleFilters} />
-          </div>
-          {!filtersOpen && (
-            <div className="grid-col flex-auto">
-              <button className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black search-goals--filter" onClick={() => toggleFilters()}>
-                Filter by topic
-              </button>
-            </div>
-          )}
-          <div className="grid-col flex-fill">
-            <ViewGoalSearchFulltext
-              fulltext={fulltext}
-              setFulltext={setFulltext}
-              handleSearch={handleSearch}
+      <div className="grid-row flex-row flex-align-center padding-x-205 padding-y-105 bg-white search-goals--container">
+        <div className="grid-col flex-auto">
+          <CustomButton
+            text="Filter by topic"
+            onClick={() => setFiltersOpen(!filtersOpen)}
+            className={`search-goals--filter ${filtersOpen ? `button--is-open` : ``}`}
+          />
+        </div>
+        <div className="grid-col flex-fill">
+          <ViewGoalSearchFulltext
+            fulltext={fulltext}
+            setFulltext={setFulltext}
+            handleSearch={handleSearch}
+          />
+        </div>
+        <div className="grid-col flex-auto">
+          <form className="usa-form">
+            <label className="usa-sr-only" htmlFor="options">Dropdown label</label>
+            <select className="search-goals--administration padding-left-105 padding-right-3 padding-y-1 text-bold"
+              name="options" id="options" value={administration} onChange={e => setAdministration(e.target.value)}>
+              <option value="53">Trump 47</option>
+              <option value="55">Trump 45</option>
+            </select>
+          </form>
+        </div>
+      </div>
+      <div className="grid-row margin-y-3 padding-x-205 padding-y-105">
+        <ul className="add-list-reset search-goals--toggle hr-lines">
+          <li>
+            {/* <button
+              className={"usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill active"}>
+              Everything
+            </button> */}
+            <CustomButton
+              text="Everything"
+              className={`radius-pill active`}
             />
-          </div>
-          <div className="grid-col flex-auto">
-            <form className="usa-form">
-              <label className="usa-sr-only" htmlFor="options">Dropdown label</label>
-              <select className="search-goals--administration padding-left-105 padding-right-3 padding-y-1 text-bold"
-                      name="options" id="options" value={administration} onChange={e => setAdministration(e.target.value)}>
-                <option value="53">Trump 47</option>
-                <option value="55">Trump 45</option>
-              </select>
-            </form>
-          </div>
-        </div>
-        <div className="grid-row margin-y-3 padding-x-205 padding-y-105 overflow-hidden">
-          <ul className="add-list-reset search-goals--toggle hr-lines">
-            <li>
-              <button
-                className={"usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill active"}>
-                Everything
-              </button>
-            </li>
-            <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Plans
-              </button>
-            </li>
-            <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Goals
-              </button>
-            </li>
-            <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Indicators
-              </button>
-            </li>
-          </ul>
-        </div>
+          </li>
+          <li>
+            <CustomButton
+              text="Plans"
+              className={`radius-pill`}
+            />
+          </li>
+          <li>
+            <CustomButton
+              text="Goals"
+              className={`radius-pill`}
+            />
+          </li>
+          <li>
+            <CustomButton
+              text="Indicators"
+              className={`radius-pill`}
+            />
+          </li>
+        </ul>
+      </div>
 
-        <div className="grid-row">
-          <div className="content-area">
-            {displayGoals?.length ? (
-              <ResponsiveMasonry
-                columnsCountBreakPoints={masonryBP}
-                gutterBreakpoints={{350: "12px", 750: "16px", 900: "24px"}}
+      <div className="grid-row">
+        <div className={`side-bar ${filtersOpen ? "" : "filters-closed"}`}>
+          <ViewGoalFacets handleSearch={handleSearch} />
+        </div>
+        <div className="content-area">
+          {displayGoals?.length ? (
+            <ResponsiveMasonry
+              columnsCountBreakPoints={masonryBP}
+              gutterBreakpoints={{ 350: "12px", 750: "16px", 900: "24px" }}
             >
-                <Masonry>
+              <Masonry>
                 {displayGoals.slice(0, offset).map((goal) => (
                   isNodeGoalProps(goal) ? (
                     <NodeGoalCard key={goal.id} goal={goal} />
                   ) : (
                     <NodePlanCard key={goal.id} goal={goal} />
                   )
-                  ))}
-                </Masonry>
+                ))}
+              </Masonry>
             </ResponsiveMasonry>
 
           ) : (
-              <div className="usa-alert usa-alert--warning usa-alert--slim">
-                <div className="usa-alert__body">
-                  <p className="usa-alert__text">
-                    No matching goals.
-                  </p>
-                </div>
+            <div className="usa-alert usa-alert--warning usa-alert--slim">
+              <div className="usa-alert__body">
+                <p className="usa-alert__text">
+                  No matching goals.
+                </p>
               </div>
-            )}
+            </div>
+          )}
 
           <div className="grid-row flex-justify-center margin-bottom-205">
             {offset < totalResults &&
@@ -160,9 +164,8 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
               </Button>
             }
           </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
   );
 }

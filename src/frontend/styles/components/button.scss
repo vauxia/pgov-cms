@@ -1,0 +1,19 @@
+@use "../utilities/mixins.scss" as mixin;
+
+$goals-gray: rgba(202, 204, 216, 1);
+
+.button-state-styles {
+  @include mixin.button-state-styles;
+}
+
+// Gray bg for disabled buttons
+button,
+.usa-button,
+.usa-button--outline {
+  &:disabled {
+    background-color: $goals-gray;
+  }
+  &:hover:disabled {
+    background-color: $goals-gray;
+  }
+}
