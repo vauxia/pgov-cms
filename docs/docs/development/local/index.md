@@ -113,4 +113,4 @@ npm run dev
 
 ## Next.js for Drupal Oauth Client Config
 
-An OAuth client must be set up in Drupal before the decoupled Next.Js frontend can connect to and consume content from Drupal. Follow the instruction in the [Next.Js for Drupal documentation](https://next-drupal.org/learn/preview-mode/create-oauth-client) to configure the OAuth client locally.
+An OAuth client must be set up in Drupal before the decoupled Next.Js frontend can connect to and consume content from Drupal. Follow the instructions in the [Next.Js for Drupal documentation](https://next-drupal.org/learn/preview-mode/create-oauth-client) to configure the OAuth client locally.
