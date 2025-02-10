@@ -93,7 +93,7 @@ drush site-install --existing-config
 ddev migrate
 ```
 
-# Next.JS Decoupled Frontend
+# Next.js Decoupled Frontend
 
 This project uses Next.js as the frontend to render content fetched from a Drupal backend. This approach allows developers to leverage the benefits of both systems: Drupal's content management capabilities and Next.js's frontend development experience.
 
@@ -110,3 +110,7 @@ cp .env.example .env.local
 # Start the local dev server
 npm run dev
 ```
+
+## Next.js for Drupal Oauth Client Config
+
+An OAuth client must be set up in Drupal before the decoupled Next.Js frontend can connect to and consume content from Drupal. Follow the instruction in the [Next.Js for Drupal documentation](https://next-drupal.org/learn/preview-mode/create-oauth-client) to configure the OAuth client locally.
