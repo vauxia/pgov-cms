@@ -4,6 +4,7 @@ export interface NodeGoalProps {
   body: {
     value: string;
   };
+  image: any;
   path: string;
   topics: [
     {

@@ -23,6 +23,7 @@ field_settings:
       fields:
         - 'entity:node/body'
         - 'entity:node/field_agency'
+        - 'entity:node/field_goals'
         - 'entity:node/title'
   field_administration:
     label: Administration
@@ -66,6 +67,7 @@ processor_settings:
       - aggregated_field
   language_with_fallback: {  }
   rendered_item: {  }
+  reverse_entity_references: {  }
   tokenizer:
     weights:
       preprocess_index: -6
