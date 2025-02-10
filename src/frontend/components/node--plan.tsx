@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Link from 'next/link'
 import { DrupalNode } from "next-drupal";
 import { Icon, Button, ButtonGroup } from "@trussworks/react-uswds";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import { USABreadcrumb } from "./usa--breadcrumb";
 import GoalsTotals from "./goal-totals";
 import { FieldLogo } from "./field--logo";
@@ -34,15 +34,15 @@ function calculateObjectiveIndicatorTotals(goals) {
   }
 }
 
-export function NodePlan({node, storageData, ...props}: NodePlanProps) {
+export function NodePlan({ node, storageData, ...props }: NodePlanProps) {
   let mainContentRef = useRef();
   const { title, field_agency, field_file, field_goals } = node;
   const [listView, setListView] = useState(true);
   const totals = calculateObjectiveIndicatorTotals(field_goals);
-  const masonryBP = {350: 1, 750: 2, 1060: 3, 1400: 4};
+  const masonryBP = { 350: 1, 750: 2, 1060: 3, 1400: 4 };
   const startDate = new Date(storageData.administration?.dateRange?.start.time);
   const endDate = new Date(storageData.administration?.dateRange?.end.time)
-  const dateOptions: Intl.DateTimeFormatOptions = {year: "numeric"}
+  const dateOptions: Intl.DateTimeFormatOptions = { year: "numeric" }
   return (
     <>
       <USABreadcrumb activeItem={title} links={[]} />
@@ -77,15 +77,15 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
             </div>
           }
           {node.body &&
-          (
-            <div className="margin-bottom-2 border-top border-base-lighter">
-              <h2 className="font-sans-3xs text-semibold margin-bottom-05">Description</h2>
-              <div
-                dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-                className="font-body-sm"
-              />
-            </div>
-          )}
+            (
+              <div className="margin-bottom-2 border-top border-base-lighter">
+                <h2 className="font-sans-3xs text-semibold margin-bottom-05">Description</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: node.body?.processed }}
+                  className="font-body-sm"
+                />
+              </div>
+            )}
           {field_file &&
             <div>
               <Link
@@ -99,7 +99,7 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
           }
         </div>
         <div className="content-area">
-          
+
           <main id="main-content" className="main-content padding-x-4 padding-bottom-5 padding-top-8" ref={mainContentRef}>
             <div className="grid-row flex-justify">
               <h2 className="font-sans-xl margin-top-0">Goals</h2>
@@ -107,6 +107,7 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
                 <Button
                   outline
                   type="button"
+                  className="button-state-styles"
                   onClick={() => setListView(false)}
                   disabled={!listView}
                 >
@@ -116,6 +117,7 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
                 <Button
                   outline
                   type="button"
+                  className="button-state-styles"
                   onClick={() => setListView(true)}
                   disabled={listView}
                 >
@@ -124,64 +126,64 @@ export function NodePlan({node, storageData, ...props}: NodePlanProps) {
                 </Button>
               </ButtonGroup>
             </div>
-            
+
             {listView
-            ? (
-              <ul className="add-list-reset">
-                {field_goals.map((goal, index) => {
-                  let listBorders = "border-top";
-                  let linkBorders = ""
-                  if (index === 0) {
-                    listBorders = "radius-top-lg";
-                    linkBorders = "radius-top-lg";
-                  } else if (index === field_goals.length - 1) {
-                    listBorders = "radius-bottom-lg border-top";
-                  }
-                  return(
-                    <li key={goal.id} className={`bg-white ${listBorders}`}>
-                      <Link
-                        className={`grid-row flex-no-wrap flex-justify text-no-underline font-sans-md padding-2 text-base-darkest ${linkBorders}`}
-                        href={goal.path.alias}>
+              ? (
+                <ul className="add-list-reset">
+                  {field_goals.map((goal, index) => {
+                    let listBorders = "border-top";
+                    let linkBorders = ""
+                    if (index === 0) {
+                      listBorders = "radius-top-lg";
+                      linkBorders = "radius-top-lg";
+                    } else if (index === field_goals.length - 1) {
+                      listBorders = "radius-bottom-lg border-top";
+                    }
+                    return (
+                      <li key={goal.id} className={`bg-white ${listBorders}`}>
+                        <Link
+                          className={`grid-row flex-no-wrap flex-justify text-no-underline font-sans-md padding-2 text-base-darkest ${linkBorders}`}
+                          href={goal.path.alias}>
                           <span>{goal.title}</span>
                           <Icon.NavigateNext size={3} aria-hidden={true} />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            )
-            : (
-              <div>
-                <ul>
-                  <ResponsiveMasonry
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )
+              : (
+                <div>
+                  <ul>
+                    <ResponsiveMasonry
                       columnsCountBreakPoints={masonryBP}
-                      gutterBreakpoints={{350: "12px", 750: "16px", 900: "24px"}}
-                  >
-                    <Masonry>
-                      {field_goals.map((goal) => {
-                        return(
-                          <Link key={goal.id} href={goal.path.alias} className="text-no-underline">
-                            <div className="usa-card__container">
-                              <div className="usa-card__header">
-                                <h4 className="usa-card__heading ">{goal.title}</h4>
-                              </div>
-                              <div className="usa-card__media">
-                                <div className="usa-card__img">
-                                  {/* <img
+                      gutterBreakpoints={{ 350: "12px", 750: "16px", 900: "24px" }}
+                    >
+                      <Masonry>
+                        {field_goals.map((goal) => {
+                          return (
+                            <Link key={goal.id} href={goal.path.alias} className="text-no-underline">
+                              <div className="usa-card__container">
+                                <div className="usa-card__header">
+                                  <h4 className="usa-card__heading ">{goal.title}</h4>
+                                </div>
+                                <div className="usa-card__media">
+                                  <div className="usa-card__img">
+                                    {/* <img
                                     src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
                                     alt="A placeholder image"
                                   /> */}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </Link>
-                        )
-                      })}
-                    </Masonry>
-                  </ResponsiveMasonry>
-                </ul>
-              </div>
-            )
+                            </Link>
+                          )
+                        })}
+                      </Masonry>
+                    </ResponsiveMasonry>
+                  </ul>
+                </div>
+              )
             }
           </main>
         </div>
