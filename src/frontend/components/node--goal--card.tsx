@@ -40,7 +40,7 @@ export function NodeGoalCard({ goal, ...props }: NodeGoalCardProps) {
               />
             )}
           </div>
-          <div className="usa-card__footer padding-bottom-1 border-top-2px border-base-lighter">
+          <div className="usa-card__footer padding-bottom-1 border-top-1px border-base-lighter">
             <AgencyInfoBox
               title={agencyTitle}
               logo={agencyLogo}
