@@ -20,7 +20,7 @@ sidebar_position: 1
 📁 web
 ```
 
-### [Local development](development/local) with DDEV
+### [Local development](/development/local) with DDEV
 
 📁 **.ddev**
 - Configuration for [DDEV](https://ddev.readthedocs.io/en/stable/)
@@ -52,5 +52,4 @@ The following directories support the installation of the Drupal content managem
 📁 **tests**
 - Includes the configuration for end-to-end tests written with [Cypress](https://www.cypress.io/).
 - See `📁 tests/cypress/e2e/*cy.js` for individual tests.
--
-[More about tests](/development/local/cypress)
+- [More about tests](/development/local/cypress)
