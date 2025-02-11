@@ -31,6 +31,10 @@ $goals-gray: rgba(202, 204, 216, 1);
   min-height: 100%;
   width: 394px;
   max-width: 394px;
+  padding: 24px;
+}
+
+.filter-bar {
   padding: 0 24px 24px;
   border-right: 1px solid $goals-gray;
   position: absolute;

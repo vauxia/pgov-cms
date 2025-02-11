@@ -65,7 +65,7 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
       </div>
       <div className={`position-relative ${filtersOpen ? "container-open" : ""}`}> 
         <div className="grid-row flex-row flex-align-center padding-x-205 padding-y-105 bg-white search-goals--container">
-          <div className={`side-bar position-absolute ${filtersOpen ? "" : "filters-closed"}`}>
+          <div className={`side-bar filter-bar position-absolute ${filtersOpen ? "" : "filters-closed"}`}>
             <ViewGoalFacets handleSearch={handleSearch} handleClose={toggleFilters} />
           </div>
           {!filtersOpen && (
