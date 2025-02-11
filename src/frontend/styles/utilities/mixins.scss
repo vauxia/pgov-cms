@@ -20,12 +20,8 @@ $goalsblue-dark: #162152;
   }
 }
 
-@mixin link-styles {
+@mixin universal-link-styles {
   &:hover {
     text-decoration: underline;
-    color: $goalsblue-dark;
-  }
-  &:visited {
-    color: $goalsblue;
   }
 }

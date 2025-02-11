@@ -5,7 +5,7 @@
 @forward "uswds";
 
 // 3. Load extra utility files & helpers.
-@use './utilities/mixins.scss' as mixin;
+@use "./utilities/mixins.scss" as mixin;
 
 // 3. Load custom Sass
 @forward "project-styles.scss";
@@ -14,7 +14,7 @@ $goals-gray: rgba(202, 204, 216, 1);
 $ink: #1b1b1b;
 
 a {
-  @include mixin.link-styles;
+  @include mixin.universal-link-styles;
 }
 
 .goal-card {
@@ -55,6 +55,14 @@ a {
   width: 394px;
   max-width: 394px;
   padding: 24px;
+
+  a {
+    color: mixin.$goalsblue-dark;
+
+    &:visited {
+      color: mixin.$goalsblue;
+    }
+  }
 }
 
 .filter-bar {
@@ -149,7 +157,6 @@ a {
         background: white;
       }
     }
-
   }
 }
 
