@@ -28,7 +28,9 @@ This guide outlines the process for submitting changes.
     ```bash
     git push origin ticket-number-feature-name
     ```
-6.  **Create Pull Request:** Create a PR against the `main` branch. Include a summary of changes, link to the issue (if applicable), context, and testing instructions.
+6.  **Create Pull Request:** Create a PR against the `main` branch. Include a
+      summary of changes, link to the issue (if applicable), context, and
+      testing instructions.
 7. **Request Review:** Request code review and reassign ticket.
 8. **Assign Ticket:** After code review, assign back to original ticket holder.
 9. **Merging:** Ticket holder merges their PR and changes ticket status to done.
