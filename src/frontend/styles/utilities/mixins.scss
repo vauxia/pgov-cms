@@ -1,0 +1,27 @@
+$ink: #1b1b1b;
+$goals-gray: rgba(
+  202,
+  204,
+  216,
+  1
+); //@todo Consolidate color in a reused sass file. Or figure out how to use USWDS color tokens.
+$goalsblue: #223db2;
+$goalsblue-dark: #162152;
+
+@mixin button-state-styles {
+  &:hover {
+    background-color: $goals-gray;
+    border-color: $goals-gray;
+    border-bottom-width: 1px;
+  }
+
+  &.button--is-open {
+    border-color: $ink; // @todo: Update to uswds token 'ink'
+  }
+}
+
+@mixin universal-link-styles {
+  &:hover {
+    text-decoration: underline;
+  }
+}

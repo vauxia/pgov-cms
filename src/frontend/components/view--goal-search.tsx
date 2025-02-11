@@ -6,6 +6,7 @@ import { NodeGoalCard } from "./node--goal--card";
 import { NodePlanCard } from "./node--plan--card";
 import { ViewGoalSearchFulltext } from "./view--goal-search--fulltext";
 import ViewGoalFacets from "./view--goal-facets";
+import CustomButton from "./button--custom";
 
 interface ViewGoalSearch {
   goals: Array<NodeGoalProps | NodePlanProps>,
@@ -70,9 +71,11 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
           </div>
           {!filtersOpen && (
             <div className="grid-col flex-auto">
-              <button className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black search-goals--filter" onClick={() => toggleFilters()}>
-                Filter by topic
-              </button>
+              <CustomButton
+                text="Filter by topic"
+                onClick={() => setFiltersOpen(!filtersOpen)}
+                className={`search-goals--filter ${filtersOpen ? `button--is-open` : ``}`}
+              />
             </div>
           )}
           <div className="grid-col flex-fill">
@@ -96,28 +99,28 @@ export default function GoalsSearchView({ filters, goals, total, description }: 
         <div className="grid-row margin-y-3 padding-x-205 padding-y-105 overflow-hidden">
           <ul className="add-list-reset search-goals--toggle hr-lines">
             <li>
-              <button
-                className={"usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill active"}>
-                Everything
-              </button>
+              <CustomButton
+                text="Everything"
+                className={`radius-pill active`}
+              />
             </li>
             <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Plans
-              </button>
+              <CustomButton
+                text="Plans"
+                className={`radius-pill`}
+              />
             </li>
             <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Goals
-              </button>
+              <CustomButton
+                text="Goals"
+                className={`radius-pill`}
+              />
             </li>
             <li>
-              <button
-                className="usa-button usa-button--unstyled text-no-underline padding-x-2 padding-y-105 text-bold text-black radius-pill">
-                Indicators
-              </button>
+              <CustomButton
+                text="Indicators"
+                className={`radius-pill`}
+              />
             </li>
           </ul>
         </div>

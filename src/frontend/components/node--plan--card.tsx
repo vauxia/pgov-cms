@@ -27,7 +27,7 @@ export function NodePlanCard({ goal, ...props }: NodePlanCardProps) {
 
           <div className="usa-card__body grid-row flex-column flex-align-center">
           </div>
-          <div className="usa-card__footer padding-bottom-1 border-top-2px border-base-lighter">
+          <div className="usa-card__footer padding-bottom-1 border-top-1px border-base-lighter">
             <AgencyInfoBox
               title={agencyTitle}
               logo={agencyLogo}
